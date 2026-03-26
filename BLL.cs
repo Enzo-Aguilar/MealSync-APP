@@ -14,6 +14,11 @@ namespace BusinessLogicLayer
     {
         public class Utilizador 
         {
+            static public DataTable mostrar_Utilizadores()
+            {
+                DAL dal = new DAL();
+                return dal.executarReader("SELECT * FROM Utilizadores",null);
+            }
             static public DataTable procurar_UtilizadorPorNome(string nome)
             {
                 DAL dal = new DAL();
@@ -23,6 +28,50 @@ namespace BusinessLogicLayer
                 };
                 return dal.executarReader("SELECT * FROM [Utilizador] WHERE nome=@nome", sqlParams);
             }
+
+            public class Titulares
+            {
+                static public int associar_Titular(int ID_Utilizador, int ID_ContaBancaria)
+                {
+                    DAL dal = new DAL();
+                    SqlParameter[] sqlParams = new SqlParameter[]
+                    {
+                        new SqlParameter("@ID_Titular",ID_Utilizador),
+                        new SqlParameter("@ID_ContaBancaria",ID_ContaBancaria),
+                        //Falta verificar se já existem titulares e adicionar
+                    };
+
+                    return dal.executarNonQuery("INSERT INTO Titular (ID_Titular,ID_ContaBancario) VALUES(@ID_Titular,@ID_ContaBancaria)", sqlParams);
+                }
+            }
+        }
+        public class ContaBancaria
+        {
+            static public DataTable mostrar_ContasBancarias()
+            {
+                DAL dal = new DAL();
+                return dal.executarReader("SELECT * FROM ContaBancaria", null);
+            }
+            static public int criar_ContaBancaria(string tipo)
+            {
+                //Randomizar o IBAN
+                Random random = new Random();
+                int rnd = random.Next(0, 10000000);
+
+                //Guardar valor da data de criação da conta
+                DateTime dataCriacao = DateTime.Now;
+
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@data",dataCriacao),
+                    new SqlParameter("@IBAN",rnd),
+                    new SqlParameter("@saldo",1.36), //Bonus de presente 
+                    new SqlParameter("@tipo",tipo)//Aprazo, Ordenado
+                };
+
+                return dal.executarNonQuery("INSERT INTO ContaBancaria (data,IBAN,saldo,tipo) VALUES(@data,@IBAN,@saldo,@tipo)",sqlParams);
+            }   
         }
         public class Exemplo
         {
