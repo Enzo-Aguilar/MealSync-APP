@@ -12,47 +12,45 @@ namespace BusinessLogicLayer
 {
     public class BLL
     {
-        public class Utilizador 
+        public class Auxiliar
         {
-            static public DataTable mostrar_Utilizadores()
+            public class Procurar 
             {
-                DAL dal = new DAL();
-                return dal.executarReader("SELECT * FROM Utilizadores",null);
-            }
-            static public DataTable procurar_UtilizadorPorNome(string nome)
-            {
-                DAL dal = new DAL();
-                SqlParameter[] sqlParams = new SqlParameter[]
+                public class Utilizador
                 {
-                    new SqlParameter("@nome",nome)
-                };
-                return dal.executarReader("SELECT * FROM [Utilizador] WHERE nome=@nome", sqlParams);
-            }
-
-            public class Titulares
-            {
-                static public int associar_Titular(int ID_Utilizador, int ID_ContaBancaria)
-                {
-                    DAL dal = new DAL();
-                    SqlParameter[] sqlParams = new SqlParameter[]
+                    static public DataTable Procurar_ID(int ID)
                     {
-                        new SqlParameter("@ID_Titular",ID_Utilizador),
-                        new SqlParameter("@ID_ContaBancaria",ID_ContaBancaria),
-                        //Falta verificar se já existem titulares e adicionar
-                    };
-
-                    return dal.executarNonQuery("INSERT INTO Titular (ID_Titular,ID_ContaBancario) VALUES(@ID_Titular,@ID_ContaBancaria)", sqlParams);
+                        DAL dal = new DAL();
+                        SqlParameter[] sqlParams = new SqlParameter[]
+                        {
+                    new SqlParameter("@ID",ID)
+                        };
+                        return dal.executarReader("SELECT ID FROM Utilizador WHERE ID=@ID", sqlParams);
+                    }
+                    static public DataTable Procurar_Email(string email)
+                    {
+                        DAL dal = new DAL();
+                        SqlParameter[] sqlParams = new SqlParameter[]
+                        {
+                    new SqlParameter("@email",email)
+                        };
+                        return dal.executarReader("SELECT email FROM Utilizador WHERE email=@email", sqlParams);
+                    }
+                    static public DataTable Procurar_Nome(string nome)
+                    {
+                        DAL dal = new DAL();
+                        SqlParameter[] sqlParams = new SqlParameter[]
+                        {
+                    new SqlParameter("@nome",nome)
+                        };
+                        return dal.executarReader("SELECT nome FROM Utilizador WHERE nome=@nome", sqlParams);
+                    }
                 }
             }
         }
         public class ContaBancaria
         {
-            static public DataTable mostrar_ContasBancarias()
-            {
-                DAL dal = new DAL();
-                return dal.executarReader("SELECT * FROM ContaBancaria", null);
-            }
-            static public int criar_ContaBancaria(string tipo)
+            static public int Criar(string tipo,string password)
             {
                 //Randomizar o IBAN
                 Random random = new Random();
@@ -66,12 +64,72 @@ namespace BusinessLogicLayer
                 {
                     new SqlParameter("@data",dataCriacao),
                     new SqlParameter("@IBAN",rnd),
-                    new SqlParameter("@saldo",1.36), //Bonus de presente 
+                    new SqlParameter("@saldo",1.36), //Bonus de presente
+                    new SqlParameter("@password", password), //Password para associar/criar a conta bancária
                     new SqlParameter("@tipo",tipo)//Aprazo, Ordenado
                 };
-
-                return dal.executarNonQuery("INSERT INTO ContaBancaria (data,IBAN,saldo,tipo) VALUES(@data,@IBAN,@saldo,@tipo)",sqlParams);
+                return dal.executarNonQuery("INSERT INTO ContaBancaria (data,IBAN,saldo,password,tipo) VALUES(@data,@IBAN,@saldo,@password,@tipo)",sqlParams);
             }   
+            static public DataTable Mostrar()
+            {
+                DAL dal = new DAL();
+                return dal.executarReader("SELECT ID,data,IBAN FROM ContaBancaria", null);
+            }
+            static public DataTable Procurar_PorID(int id)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@ID",id)
+                };
+                return dal.executarReader("SELECT * FROM ContaBancaria WHERE ID=@ID", sqlParams);
+            }
+        }
+        public class Utilizador 
+        {
+            static public int Criar(DateTime dataCriacao, string email, string funcao, string nome, string password)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@dataCriacao",dataCriacao),
+                    new SqlParameter("@email",email),
+                    new SqlParameter("@funcao",funcao),
+                    new SqlParameter("@nome",nome),
+                    new SqlParameter("@password",password)
+                };
+
+                return dal.executarNonQuery("INSERT INTO Utilizador (datacriacao, email, funcao, nome, password) VALUES(@dataCriacao, @email, @funcao, @nome, @password)",sqlParams);
+            }
+            static public DataTable Mostrar()
+            {
+                DAL dal = new DAL();
+                return dal.executarReader("SELECT * FROM Utilizadores",null);
+            }
+            static public DataTable Procurar_porNome(string nome)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@nome",nome)
+                };
+                return dal.executarReader("SELECT * FROM [Utilizador] WHERE nome=@nome", sqlParams);
+            }
+            public class Titular
+            {
+                static public int Associar(int ID_Utilizador, int ID_ContaBancaria)
+                {
+                    DAL dal = new DAL();
+                    SqlParameter[] sqlParams = new SqlParameter[]
+                    {
+                        new SqlParameter("@ID_Titular",ID_Utilizador),
+                        new SqlParameter("@ID_ContaBancaria",ID_ContaBancaria),
+                        //Falta verificar se já existem titulares e adicionar depois
+                    };
+
+                    return dal.executarNonQuery("INSERT INTO Titular (ID_Titular,ID_ContaBancaria) VALUES(@ID_Titular,@ID_ContaBancaria)", sqlParams);
+                }
+            }
         }
         public class Exemplo
         {

@@ -46,24 +46,105 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL.cs" />
-    <Compile Include="DAL.cs" />
-    <Compile Include="Globais.cs" />
-    <Compile Include="Home.cs">
+    <Compile Include="Pedidos\Desmarcar_Pedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Pedidos\Desmarcar_Pedido.Designer.cs">
+      <DependentUpon>Desmarcar_Pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\Fazer_Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\Fazer_Pedidos.Designer.cs">
+      <DependentUpon>Fazer_Pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\Ver_Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\Ver_Pedidos.Designer.cs">
+      <DependentUpon>Ver_Pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refeições\Adicionar_Refeicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refeições\Adicionar_Refeicoes.Designer.cs">
+      <DependentUpon>Adicionar_Refeicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refeições\Editar_Refeicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refeições\Editar_Refeicoes.Designer.cs">
+      <DependentUpon>Editar_Refeicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refeições\Remover_Refeicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refeições\Remover_Refeicoes.Designer.cs">
+      <DependentUpon>Remover_Refeicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Refeições\Ver_Refeicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refeições\Ver_Refeicoes.Designer.cs">
+      <DependentUpon>Ver_Refeicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\Associar_ContaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\Associar_ContaBancaria.Designer.cs">
+      <DependentUpon>Associar_ContaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\OLDAssociar_contaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\OLDAssociar_contaBancaria.Designer.cs">
+      <DependentUpon>OLDAssociar_contaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Base_Dados\BLL.cs" />
+    <Compile Include="_Base_Dados\DAL.cs" />
+    <Compile Include="_Conta_Bancaria\Criar_ContaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\Criar_ContaBancaria.Designer.cs">
+      <DependentUpon>Criar_ContaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\Escolher_tipoContaBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Conta_Bancaria\Escolher_tipoContaBancaria.Designer.cs">
+      <DependentUpon>Escolher_tipoContaBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globais.cs" />
+    <Compile Include="Home\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Index.cs">
+    <Compile Include="Index\Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
+    <Compile Include="Index\Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Index.resx">
+    <Compile Include="Registo\Registo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registo\Registo.Designer.cs">
+      <DependentUpon>Registo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="_Conta_Bancaria\OLDAssociar_contaBancaria.resx">
+      <DependentUpon>OLDAssociar_contaBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Conta_Bancaria\Escolher_tipoContaBancaria.resx">
+      <DependentUpon>Escolher_tipoContaBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -75,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registo\Registo.resx">
+      <DependentUpon>Registo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,9 +168,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_Documentação\README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

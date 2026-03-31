@@ -1,6 +1,6 @@
-﻿namespace MealSync_APP
+﻿namespace MealSync_APP._Conta_Bancaria
 {
-    partial class Home
+    partial class Criar_ContaBancaria
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Home";
+            this.Text = "Criar_ContaBancaria";
         }
 
         #endregion
