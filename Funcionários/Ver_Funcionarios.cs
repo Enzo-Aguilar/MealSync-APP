@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Marcações
+namespace MealSync_APP.Funcionários
 {
-    public partial class Fazer_Pedidos : Form
+    public partial class Ver_Funcionarios : Form
     {
-        public Fazer_Pedidos()
+        public Ver_Funcionarios()
         {
             InitializeComponent();
         }

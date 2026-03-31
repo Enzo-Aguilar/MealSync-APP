@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.MenuToolStrip = new System.Windows.Forms.MenuStrip();
-            this.Sair = new System.Windows.Forms.ToolStripMenuItem();
+            this.sair = new System.Windows.Forms.ToolStripMenuItem();
             this.Perfil = new System.Windows.Forms.ToolStripMenuItem();
             this.editar_Perfil = new System.Windows.Forms.ToolStripMenuItem();
             this.Conta_bancaria = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,7 +37,7 @@
             this.criar_ContaBancaria = new System.Windows.Forms.ToolStripMenuItem();
             this.Pedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.ver_Pedidos = new System.Windows.Forms.ToolStripMenuItem();
-            this.fazer_Pedidos = new System.Windows.Forms.ToolStripMenuItem();
+            this.fazer_Pedido = new System.Windows.Forms.ToolStripMenuItem();
             this.desmarcar_Pedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.Refeicoes = new System.Windows.Forms.ToolStripMenuItem();
             this.ver_Refeicoes = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +64,9 @@
             // 
             // MenuToolStrip
             // 
+            this.MenuToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Sair,
+            this.sair,
             this.Perfil,
             this.Conta_bancaria,
             this.Pedidos,
@@ -79,12 +80,12 @@
             this.MenuToolStrip.TabIndex = 0;
             this.MenuToolStrip.Text = "menuStrip1";
             // 
-            // Sair
+            // sair
             // 
-            this.Sair.Name = "Sair";
-            this.Sair.Size = new System.Drawing.Size(38, 20);
-            this.Sair.Text = "Sair";
-            this.Sair.Click += new System.EventHandler(this.sair_Click);
+            this.sair.Name = "sair";
+            this.sair.Size = new System.Drawing.Size(38, 20);
+            this.sair.Text = "Sair";
+            this.sair.Click += new System.EventHandler(this.sair_Click);
             // 
             // Perfil
             // 
@@ -97,8 +98,9 @@
             // editar_Perfil
             // 
             this.editar_Perfil.Name = "editar_Perfil";
-            this.editar_Perfil.Size = new System.Drawing.Size(104, 22);
+            this.editar_Perfil.Size = new System.Drawing.Size(180, 22);
             this.editar_Perfil.Text = "Editar";
+            this.editar_Perfil.Click += new System.EventHandler(this.editar_Perfil_Click);
             // 
             // Conta_bancaria
             // 
@@ -112,14 +114,14 @@
             // associar_ContaBancaria
             // 
             this.associar_ContaBancaria.Name = "associar_ContaBancaria";
-            this.associar_ContaBancaria.Size = new System.Drawing.Size(118, 22);
+            this.associar_ContaBancaria.Size = new System.Drawing.Size(180, 22);
             this.associar_ContaBancaria.Text = "Associar";
             this.associar_ContaBancaria.Click += new System.EventHandler(this.associar_ContaBancaria_Click);
             // 
             // criar_ContaBancaria
             // 
             this.criar_ContaBancaria.Name = "criar_ContaBancaria";
-            this.criar_ContaBancaria.Size = new System.Drawing.Size(118, 22);
+            this.criar_ContaBancaria.Size = new System.Drawing.Size(180, 22);
             this.criar_ContaBancaria.Text = "Criar";
             this.criar_ContaBancaria.Click += new System.EventHandler(this.criar_ContaBancaria_Click);
             // 
@@ -127,7 +129,7 @@
             // 
             this.Pedidos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ver_Pedidos,
-            this.fazer_Pedidos,
+            this.fazer_Pedido,
             this.desmarcar_Pedidos});
             this.Pedidos.Name = "Pedidos";
             this.Pedidos.Size = new System.Drawing.Size(61, 20);
@@ -138,18 +140,19 @@
             this.ver_Pedidos.Name = "ver_Pedidos";
             this.ver_Pedidos.Size = new System.Drawing.Size(180, 22);
             this.ver_Pedidos.Text = "Ver";
+            this.ver_Pedidos.Click += new System.EventHandler(this.ver_Pedidos_Click);
             // 
-            // fazer_Pedidos
+            // fazer_Pedido
             // 
-            this.fazer_Pedidos.Name = "fazer_Pedidos";
-            this.fazer_Pedidos.Size = new System.Drawing.Size(130, 22);
-            this.fazer_Pedidos.Text = "Fazer";
-            this.fazer_Pedidos.Click += new System.EventHandler(this.fazer_Pedido_Click);
+            this.fazer_Pedido.Name = "fazer_Pedido";
+            this.fazer_Pedido.Size = new System.Drawing.Size(180, 22);
+            this.fazer_Pedido.Text = "Fazer";
+            this.fazer_Pedido.Click += new System.EventHandler(this.fazer_Pedido_Click);
             // 
             // desmarcar_Pedidos
             // 
             this.desmarcar_Pedidos.Name = "desmarcar_Pedidos";
-            this.desmarcar_Pedidos.Size = new System.Drawing.Size(130, 22);
+            this.desmarcar_Pedidos.Size = new System.Drawing.Size(180, 22);
             this.desmarcar_Pedidos.Text = "Desmarcar";
             this.desmarcar_Pedidos.Click += new System.EventHandler(this.desmarcar_Pedidos_Click);
             // 
@@ -169,24 +172,28 @@
             this.ver_Refeicoes.Name = "ver_Refeicoes";
             this.ver_Refeicoes.Size = new System.Drawing.Size(180, 22);
             this.ver_Refeicoes.Text = "Ver";
+            this.ver_Refeicoes.Click += new System.EventHandler(this.ver_Refeicoes_Click);
             // 
             // adicionar_Refeicoes
             // 
             this.adicionar_Refeicoes.Name = "adicionar_Refeicoes";
             this.adicionar_Refeicoes.Size = new System.Drawing.Size(180, 22);
             this.adicionar_Refeicoes.Text = "Adicionar";
+            this.adicionar_Refeicoes.Click += new System.EventHandler(this.adicionar_Refeicoes_Click);
             // 
             // editar_Refeicoes
             // 
             this.editar_Refeicoes.Name = "editar_Refeicoes";
             this.editar_Refeicoes.Size = new System.Drawing.Size(180, 22);
             this.editar_Refeicoes.Text = "Editar";
+            this.editar_Refeicoes.Click += new System.EventHandler(this.editar_Refeicoes_Click);
             // 
             // remover_Refeicoes
             // 
             this.remover_Refeicoes.Name = "remover_Refeicoes";
             this.remover_Refeicoes.Size = new System.Drawing.Size(180, 22);
             this.remover_Refeicoes.Text = "Remover";
+            this.remover_Refeicoes.Click += new System.EventHandler(this.remover_Refeicoes_Click);
             // 
             // Alunos
             // 
@@ -202,26 +209,30 @@
             // ver_Alunos
             // 
             this.ver_Alunos.Name = "ver_Alunos";
-            this.ver_Alunos.Size = new System.Drawing.Size(125, 22);
+            this.ver_Alunos.Size = new System.Drawing.Size(180, 22);
             this.ver_Alunos.Text = "Ver";
+            this.ver_Alunos.Click += new System.EventHandler(this.ver_Alunos_Click);
             // 
             // adicionar_Alunos
             // 
             this.adicionar_Alunos.Name = "adicionar_Alunos";
-            this.adicionar_Alunos.Size = new System.Drawing.Size(125, 22);
+            this.adicionar_Alunos.Size = new System.Drawing.Size(180, 22);
             this.adicionar_Alunos.Text = "Adicionar";
+            this.adicionar_Alunos.Click += new System.EventHandler(this.adicionar_Alunos_Click);
             // 
             // editar_Alunos
             // 
             this.editar_Alunos.Name = "editar_Alunos";
-            this.editar_Alunos.Size = new System.Drawing.Size(125, 22);
+            this.editar_Alunos.Size = new System.Drawing.Size(180, 22);
             this.editar_Alunos.Text = "Editar";
+            this.editar_Alunos.Click += new System.EventHandler(this.editar_Alunos_Click);
             // 
             // remover_Alunos
             // 
             this.remover_Alunos.Name = "remover_Alunos";
-            this.remover_Alunos.Size = new System.Drawing.Size(125, 22);
+            this.remover_Alunos.Size = new System.Drawing.Size(180, 22);
             this.remover_Alunos.Text = "Remover";
+            this.remover_Alunos.Click += new System.EventHandler(this.remover_Alunos_Click);
             // 
             // Funcionarios
             // 
@@ -237,26 +248,30 @@
             // ver_Funcionarios
             // 
             this.ver_Funcionarios.Name = "ver_Funcionarios";
-            this.ver_Funcionarios.Size = new System.Drawing.Size(125, 22);
+            this.ver_Funcionarios.Size = new System.Drawing.Size(180, 22);
             this.ver_Funcionarios.Text = "Ver";
+            this.ver_Funcionarios.Click += new System.EventHandler(this.ver_Funcionarios_Click);
             // 
             // adicionar_Funcionarios
             // 
             this.adicionar_Funcionarios.Name = "adicionar_Funcionarios";
-            this.adicionar_Funcionarios.Size = new System.Drawing.Size(125, 22);
+            this.adicionar_Funcionarios.Size = new System.Drawing.Size(180, 22);
             this.adicionar_Funcionarios.Text = "Adicionar";
+            this.adicionar_Funcionarios.Click += new System.EventHandler(this.adicionar_Funcionarios_Click);
             // 
             // editar_Funcionarios
             // 
             this.editar_Funcionarios.Name = "editar_Funcionarios";
-            this.editar_Funcionarios.Size = new System.Drawing.Size(125, 22);
+            this.editar_Funcionarios.Size = new System.Drawing.Size(180, 22);
             this.editar_Funcionarios.Text = "Editar";
+            this.editar_Funcionarios.Click += new System.EventHandler(this.editar_Funcionarios_Click);
             // 
             // remover_Funcionarios
             // 
             this.remover_Funcionarios.Name = "remover_Funcionarios";
-            this.remover_Funcionarios.Size = new System.Drawing.Size(125, 22);
+            this.remover_Funcionarios.Size = new System.Drawing.Size(180, 22);
             this.remover_Funcionarios.Text = "Remover";
+            this.remover_Funcionarios.Click += new System.EventHandler(this.remover_Funcionarios_Click);
             // 
             // Administradores
             // 
@@ -272,26 +287,30 @@
             // ver_Administradores
             // 
             this.ver_Administradores.Name = "ver_Administradores";
-            this.ver_Administradores.Size = new System.Drawing.Size(125, 22);
+            this.ver_Administradores.Size = new System.Drawing.Size(180, 22);
             this.ver_Administradores.Text = "Ver";
+            this.ver_Administradores.Click += new System.EventHandler(this.ver_Administradores_Click);
             // 
             // adicionar_Administradores
             // 
             this.adicionar_Administradores.Name = "adicionar_Administradores";
-            this.adicionar_Administradores.Size = new System.Drawing.Size(125, 22);
+            this.adicionar_Administradores.Size = new System.Drawing.Size(180, 22);
             this.adicionar_Administradores.Text = "Adicionar";
+            this.adicionar_Administradores.Click += new System.EventHandler(this.adicionar_Administradores_Click);
             // 
             // editar_Administradores
             // 
             this.editar_Administradores.Name = "editar_Administradores";
-            this.editar_Administradores.Size = new System.Drawing.Size(125, 22);
+            this.editar_Administradores.Size = new System.Drawing.Size(180, 22);
             this.editar_Administradores.Text = "Editar";
+            this.editar_Administradores.Click += new System.EventHandler(this.editar_Administradores_Click);
             // 
             // remover_Administradores
             // 
             this.remover_Administradores.Name = "remover_Administradores";
-            this.remover_Administradores.Size = new System.Drawing.Size(125, 22);
+            this.remover_Administradores.Size = new System.Drawing.Size(180, 22);
             this.remover_Administradores.Text = "Remover";
+            this.remover_Administradores.Click += new System.EventHandler(this.remover_Administradores_Click);
             // 
             // Home
             // 
@@ -314,7 +333,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip MenuToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem Sair;
+        private System.Windows.Forms.ToolStripMenuItem sair;
         private System.Windows.Forms.ToolStripMenuItem Perfil;
         private System.Windows.Forms.ToolStripMenuItem Conta_bancaria;
         private System.Windows.Forms.ToolStripMenuItem Pedidos;
@@ -323,7 +342,7 @@
         private System.Windows.Forms.ToolStripMenuItem criar_ContaBancaria;
         private System.Windows.Forms.ToolStripMenuItem associar_ContaBancaria;
         private System.Windows.Forms.ToolStripMenuItem ver_Pedidos;
-        private System.Windows.Forms.ToolStripMenuItem fazer_Pedidos;
+        private System.Windows.Forms.ToolStripMenuItem fazer_Pedido;
         private System.Windows.Forms.ToolStripMenuItem desmarcar_Pedidos;
         private System.Windows.Forms.ToolStripMenuItem ver_Refeicoes;
         private System.Windows.Forms.ToolStripMenuItem editar_Refeicoes;

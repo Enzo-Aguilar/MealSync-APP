@@ -97,23 +97,4 @@ leitura e organização do projeto.Deixei um guia so pra dar aquela ajuda
 
 
 
-Por fim, queria escrever que é um prazer trabalhar convosco, e que se eu for muito chato avisem kkk
-
-//Métodos Auxiliares
-        private void Is_Admin()
-        {
-            if (Globais.Utilizador.funcao != "administrador")
-            {
-                //Esconder opções de admin
-
-                //Refeições
-                adicionar_Refeicoes.Visible = false;
-                editar_Refeicoes.Visible = false;
-                remover_Refeicoes.Visible = false;
-
-                //Aluno, Funcionário, Administrador
-                Alunos.Visible = false;
-                Funcionarios.Visible = false;
-                Administradores.Visible = false;
-            }
-        }
+Por fim, queria escrever que é um prazer trabalhar convosco, e que se eu for muito chato avisem kkk        

@@ -1,6 +1,6 @@
-﻿namespace MealSync_APP.Marcações
+﻿namespace MealSync_APP.Alunos
 {
-    partial class Fazer_Pedidos
+    partial class Editar_Aluno
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Fazer_Marcacoes";
+            this.Text = "Editar_Aluno";
         }
 
         #endregion
