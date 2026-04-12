@@ -46,189 +46,176 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administradores\Adicionar_Adminstrador.cs">
+    <Compile Include="Pages\Admins\Add_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administradores\Adicionar_Adminstrador.Designer.cs">
-      <DependentUpon>Adicionar_Adminstrador.cs</DependentUpon>
+    <Compile Include="Pages\Admins\Add_Admin.Designer.cs">
+      <DependentUpon>Add_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administradores\Editar_Administrador.cs">
+    <Compile Include="Pages\Admins\Edit_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administradores\Editar_Administrador.Designer.cs">
-      <DependentUpon>Editar_Administrador.cs</DependentUpon>
+    <Compile Include="Pages\Admins\Edit_Admin.Designer.cs">
+      <DependentUpon>Edit_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administradores\Remover_Administrador.cs">
+    <Compile Include="Pages\Admins\Remove_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administradores\Remover_Administrador.Designer.cs">
-      <DependentUpon>Remover_Administrador.cs</DependentUpon>
+    <Compile Include="Pages\Admins\Remove_Admin.Designer.cs">
+      <DependentUpon>Remove_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administradores\Ver_Adminstradores.cs">
+    <Compile Include="Pages\Admins\Show_Admins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administradores\Ver_Adminstradores.Designer.cs">
-      <DependentUpon>Ver_Adminstradores.cs</DependentUpon>
+    <Compile Include="Pages\Admins\Show_Admins.Designer.cs">
+      <DependentUpon>Show_Admins.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alunos\Adicionar_Aluno.cs">
+    <Compile Include="Pages\Student\Add_Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alunos\Adicionar_Aluno.Designer.cs">
-      <DependentUpon>Adicionar_Aluno.cs</DependentUpon>
+    <Compile Include="Pages\Student\Add_Student.Designer.cs">
+      <DependentUpon>Add_Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alunos\Editar_Aluno.cs">
+    <Compile Include="Pages\Student\Edit_Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alunos\Editar_Aluno.Designer.cs">
-      <DependentUpon>Editar_Aluno.cs</DependentUpon>
+    <Compile Include="Pages\Student\Edit_Student.Designer.cs">
+      <DependentUpon>Edit_Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alunos\Remover_Aluno.cs">
+    <Compile Include="Pages\Student\Remove_Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alunos\Remover_Aluno.Designer.cs">
-      <DependentUpon>Remover_Aluno.cs</DependentUpon>
+    <Compile Include="Pages\Student\Remove_Student.Designer.cs">
+      <DependentUpon>Remove_Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alunos\Ver_Alunos.cs">
+    <Compile Include="Pages\Student\Show_Students.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alunos\Ver_Alunos.Designer.cs">
-      <DependentUpon>Ver_Alunos.cs</DependentUpon>
+    <Compile Include="Pages\Student\Show_Students.Designer.cs">
+      <DependentUpon>Show_Students.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionários\Adicionar_Funcionario.cs">
+    <Compile Include="Pages\Employee\Add_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionários\Adicionar_Funcionario.Designer.cs">
-      <DependentUpon>Adicionar_Funcionario.cs</DependentUpon>
+    <Compile Include="Pages\Employee\Add_Employee.Designer.cs">
+      <DependentUpon>Add_Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionários\Editar_Funcionario.cs">
+    <Compile Include="Pages\Employee\Edit_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionários\Editar_Funcionario.Designer.cs">
-      <DependentUpon>Editar_Funcionario.cs</DependentUpon>
+    <Compile Include="Pages\Employee\Edit_Employee.Designer.cs">
+      <DependentUpon>Edit_Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionários\Remover_Funcionario.cs">
+    <Compile Include="Pages\Employee\Remove_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionários\Remover_Funcionario.Designer.cs">
-      <DependentUpon>Remover_Funcionario.cs</DependentUpon>
+    <Compile Include="Pages\Employee\Remove_Employee.Designer.cs">
+      <DependentUpon>Remove_Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionários\Ver_Funcionarios.cs">
+    <Compile Include="Pages\Employee\Show_Employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionários\Ver_Funcionarios.Designer.cs">
-      <DependentUpon>Ver_Funcionarios.cs</DependentUpon>
+    <Compile Include="Pages\Employee\Show_Employees.Designer.cs">
+      <DependentUpon>Show_Employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Home_\Adicionar_Funcionario.cs">
+    <Compile Include="Pages\Orders\Desmarcar_Pedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Home_\Adicionar_Funcionario.Designer.cs">
-      <DependentUpon>Adicionar_Funcionario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_Pedidos_\Desmarcar_Pedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="_Pedidos_\Desmarcar_Pedido.Designer.cs">
+    <Compile Include="Pages\Orders\Desmarcar_Pedido.Designer.cs">
       <DependentUpon>Desmarcar_Pedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Pedidos_\Fazer_Pedido.cs">
+    <Compile Include="Pages\Orders\Fazer_Pedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Pedidos_\Fazer_Pedido.Designer.cs">
+    <Compile Include="Pages\Orders\Fazer_Pedido.Designer.cs">
       <DependentUpon>Fazer_Pedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Pedidos_\Ver_Pedidos.cs">
+    <Compile Include="Pages\Orders\Ver_Pedidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Pedidos_\Ver_Pedidos.Designer.cs">
+    <Compile Include="Pages\Orders\Ver_Pedidos.Designer.cs">
       <DependentUpon>Ver_Pedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Refeições_\Adicionar_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Adicionar_Refeicoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Refeições_\Adicionar_Refeicoes.Designer.cs">
+    <Compile Include="Pages\Meals\Adicionar_Refeicoes.Designer.cs">
       <DependentUpon>Adicionar_Refeicoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Refeições_\Editar_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Editar_Refeicoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Refeições_\Editar_Refeicoes.Designer.cs">
+    <Compile Include="Pages\Meals\Editar_Refeicoes.Designer.cs">
       <DependentUpon>Editar_Refeicoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Refeições_\Remover_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Remover_Refeicoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Refeições_\Remover_Refeicoes.Designer.cs">
+    <Compile Include="Pages\Meals\Remover_Refeicoes.Designer.cs">
       <DependentUpon>Remover_Refeicoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Refeições_\Ver_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Ver_Refeicoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Refeições_\Ver_Refeicoes.Designer.cs">
+    <Compile Include="Pages\Meals\Ver_Refeicoes.Designer.cs">
       <DependentUpon>Ver_Refeicoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\Associar_ContaBancaria.cs">
+    <Compile Include="Pages\BankAccount\Associate_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\Associar_ContaBancaria.Designer.cs">
-      <DependentUpon>Associar_ContaBancaria.cs</DependentUpon>
+    <Compile Include="Pages\BankAccount\Associate_BankAccount.Designer.cs">
+      <DependentUpon>Associate_BankAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\OLDAssociar_contaBancaria.cs">
+    <Compile Include="Controller\BLL.cs" />
+    <Compile Include="Data Layer\DAL.cs" />
+    <Compile Include="Pages\BankAccount\Create_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\OLDAssociar_contaBancaria.Designer.cs">
-      <DependentUpon>OLDAssociar_contaBancaria.cs</DependentUpon>
+    <Compile Include="Pages\BankAccount\Create_BankAccount.Designer.cs">
+      <DependentUpon>Create_BankAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Base_Dados_\BLL.cs" />
-    <Compile Include="_Base_Dados_\DAL.cs" />
-    <Compile Include="_Conta_Bancaria_\Criar_ContaBancaria.cs">
+    <Compile Include="Pages\BankAccount\Choose_BankAccountType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\Criar_ContaBancaria.Designer.cs">
-      <DependentUpon>Criar_ContaBancaria.cs</DependentUpon>
+    <Compile Include="Pages\BankAccount\Choose_BankAccountType.Designer.cs">
+      <DependentUpon>Choose_BankAccountType.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\Escolher_tipoContaBancaria.cs">
+    <Compile Include="Utils\FormUtils.cs" />
+    <Compile Include="Utils\Globals.cs" />
+    <Compile Include="Pages\Home\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Conta_Bancaria_\Escolher_tipoContaBancaria.Designer.cs">
-      <DependentUpon>Escolher_tipoContaBancaria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Globais.cs" />
-    <Compile Include="_Home_\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="_Home_\Home.Designer.cs">
+    <Compile Include="Pages\Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Index_\Index.cs">
+    <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Index_\Index.Designer.cs">
+    <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_Registo_\Registo.cs">
+    <Compile Include="Pages\Register\Register.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Registo_\Registo.Designer.cs">
-      <DependentUpon>Registo.cs</DependentUpon>
+    <Compile Include="Pages\Register\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Utilizador_\Editar_Perfil.cs">
+    <Compile Include="Pages\User\Edit_Profile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_Utilizador_\Editar_Perfil.Designer.cs">
-      <DependentUpon>Editar_Perfil.cs</DependentUpon>
+    <Compile Include="Pages\User\Edit_Profile.Designer.cs">
+      <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="_Conta_Bancaria_\OLDAssociar_contaBancaria.resx">
-      <DependentUpon>OLDAssociar_contaBancaria.cs</DependentUpon>
+    <Compile Include="Utils\UserUtils.cs" />
+    <EmbeddedResource Include="Pages\BankAccount\Choose_BankAccountType.resx">
+      <DependentUpon>Choose_BankAccountType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="_Conta_Bancaria_\Escolher_tipoContaBancaria.resx">
-      <DependentUpon>Escolher_tipoContaBancaria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_Home_\Home.resx">
+    <EmbeddedResource Include="Pages\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="_Index_\Index.resx">
+    <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -240,8 +227,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="_Registo_\Registo.resx">
-      <DependentUpon>Registo.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Register\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -252,7 +239,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="__Documentação__\README.md" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
