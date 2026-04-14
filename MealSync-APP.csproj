@@ -118,47 +118,47 @@
     <Compile Include="Pages\Employee\Show_Employees.Designer.cs">
       <DependentUpon>Show_Employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Orders\Desmarcar_Pedido.cs">
+    <Compile Include="Pages\Orders\Cancel_Order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Orders\Desmarcar_Pedido.Designer.cs">
-      <DependentUpon>Desmarcar_Pedido.cs</DependentUpon>
+    <Compile Include="Pages\Orders\Cancel_Order.Designer.cs">
+      <DependentUpon>Cancel_Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Orders\Fazer_Pedido.cs">
+    <Compile Include="Pages\Orders\Make_Order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Orders\Fazer_Pedido.Designer.cs">
-      <DependentUpon>Fazer_Pedido.cs</DependentUpon>
+    <Compile Include="Pages\Orders\Make_Order.Designer.cs">
+      <DependentUpon>Make_Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Orders\Ver_Pedidos.cs">
+    <Compile Include="Pages\Orders\Show_Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Orders\Ver_Pedidos.Designer.cs">
-      <DependentUpon>Ver_Pedidos.cs</DependentUpon>
+    <Compile Include="Pages\Orders\Show_Orders.Designer.cs">
+      <DependentUpon>Show_Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Meals\Adicionar_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Add_Meal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Meals\Adicionar_Refeicoes.Designer.cs">
-      <DependentUpon>Adicionar_Refeicoes.cs</DependentUpon>
+    <Compile Include="Pages\Meals\Add_Meal.Designer.cs">
+      <DependentUpon>Add_Meal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Meals\Editar_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Edit_Meal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Meals\Editar_Refeicoes.Designer.cs">
-      <DependentUpon>Editar_Refeicoes.cs</DependentUpon>
+    <Compile Include="Pages\Meals\Edit_Meal.Designer.cs">
+      <DependentUpon>Edit_Meal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Meals\Remover_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Remove_Meal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Meals\Remover_Refeicoes.Designer.cs">
-      <DependentUpon>Remover_Refeicoes.cs</DependentUpon>
+    <Compile Include="Pages\Meals\Remove_Meal.Designer.cs">
+      <DependentUpon>Remove_Meal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Meals\Ver_Refeicoes.cs">
+    <Compile Include="Pages\Meals\Show_Meals.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Meals\Ver_Refeicoes.Designer.cs">
-      <DependentUpon>Ver_Refeicoes.cs</DependentUpon>
+    <Compile Include="Pages\Meals\Show_Meals.Designer.cs">
+      <DependentUpon>Show_Meals.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\BankAccount\Associate_BankAccount.cs">
       <SubType>Form</SubType>

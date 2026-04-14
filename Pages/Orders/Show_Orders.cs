@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Marcações
 {
-    public partial class Ver_Pedidos : Form
+    public partial class Show_Orders : Form
     {
-        public Ver_Pedidos()
+        public Show_Orders()
         {
             InitializeComponent();
         }

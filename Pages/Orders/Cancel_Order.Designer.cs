@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pedidos
 {
-    partial class Desmarcar_Pedido
+    partial class Cancel_Order
     {
         /// <summary>
         /// Required designer variable.

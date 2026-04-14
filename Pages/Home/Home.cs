@@ -38,10 +38,24 @@ namespace MealSync_APP
         {
             FormUtils.Open_Index();
         }
-
         private void edit_Profile_Click(object sender, EventArgs e)
         {
             FormUtils.OpenForm_EditProfile();
+        }
+
+        private void associate_BankAccount_Click(object sender, EventArgs e)
+        {
+            FormUtils.OpenForm_AssociateBankAccount();
+        }
+
+        private void create_BankAccount_Click(object sender, EventArgs e)
+        {
+            FormUtils.OpenForm_CreateBankAccount();
+        }
+
+        private void see_Orders_Click(object sender, EventArgs e)
+        {
+            FormUtils.Open
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Pedidos
 {
-    public partial class Desmarcar_Pedido : Form
+    public partial class Cancel_Order : Form
     {
-        public Desmarcar_Pedido()
+        public Cancel_Order()
         {
             InitializeComponent();
         }

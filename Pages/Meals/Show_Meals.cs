@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Refeições
 {
-    public partial class Editar_Refeicoes : Form
+    public partial class Show_Meals : Form
     {
-        public Editar_Refeicoes()
+        public Show_Meals()
         {
             InitializeComponent();
         }

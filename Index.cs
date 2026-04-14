@@ -30,7 +30,7 @@ namespace MealSync_APP
         }
         private void lbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormUtils.Open_Register(this);
+            FormUtils.Open_Register(this,"Index");
         }
     }
 }

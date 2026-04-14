@@ -15,7 +15,21 @@ namespace BusinessLogicLayer
         
         public class User
         {
-            static protected readonly string _tableName = "[user]";
+            static protected readonly string _tableName = "[User]";
+            static public int Create_User(DateTime createdAt, string email, string name, string password, int role)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@createdAt",createdAt),
+                    new SqlParameter("@email",email),
+                    new SqlParameter("@name",name),
+                    new SqlParameter("@password",password),
+                    new SqlParameter("@role",role)
+                };
+                return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,role) VALUES(@createdAt,@email,@name,@password,@role)", sqlParams);
+            }
+
             static public DataTable Get_UserByName(string name)
             {
                 DAL dal = new DAL();

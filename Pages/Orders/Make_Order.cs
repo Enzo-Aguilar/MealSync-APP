@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Refeições
+namespace MealSync_APP.Marcações
 {
-    public partial class Ver_Refeicoes : Form
+    public partial class Make_Order : Form
     {
-        public Ver_Refeicoes()
+        public Make_Order()
         {
             InitializeComponent();
         }

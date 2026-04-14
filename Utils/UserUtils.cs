@@ -50,7 +50,7 @@ namespace MealSync_APP.Utils
         {
             return Auth_UserName(name) && Auth_PasswordLogin(name, password);
         }
-        public static bool Auth_UserRegister(DateTime createdAt, string email, string name, string password, int role)
+        public static bool Auth_UserRegister(DateTime createdAt, string email, string name, string password, string passwordConfirm,int role)
         {
             return
                 Search_User(email,name) &&
@@ -58,6 +58,7 @@ namespace MealSync_APP.Utils
                 Auth_UserEmail(email) &&
                 Auth_UserName(name) &&
                 Auth_UserPassword(password) &&
+                Auth_PasswordRegister(password,passwordConfirm) &&
                 Auth_UserRole(role);
 
         } 
@@ -68,7 +69,6 @@ namespace MealSync_APP.Utils
                 Search_UserName(name);
         }
         
-
 
         //Métodos de Autenticação
         static private bool Auth_UserName(string name)
@@ -170,6 +170,7 @@ namespace MealSync_APP.Utils
                 return true;
             }
         }
+
         static private bool Auth_PasswordLogin(string name, string password)
         {
             DataTable dt = BLL.User.Get_UserByName(name);
@@ -182,6 +183,24 @@ namespace MealSync_APP.Utils
             else
             {
                 return true;
+            }
+        }
+        static private bool Auth_PasswordRegister(string password, string passwordConfirm)
+        {
+           if(password == passwordConfirm)
+            {
+                if(password.Length > 7)
+                {
+                    return true;
+                }
+                else 
+                { 
+                    return false; 
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 

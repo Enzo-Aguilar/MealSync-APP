@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Refeições
 {
-    partial class Editar_Refeicoes
+    partial class Edit_Meal
     {
         /// <summary>
         /// Required designer variable.

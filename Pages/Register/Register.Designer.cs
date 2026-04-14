@@ -34,10 +34,10 @@
             this.lbPassword = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lbConfirmar_Password = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tbPassword_Confirmar = new System.Windows.Forms.TextBox();
-            this.cbFuncao = new System.Windows.Forms.ComboBox();
+            this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.btnCriar_Conta = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Index = new System.Windows.Forms.LinkLabel();
@@ -95,12 +95,12 @@
             this.lbConfirmar_Password.TabIndex = 6;
             this.lbConfirmar_Password.Text = "Confirmar Password";
             // 
-            // tbNome
+            // tbName
             // 
-            this.tbNome.Location = new System.Drawing.Point(46, 254);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(201, 20);
-            this.tbNome.TabIndex = 7;
+            this.tbName.Location = new System.Drawing.Point(46, 254);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(201, 20);
+            this.tbName.TabIndex = 7;
             // 
             // tbPassword
             // 
@@ -109,29 +109,29 @@
             this.tbPassword.Size = new System.Drawing.Size(201, 20);
             this.tbPassword.TabIndex = 8;
             // 
-            // tbPassword_Confirmar
+            // tbPassword_Confirm
             // 
-            this.tbPassword_Confirmar.Location = new System.Drawing.Point(292, 172);
-            this.tbPassword_Confirmar.Name = "tbPassword_Confirmar";
-            this.tbPassword_Confirmar.Size = new System.Drawing.Size(201, 20);
-            this.tbPassword_Confirmar.TabIndex = 9;
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(292, 172);
+            this.tbPassword_Confirm.Name = "tbPassword_Confirm";
+            this.tbPassword_Confirm.Size = new System.Drawing.Size(201, 20);
+            this.tbPassword_Confirm.TabIndex = 9;
             // 
-            // cbFuncao
+            // cbRole
             // 
-            this.cbFuncao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFuncao.FormattingEnabled = true;
-            this.cbFuncao.Items.AddRange(new object[] {
+            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
             "Aluno",
             "Funcionario",
             "Administrador"});
-            this.cbFuncao.Location = new System.Drawing.Point(46, 172);
-            this.cbFuncao.Name = "cbFuncao";
-            this.cbFuncao.Size = new System.Drawing.Size(201, 21);
-            this.cbFuncao.TabIndex = 10;
+            this.cbRole.Location = new System.Drawing.Point(46, 172);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(201, 21);
+            this.cbRole.TabIndex = 10;
             // 
             // btnCriar_Conta
             // 
-            this.btnCriar_Conta.Location = new System.Drawing.Point(315, 270);
+            this.btnCriar_Conta.Location = new System.Drawing.Point(230, 317);
             this.btnCriar_Conta.Name = "btnCriar_Conta";
             this.btnCriar_Conta.Size = new System.Drawing.Size(141, 54);
             this.btnCriar_Conta.TabIndex = 11;
@@ -159,7 +159,7 @@
             this.lbLink_Index.Text = "Iniciar Sessão";
             this.lbLink_Index.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbLink_Index_LinkClicked);
             // 
-            // Registo
+            // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,17 +167,17 @@
             this.Controls.Add(this.lbLink_Index);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnCriar_Conta);
-            this.Controls.Add(this.cbFuncao);
-            this.Controls.Add(this.tbPassword_Confirmar);
+            this.Controls.Add(this.cbRole);
+            this.Controls.Add(this.tbPassword_Confirm);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.tbNome);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbConfirmar_Password);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbNome);
             this.Controls.Add(this.lbFuncao);
             this.Controls.Add(this.lbEmail);
-            this.Name = "Registo";
+            this.Name = "Register";
             this.Text = "Registo";
             this.Load += new System.EventHandler(this.Registo_Load);
             this.ResumeLayout(false);
@@ -193,10 +193,10 @@
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label lbConfirmar_Password;
-        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.TextBox tbPassword_Confirmar;
-        private System.Windows.Forms.ComboBox cbFuncao;
+        private System.Windows.Forms.TextBox tbPassword_Confirm;
+        private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.Button btnCriar_Conta;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Index;

@@ -16,10 +16,12 @@ namespace DataAccessLayer
 
         public DAL()//Conexão com a Base de Dados
         {    
-            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\_MealSync_\Base_de_Dados\MealSync_DB.mdf; Integrated Security = True; Connect Timeout = 30");
+            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\126531\_MealSync_\Database\MealSync_DB.mdf; Integrated Security = True; Connect Timeout = 30");
         }
 
-        // Abrir / Fechar Conexão
+        //Caminho do DB na escola: C:\Users\126531\_MealSync_\Database\MealSync_DB.mdf
+
+        // Abrir Conexão
         private void OpenConnection()
         {
             try
@@ -31,6 +33,8 @@ namespace DataAccessLayer
                 MessageBox.Show(err.Message.ToString());
             }
         }
+
+        //Fechar Conexão
         private void CloseConnection()
         {
             try

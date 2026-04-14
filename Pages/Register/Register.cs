@@ -14,14 +14,38 @@ namespace MealSync_APP
 {
     public partial class Register : Form
     {
-        public Register()
+        private readonly string _form;
+        public Register(string whoForm)
         {
             InitializeComponent();
+            _form = whoForm;
         }
         //Load do form
         private void Registo_Load(object sender, EventArgs e)
         {
             UserUtils.Reset_UserData();
+
+            if(_form == "Index")
+            {
+
+                cbRole.SelectedIndex = 0;
+                cbRole.SelectedItem = "Alunos";
+                cbRole.Enabled = false;
+            }
+            else if(_form == "Add_Student")
+            {
+                this.Name = "Adicionar Aluno";
+                cbRole.SelectedIndex = 0;
+                cbRole.SelectedItem = "Alunos";
+                cbRole.Enabled = false;
+            }
+            else if (_form == "Add_Admin")
+            {
+                cbRole.SelectedIndex = 0;
+                cbRole.SelectedItem = "Administrador";
+                cbRole.Enabled = false;
+            }
+
         }
 
         //Métodos dos componentes gráficos
@@ -29,111 +53,29 @@ namespace MealSync_APP
         {
             try
             {
-                DateTime dataCriacao = DateTime.Now;
-                string email = tbEmail.Text;
-                string funcao = Convert.ToString(cbFuncao.SelectedItem.ToString());
-                string nome = tbNome.Text;
-                string password = tbPassword.Text;
+                DateTime createdAt = DateTime.UtcNow;
+                string email = Convert.ToString(tbEmail.Text);
+                string name = Convert.ToString(tbName.Text);
+                string password = Convert.ToString(tbPassword.Text);
+                string passwordConfirm = Convert.ToString(tbPassword_Confirm.Text);
+                int role = Convert.ToInt32(cbRole.SelectedIndex);
 
-                if (Validar_Dados() && Procurar_Dados())
+                if(UserUtils.Auth_UserRegister(createdAt, email, name, password,passwordConfirm, role))
                 {
-                    try
-                    {
-                       // BLL.Utilizador.Criar(dataCriacao, email, funcao, nome, password);
-                        MessageBox.Show("Conta criada com sucesso! Faça seu primeiro login", "Sucesso");
-                        Abrir_Index();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ocorreu um erro ao criar a conta: " + ex.Message, "EXCEPTION I");
-                    }
+                    BLL.User.Create_User(createdAt, email, name, password, role);
+                    MessageBox.Show("Utilizador criado com sucesso");
+                    FormUtils.Open_Index();
                 }
             }
-            catch (Exception ex)
+            catch (Exception err)
             {
-                MessageBox.Show("Ocorreu um erro ao criar a conta: " + ex.Message, "EXCEPTION II");
+                MessageBox.Show("Ocorreu um erro ao criar utilizador: "+err.Message,"EXCEPTION");
             }
+            
         }
         private void lbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormUtils.Open_Index();
-            this.Close();
-        }
-
-        private bool Procurar_Dados()//Procura dados duplicados
-        {
-            string email = tbEmail.Text;
-            string nome = tbNome.Text;
-
-            return false;
-        }
-        private bool Validar_Dados()
-        {
-            string email = tbEmail.Text;
-            string funcao = cbFuncao.SelectedItem.ToString();
-            string nome = tbNome.Text;
-            string password = tbPassword.Text;
-
-            //Tentar fazer fazer com switch
-            try
-            {
-                if (!string.IsNullOrEmpty(email))
-                {
-                    if (!string.IsNullOrEmpty(funcao))
-                    {
-                        if (!string.IsNullOrEmpty(nome))
-                        {
-                            if (!string.IsNullOrEmpty(password))
-                            {
-                                if (password == tbPassword_Confirmar.Text)
-                                {
-                                    return true;
-                                }
-                                else
-                                {
-                                    tbPassword.Text = string.Empty;
-                                    tbPassword_Confirmar.Text = string.Empty;
-                                    MessageBox.Show("As passwords não coincidem", "ERRO");
-                                    return false;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("O campo [password] não pode estar vazio", "ERRO");
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("O campo [nome] não pode estar vazio", "ERRO");
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("O campo [Tipo de conta] não pode estar vazio", "ERRO");
-                        return false;
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("O campo email não pode estar vazio", "ERRO");
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao validar os dados: " + ex.Message, "EXCEPTION");
-                return false;
-            }
-        }
-
-        //Métodos de chamada para outros forms
-        private void Abrir_Index()
-        {
-            Index index = new Index();
-            index.Show();
             this.Close();
         }
     }

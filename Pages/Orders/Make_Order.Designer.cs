@@ -1,6 +1,6 @@
-﻿namespace MealSync_APP.Refeições
+﻿namespace MealSync_APP.Marcações
 {
-    partial class Remover_Refeicoes
+    partial class Make_Order
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Remover_Refeicoes";
+            this.Text = "Fazer_Marcacoes";
         }
 
         #endregion

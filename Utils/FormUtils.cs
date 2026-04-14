@@ -4,6 +4,9 @@ using MealSync_APP._Utilizador_;
 using MealSync_APP.Administradores;
 using MealSync_APP.Alunos;
 using MealSync_APP.Funcionários;
+using MealSync_APP.Marcações;
+using MealSync_APP.Pedidos;
+using MealSync_APP.Refeições;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +21,22 @@ namespace MealSync_APP.Utils
     {
         static protected readonly Home _home = new Home();
 
+        //Register
+        static public void Open_Register(Index index, string whoForm)
+        {
+            Register regis = new Register(whoForm);
+            index.Hide();
+            regis.Show();
+        }
+
+        //Login
         static public void Open_Index()
         {
             Index index = new Index();
             index.Show();
         }
-        static public void Open_Register(Index index)
-        {
-            Register regis = new Register();
-            index.Hide();
-            regis.Show();
-        }
+
+        //Home
         static public  void Open_Home(Index index)
         {
             _home.Show();
@@ -134,6 +142,50 @@ namespace MealSync_APP.Utils
             showStudents.Show();
         }
 
-        
+        //Orders = Pedidos
+        static public void OpenForm_CancelOrder()
+        {
+            Cancel_Order cancel_Order = new Cancel_Order();
+            cancel_Order.MdiParent = _home;
+            cancel_Order.Show();
+        }
+        static public void OpenForm_MakeOrder()
+        {
+            Make_Order makeOrder = new Make_Order();
+            makeOrder.MdiParent = _home;
+            makeOrder.Show();
+        }
+        static public void OpenForm_ShowOrders()
+        {
+            Show_Orders showOrders = new Show_Orders();
+            showOrders.MdiParent = _home;
+            showOrders.Show();
+        }
+
+        //Meals = Refeições
+        static public void OpenForm_AddMeal()
+        {
+            Add_Meal add_Meal = new Add_Meal();
+            add_Meal.MdiParent = _home;
+            add_Meal.Show();
+        }
+        static public void OpenForm_EditMeal()
+        {
+            Edit_Meal edit_Meal = new Edit_Meal();
+            edit_Meal.MdiParent = _home;
+            edit_Meal.Show();
+        }
+        static public void OpenForm_RemoveMeal()
+        {
+            Remove_Meal remove_Meal = new Remove_Meal();
+            remove_Meal.MdiParent = _home;
+            remove_Meal.Show();
+        }
+        static public void OpenForm_ShowMeal()
+        {
+            Show_Meals show_Meals = new Show_Meals();
+            show_Meals.MdiParent = _home;
+            show_Meals.Show();
+        }
     } 
 }

@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Marcações
 {
-    partial class Ver_Pedidos
+    partial class Show_Orders
     {
         /// <summary>
         /// Required designer variable.
