@@ -24,7 +24,7 @@ namespace MealSync_APP
         //Load do form
         private void Registo_Load(object sender, EventArgs e)
         {
-            UserUtils.Reset_UserData();
+            UserData.Reset();
 
             if(_form == "Index")
             {

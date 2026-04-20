@@ -1,22 +1,6 @@
-﻿using MealSync_APP._Começo;
-using MealSync_APP._Conta_Bancaria;
-using MealSync_APP._Utilizador_;
-using MealSync_APP.Administradores;
-using MealSync_APP.Alunos;
-using MealSync_APP.Marcações;
-using MealSync_APP.Pedidos;
-using MealSync_APP.Refeições;
+﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP
 {
@@ -146,11 +130,9 @@ namespace MealSync_APP
         //Métodos Auxiliares
         public void HomeTabs_Visibility()
         {
-            int role = Globals.User.Role;
-            switch (role)
+            switch (Globals.User.Role)
             {
                 case 0: // Admin
-                    MessageBox.Show("Admin");
                     break;
 
                 case 1: // Employee
@@ -164,13 +146,22 @@ namespace MealSync_APP
                     edit_Meal.Visible = false;
                     add_Meal.Visible = false;
                     remove_Meal.Visible = false;
-
                     Students.Visible = false;
                     Employees.Visible = false;
                     Admin.Visible = false;
                     MessageBox.Show("Student");
                     break;
             }
+        }
+        public void HomeTabs_VisibilityReset()
+        {
+            Students.Visible = true;
+            Employees.Visible = true;
+            Admin.Visible = true;
+
+            edit_Meal.Visible = true;
+            add_Meal.Visible = true;
+            remove_Meal.Visible = true;
         }
 
     }

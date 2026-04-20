@@ -16,10 +16,10 @@ namespace DataAccessLayer
 
         public DAL()//Conexão com a Base de Dados
         {    
-            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\_MealSync_\Database\MealSync_DB.mdf; Integrated Security = True; Connect Timeout = 30");
+            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\126531\_MealSync_\Database\MealSync_DB.mdf; Integrated Security = True; Connect Timeout = 30");
         }
 
-        //Caminho do DB na escola -> C:\Users\Vosso numero\_MealSync_\Database\MealSync_DB.mdf
+        //Caminho do DB na escola -> C:\Users\Vosso numero\_MealSync_\Database\MealSync_DB.mdf;
         //Caminho da DB no pc pessoal -> C:\_MealSync_\Database\MealSync_DB.mdf;
 
         // Abrir Conexão
