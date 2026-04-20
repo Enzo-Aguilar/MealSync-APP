@@ -38,7 +38,7 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
             this.cbRole = new System.Windows.Forms.ComboBox();
-            this.btnCriar_Conta = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Index = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
@@ -121,23 +121,23 @@
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
-            "Aluno",
+            "Admin",
             "Funcionario",
-            "Administrador"});
+            "Aluno"});
             this.cbRole.Location = new System.Drawing.Point(46, 172);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(201, 21);
             this.cbRole.TabIndex = 10;
             // 
-            // btnCriar_Conta
+            // btnRegister
             // 
-            this.btnCriar_Conta.Location = new System.Drawing.Point(230, 317);
-            this.btnCriar_Conta.Name = "btnCriar_Conta";
-            this.btnCriar_Conta.Size = new System.Drawing.Size(141, 54);
-            this.btnCriar_Conta.TabIndex = 11;
-            this.btnCriar_Conta.Text = "Criar Conta";
-            this.btnCriar_Conta.UseVisualStyleBackColor = true;
-            this.btnCriar_Conta.Click += new System.EventHandler(this.btnCriar_Conta_Click);
+            this.btnRegister.Location = new System.Drawing.Point(230, 317);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(141, 54);
+            this.btnRegister.TabIndex = 11;
+            this.btnRegister.Text = "Criar Conta";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lbText
             // 
@@ -166,7 +166,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbLink_Index);
             this.Controls.Add(this.lbText);
-            this.Controls.Add(this.btnCriar_Conta);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.tbPassword_Confirm);
             this.Controls.Add(this.tbPassword);
@@ -197,7 +197,7 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbPassword_Confirm;
         private System.Windows.Forms.ComboBox cbRole;
-        private System.Windows.Forms.Button btnCriar_Conta;
+        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Index;
     }

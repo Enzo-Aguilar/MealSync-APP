@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Text;
 
 namespace BusinessLogicLayer
 {
@@ -29,7 +30,8 @@ namespace BusinessLogicLayer
                 };
                 return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,role) VALUES(@createdAt,@email,@name,@password,@role)", sqlParams);
             }
-
+            
+            //Buscar dados do User pelo Nome
             static public DataTable Get_UserByName(string name)
             {
                 DAL dal = new DAL();
@@ -37,9 +39,10 @@ namespace BusinessLogicLayer
                 {
                     new SqlParameter("@name",name)
                 };
-                return dal.ExecuteReader("SELECT * FROM " + _tableName + " WHERE name=@name", sqlParams);
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
             }
 
+            //Métodos de Procura
             static public DataTable Search_UserEmail(string email)
             {
                 DAL dal = new DAL();
@@ -48,7 +51,7 @@ namespace BusinessLogicLayer
                     new SqlParameter ("@email",email),
                 };
 
-                return dal.ExecuteReader("SELECT * FROM " + _tableName + " WHERE name=@name",sqlParams);
+                return dal.ExecuteReader("SELECT * FROM " + _tableName + " WHERE email=@email",sqlParams);
             }
             static public DataTable Search_UserName(string name)
             {
@@ -57,11 +60,26 @@ namespace BusinessLogicLayer
                 {
                     new SqlParameter("@name",name),
                 };
-
-                return dal.ExecuteReader("SELECT * FROM "+_tableName+" WHERE name=@name",sqlParams);
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name",sqlParams);
             }
         }
-        
+        public class Holder
+        {
+            static public bool isUserHolder(int userID)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@ID_User",userID)
+                };
+                DataTable table= dal.ExecuteReader("SELECT * FROM [Holder] WHERE userID=@ID_User", sqlParams);
+                if(table.Rows.Count == 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
         public class Exemplo
         {
 
@@ -126,7 +144,6 @@ namespace BusinessLogicLayer
             };
                 return dal.ExecuteNonQuery("Delete From Clientes WHERE[id]=@id", sqlParams);
             }		
-
         }
 		public class Imagem
         {

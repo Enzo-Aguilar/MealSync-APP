@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Utils
 {
-    internal class UserUtils
+    public class UserUtils
     {
         static public void Get_UserData(string name)
         {
@@ -107,6 +108,10 @@ namespace MealSync_APP.Utils
                 return false;
             }
         }
+        static private bool ValidateUserName(string name)
+        {
+            return true;
+        }
         static private bool Auth_UserPassword(string password)
         {
             try
@@ -137,15 +142,8 @@ namespace MealSync_APP.Utils
         }
         static private bool Auth_UserDateTime(DateTime createdAt)
         {
-            if(createdAt < DateTime.UtcNow || createdAt > DateTime.UtcNow)
-            {
-                MessageBox.Show("Data Invalida");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            //Ainda falta as verificações
+            return true;
         }
         static private bool Auth_UserEmail(string email)
         {
@@ -171,6 +169,7 @@ namespace MealSync_APP.Utils
             }
         }
 
+        //Autenticação para Login
         static private bool Auth_PasswordLogin(string name, string password)
         {
             DataTable dt = BLL.User.Get_UserByName(name);
@@ -185,6 +184,8 @@ namespace MealSync_APP.Utils
                 return true;
             }
         }
+
+        //Autenticaçãp para Register
         static private bool Auth_PasswordRegister(string password, string passwordConfirm)
         {
            if(password == passwordConfirm)
@@ -208,7 +209,7 @@ namespace MealSync_APP.Utils
         static private bool Search_UserName(string name)
         {
             DataTable dt = BLL.User.Search_UserName(name);
-            if(dt.Rows.Count == 1)
+            if(dt.Rows.Count >= 1)
             {
                 MessageBox.Show("Já existe um utilizador com este nome");
                 return false;
@@ -221,7 +222,7 @@ namespace MealSync_APP.Utils
         static private bool Search_UserEmail(string email)
         {
             DataTable dt = BLL.User.Search_UserEmail(email);
-            if(dt.Rows.Count == 1)
+            if(dt.Rows.Count >= 1)
             {
                 MessageBox.Show("Já existe um utilizador com este email");
                 return false;
@@ -232,22 +233,306 @@ namespace MealSync_APP.Utils
             }
         }
 
-
-        //IsAdmin verificação
-        static public int IsAdmin()
+        static protected ValidatorResult IsUserNameTaken(string name)
         {
-            switch (Globals.User.Role)
+            try
             {
-                case 0:
-                    return 0;
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
+                DataTable dt = BLL.User.Search_UserName(name);
+                if (dt.Rows.Count >= 1)
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Este nome não está disponivel" };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+            }
+            catch(Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o nome do utilizador "+err.Message};
+            }
+        }
+        static protected ValidatorResult IsUserEmailTaken(string email)
+        {
+            try
+            {
+                DataTable dt = BLL.User.Search_UserEmail(email);
+                if(dt.Rows.Count >= 1)
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Este email não está disponivel" };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+            }
+            catch(Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao procurar o email do utilizador "+err.Message};
+            }
+        }
+
+        static protected ValidatorResult Validate_UserEmail(string email)
+        {
+            try
+            { 
+                if (email.Contains("@"))
+                {
+                    if (email.EndsWith(".com") || email.EndsWith(".pt"))
+                    {
+                        if (email.Length >= 10)
+                        {
+                            return new ValidatorResult { IsValid = true };
+                        }
+                        else
+                        {
+                            return new ValidatorResult { IsValid = false, errorMessage = "Email muito curto" };
+                        }
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "Email deve terminar com '.com' ou '.pt'" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Email tem que conter '@' " };
+                }
+            }
+            catch (Exception err) 
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [email]: " + err.Message };
+            }
+        }
+        static protected ValidatorResult Validate_UserName(string name)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(name))
+                {
+                    if (name.Length >= 3)
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [nome] não pode estar vazio" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "nome muito curto" };
+                }
+            }
+            catch(Exception err) 
+            {
+                return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao tentar validar o campo [nome]: "+err.Message };
+            }
+        }
+        static protected ValidatorResult Validate_UserPassword(string password)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(password))
+                {
+                    if (password.Length >= 7)
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "password muito fraca" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "campo [password] não pode estar vazio" };
+                }
+            }
+            catch(Exception err)
+            {
+                return new ValidatorResult { IsValid=false, errorMessage = "Ocorreu um erro ao tentar validar o campo [password]: "+ err.Message };
+            }
+        }
+        static protected ValidatorResult Validate_UserRole(int role)
+        {
+            try
+            {
+                if (role < 0 || role > 3)
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Campo [função] invalido" };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao Validar o campo [função]: " + err.Message };
+            }
+        }
+
+        //Métodos de Verificação secundarios
+        static protected ValidatorResult PasswordConfirm(string password, string passwordConfirm)
+        {
+            if (password != passwordConfirm)
+                return new ValidatorResult { IsValid = false, errorMessage = "Password's não coincidem" };
+            else
+                return new ValidatorResult { IsValid = true };
+        }
+
+        static protected ValidatorResult Can_UserLogin(string name, string password)
+        {
+            try
+            {
+                DataTable dt = BLL.User.Get_UserByName(name);
+                if (dt.Rows.Count != 0)
+                {
+                    if (password == dt.Rows[0][4].ToString())
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "Password Incorreta" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Utilizador não existe" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar fazer Login: " + err.Message };
+            }
+        }
+    }
+    public class Auth : UserUtils//Auth --> Authtorize
+    {
+        static public void Register(string email, string name, string password, string passwordConfirm, int role)
+        {
+            ValidatorResult validateEmail = Validate_UserEmail(email);
+            ValidatorResult isEmailTaken = IsUserEmailTaken(email);
+
+            ValidatorResult validateName = Validate_UserName(name);
+            ValidatorResult isNameTaken = IsUserNameTaken(name);
+
+            ValidatorResult validatePassword = Validate_UserPassword(password);
+            ValidatorResult pswdConfirm = PasswordConfirm(password, passwordConfirm);
+
+            ValidatorResult validateRole = Validate_UserRole(role);
+
+            //Email
+            if (!validateEmail.IsValid)
+            {
+                MessageBox.Show(validateEmail.errorMessage);
+                return;
+            }
+            if (!isEmailTaken.IsValid)
+            {
+                MessageBox.Show(isEmailTaken.errorMessage);
+                return;
+            }
+            //Name
+            if (!validateName.IsValid)
+            {
+                MessageBox.Show(validateName.errorMessage);
+                return;
+            }
+            if (!isNameTaken.IsValid)
+            {
+                MessageBox.Show(isNameTaken.errorMessage);
+            }
+            //Password
+            if (!validatePassword.IsValid)
+            {
+                MessageBox.Show(validatePassword.errorMessage);
+                return;
+            }
+            if(!pswdConfirm.IsValid)
+            {
+                MessageBox.Show(pswdConfirm.errorMessage);
+            }
+            //Role -> Função
+            if (!validateRole.IsValid)
+            {
+                MessageBox.Show(validateRole.errorMessage);
+                return;
+            }
+        }
+        static public void Login(string name, string password)
+        {
+            ValidatorResult validateName = Validate_UserName(name);
+            ValidatorResult validatePassword = Validate_UserEmail(password);
+            ValidatorResult canUserLogin = Can_UserLogin(name, password);
+
+            if (!validatePassword.IsValid)
+            {
+                MessageBox.Show(validatePassword.errorMessage);
+                return;
+            }
+            if (!validateName.IsValid)
+            {
+                MessageBox.Show(validatePassword.errorMessage);
+                return;
+            } 
+            if (!canUserLogin.IsValid)
+            {
+                MessageBox.Show(canUserLogin.errorMessage);
+                return;
+            }
+        }
+    }
+    public class UserData
+    {
+        static public ValidatorResult Save(string name)
+        {
+            ValidatorResult result = new ValidatorResult();
+
+            try
+            {
+                DataTable dt = BLL.User.Get_UserByName(name);
+                if (dt.Rows.Count != 0)
+                {
+                    Globals.User.ID = Convert.ToInt16(dt.Rows[0][0]);
+                    Globals.User.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
+                    Globals.User.Email = dt.Rows[0][2].ToString();
+                    Globals.User.Name = dt.Rows[0][3].ToString();
+                    Globals.User.Role = Convert.ToInt16(dt.Rows[0][4]);
+
+                    return new ValidatorResult { IsValid = true };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Utilizador não encontrado" };
+                }
+            }
+            catch(Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar salvar o dados do utilizador: " + err.Message };
+            }
+            finally
+            {
+                if(result.IsValid == false)
+                    MessageBox.Show(result.errorMessage);
             }
 
-            return 0;
         }
-        
+        static public void Reset()
+        {
+            Globals.User.ID = 0;
+            Globals.User.CreatedAt = DateTime.MinValue;
+            Globals.User.Email = string.Empty;
+            Globals.User.Name = string.Empty;
+            Globals.User.Role = -1;
+        }
+    }
+    public class ValidatorResult
+    {
+        public bool IsValid { get; set; }
+        public string errorMessage { get; set; }
     }
 }
+    

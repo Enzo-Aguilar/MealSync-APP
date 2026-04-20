@@ -30,7 +30,7 @@ namespace MealSync_APP
         //Load do form
         private void Home_Load(object sender, EventArgs e)
         {
-            
+            HomeTabs_Visibility();
         }
     
         //Métodos dos componentes gráficos
@@ -142,5 +142,36 @@ namespace MealSync_APP
         {
             FormUtils.OpenForm_RemoveAdmin();
         }
+
+        //Métodos Auxiliares
+        public void HomeTabs_Visibility()
+        {
+            int role = Globals.User.Role;
+            switch (role)
+            {
+                case 0: // Admin
+                    MessageBox.Show("Admin");
+                    break;
+
+                case 1: // Employee
+                    Students.Visible = false;
+                    Employees.Visible = false;
+                    Admin.Visible = false;
+                    MessageBox.Show("Employee");
+                    break;
+
+                case 2: // Student
+                    edit_Meal.Visible = false;
+                    add_Meal.Visible = false;
+                    remove_Meal.Visible = false;
+
+                    Students.Visible = false;
+                    Employees.Visible = false;
+                    Admin.Visible = false;
+                    MessageBox.Show("Student");
+                    break;
+            }
+        }
+
     }
 }

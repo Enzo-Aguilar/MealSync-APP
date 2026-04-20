@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
+using BusinessLogicLayer;
 
 namespace MealSync_APP
 {
@@ -13,20 +14,18 @@ namespace MealSync_APP
         //Load do form
         private void Index_Load(object sender, EventArgs e)
         {
-            UserUtils.Reset_UserData();   
+            UserData.Reset();
         }
 
         //Métodos dos componentes graficos
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (UserUtils.Auth_UserLogin(tbNome.Text, tbPassword.Text))
-            {
-                FormUtils.Open_Home(this);
-            }
-            else
-            {
-                MessageBox.Show("Ocorreu um erro no login");
-            }
+            string name = tbName.Text;
+            string password  = tbPassword.Text;
+
+            Auth.Login(name, password);
+            UserData.Save(name);
+            FormUtils.Open_Home(this);
         }
         private void lbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

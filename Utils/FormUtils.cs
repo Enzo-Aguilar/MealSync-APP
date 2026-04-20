@@ -1,4 +1,5 @@
-﻿using MealSync_APP._Começo;
+﻿using BusinessLogicLayer;
+using MealSync_APP._Começo;
 using MealSync_APP._Conta_Bancaria;
 using MealSync_APP._Utilizador_;
 using MealSync_APP.Administradores;
@@ -34,6 +35,7 @@ namespace MealSync_APP.Utils
         {
             Index index = new Index();
             index.Show();
+           _home.Hide();
         }
 
         //Home
@@ -42,15 +44,16 @@ namespace MealSync_APP.Utils
             _home.Show();
             index.Hide();
         }
-
+      
         //User em sessão
         static public void OpenForm_EditProfile()
         {
             Edit_Profile editProfile = new Edit_Profile();
             editProfile.MdiParent = _home;
             editProfile.Show();
+
         }
-        
+
         //Bank Account
         static public void OpenForm_AssociateBankAccount()
         {

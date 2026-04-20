@@ -30,7 +30,7 @@
         {
             this.lbNome = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
@@ -55,12 +55,12 @@
             this.lbPassword.TabIndex = 1;
             this.lbPassword.Text = "Password";
             // 
-            // tbNome
+            // tbName
             // 
-            this.tbNome.Location = new System.Drawing.Point(271, 115);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(213, 20);
-            this.tbNome.TabIndex = 2;
+            this.tbName.Location = new System.Drawing.Point(271, 115);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(213, 20);
+            this.tbName.TabIndex = 2;
             // 
             // tbPassword
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.tbNome);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbNome);
             this.Name = "Index";
@@ -123,7 +123,7 @@
 
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lbText;
