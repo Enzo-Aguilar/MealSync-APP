@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.Logout = new System.Windows.Forms.ToolStripMenuItem();
             this.Profile = new System.Windows.Forms.ToolStripMenuItem();
             this.edit_Profile = new System.Windows.Forms.ToolStripMenuItem();
@@ -269,28 +270,28 @@
             // show_Admins
             // 
             this.show_Admins.Name = "show_Admins";
-            this.show_Admins.Size = new System.Drawing.Size(180, 22);
+            this.show_Admins.Size = new System.Drawing.Size(125, 22);
             this.show_Admins.Text = "Ver";
             this.show_Admins.Click += new System.EventHandler(this.show_Admins_Click);
             // 
             // add_Admin
             // 
             this.add_Admin.Name = "add_Admin";
-            this.add_Admin.Size = new System.Drawing.Size(180, 22);
+            this.add_Admin.Size = new System.Drawing.Size(125, 22);
             this.add_Admin.Text = "Adicionar";
             this.add_Admin.Click += new System.EventHandler(this.add_Admin_Click);
             // 
             // edit_Admin
             // 
             this.edit_Admin.Name = "edit_Admin";
-            this.edit_Admin.Size = new System.Drawing.Size(180, 22);
+            this.edit_Admin.Size = new System.Drawing.Size(125, 22);
             this.edit_Admin.Text = "Editar";
             this.edit_Admin.Click += new System.EventHandler(this.edit_Admin_Click);
             // 
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
+            this.remove_Admin.Size = new System.Drawing.Size(125, 22);
             this.remove_Admin.Text = "Remover";
             this.remove_Admin.Click += new System.EventHandler(this.remove_Admin_Click);
             // 
@@ -316,8 +317,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(797, 444);
             this.Controls.Add(this.MenuStrip);
+            this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuStrip;
             this.Name = "Home";

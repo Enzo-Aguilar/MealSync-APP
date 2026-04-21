@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbPassword = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -37,52 +36,39 @@
             this.lbLink_Register = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // lbNome
-            // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(352, 68);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 0;
-            this.lbNome.Text = "Nome";
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(349, 212);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(53, 13);
-            this.lbPassword.TabIndex = 1;
-            this.lbPassword.Text = "Password";
-            // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(271, 115);
+            this.tbName.Location = new System.Drawing.Point(466, 312);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(213, 20);
+            this.tbName.Size = new System.Drawing.Size(154, 20);
             this.tbName.TabIndex = 2;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(271, 254);
+            this.tbPassword.Location = new System.Drawing.Point(466, 346);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(213, 20);
+            this.tbPassword.Size = new System.Drawing.Size(154, 20);
             this.tbPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(324, 301);
+            this.btnLogin.BackColor = System.Drawing.Color.Green;
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogin.Location = new System.Drawing.Point(432, 407);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(106, 52);
+            this.btnLogin.Size = new System.Drawing.Size(201, 37);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(283, 401);
+            this.lbText.BackColor = System.Drawing.Color.Transparent;
+            this.lbText.Location = new System.Drawing.Point(463, 381);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(104, 13);
             this.lbText.TabIndex = 5;
@@ -91,7 +77,9 @@
             // lbLink_Register
             // 
             this.lbLink_Register.AutoSize = true;
-            this.lbLink_Register.Location = new System.Drawing.Point(393, 401);
+            this.lbLink_Register.BackColor = System.Drawing.Color.Green;
+            this.lbLink_Register.LinkColor = System.Drawing.Color.White;
+            this.lbLink_Register.Location = new System.Drawing.Point(573, 381);
             this.lbLink_Register.Name = "lbLink_Register";
             this.lbLink_Register.Size = new System.Drawing.Size(60, 13);
             this.lbLink_Register.TabIndex = 6;
@@ -103,14 +91,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(811, 713);
             this.Controls.Add(this.lbLink_Register);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.lbNome);
             this.Name = "Index";
             this.Text = "Index";
             this.Load += new System.EventHandler(this.Index_Load);
@@ -120,9 +108,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
