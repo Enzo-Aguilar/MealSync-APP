@@ -21,8 +21,7 @@ namespace MealSync_APP
 
         //LogOut
         private void Logout_Click(object sender, EventArgs e)
-        {
-            HomeTabs_Visibility();
+        { 
             FormUtils.Open_Index();
         }
 
@@ -131,8 +130,6 @@ namespace MealSync_APP
         //Métodos Auxiliares
         public void HomeTabs_Visibility()
         {
-            HomeTabs_VisibilityReset();
-            
             if (Globals.User.Role == 0) // Admin
             {
                 // No changes needed for admin
@@ -157,6 +154,7 @@ namespace MealSync_APP
         }
         public void HomeTabs_VisibilityReset()
         {
+            MessageBox.Show("Im a reset");
             edit_Meal.Visible = true;
             add_Meal.Visible = true;
             remove_Meal.Visible = true;

@@ -166,7 +166,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = true };
         }
     }
-    public class Auth : UserUtils//Auth --> Authtorize
+    public class Auth : UserUtils //Auth --> Authtorize
     {
         static public void Register(string email, string name, string password, string passwordConfirm, int role)
         {

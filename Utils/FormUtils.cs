@@ -21,7 +21,7 @@ namespace MealSync_APP.Utils
     public class FormUtils
     {
         static protected readonly Home _home = new Home();
-
+       
         //Register
         static public void Open_Register(Index index, string whoForm)
         {
@@ -41,6 +41,7 @@ namespace MealSync_APP.Utils
         //Home
         static public  void Open_Home(Index index)
         {
+            _home.Refresh();
             _home.Show();
             index.Hide();
         }
