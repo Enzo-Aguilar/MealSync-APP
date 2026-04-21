@@ -165,32 +165,6 @@ namespace MealSync_APP.Utils
             else
                 return new ValidatorResult { IsValid = true };
         }
-        static protected ValidatorResult Can_UserLogin(string name, string password)
-        {
-            try
-            {
-                DataTable dt = BLL.User.Get_UserByName(name);
-                if (dt.Rows.Count != 0)
-                {
-                    if (password == dt.Rows[0][4].ToString())
-                    {
-                        return new ValidatorResult { IsValid = true };
-                    }
-                    else
-                    {
-                        return new ValidatorResult { IsValid = false, errorMessage = "Password Incorreta" };
-                    }
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, errorMessage = "Utilizador não existe" };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar fazer Login: " + err.Message };
-            }
-        }
     }
     public class Auth : UserUtils//Auth --> Authtorize
     {
@@ -245,14 +219,30 @@ namespace MealSync_APP.Utils
                 return;
             }
         }
-        static public void Login(string name, string password)
+        static public ValidatorResult Login(string name, string password)
         {
-            ValidatorResult canUserLogin = Can_UserLogin(name, password);
- 
-            if (!canUserLogin.IsValid)
+            try
             {
-                MessageBox.Show(canUserLogin.errorMessage);
-                return;
+                DataTable dt = BLL.User.Get_UserByName(name);
+                if (dt.Rows.Count != 0)
+                {
+                    if (password == dt.Rows[0][4].ToString())
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "Password Incorreta" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Utilizador não existe" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar fazer Login: " + err.Message };
             }
         }
     }

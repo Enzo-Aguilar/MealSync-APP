@@ -22,6 +22,7 @@ namespace MealSync_APP
         //LogOut
         private void Logout_Click(object sender, EventArgs e)
         {
+            HomeTabs_Visibility();
             FormUtils.Open_Index();
         }
 
@@ -130,39 +131,38 @@ namespace MealSync_APP
         //Métodos Auxiliares
         public void HomeTabs_Visibility()
         {
-            switch (Globals.User.Role)
+            HomeTabs_VisibilityReset();
+            
+            if (Globals.User.Role == 0) // Admin
             {
-                case 0: // Admin
-                    break;
-
-                case 1: // Employee
-                    Students.Visible = false;
-                    Employees.Visible = false;
-                    Admin.Visible = false;
-                    MessageBox.Show("Employee");
-                    break;
-
-                case 2: // Student
-                    edit_Meal.Visible = false;
-                    add_Meal.Visible = false;
-                    remove_Meal.Visible = false;
-                    Students.Visible = false;
-                    Employees.Visible = false;
-                    Admin.Visible = false;
-                    MessageBox.Show("Student");
-                    break;
+                // No changes needed for admin
+            }
+            else if (Globals.User.Role == 1) // Employee
+            {
+                Students.Visible = false;
+                Employees.Visible = false;
+                Admin.Visible = false;
+                MessageBox.Show("Employee");
+            }
+            else if (Globals.User.Role == 2) // Student
+            {
+                edit_Meal.Visible = false;
+                add_Meal.Visible = false;
+                remove_Meal.Visible = false;
+                Students.Visible = false;
+                Employees.Visible = false;
+                Admin.Visible = false;
+                MessageBox.Show("Student");
             }
         }
         public void HomeTabs_VisibilityReset()
         {
-            Students.Visible = true;
-            Employees.Visible = true;
-            Admin.Visible = true;
-
             edit_Meal.Visible = true;
             add_Meal.Visible = true;
             remove_Meal.Visible = true;
+            Students.Visible = true;
+            Employees.Visible = true;
+            Admin.Visible = true;
         }
-
     }
 }
