@@ -12,7 +12,7 @@ namespace MealSync_APP
         }
 
         //Load do form
-        private void Home_Load(object sender, EventArgs e)
+        public void Home_Load(object sender, EventArgs e)
         {
             HomeTabs_Visibility();
         }
@@ -23,6 +23,7 @@ namespace MealSync_APP
         private void Logout_Click(object sender, EventArgs e)
         { 
             FormUtils.Open_Index();
+            HomeTabs_Visibility();
         }
 
         //User (em sessão)
@@ -130,6 +131,7 @@ namespace MealSync_APP
         //Métodos Auxiliares
         public void HomeTabs_Visibility()
         {
+            MessageBox.Show(Globals.User.Role.ToString());
             if (Globals.User.Role == 0) // Admin
             {
                 // No changes needed for admin
@@ -154,8 +156,7 @@ namespace MealSync_APP
         }
         public void HomeTabs_VisibilityReset()
         {
-            MessageBox.Show("Im a reset");
-            edit_Meal.Visible = true;
+            edit_Meal.Visible = true; 
             add_Meal.Visible = true;
             remove_Meal.Visible = true;
             Students.Visible = true;
