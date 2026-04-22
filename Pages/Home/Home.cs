@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
+using BusinessLogicLayer;
 
 namespace MealSync_APP
 {
@@ -15,6 +16,7 @@ namespace MealSync_APP
         public void Home_Load(object sender, EventArgs e)
         {
             HomeTabs_Visibility();
+            Has_BankAccount();
         }
     
         //Métodos dos componentes gráficos
@@ -131,19 +133,17 @@ namespace MealSync_APP
         //Métodos Auxiliares
         public void HomeTabs_Visibility()
         {
-            MessageBox.Show(Globals.User.Role.ToString());
-            if (Globals.User.Role == 0) // Admin
+            if (User.Role == 0) // Admin
             {
                 // No changes needed for admin
             }
-            else if (Globals.User.Role == 1) // Employee
+            else if (User.Role == 1) // Employee
             {
                 Students.Visible = false;
                 Employees.Visible = false;
                 Admin.Visible = false;
-                MessageBox.Show("Employee");
             }
-            else if (Globals.User.Role == 2) // Student
+            else if (User.Role == 2) // Student
             {
                 edit_Meal.Visible = false;
                 add_Meal.Visible = false;
@@ -151,17 +151,20 @@ namespace MealSync_APP
                 Students.Visible = false;
                 Employees.Visible = false;
                 Admin.Visible = false;
-                MessageBox.Show("Student");
             }
         }
-        public void HomeTabs_VisibilityReset()
+        public void Has_BankAccount()
         {
-            edit_Meal.Visible = true; 
-            add_Meal.Visible = true;
-            remove_Meal.Visible = true;
-            Students.Visible = true;
-            Employees.Visible = true;
-            Admin.Visible = true;
+            var res =  BankAuth.Has_BankAccount(User.ID);
+            if (!res.IsValid)
+            {
+                lbDoesNotHaveBankAccount.Text = res.errorMessage;
+            }
+        }
+        private void lbDoesNotHaveBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormUtils.OpenForm_CreateBankAccount();
+            lbDoesNotHaveBankAccount.Visible = false;
         }
     }
 }

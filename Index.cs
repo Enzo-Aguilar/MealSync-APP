@@ -22,14 +22,14 @@ namespace MealSync_APP
             string name = tbName.Text;
             string password = tbPassword.Text;
 
-            if (Auth.Login(name, password).IsValid)
+            if (UserAuth.Login(name, password).IsValid)
             {
                 UserData.Save(name);
                 FormUtils.Open_Home(this);
             }
             else
             {
-                MessageBox.Show(Auth.Login(name, password).errorMessage);
+                MessageBox.Show(UserAuth.Login(name, password).errorMessage);
             }
         }
         private void lbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

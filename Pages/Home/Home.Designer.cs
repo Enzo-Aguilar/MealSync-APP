@@ -60,6 +60,7 @@
             this.edit_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.remove_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
+            this.lbDoesNotHaveBankAccount = new System.Windows.Forms.LinkLabel();
             this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -309,9 +310,20 @@
             this.Admin});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(797, 24);
+            this.MenuStrip.Size = new System.Drawing.Size(996, 24);
             this.MenuStrip.TabIndex = 0;
             this.MenuStrip.Text = "menuStrip1";
+            // 
+            // lbDoesNotHaveBankAccount
+            // 
+            this.lbDoesNotHaveBankAccount.AutoSize = true;
+            this.lbDoesNotHaveBankAccount.Location = new System.Drawing.Point(840, 375);
+            this.lbDoesNotHaveBankAccount.Name = "lbDoesNotHaveBankAccount";
+            this.lbDoesNotHaveBankAccount.Size = new System.Drawing.Size(63, 10);
+            this.lbDoesNotHaveBankAccount.TabIndex = 3;
+            this.lbDoesNotHaveBankAccount.TabStop = true;
+            this.lbDoesNotHaveBankAccount.Text = "Hellooooooooo";
+            this.lbDoesNotHaveBankAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDoesNotHaveBankAccount_LinkClicked);
             // 
             // Home
             // 
@@ -319,7 +331,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(797, 444);
+            this.ClientSize = new System.Drawing.Size(996, 555);
+            this.Controls.Add(this.lbDoesNotHaveBankAccount);
             this.Controls.Add(this.MenuStrip);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
@@ -367,5 +380,6 @@
         private System.Windows.Forms.ToolStripMenuItem edit_Admin;
         private System.Windows.Forms.ToolStripMenuItem remove_Admin;
         private System.Windows.Forms.MenuStrip MenuStrip;
+        private System.Windows.Forms.LinkLabel lbDoesNotHaveBankAccount;
     }
 }

@@ -66,7 +66,7 @@ namespace MealSync_APP.Utils
         {
             Create_BankAccount createBankAccount = new Create_BankAccount();
             createBankAccount.MdiParent= _home;
-            
+            createBankAccount.Show();        
         }
 
         //Admin

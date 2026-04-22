@@ -1,15 +1,7 @@
-﻿using BusinessLogicLayer;
+﻿using System.Windows.Forms;
+using BusinessLogicLayer;
 using MealSync_APP.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP
 {
@@ -64,7 +56,7 @@ namespace MealSync_APP
             string passwordConfirm = tbPassword_Confirm.Text;
             int role = cbRole.SelectedIndex;
 
-            Auth.Register(email, name, password, passwordConfirm, role);
+            UserAuth.Register(email, name, password, passwordConfirm, role);
             BLL.User.Create_User(createdAt, email, name, password, role);
             MessageBox.Show("Utilizador Criado com sucesso");
 

@@ -1,19 +1,11 @@
-﻿using BusinessLogicLayer;
-using System;
-using System.Collections.Generic;
+﻿using System.Windows.Forms;
+using BusinessLogicLayer;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Utils
 {
-    public class UserUtils
+    public class UserValidator
     {
         //Métodos de Procura
         static protected ValidatorResult IsUserNameTaken(string name)
@@ -166,7 +158,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = true };
         }
     }
-    public class Auth : UserUtils //Auth --> Authtorize
+    public class UserAuth : UserValidator //Auth --> Authtorize
     {
         static public void Register(string email, string name, string password, string passwordConfirm, int role)
         {
@@ -256,11 +248,11 @@ namespace MealSync_APP.Utils
                 DataTable dt = BLL.User.Get_UserByName(name);
                 if (dt.Rows.Count != 0)
                 {
-                    Globals.User.ID = Convert.ToInt16(dt.Rows[0][0]);
-                    Globals.User.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
-                    Globals.User.Email = dt.Rows[0][2].ToString();
-                    Globals.User.Name = dt.Rows[0][3].ToString();
-                    Globals.User.Role = Convert.ToInt16(dt.Rows[0][5]);
+                    User.ID = Convert.ToInt16(dt.Rows[0][0]);
+                    User.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
+                    User.Email = dt.Rows[0][2].ToString();
+                    User.Name = dt.Rows[0][3].ToString();
+                    User.Role = Convert.ToInt16(dt.Rows[0][5]);
                     
                     result.IsValid = true;
                     return result;
@@ -287,17 +279,12 @@ namespace MealSync_APP.Utils
         }
         static public void Reset()
         {
-            Globals.User.ID = 0;
-            Globals.User.CreatedAt = DateTime.MinValue;
-            Globals.User.Email = string.Empty;
-            Globals.User.Name = string.Empty;
-            Globals.User.Role = -1;
+            User.ID = 0;
+            User.CreatedAt = DateTime.MinValue;
+            User.Email = string.Empty;
+            User.Name = string.Empty;
+            User.Role = -1;
         }
-    }
-    public class ValidatorResult
-    {
-        public bool IsValid { get; set; }
-        public string errorMessage { get; set; }
     }
 }
     
