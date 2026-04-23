@@ -193,28 +193,28 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(125, 22);
+            this.show_Students.Size = new System.Drawing.Size(180, 22);
             this.show_Students.Text = "Ver";
             this.show_Students.Click += new System.EventHandler(this.show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(125, 22);
+            this.add_Student.Size = new System.Drawing.Size(180, 22);
             this.add_Student.Text = "Adicionar";
             this.add_Student.Click += new System.EventHandler(this.add_Student_Click);
             // 
             // edit_Student
             // 
             this.edit_Student.Name = "edit_Student";
-            this.edit_Student.Size = new System.Drawing.Size(125, 22);
+            this.edit_Student.Size = new System.Drawing.Size(180, 22);
             this.edit_Student.Text = "Editar";
             this.edit_Student.Click += new System.EventHandler(this.edit_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(125, 22);
+            this.remove_Student.Size = new System.Drawing.Size(180, 22);
             this.remove_Student.Text = "Remover";
             this.remove_Student.Click += new System.EventHandler(this.remove_Student_Click);
             // 
@@ -317,9 +317,9 @@
             // lbDoesNotHaveBankAccount
             // 
             this.lbDoesNotHaveBankAccount.AutoSize = true;
-            this.lbDoesNotHaveBankAccount.Location = new System.Drawing.Point(840, 375);
+            this.lbDoesNotHaveBankAccount.Location = new System.Drawing.Point(691, 419);
             this.lbDoesNotHaveBankAccount.Name = "lbDoesNotHaveBankAccount";
-            this.lbDoesNotHaveBankAccount.Size = new System.Drawing.Size(63, 10);
+            this.lbDoesNotHaveBankAccount.Size = new System.Drawing.Size(79, 13);
             this.lbDoesNotHaveBankAccount.TabIndex = 3;
             this.lbDoesNotHaveBankAccount.TabStop = true;
             this.lbDoesNotHaveBankAccount.Text = "Hellooooooooo";

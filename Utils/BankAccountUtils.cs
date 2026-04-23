@@ -30,7 +30,7 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar verificar se o utilizador tem conta" };
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar verificar se o utilizador tem conta: "+err.Message };
             }
         }
     }

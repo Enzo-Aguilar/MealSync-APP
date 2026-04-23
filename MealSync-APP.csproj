@@ -70,11 +70,23 @@
     <Compile Include="Pages\Admins\Show_Admins.Designer.cs">
       <DependentUpon>Show_Admins.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Home\Dashboard.cs">
+    <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\Home\Dashboard.Designer.cs">
+    <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Create_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Create_User.Designer.cs">
+      <DependentUpon>Create_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Edit_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Edit_User.Designer.cs">
+      <DependentUpon>Edit_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Student\Add_Student.cs">
       <SubType>Form</SubType>
@@ -195,11 +207,11 @@
     <Compile Include="Pages\Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Index.cs">
+    <Compile Include="Pages\Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
-      <DependentUpon>Index.cs</DependentUpon>
+    <Compile Include="Pages\Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,14 +235,20 @@
     <EmbeddedResource Include="Pages\BankAccount\Create_BankAccount.resx">
       <DependentUpon>Create_BankAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Home\Dashboard.resx">
+    <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GlobalForms\Create_User.resx">
+      <DependentUpon>Create_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GlobalForms\Edit_User.resx">
+      <DependentUpon>Edit_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Index.resx">
-      <DependentUpon>Index.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

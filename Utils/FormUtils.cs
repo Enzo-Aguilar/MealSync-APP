@@ -23,23 +23,23 @@ namespace MealSync_APP.Utils
         static protected Home _home = new Home();
        
         //Register
-        static public void Open_Register(Index index, string whoForm)
+        static public void Open_Register(Form form)
         {
-            Register regis = new Register(whoForm);
-            index.Hide();
+            Register regis = new Register();
+            form.Hide();
             regis.Show();
         }
 
         //Login
-        static public void Open_Index()
+        static public void Open_Login()
         {
-            Index index = new Index();
-            index.Show();
+            Login login = new Login();
+            login.Show();
            _home.Close();
         }
 
         //Home
-        static public  void Open_Home(Index index)
+        static public  void Open_Home(Login index)
         {
             _home = new Home();
             _home.Show();
@@ -147,26 +147,14 @@ namespace MealSync_APP.Utils
         }
 
         //Orders = Pedidos
-        static public void OpenForm_CancelOrder()
-        {
-            Cancel_Order cancel_Order = new Cancel_Order();
-            cancel_Order.MdiParent = _home;
-            cancel_Order.Show();
-        }
-        static public void OpenForm_MakeOrder()
-        {
-            Make_Order makeOrder = new Make_Order();
-            makeOrder.MdiParent = _home;
-            makeOrder.Show();
-        }
-        static public void OpenForm_ShowOrders()
-        {
-            Show_Orders showOrders = new Show_Orders();
-            showOrders.MdiParent = _home;
-            showOrders.Show();
-        }
+      
 
         //Meals = Refeições
+        
+       
+    } 
+    public class Meals : FormUtils
+    {
         static public void OpenForm_AddMeal()
         {
             Add_Meal add_Meal = new Add_Meal();
@@ -191,5 +179,27 @@ namespace MealSync_APP.Utils
             show_Meals.MdiParent = _home;
             show_Meals.Show();
         }
-    } 
+    }
+
+    public class Orders : FormUtils
+    {
+        static public void OpenForm_CancelOrder()
+        {
+            Cancel_Order cancel_Order = new Cancel_Order();
+            cancel_Order.MdiParent = _home;
+            cancel_Order.Show();
+        }
+        static public void OpenForm_MakeOrder()
+        {
+            Make_Order makeOrder = new Make_Order();
+            makeOrder.MdiParent = _home;
+            makeOrder.Show();
+        }
+        static public void OpenForm_ShowOrders()
+        {
+            Show_Orders showOrders = new Show_Orders();
+            showOrders.MdiParent = _home;
+            showOrders.Show();
+        }
+    }
 }

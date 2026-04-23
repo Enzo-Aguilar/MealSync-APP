@@ -4,9 +4,9 @@ using System;
 
 namespace MealSync_APP
 {
-    public partial class Index : Form
+    public partial class Login : Form
     {
-        public Index()
+        public Login()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace MealSync_APP
         }
         private void lbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormUtils.Open_Register(this,"Index");
+            FormUtils.Open_Register(this);
         }
     }
 }

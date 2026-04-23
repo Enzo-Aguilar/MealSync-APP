@@ -46,7 +46,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(127, 39);
+            this.lbEmail.Location = new System.Drawing.Point(227, 27);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(32, 13);
             this.lbEmail.TabIndex = 0;
@@ -55,7 +55,7 @@
             // lbFuncao
             // 
             this.lbFuncao.AutoSize = true;
-            this.lbFuncao.Location = new System.Drawing.Point(108, 132);
+            this.lbFuncao.Location = new System.Drawing.Point(208, 120);
             this.lbFuncao.Name = "lbFuncao";
             this.lbFuncao.Size = new System.Drawing.Size(74, 13);
             this.lbFuncao.TabIndex = 1;
@@ -64,7 +64,7 @@
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(124, 223);
+            this.lbNome.Location = new System.Drawing.Point(224, 211);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 2;
@@ -73,7 +73,7 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(363, 39);
+            this.lbPassword.Location = new System.Drawing.Point(463, 27);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(53, 13);
             this.lbPassword.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(46, 79);
+            this.tbEmail.Location = new System.Drawing.Point(146, 67);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(201, 20);
             this.tbEmail.TabIndex = 5;
@@ -89,7 +89,7 @@
             // lbConfirmar_Password
             // 
             this.lbConfirmar_Password.AutoSize = true;
-            this.lbConfirmar_Password.Location = new System.Drawing.Point(342, 132);
+            this.lbConfirmar_Password.Location = new System.Drawing.Point(442, 120);
             this.lbConfirmar_Password.Name = "lbConfirmar_Password";
             this.lbConfirmar_Password.Size = new System.Drawing.Size(100, 13);
             this.lbConfirmar_Password.TabIndex = 6;
@@ -97,21 +97,21 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(46, 254);
+            this.tbName.Location = new System.Drawing.Point(146, 242);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(201, 20);
             this.tbName.TabIndex = 7;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(292, 79);
+            this.tbPassword.Location = new System.Drawing.Point(392, 67);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(201, 20);
             this.tbPassword.TabIndex = 8;
             // 
             // tbPassword_Confirm
             // 
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(292, 172);
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(392, 160);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
             this.tbPassword_Confirm.Size = new System.Drawing.Size(201, 20);
             this.tbPassword_Confirm.TabIndex = 9;
@@ -124,14 +124,14 @@
             "Admin",
             "Funcionario",
             "Aluno"});
-            this.cbRole.Location = new System.Drawing.Point(46, 172);
+            this.cbRole.Location = new System.Drawing.Point(146, 160);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(201, 21);
             this.cbRole.TabIndex = 10;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(230, 317);
+            this.btnRegister.Location = new System.Drawing.Point(330, 305);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(141, 54);
             this.btnRegister.TabIndex = 11;
@@ -142,7 +142,7 @@
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(85, 396);
+            this.lbText.Location = new System.Drawing.Point(185, 384);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(74, 13);
             this.lbText.TabIndex = 12;
@@ -151,7 +151,7 @@
             // lbLink_Index
             // 
             this.lbLink_Index.AutoSize = true;
-            this.lbLink_Index.Location = new System.Drawing.Point(165, 396);
+            this.lbLink_Index.Location = new System.Drawing.Point(265, 384);
             this.lbLink_Index.Name = "lbLink_Index";
             this.lbLink_Index.Size = new System.Drawing.Size(73, 13);
             this.lbLink_Index.TabIndex = 13;

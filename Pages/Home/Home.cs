@@ -24,7 +24,7 @@ namespace MealSync_APP
         //LogOut
         private void Logout_Click(object sender, EventArgs e)
         { 
-            FormUtils.Open_Index();
+            FormUtils.Open_Login();
             HomeTabs_Visibility();
         }
 
@@ -63,13 +63,13 @@ namespace MealSync_APP
         {
             FormUtils.OpenForm_ShowMeal();
         }
-        private void edit_Meal_Click(object sender, EventArgs e)
-        {
-            FormUtils.OpenForm_EditMeal();
-        }
         private void add_Meal_Click(object sender, EventArgs e)
         {
             FormUtils.OpenForm_AddMeal();
+        }
+        private void edit_Meal_Click(object sender, EventArgs e)
+        {
+            FormUtils.OpenForm_EditMeal();
         }
         private void remove_Meal_Click(object sender, EventArgs e)
         {
@@ -83,7 +83,8 @@ namespace MealSync_APP
         }
         private void add_Student_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_AddStudent();
+            this.Text = "Add_Student";
+            FormUtils.Open_Register(this);
         }
         private void edit_Student_Click(object sender, EventArgs e)
         {
@@ -101,7 +102,8 @@ namespace MealSync_APP
         }
         private void add_Employee_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_AddEmployee();
+            this.Text = "Add_Employee";
+            FormUtils.Open_Register(this);
         }
         private void edit_Employee_Click(object sender, EventArgs e)
         {
@@ -119,7 +121,8 @@ namespace MealSync_APP
         }
         private void add_Admin_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_AddAdmin();
+            this.Text = "Add_Admin";
+            FormUtils.Open_Register(this);
         }
         private void edit_Admin_Click(object sender, EventArgs e)
         {
