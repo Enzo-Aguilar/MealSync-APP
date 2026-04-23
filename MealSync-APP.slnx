@@ -1,4 +1,3 @@
 <Solution>
-  <Project Path="../../../../../_MealSync_/MealSync-API/MealSync-API.csproj" />
   <Project Path="MealSync-APP.csproj" Id="caefe388-1282-4e4b-917c-53b0f4e17558" />
 </Solution>

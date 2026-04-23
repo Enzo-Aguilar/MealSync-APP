@@ -70,6 +70,12 @@
     <Compile Include="Pages\Admins\Show_Admins.Designer.cs">
       <DependentUpon>Show_Admins.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Home\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\Home\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Student\Add_Student.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BankAccount\Create_BankAccount.resx">
       <DependentUpon>Create_BankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Home\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

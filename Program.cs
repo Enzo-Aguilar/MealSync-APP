@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MealSync_APP.Pages.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace MealSync_APP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Index());
+            Application.Run(new Dashboard());
         }
     }
 }
