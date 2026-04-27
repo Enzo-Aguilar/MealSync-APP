@@ -20,11 +20,9 @@ namespace MealSync_APP._Conta_Bancaria
         {
 
         }
-
-        private void btnCreate_BankAccount_Click(object sender, EventArgs e)
+        private void BtnCreate_BankAccount_Click(object sender, EventArgs e)
         {
 
         }
-
     }
 }

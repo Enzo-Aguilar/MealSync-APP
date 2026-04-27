@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Administradores
+namespace MealSync_APP.Pages.BankAccount
 {
-    public partial class Add_Admin : Form
+    public partial class Remove_BankAccount : Form
     {
-        public Add_Admin()
+        public Remove_BankAccount()
         {
             InitializeComponent();
         }

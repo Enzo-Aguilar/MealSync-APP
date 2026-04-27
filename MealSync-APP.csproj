@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\Admins\Add_Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Admins\Add_Admin.Designer.cs">
-      <DependentUpon>Add_Admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Admins\Edit_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +69,12 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankAccount\Remove_BankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\BankAccount\Remove_BankAccount.Designer.cs">
+      <DependentUpon>Remove_BankAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalForms\Create_User.cs">
       <SubType>Form</SubType>
@@ -229,6 +229,9 @@
     </Compile>
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">
+      <DependentUpon>Associate_BankAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\BankAccount\Choose_BankAccountType.resx">
       <DependentUpon>Choose_BankAccountType.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\BankAccount\Remove_BankAccount.resx">
+      <DependentUpon>Remove_BankAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Create_User.resx">
       <DependentUpon>Create_User.cs</DependentUpon>

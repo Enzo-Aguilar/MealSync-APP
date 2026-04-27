@@ -17,6 +17,21 @@ namespace MealSync_APP
         {
             InitializeComponent();
         }
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
+        //Descontinuado
 
         //Load do form
         private void Escolher_TipoContaBancaria_Load(object sender, EventArgs e)

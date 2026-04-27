@@ -25,7 +25,7 @@ namespace MealSync_APP
             if (UserAuth.Login(name, password).IsValid)
             {
                 UserData.Save(name);
-                FormUtils.Open_Home(this);
+                FormUtils.Open_Home();
             }
             else
             {

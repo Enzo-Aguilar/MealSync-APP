@@ -47,33 +47,33 @@ namespace MealSync_APP
         //Pedidos
         private void show_Orders_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_ShowOrders();
+            
         }
         private void make_Orders_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_MakeOrder();
+
         }
         private void cancel_Order_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_CancelOrder();
+            
         }
 
         //Refeições
         private void show_Meals_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_ShowMeal();
+            
         }
         private void add_Meal_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_AddMeal();
+            
         }
         private void edit_Meal_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_EditMeal();
+            
         }
         private void remove_Meal_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm_RemoveMeal();
+            
         }
 
         //Alunos
