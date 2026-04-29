@@ -154,7 +154,7 @@
             this.Controls.Add(this.lbFuncao);
             this.Controls.Add(this.lbEmail);
             this.Name = "Create_User";
-            this.Text = "Create_User";
+            this.Text = "Criar";
             this.Load += new System.EventHandler(this.Create_User_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

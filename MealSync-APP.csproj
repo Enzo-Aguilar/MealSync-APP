@@ -88,6 +88,12 @@
     <Compile Include="Pages\GlobalForms\Edit_User.Designer.cs">
       <DependentUpon>Edit_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GlobalForms\Show_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Show_User.Designer.cs">
+      <DependentUpon>Show_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Student\Add_Student.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,7 @@
     <Compile Include="Pages\User\Edit_Profile.Designer.cs">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\User.cs" />
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">
@@ -249,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Edit_User.resx">
       <DependentUpon>Edit_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GlobalForms\Show_User.resx">
+      <DependentUpon>Show_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

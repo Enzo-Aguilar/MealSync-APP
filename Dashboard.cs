@@ -19,15 +19,9 @@ namespace MealSync_APP.Pages.Home
         private float btnEntrarOrigX, btnEntrarOrigY, btnEntrarOrigW, btnEntrarOrigH;
         private float btnCriarOrigX, btnCriarOrigY, btnCriarOrigW, btnCriarOrigH;
 
-        private void btnCriar_Click(object sender, EventArgs e)
-        {
-            FormUtils.Open_Register(this);
-        }
+        private void btnCriar_Click(object sender, EventArgs e){RegisterForm.Open(this);}
 
-        private void btnEntrar_Click(object sender, EventArgs e)
-        {
-            FormUtils.Open_Login();
-        }
+        private void btnEntrar_Click(object sender, EventArgs e){LoginForm.Open(this);}
 
         public Dashboard()
         {

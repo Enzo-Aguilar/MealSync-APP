@@ -34,6 +34,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Register = new System.Windows.Forms.LinkLabel();
+            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbName
@@ -62,7 +63,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // lbText
             // 
@@ -85,22 +86,33 @@
             this.lbLink_Register.TabIndex = 6;
             this.lbLink_Register.TabStop = true;
             this.lbLink_Register.Text = "Registre-se";
-            this.lbLink_Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbLink_Register_LinkClicked);
+            this.lbLink_Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LbLink_Register_LinkClicked);
             // 
-            // Index
+            // checkBoxPassword
+            // 
+            this.checkBoxPassword.AutoSize = true;
+            this.checkBoxPassword.Location = new System.Drawing.Point(626, 349);
+            this.checkBoxPassword.Name = "checkBoxPassword";
+            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxPassword.TabIndex = 7;
+            this.checkBoxPassword.UseVisualStyleBackColor = true;
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(811, 713);
+            this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.lbLink_Register);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Name = "Index";
-            this.Text = "Index";
+            this.Name = "Login";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Index_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +125,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Register;
+        private System.Windows.Forms.CheckBox checkBoxPassword;
     }
 }

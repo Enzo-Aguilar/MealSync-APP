@@ -17,24 +17,34 @@ namespace MealSync_APP
         }
 
         //Métodos dos componentes graficos
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string name = tbName.Text;
-            string password = tbPassword.Text;
-
-            if (UserAuth.Login(name, password).IsValid)
+            string name = tbName.Text; string password = tbPassword.Text;
+            var login = UserAuth.Login(name, password);
+            
+            if (login.IsValid)
             {
                 UserData.Save(name);
-                FormUtils.Open_Home();
+                HomeForm.Open(this);
             }
             else
             {
-                MessageBox.Show(UserAuth.Login(name, password).errorMessage);
+                MessageBox.Show("Ocorreu um erro ao tentar fazer login: " + login.errorMessage,"ERROR");
             }
         }
-        private void lbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void LbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { RegisterForm.Open(this); }
+
+        private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-            FormUtils.Open_Register(this);
+            if (checkBoxPassword.Checked)
+            {//Mostrar a senha
+                tbPassword.PasswordChar = '\0';
+            }
+            else
+            {//Esconder a senha
+                tbPassword.PasswordChar = '*';
+            }
         }
     }
 }

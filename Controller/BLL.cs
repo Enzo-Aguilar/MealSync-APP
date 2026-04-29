@@ -2,6 +2,7 @@
 using DataAccessLayer;
 using System.Data;
 using System;
+using MealSync_APP.Utils;
 
 namespace BusinessLogicLayer
 {
@@ -10,6 +11,17 @@ namespace BusinessLogicLayer
 		
 		public class User
 		{
+			static public DataTable Login(UserPerson user)
+			{
+				DAL dal = new DAL();
+				SqlParameter[] sqlParams = new SqlParameter[]
+				{
+					new SqlParameter("@name",),
+					new SqlParameter("@password",password)
+                };
+				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name AND password=@password",sqlParams);
+            }
+			static public int Register(DateTime createdAt, string email, string name,)
 			static public int Create_User(DateTime createdAt, string email, string name, string password, int role)
 			{
 				DAL dal = new DAL();
@@ -74,7 +86,32 @@ namespace BusinessLogicLayer
 				};
 				return dal.ExecuteReader("SELECT * FROM [Holder] WHERE ID_User=@ID_User",sqlParams);
 			}
-		}
+
+			public class Admin
+			{
+				static public DataTable Show_Admins()
+				{
+					DAL dal = new DAL();
+					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=0", null);
+                }
+            }
+			public class Employee
+			{
+				static public DataTable Show_Employees()
+				{
+					DAL dal = new DAL();
+					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=1", null);
+				}
+            }
+			public class Student
+			{
+				static public DataTable Show_Students()
+				{
+					DAL dal = new DAL();
+					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=2", null);
+                }
+            }
+        }
 		public class Holder
 		{
 			static public bool isUserHolder(int userID)

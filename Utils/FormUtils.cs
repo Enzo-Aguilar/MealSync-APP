@@ -24,7 +24,7 @@ namespace MealSync_APP.Utils
         public static void Open(Form form)
         {
             Register resgister = new Register();
-            form.Close();
+            form.Hide();
             resgister.Show();
         }
     }
@@ -33,7 +33,7 @@ namespace MealSync_APP.Utils
         public static void Open(Form form)
         {
             Login login = new Login();
-            form.Close();
+            form.Hide();
             login.Show();
         }
     }
