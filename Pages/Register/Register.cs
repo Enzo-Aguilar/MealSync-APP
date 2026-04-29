@@ -15,32 +15,22 @@ namespace MealSync_APP
         private void Registo_Load(object sender, EventArgs e)
         {
             UserData.Reset();
-            cbRole.SelectedItem = "Aluno";
-            cbRole.Enabled = false;
         }
 
         //Métodos dos componentes gráficos
-        private void lbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void BtnRegister_Click(object sender, EventArgs e)
         {
-            FormUtils.Open_Login();
-            this.Close();
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            DateTime createdAt = DateTime.UtcNow;
-            string email = tbEmail.Text;
+            //UserData
+            DateTime CreatedAt = DateTime.UtcNow;
+            string email = tbEmail.Text;       
             string name = tbName.Text;
-            string password = tbPassword.Text;
+            string password = tbPassword.Text; 
             string passwordConfirm = tbPassword_Confirm.Text;
-            int role = 2;
-
-            UserAuth.Register(email, name, password, passwordConfirm, role);
-            BLL.User.Create_User(createdAt, email, name, password, role);
-            MessageBox.Show("Utilizador Criado com sucesso");
-
-            FormUtils.Open_Login();
-            this.Close();
-        }       
+            string phoneNumber = tbPhoneNum.Text;
+            int role = 2;                      
+            string IDNumber = tbIDNumber.Text;
+            string postcode = tbPostcode.Text; 
+        }
+        private void LbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){LoginForm.Open(this);}
     }
 }

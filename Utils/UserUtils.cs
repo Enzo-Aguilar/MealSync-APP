@@ -2,17 +2,18 @@
 using BusinessLogicLayer;
 using System.Data;
 using System;
+using System.Linq;
 
 namespace MealSync_APP.Utils
 {
     public class UserValidator
     {
         //Métodos de Procura
-        static protected ValidatorResult IsUserNameTaken(string name)
+        static protected ValidatorResult IsNameTaken(string name)
         {
             try
             {
-                DataTable dt = BLL.User.Search_UserName(name);
+                DataTable dt = BLL.User.Search_Name(name);
                 if (dt.Rows.Count >= 1)
                 {
                     return new ValidatorResult { IsValid = false, errorMessage = "Este nome não está disponivel" };
@@ -27,11 +28,11 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o nome do utilizador "+err.Message};
             }
         }
-        static protected ValidatorResult IsUserEmailTaken(string email)
+        static protected ValidatorResult IsEmailTaken(string email)
         {
             try
             {
-                DataTable dt = BLL.User.Search_UserEmail(email);
+                DataTable dt = BLL.User.Search_Email(email);
                 if(dt.Rows.Count >= 1)
                 {
                     return new ValidatorResult { IsValid = false, errorMessage = "Este email não está disponivel" };
@@ -46,9 +47,28 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao procurar o email do utilizador "+err.Message};
             }
         }
+        static protected ValidatorResult IsPhoneNumberTaken(string phoneNumber)
+        {
+            try
+            {
+                DataTable dt = BLL.User.Search_PhoneNumber(phoneNumber);
+                if (dt.Rows.Count >= 1)
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Este número de telefone já está associado a outro utilizador" };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o número de telefone do utilizador " + err.Message };
+            }
+        }
 
         //Métodos de Autenticação
-        static protected ValidatorResult Validate_UserEmail(string email)
+        static protected ValidatorResult Validate_Email(string email)
         {
             try
             { 
@@ -80,7 +100,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [email]: " + err.Message };
             }
         }
-        static protected ValidatorResult Validate_UserName(string name)
+        static protected ValidatorResult Validate_Name(string name)
         {
             try
             {
@@ -105,7 +125,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao tentar validar o campo [nome]: "+err.Message };
             }
         }
-        static protected ValidatorResult Validate_UserPassword(string password)
+        static protected ValidatorResult Validate_Password(string password)
         {
             try
             {
@@ -130,7 +150,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid=false, errorMessage = "Ocorreu um erro ao tentar validar o campo [password]: "+ err.Message };
             }
         }
-        static protected ValidatorResult Validate_UserRole(int role)
+        static protected ValidatorResult Validate_Role(int role)
         {
             try
             {
@@ -148,31 +168,134 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao Validar o campo [função]: " + err.Message };
             }
         }
+        static protected ValidatorResult Validate_PhoneNumber(string phoneNumber)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(phoneNumber))
+                {
+                    if (phoneNumber.Length == 9)
+                    {
+                        if (!phoneNumber.Contains("a"))//Verificar qualquer letra
+                        {
+                            return new ValidatorResult { IsValid = true };
+                        }
+                        else
+                        {
+                            return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de telefone] deve conter apenas números" };
+                        }
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de telefone] deve conter 9 dígitos" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de telefone] não pode estar vazio" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [número de telefone]: " + err.Message };
+            } 
+        }
+        static protected ValidatorResult Validate_IDNumber(string IDNumber)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(IDNumber))
+                {
+                    if (IDNumber.Length == 9)
+                    {
+                        if (!IDNumber.Equals("000000000") || !IDNumber.Equals("111111111"))
+                        {
+                            return new ValidatorResult { IsValid = true };
+                        }
+                        else
+                        {
+                            return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] com sequencia de dígitos inválida" };
+                        }
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] deve conter 9 dígitos" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] não pode estar vazio" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [número de identificação]: " + err.Message };
+            }
+        }
+        static protected ValidatorResult Validate_Postcode(string postcode)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(postcode))
+                {
+                    if (postcode.Length == 8)
+                    {
+                        if (postcode[4] == '-')
+                        {
+                            return new ValidatorResult { IsValid = true };
+                        }
+                        else
+                        {
+                            return new ValidatorResult { IsValid = false, errorMessage = "O campo [código postal] deve conter um hífen no meio" };
+                        }
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [código postal] deve conter 8 caracteres" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [código postal] não pode estar vazio" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [código postal]: " + err.Message };
+            }
+        }
 
         //Métodos de Verificação secundarios
         static protected ValidatorResult PasswordConfirm(string password, string passwordConfirm)
         {
             if (password != passwordConfirm)
-                return new ValidatorResult { IsValid = false, errorMessage = "Password's não coincidem" };
-            else
-                return new ValidatorResult { IsValid = true };
+                return new ValidatorResult { IsValid = false, errorMessage = "Palavras-Passe não coincidem" };
+
+            return new ValidatorResult { IsValid = true };
         }
     }
     public class UserAuth : UserValidator //Auth --> Authtorize
     {
-        static public void Register(string email, string name, string password, string passwordConfirm, int role)
+        static public void Register(string email, string name, string password, string passwordConfirm, int role, string phoneNumber, string idNumber, string postcode)
         {
-            ValidatorResult validateEmail = Validate_UserEmail(email);
-            ValidatorResult isEmailTaken = IsUserEmailTaken(email);
+            var validateEmail = Validate_Email(email);
+            var isEmailTaken = IsEmailTaken(email);
 
-            ValidatorResult validateName = Validate_UserName(name);
-            ValidatorResult isNameTaken = IsUserNameTaken(name);
+            var validateName = Validate_Name(name);
+            var isNameTaken = IsNameTaken(name);
 
-            ValidatorResult validatePassword = Validate_UserPassword(password);
-            ValidatorResult pswdConfirm = PasswordConfirm(password, passwordConfirm);
+            var validatePassword = Validate_Password(password);
+            var pswdConfirm = PasswordConfirm(password, passwordConfirm);
 
-            ValidatorResult validateRole = Validate_UserRole(role);
+            var validateRole = Validate_Role(role);
 
+            var validatePhoneNumber = Validate_PhoneNumber(phoneNumber);
+            var isPhoneNumberTaken = IsPhoneNumberTaken(phoneNumber);
+
+            var validateIDNumber = Validate_IDNumber(idNumber);
+
+            var validatePostcode = Validate_Postcode(postcode);
+            
             //Email
             if (!validateEmail.IsValid)
             {

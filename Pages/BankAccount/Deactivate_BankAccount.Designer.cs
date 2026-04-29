@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.BankAccount
 {
-    partial class Remove_BankAccount
+    partial class Deactivate_BankAccount
     {
         /// <summary>
         /// Required designer variable.

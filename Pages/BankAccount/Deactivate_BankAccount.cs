@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.BankAccount
 {
-    public partial class Remove_BankAccount : Form
+    public partial class Deactivate_BankAccount : Form
     {
-        public Remove_BankAccount()
+        public Deactivate_BankAccount()
         {
             InitializeComponent();
         }

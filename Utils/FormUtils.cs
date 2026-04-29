@@ -63,8 +63,8 @@ namespace MealSync_APP.Utils
         }
         public static void RemoveBankAccount()
         {
-            Remove_BankAccount rba = new Remove_BankAccount { MdiParent = _home };
-            rba.Show();
+            Deactivate_BankAccount dba = new Deactivate_BankAccount { MdiParent = _home };
+            dba.Show();
         }
         //Meals -> Refeições
     }

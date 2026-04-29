@@ -36,7 +36,7 @@ namespace BusinessLogicLayer
 			}
 
 			//Métodos de Procura
-			static public DataTable Search_UserEmail(string email)
+			static public DataTable Search_Email(string email)
 			{
 				DAL dal = new DAL();
 				SqlParameter[] sqlParams = new SqlParameter[]
@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
 
 				return dal.ExecuteReader("SELECT * FROM [User] WHERE email=@email",sqlParams);
 			}
-			static public DataTable Search_UserName(string name)
+			static public DataTable Search_Name(string name)
 			{
 				DAL dal = new DAL();
 				SqlParameter[] sqlParams = new SqlParameter[]
@@ -54,6 +54,15 @@ namespace BusinessLogicLayer
 					new SqlParameter("@name",name),
 				};
 				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name",sqlParams);
+			}
+			static public DataTable Search_PhoneNumber(string phoneNumber)
+			{
+				DAL dal = new DAL();
+				SqlParameter[] sqlParams = new SqlParameter[]
+				{
+					new SqlParameter("@phone", phoneNumber)
+                };
+				return dal.ExecuteReader("SELECT * FROM [User] WHERE phone=@phone", sqlParams);
 			}
 
 			static public DataTable Has_BankAccount(int ID_User)

@@ -70,11 +70,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\BankAccount\Remove_BankAccount.cs">
+    <Compile Include="Pages\BankAccount\Deactivate_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\BankAccount\Remove_BankAccount.Designer.cs">
-      <DependentUpon>Remove_BankAccount.cs</DependentUpon>
+    <Compile Include="Pages\BankAccount\Deactivate_BankAccount.Designer.cs">
+      <DependentUpon>Deactivate_BankAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalForms\Create_User.cs">
       <SubType>Form</SubType>
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\BankAccount\Remove_BankAccount.resx">
-      <DependentUpon>Remove_BankAccount.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\BankAccount\Deactivate_BankAccount.resx">
+      <DependentUpon>Deactivate_BankAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Create_User.resx">
       <DependentUpon>Create_User.cs</DependentUpon>
