@@ -242,7 +242,7 @@ namespace MealSync_APP.Utils
     {
         static public ValidatorResult Save(string name)
         {
-            ValidatorResult result = new ValidatorResult();
+            var result = new ValidatorResult();
             try
             {
                 DataTable dt = BLL.User.Get_UserByName(name);

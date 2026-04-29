@@ -3,7 +3,7 @@ using System;
 
 namespace MealSync_APP
 {
-    public class User
+    public class UserGlobals
     {
         public static int ID = 0;
         public static DateTime CreatedAt = DateTime.MinValue;
