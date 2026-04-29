@@ -11,29 +11,31 @@ namespace BusinessLogicLayer
 		
 		public class User
 		{
-			static public DataTable Login(UserPerson user)
+			static public DataTable Login(string name, string password)
 			{
 				DAL dal = new DAL();
 				SqlParameter[] sqlParams = new SqlParameter[]
 				{
-					new SqlParameter("@name",),
+					new SqlParameter("@name", name),
 					new SqlParameter("@password",password)
                 };
 				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name AND password=@password",sqlParams);
             }
-			static public int Register(DateTime createdAt, string email, string name,)
-			static public int Create_User(DateTime createdAt, string email, string name, string password, int role)
+			static public int Register(DateTime createdAt, string email, string name, string password, string phoneNumber, int role, string postalCode, string schoolID_number)
 			{
 				DAL dal = new DAL();
 				SqlParameter[] sqlParams = new SqlParameter[]
 				{
 					new SqlParameter("@createdAt",createdAt),
-					new SqlParameter("@email",email),
+                    new SqlParameter("@email",email),
 					new SqlParameter("@name",name),
 					new SqlParameter("@password",password),
-					new SqlParameter("@role",role)
-				};
-				return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,role) VALUES(@createdAt,@email,@name,@password,@role)", sqlParams);
+					new SqlParameter("@phoneNumber",phoneNumber),
+                    new SqlParameter("@role",role),
+					new SqlParameter("@postalCode",postalCode),
+					new SqlParameter("@schoolID_number",schoolID_number)
+                };
+				return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,phone,role,postalCode,schoolIDnumber) VALUES(@createdAt,@email,@name,@password,@phoneNumber,@role,@postalCode,@schoolID_number)", sqlParams);
 			}
 			
 			//Buscar dados do User pelo Nome

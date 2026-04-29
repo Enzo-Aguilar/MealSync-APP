@@ -37,8 +37,8 @@ namespace MealSync_APP.Pages.GlobalForms
             string passwordConfirm = tbPassword_Confirm.Text;
             int role = cbRole.SelectedIndex;
 
-            UserAuth.Register(email, name, password, passwordConfirm, role);
-            BLL.User.Create_User(createdAt, email, name, password, role);
+            //UserAuth.Register(email, name, password, passwordConfirm, role);
+            //BLL.User.Create_User(createdAt, email, name, password, role);
             MessageBox.Show("Utilizador Criado com sucesso");
         }
 

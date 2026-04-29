@@ -45,6 +45,8 @@
             this.tbPostcode = new System.Windows.Forms.TextBox();
             this.lbPhoneNumber = new System.Windows.Forms.Label();
             this.tbPhoneNum = new System.Windows.Forms.TextBox();
+            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
+            this.checkBoxPasswordConfirm = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbEmail
@@ -189,12 +191,34 @@
             this.tbPhoneNum.Size = new System.Drawing.Size(201, 20);
             this.tbPhoneNum.TabIndex = 27;
             // 
+            // checkBoxPassword
+            // 
+            this.checkBoxPassword.AutoSize = true;
+            this.checkBoxPassword.Location = new System.Drawing.Point(219, 257);
+            this.checkBoxPassword.Name = "checkBoxPassword";
+            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxPassword.TabIndex = 29;
+            this.checkBoxPassword.UseVisualStyleBackColor = true;
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            // 
+            // checkBoxPasswordConfirm
+            // 
+            this.checkBoxPasswordConfirm.AutoSize = true;
+            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(451, 259);
+            this.checkBoxPasswordConfirm.Name = "checkBoxPasswordConfirm";
+            this.checkBoxPasswordConfirm.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxPasswordConfirm.TabIndex = 30;
+            this.checkBoxPasswordConfirm.UseVisualStyleBackColor = true;
+            this.checkBoxPasswordConfirm.CheckedChanged += new System.EventHandler(this.checkBoxPasswordConfirm_CheckedChanged);
+            // 
             // Register
             // 
             this.AccessibleDescription = " ";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 363);
+            this.Controls.Add(this.checkBoxPasswordConfirm);
+            this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.lbPhoneNumber);
             this.Controls.Add(this.tbPhoneNum);
             this.Controls.Add(this.tbPostcode);
@@ -239,5 +263,7 @@
         private System.Windows.Forms.TextBox tbPostcode;
         private System.Windows.Forms.Label lbPhoneNumber;
         private System.Windows.Forms.TextBox tbPhoneNum;
+        private System.Windows.Forms.CheckBox checkBoxPassword;
+        private System.Windows.Forms.CheckBox checkBoxPasswordConfirm;
     }
 }

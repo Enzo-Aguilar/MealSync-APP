@@ -11,4 +11,5 @@ namespace MealSync_APP.Utils
         public bool IsValid { get; set; }
         public string errorMessage { get; set; }
     }
+
 }

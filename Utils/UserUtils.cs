@@ -274,27 +274,27 @@ namespace MealSync_APP.Utils
             return new ValidatorResult { IsValid = true };
         }
     }
-    public class UserAuth : UserValidator //Auth --> Authtorize
+    public class Auth : UserValidator //Auth --> Authtorize
     {
-        static public void Register(string email, string name, string password, string passwordConfirm, int role, string phoneNumber, string idNumber, string postcode)
+        static public ValidatorResult Register(User user, string passwordConfirm)
         {
-            var validateEmail = Validate_Email(email);
-            var isEmailTaken = IsEmailTaken(email);
+            var validateEmail = Validate_Email(user.email);
+            var isEmailTaken = IsEmailTaken(user.email);
 
-            var validateName = Validate_Name(name);
-            var isNameTaken = IsNameTaken(name);
+            var validateName = Validate_Name(user.name);
+            var isNameTaken = IsNameTaken(user.name);
 
-            var validatePassword = Validate_Password(password);
-            var pswdConfirm = PasswordConfirm(password, passwordConfirm);
+            var validatePassword = Validate_Password(user.password);
+            var pswdConfirm = PasswordConfirm(user.password, passwordConfirm);
 
-            var validateRole = Validate_Role(role);
+            var validateRole = Validate_Role(user.role);
 
-            var validatePhoneNumber = Validate_PhoneNumber(phoneNumber);
-            var isPhoneNumberTaken = IsPhoneNumberTaken(phoneNumber);
+            var validatePhoneNumber = Validate_PhoneNumber(user.phoneNumber);
+            var isPhoneNumberTaken = IsPhoneNumberTaken(user.phoneNumber);
 
-            var validateIDNumber = Validate_IDNumber(idNumber);
+            var validateIDNumber = Validate_IDNumber(user.schoolID_num);
 
-            var validatePostcode = Validate_Postcode(postcode);
+            var validatePostcode = Validate_Postcode(user.postalCode);
             
             //Email
             if (!validateEmail.IsValid)
@@ -333,6 +333,9 @@ namespace MealSync_APP.Utils
                 MessageBox.Show(validateRole.errorMessage);
                 return;
             }
+
+            MessageBox.Show("Registo bem sucedido");
+            return;
         }
         static public ValidatorResult Login(string name, string password)
         {

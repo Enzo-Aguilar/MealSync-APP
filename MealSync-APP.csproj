@@ -190,8 +190,8 @@
     <Compile Include="Pages\BankAccount\Associate_BankAccount.Designer.cs">
       <DependentUpon>Associate_BankAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\BLL.cs" />
-    <Compile Include="Data Layer\DAL.cs" />
+    <Compile Include="BLL\BLL.cs" />
+    <Compile Include="DAL\DAL.cs" />
     <Compile Include="Pages\BankAccount\Create_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,7 +206,7 @@
     </Compile>
     <Compile Include="Utils\BankAccountUtils.cs" />
     <Compile Include="Utils\FormUtils.cs" />
-    <Compile Include="Utils\Globals.cs" />
+    <Compile Include="Globals\User.cs" />
     <Compile Include="Pages\Home\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,7 +233,6 @@
     <Compile Include="Pages\User\Edit_Profile.Designer.cs">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\User.cs" />
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">
