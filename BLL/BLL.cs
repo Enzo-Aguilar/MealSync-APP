@@ -1,136 +1,17 @@
-﻿using System.Data.SqlClient;
-using DataAccessLayer;
-using System.Data;
-using System;
+﻿using DataAccessLayer;
+using MealSync_APP;
+using MealSync_APP.Globals;
 using MealSync_APP.Utils;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using static BusinessLogicLayer.BLL;
 
 namespace BusinessLogicLayer
 {
 	public class BLL
 	{
-		
-		public class User
-		{
-			static public DataTable Login(string name, string password)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@name", name),
-					new SqlParameter("@password",password)
-                };
-				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name AND password=@password",sqlParams);
-            }
-			static public int Register(DateTime createdAt, string email, string name, string password, string phoneNumber, int role, string postalCode, string schoolID_number)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@createdAt",createdAt),
-                    new SqlParameter("@email",email),
-					new SqlParameter("@name",name),
-					new SqlParameter("@password",password),
-					new SqlParameter("@phoneNumber",phoneNumber),
-                    new SqlParameter("@role",role),
-					new SqlParameter("@postalCode",postalCode),
-					new SqlParameter("@schoolID_number",schoolID_number)
-                };
-				return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,phone,role,postalCode,schoolIDnumber) VALUES(@createdAt,@email,@name,@password,@phoneNumber,@role,@postalCode,@schoolID_number)", sqlParams);
-			}
-			
-			//Buscar dados do User pelo Nome
-			static public DataTable Get_UserByName(string name)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@name",name)
-				};
-				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
-			}
-
-			//Métodos de Procura
-			static public DataTable Search_Email(string email)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter ("@email",email),
-				};
-
-				return dal.ExecuteReader("SELECT * FROM [User] WHERE email=@email",sqlParams);
-			}
-			static public DataTable Search_Name(string name)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@name",name),
-				};
-				return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name",sqlParams);
-			}
-			static public DataTable Search_PhoneNumber(string phoneNumber)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@phone", phoneNumber)
-                };
-				return dal.ExecuteReader("SELECT * FROM [User] WHERE phone=@phone", sqlParams);
-			}
-
-			static public DataTable Has_BankAccount(int ID_User)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@ID_User",ID_User)
-				};
-				return dal.ExecuteReader("SELECT * FROM [Holder] WHERE ID_User=@ID_User",sqlParams);
-			}
-
-			public class Admin
-			{
-				static public DataTable Show_Admins()
-				{
-					DAL dal = new DAL();
-					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=0", null);
-                }
-            }
-			public class Employee
-			{
-				static public DataTable Show_Employees()
-				{
-					DAL dal = new DAL();
-					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=1", null);
-				}
-            }
-			public class Student
-			{
-				static public DataTable Show_Students()
-				{
-					DAL dal = new DAL();
-					return dal.ExecuteReader("SELECT * FROM [User] WHERE role=2", null);
-                }
-            }
-        }
-		public class Holder
-		{
-			static public bool isUserHolder(int userID)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]
-				{
-					new SqlParameter("@ID_User",userID)
-				};
-				DataTable table= dal.ExecuteReader("SELECT * FROM [Holder] WHERE userID=@ID_User", sqlParams);
-				if(table.Rows.Count == 0)
-				{
-					return false;
-				}
-				return true;
-			}
-		}
 		public class Exemplo
 		{
 
@@ -223,6 +104,302 @@ namespace BusinessLogicLayer
 
 				return dal.ExecuteNonQuery("INSERT into Imagem (Img) VALUES(@img)", sqlParams);
 			}
+		}
+	}
+    public class User_BLL
+    {
+		static public DataTable Login(User user)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+					new SqlParameter("@name", user.Name)
+			};
+			return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
+		}
+        static public int Register(User user)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@createdAt",user.CreatedAt),
+                    new SqlParameter("@email",user.Email),
+                    new SqlParameter("@name",user.Name),
+                    new SqlParameter("@password",user.Password),
+                    new SqlParameter("@phoneNumber",user.PhoneNumber),
+                    new SqlParameter("@role",user.Role),
+                    new SqlParameter("@postalCode",user.PostalCode),
+                    new SqlParameter("@school_member_ID",user.SchoolIDNumber)
+            };
+            return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,phoneNumber,role,postalCode,school_member_ID) VALUES(@createdAt,@email,@name,@password,@phoneNumber,@role,@postalCode,@school_member_ID)", sqlParams);
+        }
+		static public void Deactivate_User(User user)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+					new SqlParameter("@ID", user.ID)
+			};
+			dal.ExecuteNonQuery("UPDATE [User] SET isActive = 0 WHERE ID=@ID", sqlParams);
+        }
+
+        //Para guardar dados do utilizador de sessão
+        static public DataTable Save(User user)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@name", user.Name)
+            };
+            return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
+        }
+
+        //Métodos de Procura
+        static public DataTable Search_Email(string email)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter ("@email",email),
+            };
+
+            return dal.ExecuteReader("SELECT * FROM [User] WHERE email=@email", sqlParams);
+        }
+        static public DataTable Search_Name(string name)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@name",name),
+            };
+            return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
+        }
+        static public DataTable Search_PhoneNumber(string phoneNumber)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@phoneNumber", phoneNumber)
+            };
+            return dal.ExecuteReader("SELECT * FROM [User] WHERE phoneNumber=@phoneNumber", sqlParams);
+        }
+		static public DataTable Search_SchoolMemberID(string school_member_ID)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+					new SqlParameter("@school_member_ID", school_member_ID)
+			};
+			return dal.ExecuteReader("SELECT * FROM [User] WHERE school_member_ID=@school_member_ID", sqlParams);
+        }
+
+        static public DataTable Has_BankAccount(int ID_User)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@ID_User",ID_User)
+            };
+            return dal.ExecuteReader("SELECT * FROM [Holder] WHERE ID_User=@ID_User", sqlParams);
+        }
+
+        public class Admin
+        {
+            static public DataTable Show_Admins()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE role=0", null);
+            }
+        }
+        public class Employee
+        {
+            static public DataTable Show_Employees()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE role=1", null);
+            }
+        }
+        public class Student
+        {
+            static public DataTable Show_Students()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE role=2", null);
+            }
+        }
+    }
+	public class BankAccount_BLL
+	{
+		static public int Create_BankAccount(BankAccount bkAccount)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@accountType", bkAccount.AccountType),
+				new SqlParameter("@balance", bkAccount.Balance),
+				new SqlParameter("@createdAt", bkAccount.CreatedAt),
+				new SqlParameter("@IBAN", bkAccount.IBAN),
+				new SqlParameter("@PIN", bkAccount.Password)
+			};
+			return dal.ExecuteNonQuery("INSERT INTO [BankAccount] (accountType,balance,createdAt,IBAN,PIN) VALUES(@accountType,@balance,@createdAt,@IBAN,@PIN)", sqlParams);
+        }
+		static public void Deactivate_BankAccount(BankAccount bkAccount)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID", bkAccount.ID)
+			};
+			dal.ExecuteNonQuery("UPDATE [BankAccount] SET isActive = 0 WHERE ID=@ID", sqlParams);
+        }
+
+        //Métodos de Procura
+        static public DataTable Search_IBAN(string IBAN)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@IBAN", IBAN)
+			};
+			return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE IBAN=@IBAN", sqlParams);
+		}
+		static public DataTable Search_AccountUserDataByName(string name)
+		{
+            DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[] {new SqlParameter("@name", name)};
+            return dal.ExecuteReader(
+                "SELECT u.name, u.email, u.phoneNumber, ba.ID AS AccountID, ba.IBAN " +
+                "FROM [User] u " +
+                "INNER JOIN [Holder] h ON u.ID = h.ID_User " +
+                "INNER JOIN [BankAccount] ba ON h.ID_BankAccount = ba.ID " +
+                "WHERE ba.accountType = 'coletiva' AND h.ownerShipOrder = 1 AND u.name LIKE '%' + @name + '%' " +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE ID_BankAccount = ba.ID) < 7 AND ba.isActive = 1" +
+                "ORDER BY u.name",
+                sqlParams);
+        }
+		static public DataTable Search_DeactivatedAccountUserByName(string name)
+		{
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[] { new SqlParameter("@name", name) };
+            return dal.ExecuteReader(
+                "SELECT u.name, u.email, u.phoneNumber, ba.ID AS AccountID, ba.IBAN " +
+                "FROM [User] u " +
+                "INNER JOIN [Holder] h ON u.ID = h.ID_User " +
+                "INNER JOIN [BankAccount] ba ON h.ID_BankAccount = ba.ID " +
+                "WHERE ba.accountType = 'coletiva' AND h.ownerShipOrder = 1 AND u.name LIKE '%' + @name + '%' " +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE ID_BankAccount = ba.ID) < 7 AND ba.isActive = 0" +
+                "ORDER BY u.name",
+                sqlParams);
+        }
+
+
+        //Mostrar contas bancárias
+        static public DataTable Show_BankAccounts()
+		{
+			DAL dal = new DAL();
+			return dal.ExecuteReader("SELECT ID, accountType,IBAN FROM [BankAccount]", null);
+		}
+
+		//Tabela que mostra o user e contas associadas (apenas contas coletivas com ownerShipOrder = 1 e que ainda permitem novos utilizadores - máx 7)
+		static public DataTable GetUserBankAccountData()
+		{
+			DAL dal = new DAL();
+			return dal.ExecuteReader(
+				"SELECT u.name, u.email, u.phoneNumber, ba.ID AS AccountID, ba.IBAN " +
+				"FROM [User] u " +
+				"INNER JOIN [Holder] h ON u.ID = h.ID_User " +
+				"INNER JOIN [BankAccount] ba ON h.ID_BankAccount = ba.ID " +
+				"WHERE ba.accountType = 'coletiva' AND h.ownerShipOrder = 1 " +
+				"AND (SELECT COUNT(*) FROM [Holder] WHERE ID_BankAccount = ba.ID) < 7 AND ba.isActive = 1" +
+				"ORDER BY u.name", 
+				null);
+		}
+		static public DataTable GetUserDeactivatedBankAccountData()
+		{
+            DAL dal = new DAL();
+            return dal.ExecuteReader(
+                "SELECT u.name, u.email, u.phoneNumber, ba.ID AS AccountID, ba.IBAN " +
+                "FROM [User] u " +
+                "INNER JOIN [Holder] h ON u.ID = h.ID_User " +
+                "INNER JOIN [BankAccount] ba ON h.ID_BankAccount = ba.ID " +
+                "WHERE ba.accountType = 'coletiva' AND h.ownerShipOrder = 1 " +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE ID_BankAccount = ba.ID) < 7 AND ba.isActive = 0" +
+                "ORDER BY u.name",
+                null);
+        }
+
+        //Detalhes da conta bancária
+        static public DataTable GetBankAccountDetails(BankAccount bkAccount)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID", bkAccount.ID)
+            };
+			return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE ID=@ID", sqlParams);
+		}
+    }
+	public class Holder_BLL
+	{
+		static public int Create_Holder(Holder holder)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User", holder.ID_User),
+				new SqlParameter("@ID_BankAccount", holder.ID_BankAccount),
+				new SqlParameter("@ownerShipOrder", holder.OwnershipOrder)
+			};
+			return dal.ExecuteNonQuery("INSERT INTO [Holder] (ID_User,ID_BankAccount,ownerShipOrder) VALUES(@ID_User,@ID_BankAccount,@ownerShipOrder)", sqlParams);
+		}
+		static public void Deactivate_Holder(Holder holder)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User", holder.ID_User),
+				new SqlParameter("@ID_BankAccount", holder.ID_BankAccount)
+			};
+			dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 0 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
+        }
+
+        //Verificar ordem de propriedade da conta
+        static public DataTable GetMaxOwnershipOrder(int bankAccountID)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_BankAccount", bankAccountID)
+			};
+			return dal.ExecuteReader(
+				"SELECT TOP 1 * FROM [Holder] WHERE ID_BankAccount=@ID_BankAccount ORDER BY ownerShipOrder DESC",
+				sqlParams);
+		}
+
+		//Retorna o maior numero de ordem na prioridade
+		static public int GetMaxOwnershipOrderValue(int bankAccountID)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_BankAccount", bankAccountID)
+			};
+			object result = dal.ExecuteScalar(
+				"SELECT MAX(ownerShipOrder) FROM [Holder] WHERE ID_BankAccount=@ID_BankAccount",
+				sqlParams);
+			return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
+		}
+
+		//Métodos de Procura
+		static public DataTable Search_Holder(int ID_User, int ID_BankAccount)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User", ID_User),
+				new SqlParameter("@ID_BankAccount", ID_BankAccount)
+			};
+			return dal.ExecuteReader("SELECT * FROM [Holder] WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
 		}
 	}
 }

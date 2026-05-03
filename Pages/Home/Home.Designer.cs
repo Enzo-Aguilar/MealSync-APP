@@ -61,6 +61,7 @@
             this.remove_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.lbDoesNotHaveBankAccount = new System.Windows.Forms.LinkLabel();
+            this.desativarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             // edit_Profile
             // 
             this.edit_Profile.Name = "edit_Profile";
-            this.edit_Profile.Size = new System.Drawing.Size(104, 22);
+            this.edit_Profile.Size = new System.Drawing.Size(180, 22);
             this.edit_Profile.Text = "Editar";
             this.edit_Profile.Click += new System.EventHandler(this.edit_Profile_Click);
             // 
@@ -90,7 +91,8 @@
             // 
             this.Bank_Account.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.associate_BankAccount,
-            this.create_BankAccount});
+            this.create_BankAccount,
+            this.desativarToolStripMenuItem});
             this.Bank_Account.Name = "Bank_Account";
             this.Bank_Account.Size = new System.Drawing.Size(99, 20);
             this.Bank_Account.Text = "Conta Bancaria";
@@ -98,16 +100,16 @@
             // associate_BankAccount
             // 
             this.associate_BankAccount.Name = "associate_BankAccount";
-            this.associate_BankAccount.Size = new System.Drawing.Size(118, 22);
+            this.associate_BankAccount.Size = new System.Drawing.Size(180, 22);
             this.associate_BankAccount.Text = "Associar";
-            this.associate_BankAccount.Click += new System.EventHandler(this.associate_BankAccount_Click);
+            this.associate_BankAccount.Click += new System.EventHandler(this.Associate_BankAccount_Click);
             // 
             // create_BankAccount
             // 
             this.create_BankAccount.Name = "create_BankAccount";
-            this.create_BankAccount.Size = new System.Drawing.Size(118, 22);
+            this.create_BankAccount.Size = new System.Drawing.Size(180, 22);
             this.create_BankAccount.Text = "Criar";
-            this.create_BankAccount.Click += new System.EventHandler(this.create_BankAccount_Click);
+            this.create_BankAccount.Click += new System.EventHandler(this.Create_BankAccount_Click);
             // 
             // Orders
             // 
@@ -193,28 +195,28 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(180, 22);
+            this.show_Students.Size = new System.Drawing.Size(125, 22);
             this.show_Students.Text = "Ver";
             this.show_Students.Click += new System.EventHandler(this.show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(180, 22);
+            this.add_Student.Size = new System.Drawing.Size(125, 22);
             this.add_Student.Text = "Adicionar";
             this.add_Student.Click += new System.EventHandler(this.add_Student_Click);
             // 
             // edit_Student
             // 
             this.edit_Student.Name = "edit_Student";
-            this.edit_Student.Size = new System.Drawing.Size(180, 22);
+            this.edit_Student.Size = new System.Drawing.Size(125, 22);
             this.edit_Student.Text = "Editar";
             this.edit_Student.Click += new System.EventHandler(this.edit_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(180, 22);
+            this.remove_Student.Size = new System.Drawing.Size(125, 22);
             this.remove_Student.Text = "Remover";
             this.remove_Student.Click += new System.EventHandler(this.remove_Student_Click);
             // 
@@ -325,6 +327,13 @@
             this.lbDoesNotHaveBankAccount.Text = "Hellooooooooo";
             this.lbDoesNotHaveBankAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDoesNotHaveBankAccount_LinkClicked);
             // 
+            // desativarToolStripMenuItem
+            // 
+            this.desativarToolStripMenuItem.Name = "desativarToolStripMenuItem";
+            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desativarToolStripMenuItem.Text = "Desativar";
+            this.desativarToolStripMenuItem.Click += new System.EventHandler(this.DeactivateToolStripMenuItem_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,8 +341,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(996, 555);
-            this.Controls.Add(this.lbDoesNotHaveBankAccount);
             this.Controls.Add(this.MenuStrip);
+            this.Controls.Add(this.lbDoesNotHaveBankAccount);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuStrip;
@@ -381,5 +390,6 @@
         private System.Windows.Forms.ToolStripMenuItem remove_Admin;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.LinkLabel lbDoesNotHaveBankAccount;
+        private System.Windows.Forms.ToolStripMenuItem desativarToolStripMenuItem;
     }
 }

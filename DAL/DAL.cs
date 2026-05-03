@@ -7,13 +7,13 @@ namespace DataAccessLayer
 {
     public class DAL
     {
-        private SqlConnection _SqlConn;
+        private readonly SqlConnection _SqlConn;
         private SqlCommand _SqlCommand;
         private SqlDataReader _SqlReader;
 
         public DAL()//Conexão com a Base de Dados
-        {    
-            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\_MealSync_\Database\MealSync_DB.mdf;; Integrated Security = True; Connect Timeout = 30");
+        {
+            _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =" + System.Windows.Forms.Application.StartupPath + @"\MealSync_DB.mdf;Integrated Security = True; Connect Timeout = 30");
         }
 
         //Caminho do DB na escola -> C:\Users\Vosso numero\_MealSync_\Database\MealSync_DB.mdf;

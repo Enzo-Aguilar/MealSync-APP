@@ -46,8 +46,11 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tbPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
             this.tbPassword.Location = new System.Drawing.Point(466, 346);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(154, 20);
             this.tbPassword.TabIndex = 3;
             // 
@@ -96,7 +99,7 @@
             this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPassword.TabIndex = 7;
             this.checkBoxPassword.UseVisualStyleBackColor = true;
-            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.CheckBoxPassword_CheckedChanged);
             // 
             // Login
             // 
@@ -113,7 +116,7 @@
             this.Controls.Add(this.tbName);
             this.Name = "Login";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Index_Load);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

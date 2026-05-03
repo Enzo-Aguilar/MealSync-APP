@@ -32,14 +32,14 @@
             this.lbNome = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.lbConfirmar_Password = new System.Windows.Forms.Label();
+            this.lbConfirm_Password = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Index = new System.Windows.Forms.LinkLabel();
-            this.tbIDNumber = new System.Windows.Forms.TextBox();
+            this.tbSchoolMemberID = new System.Windows.Forms.TextBox();
             this.lbIDNumber = new System.Windows.Forms.Label();
             this.lbPostcode = new System.Windows.Forms.Label();
             this.tbPostcode = new System.Windows.Forms.TextBox();
@@ -47,6 +47,8 @@
             this.tbPhoneNum = new System.Windows.Forms.TextBox();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.checkBoxPasswordConfirm = new System.Windows.Forms.CheckBox();
+            this.pbUserProfilePicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // lbEmail
@@ -61,7 +63,7 @@
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(86, 127);
+            this.lbNome.Location = new System.Drawing.Point(86, 115);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 2;
@@ -70,52 +72,54 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(86, 224);
+            this.lbPassword.Location = new System.Drawing.Point(66, 211);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(53, 13);
+            this.lbPassword.Size = new System.Drawing.Size(78, 13);
             this.lbPassword.TabIndex = 3;
-            this.lbPassword.Text = "Password";
+            this.lbPassword.Text = "Palavra-Passe:";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(12, 65);
+            this.tbEmail.Location = new System.Drawing.Point(12, 64);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(201, 20);
             this.tbEmail.TabIndex = 5;
             // 
-            // lbConfirmar_Password
+            // lbConfirm_Password
             // 
-            this.lbConfirmar_Password.AutoSize = true;
-            this.lbConfirmar_Password.Location = new System.Drawing.Point(294, 224);
-            this.lbConfirmar_Password.Name = "lbConfirmar_Password";
-            this.lbConfirmar_Password.Size = new System.Drawing.Size(100, 13);
-            this.lbConfirmar_Password.TabIndex = 6;
-            this.lbConfirmar_Password.Text = "Confirmar Password";
+            this.lbConfirm_Password.AutoSize = true;
+            this.lbConfirm_Password.Location = new System.Drawing.Point(276, 211);
+            this.lbConfirm_Password.Name = "lbConfirm_Password";
+            this.lbConfirm_Password.Size = new System.Drawing.Size(125, 13);
+            this.lbConfirm_Password.TabIndex = 6;
+            this.lbConfirm_Password.Text = "Confirmar Palavra-Passe:";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(12, 161);
+            this.tbName.Location = new System.Drawing.Point(12, 147);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(201, 20);
             this.tbName.TabIndex = 7;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(12, 254);
+            this.tbPassword.Location = new System.Drawing.Point(12, 250);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(201, 20);
             this.tbPassword.TabIndex = 8;
             // 
             // tbPassword_Confirm
             // 
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(244, 254);
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(244, 250);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
+            this.tbPassword_Confirm.PasswordChar = '*';
             this.tbPassword_Confirm.Size = new System.Drawing.Size(201, 20);
             this.tbPassword_Confirm.TabIndex = 9;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(507, 143);
+            this.btnRegister.Location = new System.Drawing.Point(297, 288);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(141, 54);
             this.btnRegister.TabIndex = 11;
@@ -126,7 +130,7 @@
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(161, 319);
+            this.lbText.Location = new System.Drawing.Point(113, 318);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(74, 13);
             this.lbText.TabIndex = 12;
@@ -135,7 +139,7 @@
             // lbLink_Index
             // 
             this.lbLink_Index.AutoSize = true;
-            this.lbLink_Index.Location = new System.Drawing.Point(241, 319);
+            this.lbLink_Index.Location = new System.Drawing.Point(193, 318);
             this.lbLink_Index.Name = "lbLink_Index";
             this.lbLink_Index.Size = new System.Drawing.Size(73, 13);
             this.lbLink_Index.TabIndex = 13;
@@ -143,21 +147,21 @@
             this.lbLink_Index.Text = "Iniciar Sessão";
             this.lbLink_Index.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LbLink_Index_LinkClicked);
             // 
-            // tbIDNumber
+            // tbSchoolMemberID
             // 
-            this.tbIDNumber.Location = new System.Drawing.Point(244, 161);
-            this.tbIDNumber.Name = "tbIDNumber";
-            this.tbIDNumber.Size = new System.Drawing.Size(201, 20);
-            this.tbIDNumber.TabIndex = 14;
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(244, 147);
+            this.tbSchoolMemberID.Name = "tbSchoolMemberID";
+            this.tbSchoolMemberID.Size = new System.Drawing.Size(201, 20);
+            this.tbSchoolMemberID.TabIndex = 14;
             // 
             // lbIDNumber
             // 
             this.lbIDNumber.AutoSize = true;
-            this.lbIDNumber.Location = new System.Drawing.Point(275, 127);
+            this.lbIDNumber.Location = new System.Drawing.Point(260, 115);
             this.lbIDNumber.Name = "lbIDNumber";
-            this.lbIDNumber.Size = new System.Drawing.Size(126, 13);
+            this.lbIDNumber.Size = new System.Drawing.Size(164, 13);
             this.lbIDNumber.TabIndex = 15;
-            this.lbIDNumber.Text = "Numero de Identificação:";
+            this.lbIDNumber.Text = "Numero de Identificação Escolar:";
             // 
             // lbPostcode
             // 
@@ -194,22 +198,31 @@
             // checkBoxPassword
             // 
             this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(219, 257);
+            this.checkBoxPassword.Location = new System.Drawing.Point(219, 250);
             this.checkBoxPassword.Name = "checkBoxPassword";
             this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPassword.TabIndex = 29;
             this.checkBoxPassword.UseVisualStyleBackColor = true;
-            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.CheckBoxPassword_CheckedChanged);
             // 
             // checkBoxPasswordConfirm
             // 
             this.checkBoxPasswordConfirm.AutoSize = true;
-            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(451, 259);
+            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(451, 253);
             this.checkBoxPasswordConfirm.Name = "checkBoxPasswordConfirm";
             this.checkBoxPasswordConfirm.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPasswordConfirm.TabIndex = 30;
             this.checkBoxPasswordConfirm.UseVisualStyleBackColor = true;
-            this.checkBoxPasswordConfirm.CheckedChanged += new System.EventHandler(this.checkBoxPasswordConfirm_CheckedChanged);
+            this.checkBoxPasswordConfirm.CheckedChanged += new System.EventHandler(this.CheckBoxPasswordConfirm_CheckedChanged);
+            // 
+            // pbUserProfilePicture
+            // 
+            this.pbUserProfilePicture.Location = new System.Drawing.Point(486, 101);
+            this.pbUserProfilePicture.Name = "pbUserProfilePicture";
+            this.pbUserProfilePicture.Size = new System.Drawing.Size(205, 190);
+            this.pbUserProfilePicture.TabIndex = 31;
+            this.pbUserProfilePicture.TabStop = false;
+            this.pbUserProfilePicture.Click += new System.EventHandler(this.PbUserProfilePicture_Click);
             // 
             // Register
             // 
@@ -217,6 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 363);
+            this.Controls.Add(this.pbUserProfilePicture);
             this.Controls.Add(this.checkBoxPasswordConfirm);
             this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.lbPhoneNumber);
@@ -224,14 +238,14 @@
             this.Controls.Add(this.tbPostcode);
             this.Controls.Add(this.lbPostcode);
             this.Controls.Add(this.lbIDNumber);
-            this.Controls.Add(this.tbIDNumber);
+            this.Controls.Add(this.tbSchoolMemberID);
             this.Controls.Add(this.lbLink_Index);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.tbPassword_Confirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbConfirmar_Password);
+            this.Controls.Add(this.lbConfirm_Password);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbNome);
@@ -239,6 +253,7 @@
             this.Name = "Register";
             this.Text = "Registo";
             this.Load += new System.EventHandler(this.Registo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,14 +265,14 @@
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Label lbConfirmar_Password;
+        private System.Windows.Forms.Label lbConfirm_Password;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbPassword_Confirm;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Index;
-        private System.Windows.Forms.TextBox tbIDNumber;
+        private System.Windows.Forms.TextBox tbSchoolMemberID;
         private System.Windows.Forms.Label lbIDNumber;
         private System.Windows.Forms.Label lbPostcode;
         private System.Windows.Forms.TextBox tbPostcode;
@@ -265,5 +280,6 @@
         private System.Windows.Forms.TextBox tbPhoneNum;
         private System.Windows.Forms.CheckBox checkBoxPassword;
         private System.Windows.Forms.CheckBox checkBoxPasswordConfirm;
+        private System.Windows.Forms.PictureBox pbUserProfilePicture;
     }
 }

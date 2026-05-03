@@ -3,11 +3,14 @@ using BusinessLogicLayer;
 using MealSync_APP.Utils;
 using System;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace MealSync_APP
 {
     public partial class Register : Form
     {
+        static private readonly User user = new User();
+        static private readonly Aes aes = Aes.Create();
         public Register()
         {
             InitializeComponent();
@@ -21,28 +24,42 @@ namespace MealSync_APP
         //Métodos dos componentes gráficos
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            User user = new User();
-
-            user.createdAt = DateTime.UtcNow;
-            user.email = tbEmail.Text;
-            user.name = tbName.Text;
-            user.password = tbPassword.Text;
-            user.phoneNumber = tbPhoneNum.Text;
-            user.role = 2;
-            user.schoolID_num = tbIDNumber.Text;
-            user.postalCode = tbPostcode.Text;
-
-            string passwordConfirm = tbPasswordConfirm.Text;
-
-            var register = Auth.Register(user, passwordConfirm);
-            if (register.IsValid)
+            try
             {
-                UserData.Save();
+                user.CreatedAt = DateTime.UtcNow;
+                user.Email = tbEmail.Text;
+                user.Name = tbName.Text;
+                user.Password = tbPassword.Text;
+                user.PhoneNumber = tbPhoneNum.Text;
+                user.Role = 2;
+                user.SchoolIDNumber = tbSchoolMemberID.Text;
+                user.PostalCode = tbPostcode.Text;
+
+                string passwordConfirm = tbPassword_Confirm.Text;
+                var register = UserAuth.Register(user, passwordConfirm);
+                if (register.IsValid)
+                {
+                    LoginForm.Open(this);
+                }
+                else
+                {
+                    MessageBox.Show(register.errorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar registar o utilizador: " + err.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         private void LbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){LoginForm.Open(this);}
 
-        private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
+        private void PbUserProfilePicture_Click(object sender, EventArgs e)
+        {
+            //Adiconar imagem de perfil
+        }
+
+        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxPassword.Checked)
             {//Mostrar a senha
@@ -54,9 +71,9 @@ namespace MealSync_APP
             }
         }
 
-        private void checkBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPassword.Checked)
+            if (checkBoxPasswordConfirm.Checked)
             {//Mostrar a senha
                 tbPassword_Confirm.PasswordChar = '\0';
             }

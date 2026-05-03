@@ -1,12 +1,11 @@
 ﻿using BusinessLogicLayer;
-using MealSync_APP._Começo;
-using MealSync_APP._Conta_Bancaria;
 using MealSync_APP._Utilizador_;
 using MealSync_APP.Administradores;
 using MealSync_APP.Alunos;
+using MealSync_APP.BankAccountFolder;
 using MealSync_APP.Funcionários;
 using MealSync_APP.Marcações;
-using MealSync_APP.Pages.BankAccount;
+using MealSync_APP.Pages.BankAccountFolder;
 using MealSync_APP.Pedidos;
 using MealSync_APP.Refeições;
 using System;
@@ -28,18 +27,23 @@ namespace MealSync_APP.Utils
             resgister.Show();
         }
     }
-    public class LoginForm
+    public class LoginForm : HomeForm
     {
-        public static void Open(Form form)
+        public static new void Open(Form form)
         {
             Login login = new Login();
+            if(form is Home)
+            {
+                form.Close();
+               _home = new Home();
+            }
             form.Hide();
             login.Show();
         }
     }
     public class HomeForm
     {
-        static protected readonly Home _home = new Home();
+        static protected Home _home = new Home();
         public static void Open(Form form)
         {
             form.Close();
@@ -61,12 +65,16 @@ namespace MealSync_APP.Utils
             Create_BankAccount cba = new Create_BankAccount { MdiParent = _home};
             cba.Show();
         }
-        public static void RemoveBankAccount()
+        public static void DeactivateBankAccount()
         {
             Deactivate_BankAccount dba = new Deactivate_BankAccount { MdiParent = _home };
             dba.Show();
         }
-        //Meals -> Refeições
+        public static void ReactivateBankAccount()
+        {
+            Reactivate_BankAccount rba = new Reactivate_BankAccount { MdiParent = _home };
+            rba.Show();
+        }
     }
     public class FormUtils 
     {

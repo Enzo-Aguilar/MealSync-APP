@@ -2,6 +2,7 @@
 using MealSync_APP.Utils;
 using System;
 using BusinessLogicLayer;
+using MealSync_APP.Globals;
 
 namespace MealSync_APP
 {
@@ -15,33 +16,26 @@ namespace MealSync_APP
         //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-            HomeTabs_Visibility();
-            Has_BankAccount();
+            
         }
-    
+
         //Métodos dos componentes gráficos
 
         //LogOut
         private void Logout_Click(object sender, EventArgs e)
-        { 
-            FormUtils.Open_Login();
-            HomeTabs_Visibility();
+        {
+            var res = MessageBox.Show("Deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                MessageBox.Show("Até Breve", "");
+                LoginForm.Open(this);
+            }
         }
 
         //User (em sessão)
         private void edit_Profile_Click(object sender, EventArgs e)
         {
             FormUtils.OpenForm_EditProfile();
-        }
-
-        //Conta Bancária
-        private void associate_BankAccount_Click(object sender, EventArgs e)
-        {
-            FormUtils.OpenForm_AssociateBankAccount();
-        }
-        private void create_BankAccount_Click(object sender, EventArgs e)
-        {
-            FormUtils.OpenForm_CreateBankAccount();
         }
 
         //Pedidos
@@ -133,41 +127,15 @@ namespace MealSync_APP
             FormUtils.OpenForm_RemoveAdmin();
         }
 
-        //Métodos Auxiliares
-        public void HomeTabs_Visibility()
-        {
-            if (User.Role == 0) // Admin
-            {
-                // No changes needed for admin
-            }
-            else if (User.Role == 1) // Employee
-            {
-                Students.Visible = false;
-                Employees.Visible = false;
-                Admin.Visible = false;
-            }
-            else if (User.Role == 2) // Student
-            {
-                edit_Meal.Visible = false;
-                add_Meal.Visible = false;
-                remove_Meal.Visible = false;
-                Students.Visible = false;
-                Employees.Visible = false;
-                Admin.Visible = false;
-            }
-        }
-        public void Has_BankAccount()
-        {
-            var res =  BankAuth.Has_BankAccount(User.ID);
-            if (!res.IsValid)
-            {
-                lbDoesNotHaveBankAccount.Text = res.errorMessage;
-            }
-        }
         private void lbDoesNotHaveBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormUtils.OpenForm_CreateBankAccount();
             lbDoesNotHaveBankAccount.Visible = false;
         }
+
+        //Conta bancária
+        private void Associate_BankAccount_Click(object sender, EventArgs e){OpenForm.AssociateToBankAccount();}
+        private void Create_BankAccount_Click(object sender, EventArgs e){OpenForm.CreateBankAccount();}
+        private void DeactivateToolStripMenuItem_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
     }
 }

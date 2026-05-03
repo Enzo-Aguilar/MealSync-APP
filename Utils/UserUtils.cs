@@ -3,6 +3,9 @@ using BusinessLogicLayer;
 using System.Data;
 using System;
 using System.Linq;
+using MealSync_APP.Globals;
+using System.Security.Cryptography;
+using System.Globalization;
 
 namespace MealSync_APP.Utils
 {
@@ -13,7 +16,7 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                DataTable dt = BLL.User.Search_Name(name);
+                DataTable dt = User_BLL.Search_Name(name);
                 if (dt.Rows.Count >= 1)
                 {
                     return new ValidatorResult { IsValid = false, errorMessage = "Este nome não está disponivel" };
@@ -23,17 +26,17 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o nome do utilizador "+err.Message};
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o nome do utilizador " + err.Message };
             }
         }
         static protected ValidatorResult IsEmailTaken(string email)
         {
             try
             {
-                DataTable dt = BLL.User.Search_Email(email);
-                if(dt.Rows.Count >= 1)
+                DataTable dt = User_BLL.Search_Email(email);
+                if (dt.Rows.Count >= 1)
                 {
                     return new ValidatorResult { IsValid = false, errorMessage = "Este email não está disponivel" };
                 }
@@ -42,16 +45,16 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao procurar o email do utilizador "+err.Message};
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o email do utilizador " + err.Message };
             }
         }
         static protected ValidatorResult IsPhoneNumberTaken(string phoneNumber)
         {
             try
             {
-                DataTable dt = BLL.User.Search_PhoneNumber(phoneNumber);
+                DataTable dt = User_BLL.Search_PhoneNumber(phoneNumber);
                 if (dt.Rows.Count >= 1)
                 {
                     return new ValidatorResult { IsValid = false, errorMessage = "Este número de telefone já está associado a outro utilizador" };
@@ -66,12 +69,32 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o número de telefone do utilizador " + err.Message };
             }
         }
+        static protected ValidatorResult IsSchoolMemberIDTaken(string school_member_ID)
+        {
+            try
+            {
+                DataTable dt = User_BLL.Search_SchoolMemberID(school_member_ID);
+                if (dt.Rows.Count >= 1)
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "Este número de identificação escolar já está associado a outro utilizador" };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao procurar o número de identificação escolar do utilizador " + err.Message };
+            }
+        }
 
         //Métodos de Autenticação
         static protected ValidatorResult Validate_Email(string email)
         {
             try
-            { 
+            {
                 if (email.Contains("@"))
                 {
                     if (email.EndsWith(".com") || email.EndsWith(".pt"))
@@ -95,7 +118,7 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = false, errorMessage = "Email tem que conter '@' " };
                 }
             }
-            catch (Exception err) 
+            catch (Exception err)
             {
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [email]: " + err.Message };
             }
@@ -120,34 +143,9 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = false, errorMessage = "nome muito curto" };
                 }
             }
-            catch(Exception err) 
+            catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage= "Ocorreu um erro ao tentar validar o campo [nome]: "+err.Message };
-            }
-        }
-        static protected ValidatorResult Validate_Password(string password)
-        {
-            try
-            {
-                if (!String.IsNullOrEmpty(password))
-                {
-                    if (password.Length >= 7)
-                    {
-                        return new ValidatorResult { IsValid = true };
-                    }
-                    else
-                    {
-                        return new ValidatorResult { IsValid = false, errorMessage = "password muito fraca" };
-                    }
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, errorMessage = "campo [password] não pode estar vazio" };
-                }
-            }
-            catch(Exception err)
-            {
-                return new ValidatorResult { IsValid=false, errorMessage = "Ocorreu um erro ao tentar validar o campo [password]: "+ err.Message };
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [nome]: " + err.Message };
             }
         }
         static protected ValidatorResult Validate_Role(int role)
@@ -198,38 +196,6 @@ namespace MealSync_APP.Utils
             catch (Exception err)
             {
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [número de telefone]: " + err.Message };
-            } 
-        }
-        static protected ValidatorResult Validate_IDNumber(string IDNumber)
-        {
-            try
-            {
-                if (!String.IsNullOrEmpty(IDNumber))
-                {
-                    if (IDNumber.Length == 9)
-                    {
-                        if (!IDNumber.Equals("000000000") || !IDNumber.Equals("111111111"))
-                        {
-                            return new ValidatorResult { IsValid = true };
-                        }
-                        else
-                        {
-                            return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] com sequencia de dígitos inválida" };
-                        }
-                    }
-                    else
-                    {
-                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] deve conter 9 dígitos" };
-                    }
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação] não pode estar vazio" };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [número de identificação]: " + err.Message };
             }
         }
         static protected ValidatorResult Validate_Postcode(string postcode)
@@ -264,8 +230,41 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [código postal]: " + err.Message };
             }
         }
+        static protected ValidatorResult Validate_SchoolMemberID(string schoolMemberID)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(schoolMemberID))
+                {
+                    if (schoolMemberID.Length == 6)
+                    {
+                        if (!schoolMemberID.Equals("000000") || !schoolMemberID.Equals("111111"))
+                        {
+                            return new ValidatorResult { IsValid = true };
+                        }
+                        else
+                        {
+                            return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação escolar] com sequencia de dígitos inválida" };
+                        }
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação escolar] deve conter 6 dígitos" };
+                    }
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [número de identificação escolar] não pode estar vazio" };
+                }
 
-        //Métodos de Verificação secundarios
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [número de identificação escolar]: " + err.Message };
+            }
+        }
+
+        //Métodos de Verificação secundarias
         static protected ValidatorResult PasswordConfirm(string password, string passwordConfirm)
         {
             if (password != passwordConfirm)
@@ -274,112 +273,84 @@ namespace MealSync_APP.Utils
             return new ValidatorResult { IsValid = true };
         }
     }
-    public class Auth : UserValidator //Auth --> Authtorize
+    public class UserAuth : UserValidator
     {
         static public ValidatorResult Register(User user, string passwordConfirm)
         {
-            var validateEmail = Validate_Email(user.email);
-            var isEmailTaken = IsEmailTaken(user.email);
-
-            var validateName = Validate_Name(user.name);
-            var isNameTaken = IsNameTaken(user.name);
-
-            var validatePassword = Validate_Password(user.password);
-            var pswdConfirm = PasswordConfirm(user.password, passwordConfirm);
-
-            var validateRole = Validate_Role(user.role);
-
-            var validatePhoneNumber = Validate_PhoneNumber(user.phoneNumber);
-            var isPhoneNumberTaken = IsPhoneNumberTaken(user.phoneNumber);
-
-            var validateIDNumber = Validate_IDNumber(user.schoolID_num);
-
-            var validatePostcode = Validate_Postcode(user.postalCode);
-            
-            //Email
-            if (!validateEmail.IsValid)
+            var checks = new[]
             {
-                MessageBox.Show(validateEmail.errorMessage);
-                return;
-            }
-            if (!isEmailTaken.IsValid)
-            {
-                MessageBox.Show(isEmailTaken.errorMessage);
-                return;
-            }
-            //Name
-            if (!validateName.IsValid)
-            {
-                MessageBox.Show(validateName.errorMessage);
-                return;
-            }
-            if (!isNameTaken.IsValid)
-            {
-                MessageBox.Show(isNameTaken.errorMessage);
-            }
-            //Password
-            if (!validatePassword.IsValid)
-            {
-                MessageBox.Show(validatePassword.errorMessage);
-                return;
-            }
-            if(!pswdConfirm.IsValid)
-            {
-                MessageBox.Show(pswdConfirm.errorMessage);
-            }
-            //Role -> Função
-            if (!validateRole.IsValid)
-            {
-                MessageBox.Show(validateRole.errorMessage);
-                return;
-            }
+                Validate_Email(user.Email),
+                IsEmailTaken(user.Email),
+                Validate_Name(user.Name),
+                IsNameTaken(user.Name),
+                Validator.Validate_Password(user.Password),
+                PasswordConfirm(user.Password, passwordConfirm),
+                Validate_Role(user.Role),
+                Validate_PhoneNumber(user.PhoneNumber),
+                IsPhoneNumberTaken(user.PhoneNumber),
+                Validate_Postcode(user.PostalCode),
+                Validate_SchoolMemberID(user.SchoolIDNumber),
+               IsSchoolMemberIDTaken(user.SchoolIDNumber),
+            };
 
-            MessageBox.Show("Registo bem sucedido");
-            return;
+            foreach (var result in checks)
+            {
+                if (!result.IsValid) return result;
+            }
+            user.Password = Encryptor.Encrypt(user.Password);
+            User_BLL.Register(user);
+            return new ValidatorResult { IsValid = true };
         }
-        static public ValidatorResult Login(string name, string password)
+        static public ValidatorResult Login(User user)
         {
             try
             {
-                DataTable dt = BLL.User.Get_UserByName(name);
+                DataTable dt = User_BLL.Login(user);
                 if (dt.Rows.Count != 0)
                 {
-                    if (password == dt.Rows[0][4].ToString())
+                    string hashedPassword = dt.Rows[0][5].ToString();
+                    if (user.Password == Encryptor.Decrypt(hashedPassword))
                     {
+                        UserData.Save(user);
                         return new ValidatorResult { IsValid = true };
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, errorMessage = "Password Incorreta" };
+                        return new ValidatorResult { IsValid = false, errorMessage = "nome ou palavra-passe incorretos" };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "Utilizador não existe" };
+                    return new ValidatorResult { IsValid = false, errorMessage = "Não existe utilizadores com estas credenciais" };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar fazer Login: " + err.Message };
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro inesperado ao tentar fazer login: " + err.Message };
             }
         }
     }
     public class UserData
     {
-        static public ValidatorResult Save(string name)
+        static public ValidatorResult Save(User user)
         {
             var result = new ValidatorResult();
             try
             {
-                DataTable dt = BLL.User.Get_UserByName(name);
+                DataTable dt = User_BLL.Save(user);
                 if (dt.Rows.Count != 0)
                 {
-                    User.ID = Convert.ToInt16(dt.Rows[0][0]);
-                    User.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
-                    User.Email = dt.Rows[0][2].ToString();
-                    User.Name = dt.Rows[0][3].ToString();
-                    User.Role = Convert.ToInt16(dt.Rows[0][5]);
-                    
+                    Data.CurrentUser.ID = Convert.ToInt16(dt.Rows[0][0]);
+                    Data.CurrentUser.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
+                    Data.CurrentUser.Email = dt.Rows[0][2].ToString();
+                    Data.CurrentUser.IsActive = true;
+                    Data.CurrentUser.Name = dt.Rows[0][4].ToString();
+                    //Data.currentUser.Password = dt.Rows[0][5].ToString();
+                    Data.CurrentUser.PhoneNumber = dt.Rows[0][6].ToString();
+                    Data.CurrentUser.Role = Convert.ToInt16(dt.Rows[0][7]);
+                    Data.CurrentUser.PostalCode = dt.Rows[0][8].ToString();
+                    Data.CurrentUser.SchoolIDNumber = dt.Rows[0][9].ToString();
+
                     result.IsValid = true;
                     return result;
                 }
@@ -405,11 +376,16 @@ namespace MealSync_APP.Utils
         }
         static public void Reset()
         {
-            User.ID = 0;
-            User.CreatedAt = DateTime.MinValue;
-            User.Email = string.Empty;
-            User.Name = string.Empty;
-            User.Role = -1;
+            Data.CurrentUser.ID = -1;
+            Data.CurrentUser.CreatedAt = DateTime.MinValue;
+            Data.CurrentUser.Email = string.Empty;
+            Data.CurrentUser.IsActive = false;
+            Data.CurrentUser.Name = string.Empty;
+            Data.CurrentUser.Password = string.Empty;
+            Data.CurrentUser.PhoneNumber = string.Empty;
+            Data.CurrentUser.Role = -1;
+            Data.CurrentUser.PostalCode = string.Empty;
+            Data.CurrentUser.SchoolIDNumber = string.Empty;
         }
     }
 }
