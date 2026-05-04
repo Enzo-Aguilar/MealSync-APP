@@ -7,6 +7,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MealSync_APP.Utils
 {
@@ -91,7 +92,7 @@ namespace MealSync_APP.Utils
     }
     public class BankAuth : BankAccountValidator
     {
-        public static ValidatorResult Create_BankAccount(BankAccount bankAccount, string passwordConfirm)
+        static public ValidatorResult Create_BankAccount(BankAccount bankAccount, string passwordConfirm)
         {
             var checks = new[]
             {
@@ -109,16 +110,28 @@ namespace MealSync_APP.Utils
             BankAccount_BLL.Create_BankAccount(bankAccount);
             return new ValidatorResult { IsValid = true };
         }
-        public static ValidatorResult Deactivate_BankAccount(BankAccount bankAccount)
+        static public ValidatorResult Deactivate_BankAccount(BankAccount bkAccount)
         {
             try
             {
-                BankAccount_BLL.Deactivate_BankAccount(bankAccount);
+                BankAccount_BLL.Deactivate_BankAccount(bkAccount);
                 return new ValidatorResult { IsValid = true };
             }
             catch (Exception err)
             {
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao desativar a conta bancária: " + err.Message };
+            }
+        }
+        static public ValidatorResult Reactivate_BankAccount(BankAccount bkAccount)
+        {
+            try
+            {
+                BankAccount_BLL.Deactivate_BankAccount(bkAccount);
+                return new ValidatorResult { IsValid = true };
+            }
+            catch(Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar ativar conta bancária: " + err.Message };
             }
         }
     }

@@ -59,7 +59,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar a palavra-passe da conta bancária: " + err.Message };
             }
         }
-        static protected ValidatorResult IsNameEqualToBkOwner(User user)
+        static protected ValidatorResult IsNameEqualToActiveBkAccounOwner(User user)
         {
             try
             {
@@ -76,6 +76,25 @@ namespace MealSync_APP.Utils
             catch(Exception err)
             {
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: "+err.Message };
+            }
+        }
+        static protected ValidatorResult IsNameEqualToDeactivatedBkAccounOwner(User user)
+        {
+            try
+            {
+                DataTable dt = BankAccount_BLL.Search_DeactivatedAccountUserByName(user.Name);
+                if (dt.Rows.Count != 0)
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+                else
+                {
+                    return new ValidatorResult { IsValid = false, errorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
+                }
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: " + err.Message };
             }
         }
     }
@@ -124,6 +143,22 @@ namespace MealSync_APP.Utils
                 MessageBox.Show("Ocorreu um erro ao tentar desativar Holder: " + err.Message);
             }
         }
+        static public void Reactivate_Holder(User user, BankAccount bkAccount)
+        {
+            try
+            {
+                Holder holder = new Holder
+                {
+                    ID_User = user.ID,
+                    ID_BankAccount = bkAccount.ID
+                };
+                Holder_BLL.Reactivate_Holder(holder);
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar ativar Holder: "+err.Message);
+            }
+        }
         static public ValidatorResult AssociateBankAccountToUser(User currentUser, BankAccount bankAccount)
         {
             int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bankAccount.ID)+1;
@@ -149,9 +184,9 @@ namespace MealSync_APP.Utils
                 var checks = new[]
                 {
                     IsPasswordEqualToBkAccountPassword(bkAccount),
-                    IsNameEqualToBkOwner(currentUser)
+                    IsNameEqualToActiveBkAccounOwner(currentUser)
                 };
-                foreach (var result in checks) if (!result.IsValid) return result;
+                foreach (var res in checks) if (!res.IsValid) return res;
 
                 BankAuth.Deactivate_BankAccount(bkAccount);
                 Deactivate_Holder(bkAccount, currentUser);
@@ -160,6 +195,26 @@ namespace MealSync_APP.Utils
             catch(Exception err)
             {
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar desativar: "+err.Message};
+            }
+        }
+        static public ValidatorResult ReactivateBankAccountToUser(User currentUser, BankAccount bkAccount)
+        {
+            try
+            {
+                var checks = new[]
+                {
+                    IsPasswordEqualToBkAccountPassword(bkAccount),
+                    IsNameEqualToDeactivatedBkAccounOwner(currentUser)
+                };
+                foreach (var res in checks) if (!res.IsValid) return res;
+
+                BankAuth.Reactivate_BankAccount(bkAccount);
+                HolderAuth.Reactivate_Holder(currentUser, bkAccount);
+                return new ValidatorResult { IsValid = true };
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar ativa: " + err.Message };
             }
         }
     }

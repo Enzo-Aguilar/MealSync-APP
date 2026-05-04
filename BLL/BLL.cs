@@ -142,6 +142,15 @@ namespace BusinessLogicLayer
 			};
 			dal.ExecuteNonQuery("UPDATE [User] SET isActive = 0 WHERE ID=@ID", sqlParams);
         }
+		static public void Reactivate_User(User user)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID", user.ID)
+			};
+			dal.ExecuteNonQuery("UPDATE [User] SET isActive = 1 WHERE ID=@ID",sqlParams);
+		}
 
         //Para guardar dados do utilizador de sessão
         static public DataTable Save(User user)
@@ -252,6 +261,15 @@ namespace BusinessLogicLayer
 			};
 			dal.ExecuteNonQuery("UPDATE [BankAccount] SET isActive = 0 WHERE ID=@ID", sqlParams);
         }
+		static public void Reactivate_BankAccount(BankAccount bkAccount)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID", bkAccount.ID)
+			};
+			dal.ExecuteNonQuery("UPDATE [BankAccount] SET isActive = 1 WHERE ID=@ID", sqlParams);
+		}
 
         //Métodos de Procura
         static public DataTable Search_IBAN(string IBAN)
@@ -362,6 +380,16 @@ namespace BusinessLogicLayer
 			};
 			dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 0 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
         }
+		static public void Reactivate_Holder(Holder holder)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User",holder.ID_User),
+				new SqlParameter("@ID_BankAccount",holder.ID_BankAccount)
+			};
+			dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 1 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
+		}
 
         //Verificar ordem de propriedade da conta
         static public DataTable GetMaxOwnershipOrder(int bankAccountID)

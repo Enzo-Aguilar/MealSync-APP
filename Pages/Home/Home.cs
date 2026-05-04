@@ -137,5 +137,6 @@ namespace MealSync_APP
         private void Associate_BankAccount_Click(object sender, EventArgs e){OpenForm.AssociateToBankAccount();}
         private void Create_BankAccount_Click(object sender, EventArgs e){OpenForm.CreateBankAccount();}
         private void DeactivateToolStripMenuItem_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
+        private void ReativarToolStripMenuItem_Click(object sender, EventArgs e){ OpenForm.ReactivateBankAccount(); }
     }
 }

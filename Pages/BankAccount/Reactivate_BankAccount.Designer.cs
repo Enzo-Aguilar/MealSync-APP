@@ -47,62 +47,69 @@
             // 
             // btnDeactivatedAccounts
             // 
-            this.btnDeactivatedAccounts.Location = new System.Drawing.Point(72, 368);
+            this.btnDeactivatedAccounts.Location = new System.Drawing.Point(96, 453);
+            this.btnDeactivatedAccounts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeactivatedAccounts.Name = "btnDeactivatedAccounts";
-            this.btnDeactivatedAccounts.Size = new System.Drawing.Size(112, 64);
+            this.btnDeactivatedAccounts.Size = new System.Drawing.Size(149, 79);
             this.btnDeactivatedAccounts.TabIndex = 43;
             this.btnDeactivatedAccounts.Text = "Reativar";
             this.btnDeactivatedAccounts.UseVisualStyleBackColor = true;
-            this.btnDeactivatedAccounts.Click += new System.EventHandler(this.BtnDeactivatedAccounts_Click);
+            this.btnDeactivatedAccounts.Click += new System.EventHandler(this.BtnReactivateAccounts_Click);
             // 
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
-            this.lbSearch.Location = new System.Drawing.Point(596, 22);
+            this.lbSearch.Location = new System.Drawing.Point(795, 27);
+            this.lbSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(50, 13);
+            this.lbSearch.Size = new System.Drawing.Size(61, 16);
             this.lbSearch.TabIndex = 42;
             this.lbSearch.Text = "Procurar:";
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(652, 19);
+            this.tbSearch.Location = new System.Drawing.Point(869, 23);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(135, 20);
+            this.tbSearch.Size = new System.Drawing.Size(179, 22);
             this.tbSearch.TabIndex = 41;
             // 
             // lbBankAccountID
             // 
             this.lbBankAccountID.AutoSize = true;
-            this.lbBankAccountID.Location = new System.Drawing.Point(577, 160);
+            this.lbBankAccountID.Location = new System.Drawing.Point(769, 197);
+            this.lbBankAccountID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBankAccountID.Name = "lbBankAccountID";
-            this.lbBankAccountID.Size = new System.Drawing.Size(67, 13);
+            this.lbBankAccountID.Size = new System.Drawing.Size(80, 16);
             this.lbBankAccountID.TabIndex = 40;
             this.lbBankAccountID.Text = "ID da Conta:";
             // 
             // tbBankAccountID
             // 
-            this.tbBankAccountID.Location = new System.Drawing.Point(474, 191);
+            this.tbBankAccountID.Location = new System.Drawing.Point(632, 235);
+            this.tbBankAccountID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbBankAccountID.Name = "tbBankAccountID";
             this.tbBankAccountID.ReadOnly = true;
-            this.tbBankAccountID.Size = new System.Drawing.Size(272, 20);
+            this.tbBankAccountID.Size = new System.Drawing.Size(361, 22);
             this.tbBankAccountID.TabIndex = 39;
             // 
             // checkBoxPassword
             // 
             this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(752, 358);
+            this.checkBoxPassword.Location = new System.Drawing.Point(1003, 441);
+            this.checkBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxPassword.Name = "checkBoxPassword";
-            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxPassword.Size = new System.Drawing.Size(18, 17);
             this.checkBoxPassword.TabIndex = 38;
             this.checkBoxPassword.UseVisualStyleBackColor = true;
             this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.CheckBoxPassword_CheckedChanged);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(247, 368);
+            this.btnUpdate.Location = new System.Drawing.Point(329, 453);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(112, 64);
+            this.btnUpdate.Size = new System.Drawing.Size(149, 79);
             this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -111,68 +118,77 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(577, 327);
+            this.lbPassword.Location = new System.Drawing.Point(769, 402);
+            this.lbPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(56, 13);
+            this.lbPassword.Size = new System.Drawing.Size(70, 16);
             this.lbPassword.TabIndex = 36;
             this.lbPassword.Text = "Password:";
             // 
             // lbIBAN
             // 
             this.lbIBAN.AutoSize = true;
-            this.lbIBAN.Location = new System.Drawing.Point(586, 246);
+            this.lbIBAN.Location = new System.Drawing.Point(781, 303);
+            this.lbIBAN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbIBAN.Name = "lbIBAN";
-            this.lbIBAN.Size = new System.Drawing.Size(35, 13);
+            this.lbIBAN.Size = new System.Drawing.Size(41, 16);
             this.lbIBAN.TabIndex = 35;
             this.lbIBAN.Text = "IBAN:";
             // 
             // lbOwner
             // 
             this.lbOwner.AutoSize = true;
-            this.lbOwner.Location = new System.Drawing.Point(562, 90);
+            this.lbOwner.Location = new System.Drawing.Point(749, 111);
+            this.lbOwner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbOwner.Name = "lbOwner";
-            this.lbOwner.Size = new System.Drawing.Size(82, 13);
+            this.lbOwner.Size = new System.Drawing.Size(100, 16);
             this.lbOwner.TabIndex = 34;
             this.lbOwner.Text = "Dono da Conta:";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(474, 355);
+            this.tbPassword.Location = new System.Drawing.Point(632, 437);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(272, 20);
+            this.tbPassword.Size = new System.Drawing.Size(361, 22);
             this.tbPassword.TabIndex = 32;
             // 
             // tbIBAN
             // 
-            this.tbIBAN.Location = new System.Drawing.Point(474, 271);
+            this.tbIBAN.Location = new System.Drawing.Point(632, 334);
+            this.tbIBAN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbIBAN.Name = "tbIBAN";
             this.tbIBAN.ReadOnly = true;
-            this.tbIBAN.Size = new System.Drawing.Size(272, 20);
+            this.tbIBAN.Size = new System.Drawing.Size(361, 22);
             this.tbIBAN.TabIndex = 31;
             // 
             // tbAccountOwner
             // 
-            this.tbAccountOwner.Location = new System.Drawing.Point(474, 118);
+            this.tbAccountOwner.Location = new System.Drawing.Point(632, 145);
+            this.tbAccountOwner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAccountOwner.Name = "tbAccountOwner";
             this.tbAccountOwner.ReadOnly = true;
-            this.tbAccountOwner.Size = new System.Drawing.Size(272, 20);
+            this.tbAccountOwner.Size = new System.Drawing.Size(361, 22);
             this.tbAccountOwner.TabIndex = 30;
             // 
             // dgvBankAccounts
             // 
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(14, 19);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(19, 23);
+            this.dgvBankAccounts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
-            this.dgvBankAccounts.Size = new System.Drawing.Size(403, 324);
+            this.dgvBankAccounts.RowHeadersWidth = 51;
+            this.dgvBankAccounts.Size = new System.Drawing.Size(537, 399);
             this.dgvBankAccounts.TabIndex = 29;
+            this.dgvBankAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellClick);
             // 
             // Reactivate_BankAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnDeactivatedAccounts);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.tbSearch);
@@ -187,6 +203,7 @@
             this.Controls.Add(this.tbIBAN);
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Reactivate_BankAccount";
             this.Text = "Reativar conta";
             this.Load += new System.EventHandler(this.Reactivate_BankAccount_Load);
