@@ -35,12 +35,12 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.BackColor = System.Drawing.Color.Green;
-            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.BackColor = System.Drawing.Color.Sienna;
+            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.White;
-            this.btnEntrar.Location = new System.Drawing.Point(485, 341);
+            this.btnEntrar.Location = new System.Drawing.Point(560, 359);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(117, 36);
+            this.btnEntrar.Size = new System.Drawing.Size(237, 63);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
@@ -48,11 +48,12 @@
             // 
             // btnCriar
             // 
-            this.btnCriar.BackColor = System.Drawing.Color.White;
-            this.btnCriar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCriar.Location = new System.Drawing.Point(604, 341);
+            this.btnCriar.BackColor = System.Drawing.Color.Black;
+            this.btnCriar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriar.ForeColor = System.Drawing.Color.White;
+            this.btnCriar.Location = new System.Drawing.Point(813, 359);
             this.btnCriar.Name = "btnCriar";
-            this.btnCriar.Size = new System.Drawing.Size(117, 36);
+            this.btnCriar.Size = new System.Drawing.Size(234, 63);
             this.btnCriar.TabIndex = 1;
             this.btnCriar.Text = "Criar conta";
             this.btnCriar.UseVisualStyleBackColor = false;
@@ -64,7 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 634);
+            this.ClientSize = new System.Drawing.Size(1147, 634);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnEntrar);
             this.Name = "Dashboard";

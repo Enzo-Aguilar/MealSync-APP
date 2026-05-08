@@ -39,30 +39,36 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(466, 312);
+            this.tbName.BackColor = System.Drawing.Color.Black;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbName.Location = new System.Drawing.Point(774, 380);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(154, 20);
+            this.tbName.Size = new System.Drawing.Size(275, 34);
             this.tbName.TabIndex = 2;
             // 
             // tbPassword
             // 
             this.tbPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
-            this.tbPassword.Location = new System.Drawing.Point(466, 346);
+            this.tbPassword.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPassword.Location = new System.Drawing.Point(774, 311);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(154, 20);
+            this.tbPassword.Size = new System.Drawing.Size(275, 34);
             this.tbPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Green;
+            this.btnLogin.BackColor = System.Drawing.Color.Sienna;
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(432, 407);
+            this.btnLogin.Location = new System.Drawing.Point(774, 435);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(201, 37);
+            this.btnLogin.Size = new System.Drawing.Size(275, 37);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -71,8 +77,8 @@
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Location = new System.Drawing.Point(463, 381);
+            this.lbText.BackColor = System.Drawing.Color.Black;
+            this.lbText.Location = new System.Drawing.Point(820, 485);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(104, 13);
             this.lbText.TabIndex = 5;
@@ -81,9 +87,9 @@
             // lbLink_Register
             // 
             this.lbLink_Register.AutoSize = true;
-            this.lbLink_Register.BackColor = System.Drawing.Color.Green;
+            this.lbLink_Register.BackColor = System.Drawing.Color.Black;
             this.lbLink_Register.LinkColor = System.Drawing.Color.White;
-            this.lbLink_Register.Location = new System.Drawing.Point(573, 381);
+            this.lbLink_Register.Location = new System.Drawing.Point(923, 485);
             this.lbLink_Register.Name = "lbLink_Register";
             this.lbLink_Register.Size = new System.Drawing.Size(60, 13);
             this.lbLink_Register.TabIndex = 6;
@@ -105,15 +111,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(811, 713);
+            this.ClientSize = new System.Drawing.Size(1213, 625);
             this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.lbLink_Register);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
+            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
