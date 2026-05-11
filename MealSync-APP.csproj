@@ -86,6 +86,12 @@
     <Compile Include="Pages\BankAccount\Reactivate_BankAccount.Designer.cs">
       <DependentUpon>Reactivate_BankAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FAQs\Show_FAQs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\FAQs\Show_FAQs.Designer.cs">
+      <DependentUpon>Show_FAQs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GlobalForms\Create_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\BankAccount\Reactivate_BankAccount.resx">
       <DependentUpon>Reactivate_BankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\FAQs\Show_FAQs.resx">
+      <DependentUpon>Show_FAQs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Create_User.resx">
       <DependentUpon>Create_User.cs</DependentUpon>

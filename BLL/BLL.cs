@@ -226,6 +226,11 @@ namespace BusinessLogicLayer
     }
 	public class FAQs_BLL
 	{
+		static public DataTable Show_FAQs()
+		{
+			DAL dal = new DAL();
+			return dal.ExecuteReader("SELECT question  FROM [FAQs] WHERE isActive = 1 and isAnswered = 1", null);
+        }
 		static public int Create_FAQ(FAQs faq)
 		{
 			DAL dal = new DAL();
@@ -246,6 +251,26 @@ namespace BusinessLogicLayer
 				new SqlParameter("@ID",faq.ID)
 			};
 			dal.ExecuteReader("UPDATE [FAQs] SET isActive = 0 WHERE ID=@ID", sqlParams);
+		}
+		static public DataTable FAQ_Answer(string question)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@question",question)
+			};
+		    return dal.ExecuteReader("SELECT answer FROM [FAQs] WHERE question=@question",sqlParams);
+		}
+
+		//Métodos de Procura
+		static public DataTable Search_Question(string question)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@question",question)
+			};
+			return dal.ExecuteReader("SELECT question FROM [FAQs] WHERE question LIKE '%' + @question + '%' AND isActive = 1 AND isAnswered = 1",sqlParams);
 		}
 	}
 	public class Holder_BLL
