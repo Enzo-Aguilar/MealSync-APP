@@ -1,9 +1,7 @@
-﻿using System.Windows.Forms;
-using BusinessLogicLayer;
+﻿using System.Security.Cryptography;
+using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
-using System.Configuration;
-using System.Security.Cryptography;
 
 namespace MealSync_APP
 {

@@ -1,8 +1,6 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
-using BusinessLogicLayer;
-using MealSync_APP.Globals;
 
 namespace MealSync_APP
 {
@@ -16,7 +14,7 @@ namespace MealSync_APP
         //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-            
+           //Adicionar método de Home Visibility
         }
 
         //Métodos dos componentes gráficos
@@ -30,12 +28,6 @@ namespace MealSync_APP
                 MessageBox.Show("Até Breve", "");
                 LoginForm.Open(this);
             }
-        }
-
-        //User (em sessão)
-        private void edit_Profile_Click(object sender, EventArgs e)
-        {
-            FormUtils.OpenForm_EditProfile();
         }
 
         //Pedidos
@@ -126,17 +118,19 @@ namespace MealSync_APP
         {
             FormUtils.OpenForm_RemoveAdmin();
         }
-
         private void lbDoesNotHaveBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormUtils.OpenForm_CreateBankAccount();
-            lbDoesNotHaveBankAccount.Visible = false;
         }
+
+        //Perfil do Utilizador
+        private void Edit_Profile_Click(object sender, EventArgs e){ OpenForm.EditUserProfile(); }
 
         //Conta bancária
         private void Associate_BankAccount_Click(object sender, EventArgs e){OpenForm.AssociateToBankAccount();}
         private void Create_BankAccount_Click(object sender, EventArgs e){OpenForm.CreateBankAccount();}
         private void DeactivateToolStripMenuItem_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
         private void ReativarToolStripMenuItem_Click(object sender, EventArgs e){ OpenForm.ReactivateBankAccount(); }
+
     }
 }

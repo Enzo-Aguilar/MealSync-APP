@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Globals\BankAccount.cs" />
-    <Compile Include="Globals\Data.cs" />
+    <Compile Include="Globals\CurrentSession.cs" />
+    <Compile Include="Globals\FAQs.cs" />
     <Compile Include="Globals\Holder.cs" />
     <Compile Include="Pages\Admins\Edit_Admin.cs">
       <SubType>Form</SubType>
@@ -230,10 +231,10 @@
     <Compile Include="Pages\Register\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\User\Edit_Profile.cs">
+    <Compile Include="Pages\Profile\Edit_Profile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\User\Edit_Profile.Designer.cs">
+    <Compile Include="Pages\Profile\Edit_Profile.Designer.cs">
       <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\HolderUtils.cs" />
@@ -268,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Profile\Edit_Profile.resx">
+      <DependentUpon>Edit_Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

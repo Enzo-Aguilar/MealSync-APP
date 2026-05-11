@@ -1,19 +1,14 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP;
+﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
-using System;
-using System.Collections.Generic;
+using BusinessLogicLayer;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Utils
 {
     public class HolderUtils
     {
-        static protected ValidatorResult IsUserAlredyAssociatedToBankAccount(User user, BankAccount bankAccount)
+        static protected ValidatorResult IsUserAlredyAssociatedToBkAccount(User user, BankAccount bankAccount)
         {
             try
             {
@@ -78,7 +73,7 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: "+err.Message };
             }
         }
-        static protected ValidatorResult IsNameEqualToDeactivatedBkAccounOwner(User user)
+        static protected ValidatorResult IsNameEqualToDeactivatedBkAccountOwner(User user)
         {
             try
             {
@@ -168,7 +163,7 @@ namespace MealSync_APP.Utils
             var checks = new[]
             {
                 IsPasswordEqualToBkAccountPassword(bankAccount),
-                IsUserAlredyAssociatedToBankAccount(currentUser, bankAccount)
+                IsUserAlredyAssociatedToBkAccount(currentUser, bankAccount)
             };
             foreach(var result in checks)
             {
@@ -177,7 +172,7 @@ namespace MealSync_APP.Utils
             Create_Holder(bankAccount, currentUser, ownerShipOrder);
             return new ValidatorResult { IsValid = true };
         }
-        static public ValidatorResult DeactivateBankAccountToUser(User currentUser, BankAccount bkAccount)
+        static public ValidatorResult DeactivateBkAccountToUser(User currentUser, BankAccount bkAccount)
         {
             try
             {
@@ -197,19 +192,19 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar desativar: "+err.Message};
             }
         }
-        static public ValidatorResult ReactivateBankAccountToUser(User currentUser, BankAccount bkAccount)
+        static public ValidatorResult ReactivateBkAccountAndHolder(User currentUser, BankAccount bkAccount)
         {
             try
             {
                 var checks = new[]
                 {
                     IsPasswordEqualToBkAccountPassword(bkAccount),
-                    IsNameEqualToDeactivatedBkAccounOwner(currentUser)
+                    IsNameEqualToDeactivatedBkAccountOwner(currentUser)
                 };
                 foreach (var res in checks) if (!res.IsValid) return res;
 
                 BankAuth.Reactivate_BankAccount(bkAccount);
-                HolderAuth.Reactivate_Holder(currentUser, bkAccount);
+                Reactivate_Holder(currentUser, bkAccount);
                 return new ValidatorResult { IsValid = true };
             }
             catch (Exception err)

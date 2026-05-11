@@ -16,9 +16,6 @@ namespace DataAccessLayer
             _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =" + System.Windows.Forms.Application.StartupPath + @"\MealSync_DB.mdf;Integrated Security = True; Connect Timeout = 30");
         }
 
-        //Caminho do DB na escola -> C:\Users\Vosso numero\_MealSync_\Database\MealSync_DB.mdf;
-        //Caminho da DB no pc pessoal -> C:\_MealSync_\Database\MealSync_DB.mdf;
-
         // Abrir Conexão
         private void OpenConnection()
         {

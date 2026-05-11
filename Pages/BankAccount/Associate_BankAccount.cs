@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MealSync_APP.Globals;
 using System.Windows.Forms;
 using BusinessLogicLayer;
-using MealSync_APP.Globals;
 using MealSync_APP.Utils;
+using System.Data;
+using System;
 
 namespace MealSync_APP.BankAccountFolder
 {
     public partial class Associate_BankAccount : Form
     {
         private static readonly BankAccount bankAccount = new BankAccount();
-        private static readonly User currentUser = Data.CurrentUser;
+        private static readonly User currentUser = CurrentSession.User;
         public Associate_BankAccount()
         {
             InitializeComponent();
@@ -114,11 +108,12 @@ namespace MealSync_APP.BankAccountFolder
         {
             try
             {
-                DataTable dt = BankAccount_BLL.GetUserBankAccountData();
+                DataTable dt = BankAccount_BLL.DataTable_BkAccount_With_OwnerData();
 
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Nenhum utilizador encontrado", "Info");
+                    dgvBankAccounts.DataSource = null;
                     return;
                 }
 

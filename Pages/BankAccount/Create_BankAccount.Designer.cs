@@ -117,7 +117,7 @@
             // 
             // btnCreateBankAccount
             // 
-            this.btnCreateBankAccount.Location = new System.Drawing.Point(86, 318);
+            this.btnCreateBankAccount.Location = new System.Drawing.Point(87, 326);
             this.btnCreateBankAccount.Name = "btnCreateBankAccount";
             this.btnCreateBankAccount.Size = new System.Drawing.Size(90, 41);
             this.btnCreateBankAccount.TabIndex = 8;
@@ -163,7 +163,6 @@
             this.Controls.Add(this.tbPassword);
             this.Name = "Create_BankAccount";
             this.Text = "Criar Conta Bancaria";
-            this.Load += new System.EventHandler(this.Create_BankAccount_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

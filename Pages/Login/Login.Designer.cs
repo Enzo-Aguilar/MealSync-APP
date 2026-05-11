@@ -42,7 +42,7 @@
             this.tbName.BackColor = System.Drawing.Color.Black;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbName.Location = new System.Drawing.Point(774, 380);
+            this.tbName.Location = new System.Drawing.Point(774, 309);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(275, 34);
             this.tbName.TabIndex = 2;
@@ -54,7 +54,7 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(774, 311);
+            this.tbPassword.Location = new System.Drawing.Point(774, 383);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(275, 34);
@@ -100,7 +100,7 @@
             // checkBoxPassword
             // 
             this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(626, 349);
+            this.checkBoxPassword.Location = new System.Drawing.Point(1023, 398);
             this.checkBoxPassword.Name = "checkBoxPassword";
             this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPassword.TabIndex = 7;
@@ -121,6 +121,7 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Name = "Login";
             this.Text = "Login";

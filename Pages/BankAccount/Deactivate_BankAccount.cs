@@ -1,22 +1,16 @@
-﻿using BusinessLogicLayer;
+﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
+using BusinessLogicLayer;
 using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Pages.BankAccountFolder
 {
     public partial class Deactivate_BankAccount : Form
     {
         private static readonly BankAccount bankAccount = new BankAccount();
-        private static readonly User currentUser = Data.CurrentUser;
+        private static readonly User currentUser = CurrentSession.User;
 
         public Deactivate_BankAccount()
         {
@@ -56,8 +50,8 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 {
                     bankAccount.ID = int.Parse(tbBankAccountID.Text);
                     bankAccount.Password = tbPassword.Text;
-                    currentUser.ID = Data.CurrentUser.ID;
-                    var deactivate = HolderAuth.DeactivateBankAccountToUser(currentUser, bankAccount);
+                    currentUser.ID = CurrentSession.User.ID;
+                    var deactivate = HolderAuth.DeactivateBkAccountToUser(currentUser, bankAccount);
                     if (deactivate.IsValid)
                     {
                         var res = MessageBox.Show("Tem certeza que deseja desativar conta?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -125,7 +119,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
             try
             {
-                DataTable dt = BankAccount_BLL.GetUserBankAccountData();
+                DataTable dt = BankAccount_BLL.DataTable_BkAccount_With_OwnerData();
 
                 if (dt == null || dt.Rows.Count == 0)
                 {

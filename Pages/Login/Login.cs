@@ -16,6 +16,7 @@ namespace MealSync_APP
         private void Login_Load(object sender, EventArgs e)
         {
             UserData.Reset();
+            BankAccountData.Reset();
         }
 
         //Métodos dos componentes graficos

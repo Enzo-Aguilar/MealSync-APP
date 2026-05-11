@@ -1,11 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using MealSync_APP.Globals;
+using System.Windows.Forms;
 using BusinessLogicLayer;
 using System.Data;
 using System;
-using System.Linq;
-using MealSync_APP.Globals;
-using System.Security.Cryptography;
-using System.Globalization;
+
 
 namespace MealSync_APP.Utils
 {
@@ -340,16 +338,16 @@ namespace MealSync_APP.Utils
                 DataTable dt = User_BLL.Save(user);
                 if (dt.Rows.Count != 0)
                 {
-                    Data.CurrentUser.ID = Convert.ToInt16(dt.Rows[0][0]);
-                    Data.CurrentUser.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
-                    Data.CurrentUser.Email = dt.Rows[0][2].ToString();
-                    Data.CurrentUser.IsActive = true;
-                    Data.CurrentUser.Name = dt.Rows[0][4].ToString();
+                    CurrentSession.User.ID = Convert.ToInt16(dt.Rows[0][0]);
+                    CurrentSession.User.CreatedAt = Convert.ToDateTime(dt.Rows[0][1]);
+                    CurrentSession.User.Email = dt.Rows[0][2].ToString();
+                    CurrentSession.User.IsActive = true;
+                    CurrentSession.User.Name = dt.Rows[0][4].ToString();
                     //Data.currentUser.Password = dt.Rows[0][5].ToString();
-                    Data.CurrentUser.PhoneNumber = dt.Rows[0][6].ToString();
-                    Data.CurrentUser.Role = Convert.ToInt16(dt.Rows[0][7]);
-                    Data.CurrentUser.PostalCode = dt.Rows[0][8].ToString();
-                    Data.CurrentUser.SchoolIDNumber = dt.Rows[0][9].ToString();
+                    CurrentSession.User.PhoneNumber = dt.Rows[0][6].ToString();
+                    CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][7]);
+                    CurrentSession.User.PostalCode = dt.Rows[0][8].ToString();
+                    CurrentSession.User.SchoolIDNumber = dt.Rows[0][9].ToString();
 
                     result.IsValid = true;
                     return result;
@@ -376,16 +374,16 @@ namespace MealSync_APP.Utils
         }
         static public void Reset()
         {
-            Data.CurrentUser.ID = -1;
-            Data.CurrentUser.CreatedAt = DateTime.MinValue;
-            Data.CurrentUser.Email = string.Empty;
-            Data.CurrentUser.IsActive = false;
-            Data.CurrentUser.Name = string.Empty;
-            Data.CurrentUser.Password = string.Empty;
-            Data.CurrentUser.PhoneNumber = string.Empty;
-            Data.CurrentUser.Role = -1;
-            Data.CurrentUser.PostalCode = string.Empty;
-            Data.CurrentUser.SchoolIDNumber = string.Empty;
+            CurrentSession.User.ID = -1;
+            CurrentSession.User.CreatedAt = DateTime.MinValue;
+            CurrentSession.User.Email = string.Empty;
+            CurrentSession.User.IsActive = false;
+            CurrentSession.User.Name = string.Empty;
+            CurrentSession.User.Password = string.Empty;
+            CurrentSession.User.PhoneNumber = string.Empty;
+            CurrentSession.User.Role = -1;
+            CurrentSession.User.PostalCode = string.Empty;
+            CurrentSession.User.SchoolIDNumber = string.Empty;
         }
     }
 }

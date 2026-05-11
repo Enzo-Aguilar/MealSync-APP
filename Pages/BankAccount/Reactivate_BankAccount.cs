@@ -1,22 +1,16 @@
-﻿using BusinessLogicLayer;
+﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
 using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using BusinessLogicLayer;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Pages.BankAccountFolder
 {
     public partial class Reactivate_BankAccount : Form
     {
         private static readonly BankAccount bankAccount = new BankAccount();
-        private static User currentUser = Data.CurrentUser;
+        private static readonly User currentUser = CurrentSession.User;
         public Reactivate_BankAccount()
         {
             InitializeComponent();
@@ -26,21 +20,16 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
             LoadData();
         }
-        //Métodos dos componentes graficos
+        //Métodos dos componentes grafícos
         private void BtnReactivateAccounts_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!String.IsNullOrEmpty(tbBankAccountID.Text))
-                {
-                    /*
-                        1º Criar metodos pra reativar na BLL
-                        2º Criar HolderAuth && BkAuth 
-                        3º Mostrar e atulizar aqui baseado no form 'Deactivate_BankAccount.cs'
-                     */
+                { 
                     bankAccount.ID = int.Parse(tbBankAccountID.Text);
                     bankAccount.Password = tbPassword.Text;
-                    var reactivate = HolderAuth.ReactivateBankAccountToUser(currentUser, bankAccount);
+                    var reactivate = HolderAuth.ReactivateBkAccountAndHolder(currentUser, bankAccount);
                     if (reactivate.IsValid)
                     {
                         var res = MessageBox.Show("Tem certeza que deseja reativar a conta?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -126,11 +115,12 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
             try
             {
-                DataTable dt = BankAccount_BLL.GetUserDeactivatedBankAccountData();
+                DataTable dt = BankAccount_BLL.DataTable_DeactivatedBkAccount_With_OwnerData();
 
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Nenhum utilizador encontrado", "Info");
+                    dgvBankAccounts.DataSource = null;
                     return;
                 }
 
@@ -157,7 +147,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
             tbBankAccountID.Text = string.Empty;
             tbIBAN.Text = string.Empty;
             tbPassword.Text = string.Empty;
-            BtnUpdate_Click(null, null);
+            BtnUpdate_Click(null,null);
         }
 
     }

@@ -1,15 +1,8 @@
-﻿using MealSync_APP.Globals;
+﻿using System.Windows.Forms;
+using System.Data.SqlTypes;
+using MealSync_APP.Globals;
 using MealSync_APP.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP.BankAccountFolder
 {
@@ -19,11 +12,6 @@ namespace MealSync_APP.BankAccountFolder
         public Create_BankAccount()
         {
             InitializeComponent();
-        }
-        //Load do form
-        private void Create_BankAccount_Load(object sender, EventArgs e)
-        {
-
         }
         //Métodos dos componentes gráficos
         private void BtnCreate_BankAccount_Click(object sender, EventArgs e)
@@ -41,7 +29,8 @@ namespace MealSync_APP.BankAccountFolder
                 if (createBankAccount.IsValid)
                 {
                     MessageBox.Show("Conta criada com sucesso!");
-                    HolderAuth.Create_Holder(bankAccount, Data.CurrentUser, 1);
+                    HolderAuth.Create_Holder(bankAccount, CurrentSession.User, 1);
+                    BankAccountData.Save(bankAccount);//Falta Adicionar as contas ja vinculadas anteriormente
                     ResetElements();
                 }
                 else

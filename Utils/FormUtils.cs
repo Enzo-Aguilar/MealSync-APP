@@ -1,20 +1,10 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP._Utilizador_;
-using MealSync_APP.Administradores;
-using MealSync_APP.Alunos;
+﻿using MealSync_APP.Pages.BankAccountFolder;
 using MealSync_APP.BankAccountFolder;
+using MealSync_APP.Administradores;
 using MealSync_APP.Funcionários;
-using MealSync_APP.Marcações;
-using MealSync_APP.Pages.BankAccountFolder;
-using MealSync_APP.Pedidos;
-using MealSync_APP.Refeições;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MealSync_APP._Utilizador_;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using MealSync_APP.Alunos;
 
 namespace MealSync_APP.Utils
 {
@@ -53,6 +43,12 @@ namespace MealSync_APP.Utils
 
     public class OpenForm : HomeForm
     {
+        //Perfil
+        public static void EditUserProfile()
+        {
+            Edit_Profile ep = new Edit_Profile { MdiParent = _home};
+            ep.Show();
+        }
 
         //Bank Account (usuário currente)
         public static void AssociateToBankAccount()

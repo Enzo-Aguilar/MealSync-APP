@@ -1,13 +1,8 @@
-﻿using BusinessLogicLayer;
+﻿using System.Data.SqlTypes;
 using MealSync_APP.Globals;
-using System;
-using System.Collections.Generic;
+using BusinessLogicLayer;
 using System.Data;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Utils
 {
@@ -126,7 +121,7 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                BankAccount_BLL.Deactivate_BankAccount(bkAccount);
+                BankAccount_BLL.Reactivate_BankAccount(bkAccount);
                 return new ValidatorResult { IsValid = true };
             }
             catch(Exception err)
@@ -150,9 +145,17 @@ namespace MealSync_APP.Utils
                     IBAN = dt.Rows[0][4].ToString(),
                     IsActive = true
                 };
-
-                Data.UserBankAccounts.Add(bankAccount);
+                CurrentSession.UserBkAccountsList.Add(bankAccount);
             }
+        }
+        public static void Reset()
+        {
+            CurrentSession.UserBkAccountsList.Clear();
+        }
+        public static void AddUserRelatedAccountOnLoad()
+        {
+            //Com o login do user, adicionar todas as contas do user a lista userBkaccountList
         }
     }
 }
+ 
