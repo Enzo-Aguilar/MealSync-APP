@@ -59,26 +59,12 @@ namespace MealSync_APP
 
         private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPassword.Checked)
-            {//Mostrar a senha
-                tbPassword.PasswordChar = '\0';
-            }
-            else
-            {//Esconder a senha
-                tbPassword.PasswordChar = '*';
-            }
+
         }
 
         private void CheckBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPasswordConfirm.Checked)
-            {//Mostrar a senha
-                tbPassword_Confirm.PasswordChar = '\0';
-            }
-            else
-            {//Esconder a senha
-                tbPassword_Confirm.PasswordChar = '*';
-            }
+
         }
     }
 }

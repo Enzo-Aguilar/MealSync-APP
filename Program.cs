@@ -1,4 +1,5 @@
-﻿using MealSync_APP.Pages.Home;
+﻿using MealSync_APP.BankAccountFolder;
+using MealSync_APP.Pages.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
