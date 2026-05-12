@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.Pages.FAQs
+﻿namespace MealSync_APP.Pages.FAQsFolder
 {
     partial class Show_FAQs
     {

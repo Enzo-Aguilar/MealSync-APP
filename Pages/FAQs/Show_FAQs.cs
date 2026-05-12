@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Pages.FAQs
+namespace MealSync_APP.Pages.FAQsFolder
 {
     public partial class Show_FAQs : Form
     {

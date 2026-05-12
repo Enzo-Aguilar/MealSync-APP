@@ -9,8 +9,9 @@ namespace MealSync_APP.Globals
     public class FAQs
     {
         public int ID { get; set; }
-        public string ID_User { get; set; }
+        public int ID_User { get; set; }
         public string Answer { get; set; }
+        public bool IsActive { get; set; }
         public bool IsAnswered { get; set; }
         public string Question { get; set; }
     }
