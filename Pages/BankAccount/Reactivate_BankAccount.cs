@@ -101,14 +101,14 @@ namespace MealSync_APP.Pages.BankAccountFolder
         }
         private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPassword.Checked)
-            {//Mostrar a senha
-                tbPassword.PasswordChar = '\0';
-            }
-            else
-            {//Esconder a senha
-                tbPassword.PasswordChar = '*';
-            }
+            //if(checkBoxPassword.Checked)
+            //{//Mostrar a senha
+            //    tbPassword.PasswordChar = '\0';
+            //}
+            //else
+            //{//Esconder a senha
+            //    tbPassword.PasswordChar = '*';
+            //}
         }
         //Métodos Auxiliares
         private void LoadData()

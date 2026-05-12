@@ -1,11 +1,7 @@
 ﻿using MealSync_APP.BankAccountFolder;
-using MealSync_APP.Pages.FAQs;
+using MealSync_APP.Pages.FAQsFolder;
 using MealSync_APP.Pages.Home;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP
 {
@@ -19,7 +15,7 @@ namespace MealSync_APP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Application.Run(new Login());
         }
     }
 }

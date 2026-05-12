@@ -29,7 +29,7 @@ namespace MealSync_APP.Pages.FAQsFolder
                 try
                 {
                     string question = dgvQuestions.Rows[e.RowIndex].Cells[0].Value?.ToString() ?? string.Empty;
-                    DataTable dt = FAQs_BLL.FAQ_Answer(question);
+                    DataTable dt = FAQs_BLL.Search_FAQsAnswer(question);
                     string answer = dt.Rows[0][0].ToString();
                     tbAnswers.Text = answer;
                 }
@@ -55,9 +55,8 @@ namespace MealSync_APP.Pages.FAQsFolder
             }
             else
             {
-                dgvQuestions.DataSource = FAQs_BLL.Search_Question(tbSearch.Text);
-            }
-            
+                dgvQuestions.DataSource = FAQs_BLL.GetAnsweredQuestions(tbSearch.Text);
+            }  
         }
     }
 }
