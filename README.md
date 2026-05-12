@@ -63,8 +63,15 @@ leitura e organização do projeto.Deixei um guia so pra dar aquela ajuda
 		pra enviar pra DAL e executar o que for pedido.
 
 
-
-
+LIMA-IMPORTANTE!!!!!
+        
+        -Forms associete_bankaccount
+        -desactivate_bankaccount
+        -reactivate_bankaccount
+                                nos botões "associar" e "atualizar" desses forms o emoji 
+                                que esta em cima são labels á parte, ou seja, NÃO ESQUECER 
+                                de por o mesmo evento clique do butão na label
+            _
 
 
 
