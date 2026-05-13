@@ -1,14 +1,7 @@
-﻿using BusinessLogicLayer;
+﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
+using BusinessLogicLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.FAQsFolder
 {

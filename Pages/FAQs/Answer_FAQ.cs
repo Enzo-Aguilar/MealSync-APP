@@ -32,6 +32,10 @@ namespace MealSync_APP.Pages.FAQsFolder
                 {
                     tbQuestion.Text = dgvFAQs.Rows[e.RowIndex].Cells[0].Value?.ToString();
                 }
+                catch(Exception err)
+                {
+                    MessageBox.Show("Ocorreu um erro: "+err.Message);
+                }
             }
         }
 
@@ -39,7 +43,7 @@ namespace MealSync_APP.Pages.FAQsFolder
         {
             if (string.IsNullOrEmpty(tbSearch.Text))
             {
-                dgvFAQs.DataSource = FAQs_BLL.GetUnansweredQuestions();
+                dgvFAQs.DataSource = FAQs_BLL.GetUnansweredQuestions(tbQuestion.Text);
             }
             else
             {
@@ -49,7 +53,16 @@ namespace MealSync_APP.Pages.FAQsFolder
 
         private void BtnAnswerQuestion_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string question = tbQuestion.Text;
+                string answer = tbAnswer.Text;
+                FAQs_BLL.AnswerQuestion(answer,question);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro: " + err.Message);
+            } 
         }
 
         //Métodos Auxiliares

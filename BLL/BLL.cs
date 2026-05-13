@@ -258,6 +258,17 @@ namespace BusinessLogicLayer
 			dal.ExecuteReader("UPDATE [FAQs] SET isActive = 0 WHERE ID=@ID", sqlParams);
 		}
 
+		static public void AnswerQuestion(string answer, string question) 
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[] 
+			{
+				new SqlParameter("@answer",answer),
+				new SqlParameter("@question",question)
+			};
+			dal.ExecuteNonQuery("UPDATE [FAQs] SET isAnswered = 1 and answer = @answer WHERE question=@question", sqlParams);
+		}
+
 		//Métodos de Procura
 		static public DataTable GetAnsweredQuestions(string questionFilter)
 		{
