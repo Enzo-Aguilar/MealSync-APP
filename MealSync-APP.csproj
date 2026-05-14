@@ -98,6 +98,12 @@
     <Compile Include="Pages\FAQs\Create_FAQs.Designer.cs">
       <DependentUpon>Create_FAQs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FAQs\Reactivate_FAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\FAQs\Reactivate_FAQ.Designer.cs">
+      <DependentUpon>Reactivate_FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FAQs\Show_FAQs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\FAQs\Create_FAQs.resx">
       <DependentUpon>Create_FAQs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\FAQs\Reactivate_FAQ.resx">
+      <DependentUpon>Reactivate_FAQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\FAQs\Show_FAQs.resx">
       <DependentUpon>Show_FAQs.cs</DependentUpon>

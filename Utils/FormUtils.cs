@@ -2,7 +2,7 @@
 using MealSync_APP.BankAccountFolder;
 using MealSync_APP.Administradores;
 using MealSync_APP.Funcionários;
-using MealSync_APP._Utilizador_;
+using MealSync_APP.ProfileFolder;
 using System.Windows.Forms;
 using MealSync_APP.Alunos;
 
@@ -36,7 +36,7 @@ namespace MealSync_APP.Utils
         static protected Home _home = new Home();
         public static void Open(Form form)
         {
-            form.Close();
+            form.Hide();
             _home.Show();
         }
     }

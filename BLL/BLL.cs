@@ -4,7 +4,6 @@ using DataAccessLayer;
 using MealSync_APP;
 using System.Data;
 using System;
-using System.Windows.Forms;
 
 namespace BusinessLogicLayer
 {
@@ -226,6 +225,7 @@ namespace BusinessLogicLayer
 	}
 	public class FAQs_BLL
 	{
+		//Métodos para DataGridView
 		static public DataTable Show_FAQs()
 		{
 			DAL dal = new DAL();
@@ -234,8 +234,15 @@ namespace BusinessLogicLayer
 		static public DataTable Show_UnansweredFAQs()
 		{
 			DAL dal = new DAL();
-			return dal.ExecuteReader("SELECT question FROM [FAQs] WHERE isActive = 1 and isAnswered = 0", null);
+			return dal.ExecuteReader("SELECT question,ID_User FROM [FAQs] WHERE isActive = 1 and isAnswered = 0", null);
 		}
+		static public DataTable Show_DeactivatedFAQs()
+		{
+			DAL dal = new DAL();
+			return dal.ExecuteReader("SELECT question,ID_User FROM [FAQs] WHERE isActive = 0",null);
+		}
+
+		//Criar, Desativar, Reativar e Responder FAQs
 		static public int Create_FAQ(FAQs faq)
 		{
 			DAL dal = new DAL();
@@ -248,16 +255,24 @@ namespace BusinessLogicLayer
 			};
 			return dal.ExecuteNonQuery("INSERT INTO [FAQs] (ID_User,answer,isAnswered,question) VALUES(@ID_User,@answer,@isAnswered,@question)", sqlParams);
 		}
-		static public void Deativate_FAQ(FAQs faq)
+		static public void Deativate_FAQ(string question)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
-				new SqlParameter("@ID",faq.ID)
+				new SqlParameter("@question",question)
 			};
-			dal.ExecuteReader("UPDATE [FAQs] SET isActive = 0 WHERE ID=@ID", sqlParams);
+			dal.ExecuteReader("UPDATE [FAQs] SET isActive = 0 WHERE question=@question", sqlParams);
 		}
-
+		static public void Reactivate_FAQ(string question)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@question",question)
+			};
+			dal.ExecuteReader("UPDATE [FAQs] SET isActive = 1 WHERE question=@question",sqlParams);
+		}
 		static public void AnswerQuestion(string answer, string question) 
 		{
 			DAL dal = new DAL();
@@ -266,10 +281,33 @@ namespace BusinessLogicLayer
 				new SqlParameter("@answer",answer),
 				new SqlParameter("@question",question)
 			};
-			dal.ExecuteNonQuery("UPDATE [FAQs] SET isAnswered = 1 and answer = @answer WHERE question=@question", sqlParams);
+			dal.ExecuteNonQuery("UPDATE [FAQs] SET isAnswered=1,answer=@answer WHERE question=@question", sqlParams);
 		}
 
 		//Métodos de Procura
+		//Procurar perguntas pra evitar repitidas
+		static public DataTable GetQuestion(string question)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@question", question)
+			};
+			return dal.ExecuteReader("SELECT question FROM [FAQs] WHERE question=@question",sqlParams);
+		}
+
+		//Procurar FAQs desativadas
+		static public DataTable GetDeactivatedFAQs(string question)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@question",question)
+			};
+			return dal.ExecuteReader("SELECT question FROM [FAQs] WHERE question LIKE '%'+  @question + '%' AND isActive = 0",sqlParams);
+		}
+
+		//Procurar perguntas
 		static public DataTable GetAnsweredQuestions(string questionFilter)
 		{
 			DAL dal = new DAL();
@@ -288,6 +326,8 @@ namespace BusinessLogicLayer
 			};
 			return dal.ExecuteReader("SELECT question FROM [FAQs] WHERE question LIKE '%' + @question + '%' AND isActive = 1 AND isAnswered = 0", sqlParams);
 		}
+
+		//Procurar respostas
 		static public DataTable GetAnswerByQuestion(string question)
 		{
 			DAL dal = new DAL();
@@ -436,6 +476,16 @@ namespace BusinessLogicLayer
 					new SqlParameter("@name", user.Name)
 			};
 			return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
+		}
+		static public void UpdateUser(User user)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID",user.ID),
+				new SqlParameter("@email",user.Email),
+				//Atualizar dados do user
+			};
 		}
 
 		//Métodos de Procura

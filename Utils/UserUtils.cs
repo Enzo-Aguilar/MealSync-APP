@@ -328,8 +328,21 @@ namespace MealSync_APP.Utils
             }
         }
     }
-    public class UserData
+    public class UserData : UserValidator
     {
+        static public void Reset()
+        {
+            CurrentSession.User.ID = -1;
+            CurrentSession.User.CreatedAt = DateTime.MinValue;
+            CurrentSession.User.Email = string.Empty;
+            CurrentSession.User.IsActive = false;
+            CurrentSession.User.Name = string.Empty;
+            CurrentSession.User.Password = string.Empty;
+            CurrentSession.User.PhoneNumber = string.Empty;
+            CurrentSession.User.Role = -1;
+            CurrentSession.User.PostalCode = string.Empty;
+            CurrentSession.User.SchoolIDNumber = string.Empty;
+        }
         static public ValidatorResult Save(User user)
         {
             var result = new ValidatorResult();
@@ -343,7 +356,7 @@ namespace MealSync_APP.Utils
                     CurrentSession.User.Email = dt.Rows[0][2].ToString();
                     CurrentSession.User.IsActive = true;
                     CurrentSession.User.Name = dt.Rows[0][4].ToString();
-                    //Data.currentUser.Password = dt.Rows[0][5].ToString();
+                    CurrentSession.User.Password = dt.Rows[0][5].ToString();
                     CurrentSession.User.PhoneNumber = dt.Rows[0][6].ToString();
                     CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][7]);
                     CurrentSession.User.PostalCode = dt.Rows[0][8].ToString();
@@ -372,18 +385,29 @@ namespace MealSync_APP.Utils
             }
 
         }
-        static public void Reset()
+        static public ValidatorResult Update(User user, string passwordConfirm)
         {
-            CurrentSession.User.ID = -1;
-            CurrentSession.User.CreatedAt = DateTime.MinValue;
-            CurrentSession.User.Email = string.Empty;
-            CurrentSession.User.IsActive = false;
-            CurrentSession.User.Name = string.Empty;
-            CurrentSession.User.Password = string.Empty;
-            CurrentSession.User.PhoneNumber = string.Empty;
-            CurrentSession.User.Role = -1;
-            CurrentSession.User.PostalCode = string.Empty;
-            CurrentSession.User.SchoolIDNumber = string.Empty;
+            var checks = new[]
+            {
+                Validate_Email(user.Email),
+                IsEmailTaken(user.Email),
+                Validate_Name(user.Name),
+                IsNameTaken(user.Name),
+                Validator.Validate_Password(user.Password),
+                PasswordConfirm(user.Password, passwordConfirm),
+                Validate_Role(user.Role),
+                Validate_PhoneNumber(user.PhoneNumber),
+                IsPhoneNumberTaken(user.PhoneNumber),
+                Validate_Postcode(user.PostalCode),
+                Validate_SchoolMemberID(user.SchoolIDNumber),
+               IsSchoolMemberIDTaken(user.SchoolIDNumber),
+            };
+            foreach (var result in checks)
+            {
+                if (!result.IsValid) return result;
+            }
+            user.Password = Encryptor.Encrypt(user.Password);
+            return new ValidatorResult { IsValid = true };
         }
     }
 }

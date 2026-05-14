@@ -1,6 +1,5 @@
-﻿using MealSync_APP.BankAccountFolder;
-using MealSync_APP.Pages.FAQsFolder;
-using MealSync_APP.Pages.Home;
+﻿using MealSync_APP.Pages.FAQsFolder;
+using System.Windows.Forms;  
 using System;
 
 namespace MealSync_APP

@@ -37,45 +37,49 @@
             // 
             // tbQuestion
             // 
-            this.tbQuestion.Location = new System.Drawing.Point(29, 84);
+            this.tbQuestion.Location = new System.Drawing.Point(39, 103);
+            this.tbQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
-            this.tbQuestion.Size = new System.Drawing.Size(196, 34);
+            this.tbQuestion.Size = new System.Drawing.Size(260, 41);
             this.tbQuestion.TabIndex = 1;
             // 
             // checkBox
             // 
             this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(176, 193);
+            this.checkBox.Location = new System.Drawing.Point(235, 238);
+            this.checkBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox.Name = "checkBox";
             this.checkBox.Size = new System.Drawing.Size(15, 14);
             this.checkBox.TabIndex = 2;
             this.checkBox.UseVisualStyleBackColor = true;
-            this.checkBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(42, 194);
+            this.lbText.Location = new System.Drawing.Point(68, 236);
+            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(128, 13);
+            this.lbText.Size = new System.Drawing.Size(159, 16);
             this.lbText.TabIndex = 3;
             this.lbText.Text = "Enviar pergunta anonima:";
             // 
             // lbText1
             // 
             this.lbText1.AutoSize = true;
-            this.lbText1.Location = new System.Drawing.Point(101, 58);
+            this.lbText1.Location = new System.Drawing.Point(135, 71);
+            this.lbText1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbText1.Name = "lbText1";
-            this.lbText1.Size = new System.Drawing.Size(53, 13);
+            this.lbText1.Size = new System.Drawing.Size(64, 16);
             this.lbText1.TabIndex = 4;
             this.lbText1.Text = "Pergunta:";
             // 
             // btnSendQuestion
             // 
-            this.btnSendQuestion.Location = new System.Drawing.Point(56, 272);
+            this.btnSendQuestion.Location = new System.Drawing.Point(75, 335);
+            this.btnSendQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSendQuestion.Name = "btnSendQuestion";
-            this.btnSendQuestion.Size = new System.Drawing.Size(141, 49);
+            this.btnSendQuestion.Size = new System.Drawing.Size(188, 60);
             this.btnSendQuestion.TabIndex = 5;
             this.btnSendQuestion.Text = "Enviar";
             this.btnSendQuestion.UseVisualStyleBackColor = true;
@@ -83,14 +87,15 @@
             // 
             // Create_FAQs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 333);
+            this.ClientSize = new System.Drawing.Size(361, 410);
             this.Controls.Add(this.btnSendQuestion);
             this.Controls.Add(this.lbText1);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.tbQuestion);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Create_FAQs";
             this.Text = "Fazer Pergunta";
             this.ResumeLayout(false);

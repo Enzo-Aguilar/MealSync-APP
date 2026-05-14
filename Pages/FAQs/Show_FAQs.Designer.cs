@@ -39,12 +39,12 @@
             // tbAnswers
             // 
             this.tbAnswers.Enabled = false;
-            this.tbAnswers.Location = new System.Drawing.Point(655, 228);
-            this.tbAnswers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAnswers.Location = new System.Drawing.Point(873, 281);
+            this.tbAnswers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAnswers.Multiline = true;
             this.tbAnswers.Name = "tbAnswers";
             this.tbAnswers.ReadOnly = true;
-            this.tbAnswers.Size = new System.Drawing.Size(417, 219);
+            this.tbAnswers.Size = new System.Drawing.Size(555, 269);
             this.tbAnswers.TabIndex = 1;
             // 
             // btnUpdate
@@ -52,10 +52,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(750, 489);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(1000, 602);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(177, 54);
+            this.btnUpdate.Size = new System.Drawing.Size(236, 66);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "🔄   Atualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -64,13 +64,13 @@
             // dgvQuestions
             // 
             this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuestions.Location = new System.Drawing.Point(107, 257);
-            this.dgvQuestions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvQuestions.Location = new System.Drawing.Point(143, 316);
+            this.dgvQuestions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvQuestions.Name = "dgvQuestions";
             this.dgvQuestions.ReadOnly = true;
             this.dgvQuestions.RowHeadersWidth = 51;
             this.dgvQuestions.RowTemplate.Height = 24;
-            this.dgvQuestions.Size = new System.Drawing.Size(443, 306);
+            this.dgvQuestions.Size = new System.Drawing.Size(591, 377);
             this.dgvQuestions.TabIndex = 4;
             this.dgvQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvQuestions_CellClick);
             // 
@@ -79,25 +79,25 @@
             this.tbSearch.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(655, 104);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Location = new System.Drawing.Point(873, 133);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(417, 45);
+            this.tbSearch.Size = new System.Drawing.Size(555, 45);
             this.tbSearch.TabIndex = 6;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // Show_FAQs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1180, 648);
+            this.ClientSize = new System.Drawing.Size(1573, 798);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvQuestions);
             this.Controls.Add(this.tbAnswers);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Show_FAQs";
             this.Text = "Show_FAQs";
             this.Load += new System.EventHandler(this.Show_FAQs_Load);

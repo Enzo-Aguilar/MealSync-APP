@@ -1,14 +1,6 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP.Globals;
+﻿using System.Windows.Forms;
+using BusinessLogicLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.FAQsFolder
 {
@@ -18,12 +10,13 @@ namespace MealSync_APP.Pages.FAQsFolder
         {
             InitializeComponent();
         }
-
+        //Load do Form
         private void Answer_FAQs_Load(object sender, EventArgs e)
         {
             LoadContent();
         }
 
+        //Métodos dos componentes graficos
         private void DgvFAQs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex >= 0)
@@ -38,31 +31,51 @@ namespace MealSync_APP.Pages.FAQsFolder
                 }
             }
         }
-
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbSearch.Text))
             {
-                dgvFAQs.DataSource = FAQs_BLL.GetUnansweredQuestions(tbQuestion.Text);
+                LoadContent();
             }
             else
             {
                 dgvFAQs.DataSource = FAQs_BLL.GetUnansweredAnswerByQuestion(tbSearch.Text);
             }
         }
-
         private void BtnAnswerQuestion_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbAnswer.Text) && !string.IsNullOrEmpty(tbQuestion.Text))
+            {
+                try
+                {
+                    string question = tbQuestion.Text;
+                    string answer = tbAnswer.Text;
+                    MessageBox.Show("Pergunta Respondida", "Sucesso");
+                    FAQs_BLL.AnswerQuestion(answer, question);
+                    ResetElements();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Ocorreu um erro: " + err.Message);
+                }
+            }
+        }
+        private void BtnDeactivate_Click(object sender, EventArgs e)
         {
             try
             {
                 string question = tbQuestion.Text;
-                string answer = tbAnswer.Text;
-                FAQs_BLL.AnswerQuestion(answer,question);
+                MessageBox.Show("Pergunta foi invalidada");
+                FAQs_BLL.Deativate_FAQ(question);
             }
-            catch (Exception err)
+            catch(Exception err)
             {
                 MessageBox.Show("Ocorreu um erro: " + err.Message);
-            } 
+            }
+        }
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            LoadContent();
         }
 
         //Métodos Auxiliares
@@ -72,5 +85,13 @@ namespace MealSync_APP.Pages.FAQsFolder
             dgvFAQs.DataSource = FAQs_BLL.Show_UnansweredFAQs();
             dgvFAQs.Visible = true;
         }
+        private void ResetElements()
+        {
+            LoadContent();
+            tbAnswer.Clear();
+            tbQuestion.Clear();
+            tbSearch.Clear();
+        }
+
     }
 }
