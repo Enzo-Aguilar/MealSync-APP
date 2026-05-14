@@ -400,7 +400,7 @@ namespace MealSync_APP.Utils
                 IsPhoneNumberTaken(user.PhoneNumber),
                 Validate_Postcode(user.PostalCode),
                 Validate_SchoolMemberID(user.SchoolIDNumber),
-               IsSchoolMemberIDTaken(user.SchoolIDNumber),
+                IsSchoolMemberIDTaken(user.SchoolIDNumber),
             };
             foreach (var result in checks)
             {

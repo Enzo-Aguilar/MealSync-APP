@@ -28,7 +28,6 @@ namespace MealSync_APP.ProfileFolder
         {
 
         }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -49,6 +48,33 @@ namespace MealSync_APP.ProfileFolder
             tbPhoneNum.Text = CurrentSession.User.PhoneNumber;
             tbSchoolMemberID.Text = CurrentSession.User.SchoolIDNumber;
             tbPostcode.Text = CurrentSession.User.PostalCode;
+        }
+        private bool CheckDiference()
+        {
+            try
+            {
+                var checks = new[]
+                {
+                tbEmail.Text == CurrentSession.User.Email,
+                tbName.Text == CurrentSession.User.Name,
+                tbPassword.Text == CurrentSession.User.Password,
+                tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
+                tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
+                tbPostcode.Text == CurrentSession.User.PostalCode
+            };
+                foreach (var result in checks)
+                {
+                    if (!result)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro: "+err.Message);
+            }
         }
     }
 }
