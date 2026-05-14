@@ -50,9 +50,10 @@
             this.tbEmail.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbEmail.Location = new System.Drawing.Point(470, 162);
+            this.tbEmail.Location = new System.Drawing.Point(627, 199);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(207, 38);
+            this.tbEmail.Size = new System.Drawing.Size(275, 38);
             this.tbEmail.TabIndex = 5;
             // 
             // tbName
@@ -60,9 +61,10 @@
             this.tbName.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbName.Location = new System.Drawing.Point(470, 267);
+            this.tbName.Location = new System.Drawing.Point(627, 329);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(207, 38);
+            this.tbName.Size = new System.Drawing.Size(275, 38);
             this.tbName.TabIndex = 7;
             // 
             // tbPassword
@@ -70,10 +72,11 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(470, 373);
+            this.tbPassword.Location = new System.Drawing.Point(627, 459);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(207, 38);
+            this.tbPassword.Size = new System.Drawing.Size(275, 38);
             this.tbPassword.TabIndex = 8;
             // 
             // tbPassword_Confirm
@@ -81,10 +84,11 @@
             this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(704, 373);
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(939, 459);
+            this.tbPassword_Confirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
             this.tbPassword_Confirm.PasswordChar = '*';
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(207, 38);
+            this.tbPassword_Confirm.Size = new System.Drawing.Size(275, 38);
             this.tbPassword_Confirm.TabIndex = 9;
             // 
             // btnRegister
@@ -92,9 +96,10 @@
             this.btnRegister.BackColor = System.Drawing.Color.Sienna;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnRegister.Location = new System.Drawing.Point(678, 446);
+            this.btnRegister.Location = new System.Drawing.Point(904, 549);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(195, 54);
+            this.btnRegister.Size = new System.Drawing.Size(260, 66);
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Criar Conta";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -105,9 +110,10 @@
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.SystemColors.Desktop;
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(509, 467);
+            this.lbText.Location = new System.Drawing.Point(679, 575);
+            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(74, 13);
+            this.lbText.Size = new System.Drawing.Size(90, 16);
             this.lbText.TabIndex = 12;
             this.lbText.Text = "Já tem conta?";
             // 
@@ -116,9 +122,10 @@
             this.lbLink_Index.AutoSize = true;
             this.lbLink_Index.BackColor = System.Drawing.SystemColors.Desktop;
             this.lbLink_Index.LinkColor = System.Drawing.Color.White;
-            this.lbLink_Index.Location = new System.Drawing.Point(589, 467);
+            this.lbLink_Index.Location = new System.Drawing.Point(785, 575);
+            this.lbLink_Index.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLink_Index.Name = "lbLink_Index";
-            this.lbLink_Index.Size = new System.Drawing.Size(73, 13);
+            this.lbLink_Index.Size = new System.Drawing.Size(92, 16);
             this.lbLink_Index.TabIndex = 13;
             this.lbLink_Index.TabStop = true;
             this.lbLink_Index.Text = "Iniciar Sessão";
@@ -129,9 +136,10 @@
             this.tbSchoolMemberID.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbSchoolMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSchoolMemberID.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSchoolMemberID.Location = new System.Drawing.Point(704, 267);
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(939, 329);
+            this.tbSchoolMemberID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbSchoolMemberID.Name = "tbSchoolMemberID";
-            this.tbSchoolMemberID.Size = new System.Drawing.Size(207, 38);
+            this.tbSchoolMemberID.Size = new System.Drawing.Size(275, 38);
             this.tbSchoolMemberID.TabIndex = 14;
             // 
             // tbPostcode
@@ -139,9 +147,10 @@
             this.tbPostcode.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPostcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPostcode.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPostcode.Location = new System.Drawing.Point(941, 162);
+            this.tbPostcode.Location = new System.Drawing.Point(1255, 199);
+            this.tbPostcode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPostcode.Name = "tbPostcode";
-            this.tbPostcode.Size = new System.Drawing.Size(205, 38);
+            this.tbPostcode.Size = new System.Drawing.Size(272, 38);
             this.tbPostcode.TabIndex = 22;
             // 
             // tbPhoneNum
@@ -149,9 +158,10 @@
             this.tbPhoneNum.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNum.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPhoneNum.Location = new System.Drawing.Point(704, 162);
+            this.tbPhoneNum.Location = new System.Drawing.Point(939, 199);
+            this.tbPhoneNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPhoneNum.Name = "tbPhoneNum";
-            this.tbPhoneNum.Size = new System.Drawing.Size(207, 38);
+            this.tbPhoneNum.Size = new System.Drawing.Size(275, 38);
             this.tbPhoneNum.TabIndex = 27;
             // 
             // pbUserProfilePicture
@@ -159,9 +169,10 @@
             this.pbUserProfilePicture.BackColor = System.Drawing.Color.Transparent;
             this.pbUserProfilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUserProfilePicture.BackgroundImage")));
             this.pbUserProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbUserProfilePicture.Location = new System.Drawing.Point(941, 233);
+            this.pbUserProfilePicture.Location = new System.Drawing.Point(1255, 287);
+            this.pbUserProfilePicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbUserProfilePicture.Name = "pbUserProfilePicture";
-            this.pbUserProfilePicture.Size = new System.Drawing.Size(205, 197);
+            this.pbUserProfilePicture.Size = new System.Drawing.Size(273, 242);
             this.pbUserProfilePicture.TabIndex = 31;
             this.pbUserProfilePicture.TabStop = false;
             this.pbUserProfilePicture.Click += new System.EventHandler(this.PbUserProfilePicture_Click);
@@ -171,32 +182,36 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(647, 382);
+            this.label1.Location = new System.Drawing.Point(863, 470);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 20);
             this.label1.TabIndex = 32;
             this.label1.Text = "👁️";
+            this.label1.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(881, 382);
+            this.label2.Location = new System.Drawing.Point(1175, 470);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 20);
             this.label2.TabIndex = 33;
             this.label2.Text = "👁️";
+            this.label2.Click += new System.EventHandler(this.LbPassword_Confirm_Click);
             // 
             // Register
             // 
             this.AccessibleDescription = " ";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1188, 630);
+            this.ClientSize = new System.Drawing.Size(1540, 775);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbUserProfilePicture);
@@ -210,6 +225,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Register";
             this.Text = "Registo";
             this.Load += new System.EventHandler(this.Registo_Load);

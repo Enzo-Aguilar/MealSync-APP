@@ -1,7 +1,6 @@
-﻿using MealSync_APP.Utils;
+﻿using System.Windows.Forms;
+using MealSync_APP.Utils;
 using System;
-using System.Security.Cryptography;
-using System.Windows.Forms;
 
 namespace MealSync_APP
 {

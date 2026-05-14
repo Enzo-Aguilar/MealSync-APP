@@ -1,14 +1,8 @@
-﻿using MealSync_APP.Globals;
+﻿using System.Windows.Forms;
+using MealSync_APP.Globals;
+using BusinessLogicLayer;
 using MealSync_APP.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP.ProfileFolder
 {
@@ -18,23 +12,62 @@ namespace MealSync_APP.ProfileFolder
         {
             InitializeComponent();
         }
-
+        //Load do form
         private void Edit_Profile_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Altere apenas os campos que deseja editar");
             CurrentUserInfo();
         }
+
+        //Métodos dos componentes gráficos
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-
+            if (CheckDiference())
+            {
+                MessageBox.Show("Nenhuma alteração foi feita");
+            }
+            else
+            {
+                try
+                {
+                    User user = new User
+                    {
+                        ID = CurrentSession.User.ID,
+                        Email = tbEmail.Text,
+                        Name = tbName.Text,
+                        Password = tbPassword.Text,
+                        PhoneNumber = tbPhoneNum.Text,
+                        SchoolIDNumber = tbSchoolMemberID.Text,
+                        PostalCode = tbPostcode.Text
+                    };
+                    var update = UserData.Update(user, tbPassword_Confirm.Text);
+                    if (update.IsValid)
+                    {
+                        var res = MessageBox.Show("Tem certeza que deseja alterar os seus dados?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (res == DialogResult.Yes)
+                        {
+                            MessageBox.Show("Utilizador editado", "");
+                            LoginForm.Open(this);
+                        }
+                        User_BLL.UpdateUser(user);
+                    }
+                    else
+                    {
+                        MessageBox.Show(update.errorMessage);
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Ocorreu um erro: "+err.Message);
+                }
+            }
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                MessageBox.Show("Edição descartada", "");
-                LoginForm.Open(this);
+                MessageBox.Show("Edição descartada", "");   
             }
         }
 
@@ -55,13 +88,13 @@ namespace MealSync_APP.ProfileFolder
             {
                 var checks = new[]
                 {
-                tbEmail.Text == CurrentSession.User.Email,
-                tbName.Text == CurrentSession.User.Name,
-                tbPassword.Text == CurrentSession.User.Password,
-                tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
-                tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
-                tbPostcode.Text == CurrentSession.User.PostalCode
-            };
+                    tbEmail.Text == CurrentSession.User.Email,
+                    tbName.Text == CurrentSession.User.Name,
+                    tbPassword.Text == CurrentSession.User.Password,
+                    tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
+                    tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
+                    tbPostcode.Text == CurrentSession.User.PostalCode
+                };  
                 foreach (var result in checks)
                 {
                     if (!result)
@@ -70,10 +103,12 @@ namespace MealSync_APP.ProfileFolder
                     }
                     return true;
                 }
+                return true;
             }
             catch (Exception err)
             {
                 MessageBox.Show("Ocorreu um erro: "+err.Message);
+                return false;
             }
         }
     }

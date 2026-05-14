@@ -8,7 +8,6 @@ namespace MealSync_APP
     public partial class Register : Form
     {
         static private readonly User user = new User();
-        static private readonly Aes aes = Aes.Create();
         public Register()
         {
             InitializeComponent();
@@ -56,15 +55,32 @@ namespace MealSync_APP
         {
             //Adiconar imagem de perfil
         }
-
-        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
+        int contador = 0;
+        int contador2 = 0;
+        private void LbPassword_Click(object sender, EventArgs e)
         {
-
+            if (contador % 2 != 0)
+            {
+                tbPassword.PasswordChar = '\n';
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+            }
+            contador++;
         }
 
-        private void CheckBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
+        private void LbPassword_Confirm_Click(object sender, EventArgs e)
         {
-
+            if (contador2 % 2 != 0)
+            {
+                tbPassword.PasswordChar = '\n';
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+            }
+            contador2++;
         }
     }
 }

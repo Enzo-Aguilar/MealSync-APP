@@ -484,9 +484,14 @@ namespace BusinessLogicLayer
 			{
 				new SqlParameter("@ID",user.ID),
 				new SqlParameter("@email",user.Email),
-				//Atualizar dados do user
+				new SqlParameter("@name",user.Name),
+				new SqlParameter("@password",user.Password),
+				new SqlParameter("@phoneNumber",user.PhoneNumber),
+				new SqlParameter("@postalCode",user.PostalCode),
+				new SqlParameter("@school_member_ID",user.SchoolIDNumber)
 			};
-		}
+            dal.ExecuteNonQuery("UPDATE [User] SET email=@email,name=@name,password=@password,phoneNumber=@phoneNumber,postalCode=@postalCode,school_member_ID=@school_member_ID WHERE ID=@ID", sqlParams);
+        }
 
 		//Métodos de Procura
 		static public DataTable Search_Email(string email)
