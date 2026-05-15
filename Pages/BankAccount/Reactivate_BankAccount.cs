@@ -150,5 +150,9 @@ namespace MealSync_APP.Pages.BankAccountFolder
             BtnUpdate_Click(null,null);
         }
 
+        private void Reactivate_BankAccount_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

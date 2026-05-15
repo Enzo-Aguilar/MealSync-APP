@@ -1,6 +1,8 @@
-﻿using System.Windows.Forms;
-using MealSync_APP.Utils;
+﻿using MealSync_APP.Utils;
 using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MealSync_APP
 {
@@ -132,5 +134,15 @@ namespace MealSync_APP
         private void DeactivateToolStripMenuItem_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
         private void ReativarToolStripMenuItem_Click(object sender, EventArgs e){ OpenForm.ReactivateBankAccount(); }
 
+        private void Home_Resize(object sender, EventArgs e)
+        {
+            Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
+            this.BackgroundImage = img;
+        }
+
+        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
