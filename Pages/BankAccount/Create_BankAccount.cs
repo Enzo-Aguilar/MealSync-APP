@@ -35,7 +35,7 @@ namespace MealSync_APP.BankAccountFolder
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível criar a conta bancária: " + createBankAccount.errorMessage);
+                    MessageBox.Show("Não foi possível criar a conta bancária: " + createBankAccount.ErrorMessage);
                 }
             }
             catch(Exception err)

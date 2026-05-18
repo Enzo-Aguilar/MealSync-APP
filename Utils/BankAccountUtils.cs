@@ -23,22 +23,22 @@ namespace MealSync_APP.Utils
                         }
                         else
                         {
-                            return new ValidatorResult { IsValid = false, errorMessage = "O IBAN deve começar com 'PT50'" };
+                            return new ValidatorResult { IsValid = false, ErrorMessage = "O IBAN deve começar com 'PT50'" };
                         }
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, errorMessage = "O IBAN deve conter exatamente 25 caracteres" };
+                        return new ValidatorResult { IsValid = false, ErrorMessage = "O IBAN deve conter exatamente 25 caracteres" };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "O campo [IBAN] está invalido" };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [IBAN] está invalido" };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
             }
         }
         static protected ValidatorResult Validate_PasswordConfirm(string password, string passwordConfirm)
@@ -50,7 +50,7 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult
                     {
                         IsValid = false,
-                        errorMessage = "As palavras-passe não coincidem"
+                        ErrorMessage = "As palavras-passe não coincidem"
                     };
                 }
                 else
@@ -60,7 +60,7 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao validar a confirmação da palavra-passe: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar a confirmação da palavra-passe: " + err.Message };
             }
         }
         //Métodos de procura
@@ -81,7 +81,7 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
             }
         }
     }
@@ -114,7 +114,7 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao desativar a conta bancária: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao desativar a conta bancária: " + err.Message };
             }
         }
         static public ValidatorResult Reactivate_BankAccount(BankAccount bkAccount)
@@ -126,7 +126,7 @@ namespace MealSync_APP.Utils
             }
             catch(Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar ativar conta bancária: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar ativar conta bancária: " + err.Message };
             }
         }
     }

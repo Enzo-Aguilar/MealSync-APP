@@ -13,8 +13,9 @@ namespace MealSync_APP
         public string Name { get; set; }
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
+        public string PostCode { get; set; }
+        public byte[] ProfileImage { get; set; }
         public int Role { get; set; }
         public string SchoolIDNumber { get; set; }
-        public string PostalCode { get; set; }
     }
 }

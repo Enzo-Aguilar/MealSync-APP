@@ -1,5 +1,4 @@
-﻿using MealSync_APP.Pages.FAQsFolder;
-using System.Windows.Forms;  
+﻿using System.Windows.Forms;  
 using System;
 
 namespace MealSync_APP
@@ -14,7 +13,7 @@ namespace MealSync_APP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Login());
         }
     }
 }

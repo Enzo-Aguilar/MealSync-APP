@@ -51,7 +51,7 @@ namespace MealSync_APP.BankAccountFolder
                 var associate = HolderAuth.AssociateBankAccountToUser(currentUser, bankAccount);
                 if(!associate.IsValid)
                 {
-                    MessageBox.Show(associate.errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(associate.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

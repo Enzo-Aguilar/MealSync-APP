@@ -19,12 +19,12 @@ namespace MealSync_APP.Utils
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "O utilizador já está associado a esta conta bancária." };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador já está associado a esta conta bancária." };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar se o utilizador já está associado a esta conta bancária: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar se o utilizador já está associado a esta conta bancária: " + err.Message };
             }
         }
         static protected ValidatorResult IsPasswordEqualToBkAccountPassword(BankAccount bankAccount)
@@ -41,17 +41,17 @@ namespace MealSync_APP.Utils
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, errorMessage = "A palavra-passe incorreta" };
+                        return new ValidatorResult { IsValid = false, ErrorMessage = "A palavra-passe incorreta" };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "Não é possivel obter detalhes desta conta bancária" };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "Não é possivel obter detalhes desta conta bancária" };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar a palavra-passe da conta bancária: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar a palavra-passe da conta bancária: " + err.Message };
             }
         }
         static protected ValidatorResult IsNameEqualToActiveBkAccounOwner(User user)
@@ -65,12 +65,12 @@ namespace MealSync_APP.Utils
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
                 }
             }
             catch(Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: "+err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: "+err.Message };
             }
         }
         static protected ValidatorResult IsNameEqualToDeactivatedBkAccountOwner(User user)
@@ -84,12 +84,12 @@ namespace MealSync_APP.Utils
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: " + err.Message };
             }
         }
     }
@@ -158,7 +158,7 @@ namespace MealSync_APP.Utils
         {
             int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bankAccount.ID)+1;
 
-            if(ownerShipOrder >= 8)return new ValidatorResult { IsValid = false, errorMessage = "Número máximo de titulares atingido para esta conta bancária." };
+            if(ownerShipOrder >= 8)return new ValidatorResult { IsValid = false, ErrorMessage = "Número máximo de titulares atingido para esta conta bancária." };
 
             var checks = new[]
             {
@@ -189,7 +189,7 @@ namespace MealSync_APP.Utils
             }
             catch(Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar desativar: "+err.Message};
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar desativar: "+err.Message};
             }
         }
         static public ValidatorResult ReactivateBkAccountAndHolder(User currentUser, BankAccount bkAccount)
@@ -209,7 +209,7 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar ativa: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar ativa: " + err.Message };
             }
         }
     }

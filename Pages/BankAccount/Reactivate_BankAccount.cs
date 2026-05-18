@@ -41,7 +41,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
                     }
                     else
                     {
-                        MessageBox.Show(reactivate.errorMessage);
+                        MessageBox.Show(reactivate.ErrorMessage);
                     }
                 }
                 else

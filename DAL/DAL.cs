@@ -16,7 +16,6 @@ namespace DataAccessLayer
             _SqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =" + System.Windows.Forms.Application.StartupPath + @"\MealSync_DB.mdf;Integrated Security = True; Connect Timeout = 30");
         }
 
-        // Abrir Conexão
         private void OpenConnection()
         {
             try
@@ -28,8 +27,6 @@ namespace DataAccessLayer
                 MessageBox.Show(err.ToString());
             }
         }
-
-        //Fechar Conexão
         private void CloseConnection()
         {
             try
@@ -103,7 +100,6 @@ namespace DataAccessLayer
             CloseConnection();
             return feedback;
         }
-
         public object ExecuteStoredProcScalar(String sqlCmd, SqlParameter[] sqlParams)
         {
             object result = null;
@@ -148,7 +144,6 @@ namespace DataAccessLayer
             _SqlCommand.Parameters.Clear();
             return returnTable;
         }
-
         public int ExecuteNonQuery(String sqlCmd, SqlParameter[] sqlParams)
         {
             int feedback = -1 ;
@@ -169,7 +164,6 @@ namespace DataAccessLayer
             _SqlCommand.Parameters.Clear();
             return feedback;
         }
-
         public object ExecuteScalar(String sqlCmd, SqlParameter[] sqlParams)
         {
             object result = null;

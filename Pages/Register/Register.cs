@@ -2,12 +2,14 @@
 using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
+using System.Drawing;
 
 namespace MealSync_APP
 {
     public partial class Register : Form
     {
-        static private readonly User user = new User();
+         private readonly User user = new User();
+        
         public Register()
         {
             InitializeComponent();
@@ -30,17 +32,16 @@ namespace MealSync_APP
                 user.PhoneNumber = tbPhoneNum.Text;
                 user.Role = 2;
                 user.SchoolIDNumber = tbSchoolMemberID.Text;
-                user.PostalCode = tbPostcode.Text;
+                user.PostCode = tbPostcode.Text;
 
-                string passwordConfirm = tbPassword_Confirm.Text;
-                var register = UserAuth.Register(user, passwordConfirm);
+                var register = UserAuth.Register(user, tbPassword_Confirm.Text);
                 if (register.IsValid)
                 {
                     LoginForm.Open(this);
                 }
                 else
                 {
-                    MessageBox.Show(register.errorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(register.ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch(Exception err)
@@ -53,34 +54,45 @@ namespace MealSync_APP
 
         private void PbUserProfilePicture_Click(object sender, EventArgs e)
         {
-            //Adiconar imagem de perfil
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tiff";
+                ofd.Title = "Select an Image";
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pbUserProfilePicture.Image = null;
+                    pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
+                    user.ProfileImage = ImgConverter.ImageToBytes(pbUserProfilePicture.Image);
+                }
+            }
         }
-        int contador = 0;
-        int contador2 = 0;
+        
         private void LbPassword_Click(object sender, EventArgs e)
         {
-            if (contador % 2 != 0)
+            if (labelPassword.Text.Contains("🔒"))
             {
-                tbPassword.PasswordChar = '\n';
+                tbPassword.PasswordChar = '\0';
+                labelPassword.Text = "🔓";
             }
             else
             {
                 tbPassword.PasswordChar = '*';
+                labelPassword.Text = "🔒";
             }
-            contador++;
         }
 
         private void LbPassword_Confirm_Click(object sender, EventArgs e)
         {
-            if (contador2 % 2 != 0)
+            if (labelPasswordConfirm.Text.Contains("🔒"))
             {
-                tbPassword.PasswordChar = '\n';
+                tbPassword_Confirm.PasswordChar = '\0'; 
+                labelPasswordConfirm.Text = "🔓";
             }
             else
             {
-                tbPassword.PasswordChar = '*';
+                tbPassword_Confirm.PasswordChar = '*';
+                labelPasswordConfirm.Text = "🔒";
             }
-            contador2++;
         }
     }
 }

@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Globals\BankAccount.cs" />
     <Compile Include="Globals\CurrentSession.cs" />
-    <Compile Include="DAL\FAQs.cs" />
+    <Compile Include="Globals\FAQs.cs" />
     <Compile Include="Globals\Holder.cs" />
     <Compile Include="Pages\Admins\Edit_Admin.cs">
       <SubType>Form</SubType>
@@ -262,6 +262,7 @@
       <DependentUpon>Edit_Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\HolderUtils.cs" />
+    <Compile Include="Utils\ImageUtils.cs" />
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">

@@ -36,7 +36,7 @@ namespace MealSync_APP
                 }
                 else
                 {
-                    MessageBox.Show(login.errorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(login.ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             } 
             catch(Exception err)

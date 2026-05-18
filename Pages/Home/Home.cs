@@ -1,4 +1,5 @@
-﻿using MealSync_APP.Utils;
+﻿using MealSync_APP.Globals;
+using MealSync_APP.Utils;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,7 +17,8 @@ namespace MealSync_APP
         //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-           //Adicionar método de Home Visibility
+            //Adicionar método de Home Visibility
+            pictureBox1.Image = ImgConverter.BytesToImage(CurrentSession.User.ProfileImage);
         }
 
         //Métodos dos componentes gráficos
@@ -136,13 +138,15 @@ namespace MealSync_APP
 
         private void Home_Resize(object sender, EventArgs e)
         {
-            Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
-            this.BackgroundImage = img;
-        }
-
-        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            try
+            {
+                Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
+                this.BackgroundImage = img;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar carregar a image de fundo: " + err.Message, "ERROR");
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace MealSync_APP.ProfileFolder
                         Password = tbPassword.Text,
                         PhoneNumber = tbPhoneNum.Text,
                         SchoolIDNumber = tbSchoolMemberID.Text,
-                        PostalCode = tbPostcode.Text
+                        PostCode = tbPostcode.Text
                     };
                     var update = UserData.Update(user, tbPassword_Confirm.Text);
                     if (update.IsValid)
@@ -53,7 +53,7 @@ namespace MealSync_APP.ProfileFolder
                     }
                     else
                     {
-                        MessageBox.Show(update.errorMessage);
+                        MessageBox.Show(update.ErrorMessage);
                     }
                 }
                 catch (Exception err)
@@ -80,7 +80,7 @@ namespace MealSync_APP.ProfileFolder
             tbPassword_Confirm.Text = CurrentSession.User.Password;
             tbPhoneNum.Text = CurrentSession.User.PhoneNumber;
             tbSchoolMemberID.Text = CurrentSession.User.SchoolIDNumber;
-            tbPostcode.Text = CurrentSession.User.PostalCode;
+            tbPostcode.Text = CurrentSession.User.PostCode;
         }
         private bool CheckDiference()
         {
@@ -93,7 +93,7 @@ namespace MealSync_APP.ProfileFolder
                     tbPassword.Text == CurrentSession.User.Password,
                     tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
                     tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
-                    tbPostcode.Text == CurrentSession.User.PostalCode
+                    tbPostcode.Text == CurrentSession.User.PostCode
                 };  
                 foreach (var result in checks)
                 {

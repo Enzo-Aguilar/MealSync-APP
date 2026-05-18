@@ -7,102 +7,6 @@ using System;
 
 namespace BusinessLogicLayer
 {
-	public class BLL
-	{
-		public class Exemplo
-		{
-
-			static public DataTable Load()
-			{
-				DAL dal = new DAL();
-				return dal.ExecuteReader("select * from Clientes", null);
-			}
-			static public int insertCliente(string nome, string morada, string telefone)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@nome", nome),
-				new SqlParameter("@morada", morada),
-				new SqlParameter("@telefone", telefone)
-				};
-
-				return dal.ExecuteNonQuery("INSERT into Clientes (Nome,Morada,Telefone) VALUES(@nome,@morada,@telefone)", sqlParams);
-			}
-			static public DataTable queryClienteLike(String nome)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@nome", nome + "%")
-				};
-				return dal.ExecuteReader("select * from Clientes where Nome like @nome", sqlParams);
-			}
-			static public DataTable queryClientePorId(int id)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@id", id)
-				};
-				return dal.ExecuteReader("select * from Clientes where ID=@id", sqlParams);
-			}
-			static public DataTable queryClientePorIdENome(int id, string nome)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@id", id),
-				 new SqlParameter("@Nome", nome)
-				};
-				return dal.ExecuteReader("select * from Clientes where ID=@id and Nome=@nome", sqlParams);
-			}
-			static public int updateCliente(string id, string nome, string morada, string telefone)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@id", id),
-				new SqlParameter("@nome", nome),
-				new SqlParameter("@morada", morada),
-				new SqlParameter("@telefone", telefone)
-			};
-				return dal.ExecuteNonQuery("update [Clientes] set [nome]=@nome, [morada]=@morada, [telefone]=@telefone where [id]=@id", sqlParams);
-			}
-			static public int deleteCliente(string id)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@id", id),
-
-			};
-				return dal.ExecuteNonQuery("Delete From Clientes WHERE[id]=@id", sqlParams);
-			}
-		}
-		public class Imagem
-		{
-			static public object loadpic()
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@id", 1),
-			 };
-				return dal.ExecuteScalar("select Img from Imagem where id=@id", sqlParams);
-
-			}
-			static public DataTable Load()
-			{
-				DAL dal = new DAL();
-				return dal.ExecuteReader("select * from Imagem", null);
-			}
-
-			static public int insertImagem(byte[] img)
-			{
-				DAL dal = new DAL();
-				SqlParameter[] sqlParams = new SqlParameter[]{
-				new SqlParameter("@img", img),
-
-		   };
-
-				return dal.ExecuteNonQuery("INSERT into Imagem (Img) VALUES(@img)", sqlParams);
-			}
-		}
-	}
 	public class BankAccount_BLL
 	{
 		static public int Create_BankAccount(BankAccount bkAccount)
@@ -347,6 +251,29 @@ namespace BusinessLogicLayer
 			return dal.ExecuteReader("SELECT answer FROM [FAQs] WHERE question = @question AND isAnswered = 0", sqlParams);
 		}
 	}
+	public class Image_BLL
+	{
+		static public object LoadImage(int ID)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID",ID)
+			};
+			return dal.ExecuteScalar("SELECT image FROM [Image] WHERE ID=@ID", sqlParams);
+		}
+		static public DataTable LoadImageDetails()
+		{
+			DAL dal = new DAL();
+			return dal.ExecuteReader("SELECT * FROM [Image]", null);
+		}
+		static public int AddImage(byte[] img)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[] { new SqlParameter("img", img) };
+			return dal.ExecuteNonQuery("INSERT INTO [Image] (Img) VALUES(@img)",sqlParams);
+		}
+	}
 	public class Holder_BLL
 	{
 		static public int Create_Holder(Holder holder)
@@ -442,11 +369,12 @@ namespace BusinessLogicLayer
 					new SqlParameter("@name",user.Name),
 					new SqlParameter("@password",user.Password),
 					new SqlParameter("@phoneNumber",user.PhoneNumber),
+					new SqlParameter("@postCode",user.PostCode),
+					new SqlParameter("@profileImage",user.ProfileImage),
 					new SqlParameter("@role",user.Role),
-					new SqlParameter("@postalCode",user.PostalCode),
 					new SqlParameter("@school_member_ID",user.SchoolIDNumber)
 			};
-			return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,phoneNumber,role,postalCode,school_member_ID) VALUES(@createdAt,@email,@name,@password,@phoneNumber,@role,@postalCode,@school_member_ID)", sqlParams);
+			return dal.ExecuteNonQuery("INSERT INTO [User] (createdAt,email,name,password,phoneNumber,postCode,profileImage,role,school_member_ID) VALUES(@createdAt,@email,@name,@password,@phoneNumber,@postCode,@profileImage,@role,@school_member_ID)", sqlParams);
 		}
 		static public void Deactivate_User(User user)
 		{
@@ -487,14 +415,14 @@ namespace BusinessLogicLayer
 				new SqlParameter("@name",user.Name),
 				new SqlParameter("@password",user.Password),
 				new SqlParameter("@phoneNumber",user.PhoneNumber),
-				new SqlParameter("@postalCode",user.PostalCode),
+				new SqlParameter("@PostCode",user.PostCode),
 				new SqlParameter("@school_member_ID",user.SchoolIDNumber)
 			};
-            dal.ExecuteNonQuery("UPDATE [User] SET email=@email,name=@name,password=@password,phoneNumber=@phoneNumber,postalCode=@postalCode,school_member_ID=@school_member_ID WHERE ID=@ID", sqlParams);
+            dal.ExecuteNonQuery("UPDATE [User] SET email=@email,name=@name,password=@password,phoneNumber=@phoneNumber,PostCode=@PostCode,school_member_ID=@school_member_ID WHERE ID=@ID", sqlParams);
         }
 
 		//Métodos de Procura
-		static public DataTable Search_Email(string email)
+		static public object Search_Email(string email)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
@@ -502,34 +430,34 @@ namespace BusinessLogicLayer
 					new SqlParameter ("@email",email),
 			};
 
-			return dal.ExecuteReader("SELECT * FROM [User] WHERE email=@email", sqlParams);
+			return dal.ExecuteScalar("SELECT email FROM [User] WHERE email=@email", sqlParams);
 		}
-		static public DataTable Search_Name(string name)
+		static public object Search_Name(string name)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
 					new SqlParameter("@name",name),
 			};
-			return dal.ExecuteReader("SELECT * FROM [User] WHERE name=@name", sqlParams);
+			return dal.ExecuteScalar("SELECT name FROM [User] WHERE name=@name", sqlParams);
 		}
-		static public DataTable Search_PhoneNumber(string phoneNumber)
+		static public object Search_PhoneNumber(string phoneNumber)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
 					new SqlParameter("@phoneNumber", phoneNumber)
 			};
-			return dal.ExecuteReader("SELECT * FROM [User] WHERE phoneNumber=@phoneNumber", sqlParams);
+			return dal.ExecuteScalar("SELECT phoneNumber FROM [User] WHERE phoneNumber=@phoneNumber", sqlParams);
 		}
-		static public DataTable Search_SchoolMemberID(string school_member_ID)
+		static public object Search_SchoolMemberID(string school_member_ID)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
 					new SqlParameter("@school_member_ID", school_member_ID)
 			};
-			return dal.ExecuteReader("SELECT * FROM [User] WHERE school_member_ID=@school_member_ID", sqlParams);
+			return dal.ExecuteScalar("SELECT school_member_ID  FROM [User] WHERE school_member_ID=@school_member_ID", sqlParams);
 		}
 
 		static public DataTable Has_BankAccount(int ID_User)

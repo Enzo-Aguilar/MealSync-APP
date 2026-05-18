@@ -63,7 +63,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
                     }
                     else
                     {
-                        MessageBox.Show(deactivate.errorMessage);
+                        MessageBox.Show(deactivate.ErrorMessage);
                     }
                 }
                 else

@@ -11,7 +11,7 @@ namespace MealSync_APP.Utils
     public class ValidatorResult
     {
         public bool IsValid { get; set; }
-        public string errorMessage { get; set; }
+        public string ErrorMessage { get; set; }
     }
     public class Encryptor
     {
@@ -60,14 +60,13 @@ namespace MealSync_APP.Utils
             }
         }
     }
-
     public class Validator
     {
         static public ValidatorResult Validate_Password(string password)
         {
             try
             {
-                if (!String.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(password))
                 {
                     if (password.Length >= 7)
                     {
@@ -75,17 +74,17 @@ namespace MealSync_APP.Utils
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, errorMessage = "password muito fraca" };
+                        return new ValidatorResult { IsValid = false, ErrorMessage = "palavra-passe muito fraca" };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, errorMessage = "campo [palavra-passe] não pode estar vazio" };
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "campo [palavra-passe] não pode estar vazio" };
                 }
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, errorMessage = "Ocorreu um erro ao tentar validar o campo [palavra-passe]: " + err.Message };
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [palavra-passe]: " + err.Message };
             }
         }
     }

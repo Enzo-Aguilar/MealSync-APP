@@ -89,28 +89,28 @@
             // associate_BankAccount
             // 
             this.associate_BankAccount.Name = "associate_BankAccount";
-            this.associate_BankAccount.Size = new System.Drawing.Size(180, 22);
+            this.associate_BankAccount.Size = new System.Drawing.Size(137, 22);
             this.associate_BankAccount.Text = "🔗‍ Associar";
             this.associate_BankAccount.Click += new System.EventHandler(this.Associate_BankAccount_Click);
             // 
             // create_BankAccount
             // 
             this.create_BankAccount.Name = "create_BankAccount";
-            this.create_BankAccount.Size = new System.Drawing.Size(180, 22);
+            this.create_BankAccount.Size = new System.Drawing.Size(137, 22);
             this.create_BankAccount.Text = "➕ Criar";
             this.create_BankAccount.Click += new System.EventHandler(this.Create_BankAccount_Click);
             // 
             // desativarToolStripMenuItem
             // 
             this.desativarToolStripMenuItem.Name = "desativarToolStripMenuItem";
-            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.desativarToolStripMenuItem.Text = "🔒 Desativar";
             this.desativarToolStripMenuItem.Click += new System.EventHandler(this.DeactivateToolStripMenuItem_Click);
             // 
             // reativarToolStripMenuItem
             // 
             this.reativarToolStripMenuItem.Name = "reativarToolStripMenuItem";
-            this.reativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reativarToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.reativarToolStripMenuItem.Text = "🔓 Reativar";
             this.reativarToolStripMenuItem.Click += new System.EventHandler(this.ReativarToolStripMenuItem_Click);
             // 
@@ -127,21 +127,21 @@
             // show_Orders
             // 
             this.show_Orders.Name = "show_Orders";
-            this.show_Orders.Size = new System.Drawing.Size(180, 22);
+            this.show_Orders.Size = new System.Drawing.Size(145, 22);
             this.show_Orders.Text = "👀 Ver";
             this.show_Orders.Click += new System.EventHandler(this.show_Orders_Click);
             // 
             // make_Orders
             // 
             this.make_Orders.Name = "make_Orders";
-            this.make_Orders.Size = new System.Drawing.Size(180, 22);
+            this.make_Orders.Size = new System.Drawing.Size(145, 22);
             this.make_Orders.Text = "📝 Marcar";
             this.make_Orders.Click += new System.EventHandler(this.make_Orders_Click);
             // 
             // cancel_Order
             // 
             this.cancel_Order.Name = "cancel_Order";
-            this.cancel_Order.Size = new System.Drawing.Size(180, 22);
+            this.cancel_Order.Size = new System.Drawing.Size(145, 22);
             this.cancel_Order.Text = "🗑️ Desmarcar";
             this.cancel_Order.Click += new System.EventHandler(this.cancel_Order_Click);
             // 
@@ -159,28 +159,28 @@
             // show_Meals
             // 
             this.show_Meals.Name = "show_Meals";
-            this.show_Meals.Size = new System.Drawing.Size(180, 22);
+            this.show_Meals.Size = new System.Drawing.Size(140, 22);
             this.show_Meals.Text = "👀 Ver";
             this.show_Meals.Click += new System.EventHandler(this.show_Meals_Click);
             // 
             // edit_Meal
             // 
             this.edit_Meal.Name = "edit_Meal";
-            this.edit_Meal.Size = new System.Drawing.Size(180, 22);
+            this.edit_Meal.Size = new System.Drawing.Size(140, 22);
             this.edit_Meal.Text = "✍ Editar";
             this.edit_Meal.Click += new System.EventHandler(this.edit_Meal_Click);
             // 
             // add_Meal
             // 
             this.add_Meal.Name = "add_Meal";
-            this.add_Meal.Size = new System.Drawing.Size(180, 22);
+            this.add_Meal.Size = new System.Drawing.Size(140, 22);
             this.add_Meal.Text = "➕ Adicionar";
             this.add_Meal.Click += new System.EventHandler(this.add_Meal_Click);
             // 
             // remove_Meal
             // 
             this.remove_Meal.Name = "remove_Meal";
-            this.remove_Meal.Size = new System.Drawing.Size(180, 22);
+            this.remove_Meal.Size = new System.Drawing.Size(140, 22);
             this.remove_Meal.Text = "🗑️ Remover";
             this.remove_Meal.Click += new System.EventHandler(this.remove_Meal_Click);
             // 
@@ -198,28 +198,28 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(180, 22);
+            this.show_Students.Size = new System.Drawing.Size(140, 22);
             this.show_Students.Text = "👀 Ver";
             this.show_Students.Click += new System.EventHandler(this.show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(180, 22);
+            this.add_Student.Size = new System.Drawing.Size(140, 22);
             this.add_Student.Text = "➕ Adicionar";
             this.add_Student.Click += new System.EventHandler(this.add_Student_Click);
             // 
             // edit_Student
             // 
             this.edit_Student.Name = "edit_Student";
-            this.edit_Student.Size = new System.Drawing.Size(180, 22);
+            this.edit_Student.Size = new System.Drawing.Size(140, 22);
             this.edit_Student.Text = "✍ Editar";
             this.edit_Student.Click += new System.EventHandler(this.edit_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(180, 22);
+            this.remove_Student.Size = new System.Drawing.Size(140, 22);
             this.remove_Student.Text = "🗑️ Remover";
             this.remove_Student.Click += new System.EventHandler(this.remove_Student_Click);
             // 
@@ -237,28 +237,28 @@
             // show_Employees
             // 
             this.show_Employees.Name = "show_Employees";
-            this.show_Employees.Size = new System.Drawing.Size(180, 22);
+            this.show_Employees.Size = new System.Drawing.Size(140, 22);
             this.show_Employees.Text = "👀 Ver";
             this.show_Employees.Click += new System.EventHandler(this.show_Employees_Click);
             // 
             // add_Employee
             // 
             this.add_Employee.Name = "add_Employee";
-            this.add_Employee.Size = new System.Drawing.Size(180, 22);
+            this.add_Employee.Size = new System.Drawing.Size(140, 22);
             this.add_Employee.Text = "➕ Adicionar";
             this.add_Employee.Click += new System.EventHandler(this.add_Employee_Click);
             // 
             // edit_Employee
             // 
             this.edit_Employee.Name = "edit_Employee";
-            this.edit_Employee.Size = new System.Drawing.Size(180, 22);
+            this.edit_Employee.Size = new System.Drawing.Size(140, 22);
             this.edit_Employee.Text = "✍ Editar";
             this.edit_Employee.Click += new System.EventHandler(this.edit_Employee_Click);
             // 
             // remove_Employee
             // 
             this.remove_Employee.Name = "remove_Employee";
-            this.remove_Employee.Size = new System.Drawing.Size(180, 22);
+            this.remove_Employee.Size = new System.Drawing.Size(140, 22);
             this.remove_Employee.Text = "🗑️ Remover";
             this.remove_Employee.Click += new System.EventHandler(this.remove_Employee_Click);
             // 
@@ -276,28 +276,28 @@
             // show_Admins
             // 
             this.show_Admins.Name = "show_Admins";
-            this.show_Admins.Size = new System.Drawing.Size(180, 22);
+            this.show_Admins.Size = new System.Drawing.Size(140, 22);
             this.show_Admins.Text = "👀 Ver";
             this.show_Admins.Click += new System.EventHandler(this.show_Admins_Click);
             // 
             // add_Admin
             // 
             this.add_Admin.Name = "add_Admin";
-            this.add_Admin.Size = new System.Drawing.Size(180, 22);
+            this.add_Admin.Size = new System.Drawing.Size(140, 22);
             this.add_Admin.Text = "➕ Adicionar";
             this.add_Admin.Click += new System.EventHandler(this.add_Admin_Click);
             // 
             // edit_Admin
             // 
             this.edit_Admin.Name = "edit_Admin";
-            this.edit_Admin.Size = new System.Drawing.Size(180, 22);
+            this.edit_Admin.Size = new System.Drawing.Size(140, 22);
             this.edit_Admin.Text = "✍ Editar";
             this.edit_Admin.Click += new System.EventHandler(this.edit_Admin_Click);
             // 
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
+            this.remove_Admin.Size = new System.Drawing.Size(140, 22);
             this.remove_Admin.Text = "🗑️ Remover";
             this.remove_Admin.Click += new System.EventHandler(this.remove_Admin_Click);
             // 
@@ -316,11 +316,10 @@
             this.FAQs});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.MenuStrip.Size = new System.Drawing.Size(1167, 24);
+            this.MenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.MenuStrip.Size = new System.Drawing.Size(1556, 24);
             this.MenuStrip.TabIndex = 0;
             this.MenuStrip.Text = "menuStrip1";
-            this.MenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip_ItemClicked);
             // 
             // profile
             // 
@@ -333,7 +332,7 @@
             // edit_Profile
             // 
             this.edit_Profile.Name = "edit_Profile";
-            this.edit_Profile.Size = new System.Drawing.Size(180, 22);
+            this.edit_Profile.Size = new System.Drawing.Size(122, 22);
             this.edit_Profile.Text = "✍ Editar ";
             this.edit_Profile.Click += new System.EventHandler(this.Edit_Profile_Click);
             // 
@@ -349,30 +348,30 @@
             // verFAQs
             // 
             this.verFAQs.Name = "verFAQs";
-            this.verFAQs.Size = new System.Drawing.Size(180, 22);
+            this.verFAQs.Size = new System.Drawing.Size(163, 22);
             this.verFAQs.Text = "👀 Ver";
             // 
             // createFAQs
             // 
             this.createFAQs.Name = "createFAQs";
-            this.createFAQs.Size = new System.Drawing.Size(180, 22);
+            this.createFAQs.Size = new System.Drawing.Size(163, 22);
             this.createFAQs.Text = "❓ Fazer Questão";
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1167, 645);
+            this.ClientSize = new System.Drawing.Size(1556, 794);
             this.Controls.Add(this.MenuStrip);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
-            this.Resize += new System.EventHandler(this.Home_Resize);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.ResumeLayout(false);
