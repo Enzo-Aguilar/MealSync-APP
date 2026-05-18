@@ -154,5 +154,24 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (label1.Text.Contains("🔒"))
+            {
+                tbPassword.PasswordChar = '\0';
+                label1.Text = "🔓";
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+                label1.Text = "🔒";
+            }
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

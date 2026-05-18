@@ -135,5 +135,19 @@ namespace MealSync_APP.BankAccountFolder
             tbPassword.Text = string.Empty;
             BtnUpdate_Click(null, null);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            if (label3.Text.Contains("🔒"))
+            {
+                tbIBAN.PasswordChar = '\0';
+                label3.Text = "🔓";
+            }
+            else
+            {
+                tbIBAN.PasswordChar = '*';
+                label3.Text = "🔒";
+            }
+        }
     }
 }

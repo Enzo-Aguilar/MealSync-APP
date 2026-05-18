@@ -28,51 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_BankAccount));
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.lbAccountType = new System.Windows.Forms.Label();
             this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.linkLabelAssociateBankAccount = new System.Windows.Forms.LinkLabel();
-            this.lbPIN = new System.Windows.Forms.Label();
             this.lbText = new System.Windows.Forms.Label();
-            this.lbPINConfirm = new System.Windows.Forms.Label();
             this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnCreateBankAccount = new System.Windows.Forms.Button();
-            this.checkBoxPasswordConfirm = new System.Windows.Forms.CheckBox();
-            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(48, 160);
+            this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPassword.Location = new System.Drawing.Point(82, 194);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(178, 20);
+            this.tbPassword.Size = new System.Drawing.Size(211, 34);
             this.tbPassword.TabIndex = 0;
-            // 
-            // lbAccountType
-            // 
-            this.lbAccountType.AutoSize = true;
-            this.lbAccountType.Location = new System.Drawing.Point(99, 21);
-            this.lbAccountType.Name = "lbAccountType";
-            this.lbAccountType.Size = new System.Drawing.Size(77, 13);
-            this.lbAccountType.TabIndex = 1;
-            this.lbAccountType.Text = "Tipo de Conta:";
             // 
             // cbAccountType
             // 
+            this.cbAccountType.BackColor = System.Drawing.SystemColors.InfoText;
+            this.cbAccountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAccountType.ForeColor = System.Drawing.SystemColors.Window;
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Items.AddRange(new object[] {
             "Coletiva",
             "Individual"});
-            this.cbAccountType.Location = new System.Drawing.Point(48, 56);
+            this.cbAccountType.Location = new System.Drawing.Point(82, 105);
             this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(178, 21);
+            this.cbAccountType.Size = new System.Drawing.Size(211, 32);
             this.cbAccountType.TabIndex = 2;
             // 
             // linkLabelAssociateBankAccount
             // 
             this.linkLabelAssociateBankAccount.AutoSize = true;
-            this.linkLabelAssociateBankAccount.Location = new System.Drawing.Point(199, 405);
+            this.linkLabelAssociateBankAccount.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linkLabelAssociateBankAccount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.linkLabelAssociateBankAccount.LinkColor = System.Drawing.Color.Snow;
+            this.linkLabelAssociateBankAccount.Location = new System.Drawing.Point(235, 438);
             this.linkLabelAssociateBankAccount.Name = "linkLabelAssociateBankAccount";
             this.linkLabelAssociateBankAccount.Size = new System.Drawing.Size(47, 13);
             this.linkLabelAssociateBankAccount.TabIndex = 3;
@@ -80,89 +78,83 @@
             this.linkLabelAssociateBankAccount.Text = "Associar";
             this.linkLabelAssociateBankAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAssociateBankAccount_LinkClicked);
             // 
-            // lbPIN
-            // 
-            this.lbPIN.AutoSize = true;
-            this.lbPIN.Location = new System.Drawing.Point(99, 131);
-            this.lbPIN.Name = "lbPIN";
-            this.lbPIN.Size = new System.Drawing.Size(78, 13);
-            this.lbPIN.TabIndex = 4;
-            this.lbPIN.Text = "Palavra-Passe:";
-            // 
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(29, 405);
+            this.lbText.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbText.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbText.Location = new System.Drawing.Point(66, 438);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(164, 13);
             this.lbText.TabIndex = 5;
             this.lbText.Text = "Deseja associar-se a uma conta?";
             // 
-            // lbPINConfirm
-            // 
-            this.lbPINConfirm.AutoSize = true;
-            this.lbPINConfirm.Location = new System.Drawing.Point(74, 228);
-            this.lbPINConfirm.Name = "lbPINConfirm";
-            this.lbPINConfirm.Size = new System.Drawing.Size(125, 13);
-            this.lbPINConfirm.TabIndex = 7;
-            this.lbPINConfirm.Text = "Confirmar Palavra-Passe:";
-            // 
             // tbPasswordConfirm
             // 
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(48, 258);
+            this.tbPasswordConfirm.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPasswordConfirm.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(82, 285);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '*';
-            this.tbPasswordConfirm.Size = new System.Drawing.Size(178, 20);
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(211, 34);
             this.tbPasswordConfirm.TabIndex = 6;
             // 
             // btnCreateBankAccount
             // 
-            this.btnCreateBankAccount.Location = new System.Drawing.Point(87, 326);
+            this.btnCreateBankAccount.BackColor = System.Drawing.Color.Sienna;
+            this.btnCreateBankAccount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreateBankAccount.Location = new System.Drawing.Point(126, 345);
             this.btnCreateBankAccount.Name = "btnCreateBankAccount";
-            this.btnCreateBankAccount.Size = new System.Drawing.Size(90, 41);
+            this.btnCreateBankAccount.Size = new System.Drawing.Size(134, 41);
             this.btnCreateBankAccount.TabIndex = 8;
             this.btnCreateBankAccount.Text = "Criar";
-            this.btnCreateBankAccount.UseVisualStyleBackColor = true;
+            this.btnCreateBankAccount.UseVisualStyleBackColor = false;
             this.btnCreateBankAccount.Click += new System.EventHandler(this.BtnCreate_BankAccount_Click);
             // 
-            // checkBoxPasswordConfirm
+            // label1
             // 
-            this.checkBoxPasswordConfirm.AutoSize = true;
-            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(234, 263);
-            this.checkBoxPasswordConfirm.Name = "checkBoxPasswordConfirm";
-            this.checkBoxPasswordConfirm.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxPasswordConfirm.TabIndex = 9;
-            this.checkBoxPasswordConfirm.UseVisualStyleBackColor = true;
-            this.checkBoxPasswordConfirm.CheckedChanged += new System.EventHandler(this.CheckBoxPasswordConfirm_CheckedChanged);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(259, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 24);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "🔒";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // checkBoxPassword
+            // label2
             // 
-            this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(234, 166);
-            this.checkBoxPassword.Name = "checkBoxPassword";
-            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxPassword.TabIndex = 10;
-            this.checkBoxPassword.UseVisualStyleBackColor = true;
-            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.CheckBoxPassword_CheckedChanged);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(259, 290);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "🔒";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Create_BankAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 450);
-            this.Controls.Add(this.checkBoxPassword);
-            this.Controls.Add(this.checkBoxPasswordConfirm);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(379, 530);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCreateBankAccount);
-            this.Controls.Add(this.lbPINConfirm);
             this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.lbText);
-            this.Controls.Add(this.lbPIN);
             this.Controls.Add(this.linkLabelAssociateBankAccount);
             this.Controls.Add(this.cbAccountType);
-            this.Controls.Add(this.lbAccountType);
             this.Controls.Add(this.tbPassword);
             this.Name = "Create_BankAccount";
-            this.Text = "Criar Conta Bancaria";
+            this.Text = "\\";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,15 +163,12 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Label lbAccountType;
         private System.Windows.Forms.ComboBox cbAccountType;
         private System.Windows.Forms.LinkLabel linkLabelAssociateBankAccount;
-        private System.Windows.Forms.Label lbPIN;
         private System.Windows.Forms.Label lbText;
-        private System.Windows.Forms.Label lbPINConfirm;
         private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.Button btnCreateBankAccount;
-        private System.Windows.Forms.CheckBox checkBoxPasswordConfirm;
-        private System.Windows.Forms.CheckBox checkBoxPassword;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

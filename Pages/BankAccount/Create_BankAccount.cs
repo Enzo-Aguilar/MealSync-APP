@@ -47,25 +47,11 @@ namespace MealSync_APP.BankAccountFolder
 
         private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPassword.Checked)
-            {//Mostrar a senha
-                tbPassword.PasswordChar = '\0';
-            }
-            else
-            {//Esconder a senha
-                tbPassword.PasswordChar = '*';
-            }
+
         }
         private void CheckBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPasswordConfirm.Checked)
-            {//Mostrar a senha
-                tbPasswordConfirm.PasswordChar = '\0';
-            }
-            else
-            {//Esconder a senha
-                tbPasswordConfirm.PasswordChar = '*';
-            }
+
         }
 
         //Métodos Auxiliares
@@ -74,6 +60,34 @@ namespace MealSync_APP.BankAccountFolder
             cbAccountType.SelectedIndex = -1;
             tbPassword.Clear();
             tbPasswordConfirm.Clear();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (label1.Text.Contains("🔒"))
+            {
+                tbPassword.PasswordChar = '\0';
+                label1.Text = "🔓";
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+                label1.Text = "🔒";
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            if (label1.Text.Contains("🔒"))
+            {
+                tbPasswordConfirm.PasswordChar = '\0';
+                label1.Text = "🔓";
+            }
+            else
+            {
+                tbPasswordConfirm.PasswordChar = '*';
+                label1.Text = "🔒";
+            }
         }
     }
 }

@@ -49,13 +49,20 @@ namespace MealSync_APP
 
         private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxPassword.Checked)
-            {//Mostrar a senha
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            if (label1.Text.Contains("🔒"))
+            {
                 tbPassword.PasswordChar = '\0';
+                label1.Text = "🔓";
             }
             else
-            {//Esconder a senha
+            {
                 tbPassword.PasswordChar = '*';
+                label1.Text = "🔒";
             }
         }
     }

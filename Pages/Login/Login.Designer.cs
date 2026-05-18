@@ -34,7 +34,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Register = new System.Windows.Forms.LinkLabel();
-            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbName
@@ -97,15 +97,16 @@
             this.lbLink_Register.Text = "Registre-se";
             this.lbLink_Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LbLink_Register_LinkClicked);
             // 
-            // checkBoxPassword
+            // label1
             // 
-            this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(1023, 398);
-            this.checkBoxPassword.Name = "checkBoxPassword";
-            this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxPassword.TabIndex = 7;
-            this.checkBoxPassword.UseVisualStyleBackColor = true;
-            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.CheckBoxPassword_CheckedChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1024, 391);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 24);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "🔒";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Login
             // 
@@ -115,7 +116,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1216, 635);
-            this.Controls.Add(this.checkBoxPassword);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbLink_Register);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnLogin);
@@ -137,6 +138,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Register;
-        private System.Windows.Forms.CheckBox checkBoxPassword;
+        private System.Windows.Forms.Label label1;
     }
 }
