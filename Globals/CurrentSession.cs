@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace MealSync_APP.Globals
 {
@@ -7,5 +8,7 @@ namespace MealSync_APP.Globals
         public static User User { get; set; } = new User();
 
         public static List<BankAccount> UserBkAccountsList = new List<BankAccount>();
+
+        public static DataTable UserBkAccountsDataTable = new DataTable();
     }
 }

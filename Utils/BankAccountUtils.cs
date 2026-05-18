@@ -135,7 +135,7 @@ namespace MealSync_APP.Utils
         public static void Save(BankAccount bankAccount)
         {
             DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount);
-            if(dt.Rows.Count != 0)
+            if (dt.Rows.Count != 0)
             {
                 bankAccount = new BankAccount
                 {
@@ -145,12 +145,38 @@ namespace MealSync_APP.Utils
                     IBAN = dt.Rows[0][4].ToString(),
                     IsActive = true
                 };
-                CurrentSession.UserBkAccountsList.Add(bankAccount);
+
+                // Ensure the session DataTable exists
+                if (CurrentSession.UserBkAccountsDataTable == null)
+                {
+                    CurrentSession.UserBkAccountsDataTable = new DataTable();
+                }
+
+                // If the DataTable has no schema yet, add columns matching the data we'll store.
+                // This avoids exceptions when calling Rows.Add with strongly-typed values.
+                if (CurrentSession.UserBkAccountsDataTable.Columns.Count == 0)
+                {
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("ID", typeof(int));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("Balance", typeof(SqlMoney));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("CreatedAt", typeof(DateTime));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("IBAN", typeof(string));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("IsActive", typeof(bool));
+                }
+
+                // Add a new row with the bank account data.
+                CurrentSession.UserBkAccountsDataTable.Rows.Add(
+                    bankAccount.ID,
+                    bankAccount.Balance,
+                    bankAccount.CreatedAt,
+                    bankAccount.IBAN,
+                    bankAccount.IsActive
+                );
             }
         }
         public static void Reset()
         {
             CurrentSession.UserBkAccountsList.Clear();
+            CurrentSession.UserBkAccountsDataTable.Clear();
         }
         public static void AddUserRelatedAccountOnLoad()
         {

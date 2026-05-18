@@ -79,6 +79,10 @@ namespace BusinessLogicLayer
 				"ORDER BY u.name",
 				sqlParams);
 		}
+		static public DataTable Search_BkAssociatedToUser(User user)
+		{
+			DAL dal = new DAL();
+		}
 
 
 		//Mostrar todas as contas bancárias

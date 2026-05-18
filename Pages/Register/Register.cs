@@ -37,6 +37,7 @@ namespace MealSync_APP
                 var register = UserAuth.Register(user, tbPassword_Confirm.Text);
                 if (register.IsValid)
                 {
+                    MessageBox.Show("Utilizador criado com sucesso!", "SUCESSO");
                     LoginForm.Open(this);
                 }
                 else

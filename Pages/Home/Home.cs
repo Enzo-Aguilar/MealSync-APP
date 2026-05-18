@@ -18,7 +18,6 @@ namespace MealSync_APP
         public void Home_Load(object sender, EventArgs e)
         {
             //Adicionar método de Home Visibility
-            pictureBox1.Image = ImgConverter.BytesToImage(CurrentSession.User.ProfileImage);
         }
 
         //Métodos dos componentes gráficos
@@ -121,10 +120,6 @@ namespace MealSync_APP
         private void remove_Admin_Click(object sender, EventArgs e)
         {
             FormUtils.OpenForm_RemoveAdmin();
-        }
-        private void lbDoesNotHaveBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormUtils.OpenForm_CreateBankAccount();
         }
 
         //Perfil do Utilizador
