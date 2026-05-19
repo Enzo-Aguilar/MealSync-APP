@@ -47,5 +47,9 @@ namespace MealSync_APP.Pages.FAQsFolder
             }
         }
 
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

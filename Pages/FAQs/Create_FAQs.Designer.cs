@@ -28,74 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_FAQs));
             this.tbQuestion = new System.Windows.Forms.TextBox();
             this.checkBox = new System.Windows.Forms.CheckBox();
-            this.lbText = new System.Windows.Forms.Label();
-            this.lbText1 = new System.Windows.Forms.Label();
             this.btnSendQuestion = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbQuestion
             // 
-            this.tbQuestion.Location = new System.Drawing.Point(39, 103);
-            this.tbQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbQuestion.Location = new System.Drawing.Point(127, 162);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
-            this.tbQuestion.Size = new System.Drawing.Size(260, 41);
+            this.tbQuestion.Size = new System.Drawing.Size(313, 162);
             this.tbQuestion.TabIndex = 1;
             // 
             // checkBox
             // 
             this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(235, 238);
-            this.checkBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox.Location = new System.Drawing.Point(368, 354);
             this.checkBox.Name = "checkBox";
             this.checkBox.Size = new System.Drawing.Size(15, 14);
             this.checkBox.TabIndex = 2;
-            this.checkBox.UseVisualStyleBackColor = true;
-            // 
-            // lbText
-            // 
-            this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(68, 236);
-            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(159, 16);
-            this.lbText.TabIndex = 3;
-            this.lbText.Text = "Enviar pergunta anonima:";
-            // 
-            // lbText1
-            // 
-            this.lbText1.AutoSize = true;
-            this.lbText1.Location = new System.Drawing.Point(135, 71);
-            this.lbText1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbText1.Name = "lbText1";
-            this.lbText1.Size = new System.Drawing.Size(64, 16);
-            this.lbText1.TabIndex = 4;
-            this.lbText1.Text = "Pergunta:";
+            this.checkBox.UseVisualStyleBackColor = false;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // btnSendQuestion
             // 
-            this.btnSendQuestion.Location = new System.Drawing.Point(75, 335);
-            this.btnSendQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSendQuestion.BackColor = System.Drawing.Color.Sienna;
+            this.btnSendQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendQuestion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSendQuestion.Location = new System.Drawing.Point(200, 397);
             this.btnSendQuestion.Name = "btnSendQuestion";
-            this.btnSendQuestion.Size = new System.Drawing.Size(188, 60);
+            this.btnSendQuestion.Size = new System.Drawing.Size(169, 53);
             this.btnSendQuestion.TabIndex = 5;
-            this.btnSendQuestion.Text = "Enviar";
-            this.btnSendQuestion.UseVisualStyleBackColor = true;
+            this.btnSendQuestion.Text = "             Enviar";
+            this.btnSendQuestion.UseVisualStyleBackColor = false;
             this.btnSendQuestion.Click += new System.EventHandler(this.BtnSendQuestion_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Sienna;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(221, 402);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 33);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "📨";
             // 
             // Create_FAQs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 410);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(570, 540);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSendQuestion);
-            this.Controls.Add(this.lbText1);
-            this.Controls.Add(this.lbText);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.tbQuestion);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Create_FAQs";
             this.Text = "Fazer Pergunta";
             this.ResumeLayout(false);
@@ -106,8 +101,7 @@
         #endregion
         private System.Windows.Forms.TextBox tbQuestion;
         private System.Windows.Forms.CheckBox checkBox;
-        private System.Windows.Forms.Label lbText;
-        private System.Windows.Forms.Label lbText1;
         private System.Windows.Forms.Button btnSendQuestion;
+        private System.Windows.Forms.Label label1;
     }
 }
