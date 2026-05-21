@@ -9,6 +9,21 @@ namespace BusinessLogicLayer
 {
 	public class BankAccount_BLL
 	{
+		static public DataTable Load_BkAccountAssociatedWithUser(User user)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@userID", user.ID)
+			};
+			return dal.ExecuteReader(
+				"SELECT u.name AS Owner, h.ownerShipOrder AS OwnerNumber, ba.ID, ba.balance, ba.IBAN " +
+				"FROM [BankAccount] ba " +
+				"INNER JOIN [Holder] h ON ba.ID = h.ID_BankAccount " +
+				"INNER JOIN [User] u ON h.ID_User = u.ID " +
+				"WHERE h.ID_User = @userID",
+				sqlParams);
+		}
 		static public int Create_BankAccount(BankAccount bkAccount)
 		{
 			DAL dal = new DAL();
@@ -79,13 +94,6 @@ namespace BusinessLogicLayer
 				"ORDER BY u.name",
 				sqlParams);
 		}
-		//static public DataTable Search_BkAssociatedToUser(User user)
-		//{
-		//	DAL dal = new DAL();
-		//}
-
-
-		//Mostrar todas as contas bancárias
 		static public DataTable Show_BankAccounts()
 		{
 			DAL dal = new DAL();

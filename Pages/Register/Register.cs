@@ -8,7 +8,7 @@ namespace MealSync_APP
 {
     public partial class Register : Form
     {
-         private readonly User user = new User();
+         private readonly User user = new User { ProfileImage = null};
         
         public Register()
         {
@@ -55,19 +55,24 @@ namespace MealSync_APP
 
         private void PbUserProfilePicture_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            try
             {
-                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tiff";
-                ofd.Title = "Select an Image";
-                if(ofd.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    pbUserProfilePicture.Image = null;
-                    pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
-                    user.ProfileImage = ImgConverter.ImageToBytes(pbUserProfilePicture.Image);
+                    ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tiff";
+                    ofd.Title = "Select an Image";
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        pbUserProfilePicture.Image = null;
+                        pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
+                        user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
+                    }
                 }
+            }catch(Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar carregar imagem: " + err.Message);
             }
         }
-        
         private void LbPassword_Click(object sender, EventArgs e)
         {
             if (labelPassword.Text.Contains("🔒"))
@@ -81,7 +86,6 @@ namespace MealSync_APP
                 labelPassword.Text = "🔒";
             }
         }
-
         private void LbPassword_Confirm_Click(object sender, EventArgs e)
         {
             if (labelPasswordConfirm.Text.Contains("🔒"))

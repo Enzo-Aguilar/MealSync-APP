@@ -8,13 +8,31 @@ using System.Threading.Tasks;
 
 namespace MealSync_APP.Utils
 {
-    public class ImgConverter
+    public class ImageValidator
     {
-        //  Converter Imagem pra BitArray
-        //          ||
-        //          \/
-        //  Salvar Imagem   
+        static public ValidatorResult Validate_Image(Image img)
+        {
+            try
+            {
+                if (img == null || img == )
+                {
+                    return new ValidatorResult { IsValid = true };
+                }
+                return new ValidatorResult { IsValid = false };
 
+            }
+            catch (InvalidCastException ice)
+            {
+                return new ValidatorResult { IsValid = false, ErrorMessage = "O tipo de dados ou tentativa de conversão invalida: "+ice };
+            }
+            catch (Exception err)
+            {
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro: " + err.Message };
+            }
+        }
+    }
+    public class ImageUtils
+    {
         static public byte[] ImageToBytes(Image img)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -36,28 +54,6 @@ namespace MealSync_APP.Utils
                     return null;
                 }
                 return Image.FromStream(new MemoryStream(bytes));
-            }
-        }
-    }
-    public class ImageData : ImgConverter
-    {
-        public ValidatorResult Save(Image img)
-        {
-            try
-            {
-                byte[] imageBytes = img != null ? ImageToBytes(img) : null;
-                if (imageBytes != null)
-                {
-                    return new ValidatorResult { IsValid = true };
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Image está null" };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar salvar a imagem: " + err.Message };
             }
         }
     }

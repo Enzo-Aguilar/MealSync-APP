@@ -4,6 +4,7 @@ using BusinessLogicLayer;
 using System.Data;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 
 namespace MealSync_APP.Utils
@@ -253,6 +254,21 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [código postal]: " + err.Message };
             }
         }
+        static protected ValidatorResult Validate_ProfileImage(byte[] image)
+        {
+            if (image != null)
+            {
+                return new ValidatorResult { IsValid = true };
+            }
+            else if (image == null)
+            {
+                return new ValidatorResult { IsValid = true };
+            }
+            else
+            {
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um a tentar processar a imagem" };
+            }
+        }
         static protected ValidatorResult Validate_SchoolMemberID(string schoolMemberID)
         {
             try
@@ -319,8 +335,9 @@ namespace MealSync_APP.Utils
                 Validate_PhoneNumber(user.PhoneNumber),
                 IsPhoneNumberTaken(user.PhoneNumber),
                 Validate_Postcode(user.PostCode),
+                Validate_ProfileImage(user.ProfileImage),
                 Validate_SchoolMemberID(user.SchoolIDNumber),
-               IsSchoolMemberIDTaken(user.SchoolIDNumber),
+                IsSchoolMemberIDTaken(user.SchoolIDNumber),
             };
 
             foreach (var result in checks)

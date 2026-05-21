@@ -156,20 +156,20 @@ namespace MealSync_APP.Utils
                 // This avoids exceptions when calling Rows.Add with strongly-typed values.
                 if (CurrentSession.UserBkAccountsDataTable.Columns.Count == 0)
                 {
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("Owner", typeof(string));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("OwnerNumber", typeof(int));
                     CurrentSession.UserBkAccountsDataTable.Columns.Add("ID", typeof(int));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("Balance", typeof(SqlMoney));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("CreatedAt", typeof(DateTime));
+                    CurrentSession.UserBkAccountsDataTable.Columns.Add("balance", typeof(SqlMoney));
                     CurrentSession.UserBkAccountsDataTable.Columns.Add("IBAN", typeof(string));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("IsActive", typeof(bool));
                 }
 
                 // Add a new row with the bank account data.
                 CurrentSession.UserBkAccountsDataTable.Rows.Add(
+                    CurrentSession.User.Name,
+                    1,
                     bankAccount.ID,
                     bankAccount.Balance,
-                    bankAccount.CreatedAt,
-                    bankAccount.IBAN,
-                    bankAccount.IsActive
+                    bankAccount.IBAN
                 );
             }
         }
@@ -178,9 +178,36 @@ namespace MealSync_APP.Utils
             CurrentSession.UserBkAccountsList.Clear();
             CurrentSession.UserBkAccountsDataTable.Clear();
         }
-        public static void AddUserRelatedAccountOnLoad()
+        public static void Load_BkAccountsAssociatedToUser()
         {
-            //Com o login do user, adicionar todas as contas do user a lista userBkaccountList
+            CurrentSession.UserBkAccountsDataTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
+        }
+        public static void Append_BkAccountToDataTable(BankAccount bk)
+        {
+            // Ensure the session DataTable exists
+            if (CurrentSession.UserBkAccountsDataTable == null)
+            {
+                CurrentSession.UserBkAccountsDataTable = new DataTable();
+            }
+
+            // If the DataTable has no schema yet, add columns matching the data we'll store.
+            if (CurrentSession.UserBkAccountsDataTable.Columns.Count == 0)
+            {
+                CurrentSession.UserBkAccountsDataTable.Columns.Add("Owner", typeof(string));
+                CurrentSession.UserBkAccountsDataTable.Columns.Add("OwnerNumber", typeof(int));
+                CurrentSession.UserBkAccountsDataTable.Columns.Add("ID", typeof(int));
+                CurrentSession.UserBkAccountsDataTable.Columns.Add("balance", typeof(SqlMoney));
+                CurrentSession.UserBkAccountsDataTable.Columns.Add("IBAN", typeof(string));
+            }
+
+            // Add a new row with the bank account data.
+            CurrentSession.UserBkAccountsDataTable.Rows.Add(
+                CurrentSession.User.Name,
+                1,
+                bk.ID,
+                bk.Balance,
+                bk.IBAN
+            );
         }
     }
 }

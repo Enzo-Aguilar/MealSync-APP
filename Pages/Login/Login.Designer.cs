@@ -106,7 +106,7 @@
             this.label1.Size = new System.Drawing.Size(31, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "🔒";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // Login
             // 

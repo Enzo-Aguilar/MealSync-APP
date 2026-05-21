@@ -44,15 +44,8 @@ namespace MealSync_APP
                 MessageBox.Show("Ocorreu um erro ao tentar fazer login: " + err.Message,"EXCEPTION",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void LbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { RegisterForm.Open(this); }
-
-        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void LbPassword_Click(object sender, EventArgs e)
         {
             if (label1.Text.Contains("🔒"))
             {
