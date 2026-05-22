@@ -40,7 +40,7 @@
             // 
             this.tbAnswers.Enabled = false;
             this.tbAnswers.Location = new System.Drawing.Point(655, 228);
-            this.tbAnswers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAnswers.Margin = new System.Windows.Forms.Padding(2);
             this.tbAnswers.Multiline = true;
             this.tbAnswers.Name = "tbAnswers";
             this.tbAnswers.ReadOnly = true;
@@ -53,7 +53,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUpdate.Location = new System.Drawing.Point(750, 489);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(177, 54);
             this.btnUpdate.TabIndex = 5;
@@ -65,7 +65,7 @@
             // 
             this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuestions.Location = new System.Drawing.Point(107, 257);
-            this.dgvQuestions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvQuestions.Margin = new System.Windows.Forms.Padding(2);
             this.dgvQuestions.Name = "dgvQuestions";
             this.dgvQuestions.ReadOnly = true;
             this.dgvQuestions.RowHeadersWidth = 51;
@@ -80,7 +80,7 @@
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
             this.tbSearch.Location = new System.Drawing.Point(655, 104);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(417, 45);
             this.tbSearch.TabIndex = 6;
@@ -97,9 +97,9 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvQuestions);
             this.Controls.Add(this.tbAnswers);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Show_FAQs";
-            this.Text = "Show_FAQs";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Show_FAQs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();
             this.ResumeLayout(false);
