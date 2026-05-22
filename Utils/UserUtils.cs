@@ -88,7 +88,7 @@ namespace MealSync_APP.Utils
         //Métodos de Autenticação
         static protected ValidatorResult Validate_Email(string email)
         {
-            List<string> possibleDomains = new List<string>{ "gmail", "outlook", "icloud", "sapo", "epge"};
+            List<string> possibleDomains = new List<string>{ "gmail", "outlook", "icloud", "sapo", "epge","proton","hotmail"};
             try
             {
                 if (email.Contains("@"))
@@ -358,7 +358,6 @@ namespace MealSync_APP.Utils
                     string hashedPassword = dt.Rows[0][5].ToString();
                     if (user.Password == Encryptor.Decrypt(hashedPassword))
                     {
-                        UserData.Save(user);
                         return new ValidatorResult { IsValid = true };
                     }
                     else
@@ -395,7 +394,6 @@ namespace MealSync_APP.Utils
         }
         static public new ValidatorResult Save(User user)
         {
-            var result = new ValidatorResult();
             try
             {
                 DataTable dt = User_BLL.Save(user);
@@ -408,33 +406,22 @@ namespace MealSync_APP.Utils
                     CurrentSession.User.Name = dt.Rows[0][4].ToString();
                     CurrentSession.User.Password = dt.Rows[0][5].ToString();
                     CurrentSession.User.PhoneNumber = dt.Rows[0][6].ToString();
-                    CurrentSession.User.ProfileImage = dt.Rows[0][7] != DBNull.Value ? (byte[])dt.Rows[0][7] : null;
-                    CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][8]);
+                    CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][7]);
+                    CurrentSession.User.ProfileImage = dt.Rows[0][8] != DBNull.Value ? (byte[])dt.Rows[0][8] : null;
                     CurrentSession.User.PostCode = dt.Rows[0][9].ToString();
                     CurrentSession.User.SchoolIDNumber = dt.Rows[0][10].ToString();
 
-                    result.IsValid = true;
-                    return result;
+                    return new ValidatorResult { IsValid = true };
                 }
                 else
-                {
-                    result.IsValid = false; result.ErrorMessage = "Utlizador não encontrado";
-                    return result;
+                { 
+                    return new ValidatorResult { IsValid = false, ErrorMessage = "Utilizador não encontrado" };
                 }
             }
             catch (Exception err)
             {
-                result.IsValid = false; result.ErrorMessage = "Ocorreu um erro ao tentar salvar o dados do utilizador: " + err.Message;
-                return result;
+                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar salvar o dados do utilizador: " + err.Message };
             }
-            finally
-            {
-                if (!result.IsValid)
-                {
-                    MessageBox.Show(result.ErrorMessage);
-                }
-            }
-
         }
         static public ValidatorResult Update(User user, string passwordConfirm)
         {

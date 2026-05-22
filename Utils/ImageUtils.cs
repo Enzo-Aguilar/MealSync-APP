@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace MealSync_APP.Utils
 {
@@ -14,7 +15,7 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                if (img == null || img == )
+                if (img == null)
                 {
                     return new ValidatorResult { IsValid = true };
                 }

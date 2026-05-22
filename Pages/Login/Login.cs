@@ -30,9 +30,16 @@ namespace MealSync_APP
 
                 if (login.IsValid)
                 {
-                    MessageBox.Show("Bem-Vindo", "SUCCESS");
-                    UserData.Save(user);
-                    HomeForm.Open(this);
+                    var save = UserData.Save(user);
+                    if (save.IsValid)
+                    {
+                        MessageBox.Show("Bem-Vindo", "SUCCESS");
+                        HomeForm.Open(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show(save.ErrorMessage);
+                    }
                 }
                 else
                 {
