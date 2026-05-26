@@ -3,6 +3,7 @@ using MealSync_APP.Utils;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace MealSync_APP
@@ -18,6 +19,7 @@ namespace MealSync_APP
         public void Home_Load(object sender, EventArgs e)
         {
             //Adicionar método de Home Visibility
+            clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
         //Métodos dos componentes gráficos
@@ -142,6 +144,11 @@ namespace MealSync_APP
             {
                 MessageBox.Show("Ocorreu um erro ao tentar carregar a image de fundo: " + err.Message, "ERROR");
             }
+        }
+
+        private void ClockTimer_Tick(object sender, EventArgs e)
+        {
+            clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
     }
 }

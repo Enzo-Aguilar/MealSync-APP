@@ -28,134 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_User));
             this.btnRegister = new System.Windows.Forms.Button();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.lbConfirmar_Password = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.lbPassword = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbFuncao = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(330, 336);
+            this.btnRegister.BackColor = System.Drawing.Color.Sienna;
+            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegister.Location = new System.Drawing.Point(499, 542);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(141, 54);
+            this.btnRegister.Size = new System.Drawing.Size(283, 54);
             this.btnRegister.TabIndex = 37;
             this.btnRegister.Text = "Criar Conta";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // cbRole
             // 
+            this.cbRole.BackColor = System.Drawing.SystemColors.MenuText;
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRole.Font = new System.Drawing.Font("Symbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.cbRole.ForeColor = System.Drawing.SystemColors.Window;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "Admin",
             "Funcionario",
             "Aluno"});
-            this.cbRole.Location = new System.Drawing.Point(159, 164);
+            this.cbRole.Location = new System.Drawing.Point(391, 246);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(201, 21);
+            this.cbRole.Size = new System.Drawing.Size(235, 42);
             this.cbRole.TabIndex = 36;
+            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // tbPassword_Confirm
             // 
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(405, 164);
+            this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(663, 246);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(201, 20);
+            this.tbPassword_Confirm.Size = new System.Drawing.Size(231, 40);
             this.tbPassword_Confirm.TabIndex = 35;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(405, 71);
+            this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPassword.Location = new System.Drawing.Point(663, 138);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(201, 20);
+            this.tbPassword.Size = new System.Drawing.Size(231, 40);
             this.tbPassword.TabIndex = 34;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(159, 246);
+            this.tbName.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbName.Location = new System.Drawing.Point(391, 358);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(201, 20);
+            this.tbName.Size = new System.Drawing.Size(235, 40);
             this.tbName.TabIndex = 33;
-            // 
-            // lbConfirmar_Password
-            // 
-            this.lbConfirmar_Password.AutoSize = true;
-            this.lbConfirmar_Password.Location = new System.Drawing.Point(455, 124);
-            this.lbConfirmar_Password.Name = "lbConfirmar_Password";
-            this.lbConfirmar_Password.Size = new System.Drawing.Size(100, 13);
-            this.lbConfirmar_Password.TabIndex = 32;
-            this.lbConfirmar_Password.Text = "Confirmar Password";
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(159, 71);
+            this.tbEmail.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbEmail.Location = new System.Drawing.Point(391, 138);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(201, 20);
+            this.tbEmail.Size = new System.Drawing.Size(235, 40);
             this.tbEmail.TabIndex = 31;
             // 
-            // lbPassword
+            // textBox1
             // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(476, 31);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(53, 13);
-            this.lbPassword.TabIndex = 30;
-            this.lbPassword.Text = "Password";
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(663, 358);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(231, 40);
+            this.textBox1.TabIndex = 38;
             // 
-            // lbNome
+            // textBox2
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(237, 215);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 29;
-            this.lbNome.Text = "Nome";
+            this.textBox2.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox2.Location = new System.Drawing.Point(391, 469);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(235, 40);
+            this.textBox2.TabIndex = 39;
             // 
-            // lbFuncao
+            // pictureBox1
             // 
-            this.lbFuncao.AutoSize = true;
-            this.lbFuncao.Location = new System.Drawing.Point(221, 124);
-            this.lbFuncao.Name = "lbFuncao";
-            this.lbFuncao.Size = new System.Drawing.Size(74, 13);
-            this.lbFuncao.TabIndex = 28;
-            this.lbFuncao.Text = "Tipo de Conta";
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pictureBox1.Location = new System.Drawing.Point(921, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 197);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
             // 
-            // lbEmail
+            // textBox3
             // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(240, 31);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(32, 13);
-            this.lbEmail.TabIndex = 27;
-            this.lbEmail.Text = "Email";
+            this.textBox3.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox3.Location = new System.Drawing.Point(663, 469);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(231, 40);
+            this.textBox3.TabIndex = 44;
             // 
             // Create_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1159, 670);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.tbPassword_Confirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbConfirmar_Password);
             this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.lbFuncao);
-            this.Controls.Add(this.lbEmail);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Create_User";
             this.Text = "Criar";
             this.Load += new System.EventHandler(this.Create_User_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,11 +185,10 @@
         private System.Windows.Forms.TextBox tbPassword_Confirm;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lbConfirmar_Password;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbFuncao;
-        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
