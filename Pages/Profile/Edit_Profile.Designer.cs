@@ -28,24 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_Profile));
             this.pbUserProfilePicture = new System.Windows.Forms.PictureBox();
             this.checkBoxPasswordConfirm = new System.Windows.Forms.CheckBox();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
-            this.lbPhoneNumber = new System.Windows.Forms.Label();
             this.tbPhoneNum = new System.Windows.Forms.TextBox();
             this.tbPostcode = new System.Windows.Forms.TextBox();
-            this.lbPostcode = new System.Windows.Forms.Label();
-            this.lbIDNumber = new System.Windows.Forms.Label();
             this.tbSchoolMemberID = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.lbConfirm_Password = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.lbPassword = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -53,16 +47,16 @@
             // pbUserProfilePicture
             // 
             this.pbUserProfilePicture.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pbUserProfilePicture.Location = new System.Drawing.Point(523, 129);
+            this.pbUserProfilePicture.Location = new System.Drawing.Point(962, 248);
             this.pbUserProfilePicture.Name = "pbUserProfilePicture";
-            this.pbUserProfilePicture.Size = new System.Drawing.Size(205, 190);
+            this.pbUserProfilePicture.Size = new System.Drawing.Size(194, 197);
             this.pbUserProfilePicture.TabIndex = 51;
             this.pbUserProfilePicture.TabStop = false;
             // 
             // checkBoxPasswordConfirm
             // 
             this.checkBoxPasswordConfirm.AutoSize = true;
-            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(488, 281);
+            this.checkBoxPasswordConfirm.Location = new System.Drawing.Point(927, 412);
             this.checkBoxPasswordConfirm.Name = "checkBoxPasswordConfirm";
             this.checkBoxPasswordConfirm.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPasswordConfirm.TabIndex = 50;
@@ -71,141 +65,104 @@
             // checkBoxPassword
             // 
             this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Location = new System.Drawing.Point(256, 278);
+            this.checkBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxPassword.Location = new System.Drawing.Point(640, 412);
             this.checkBoxPassword.Name = "checkBoxPassword";
             this.checkBoxPassword.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPassword.TabIndex = 49;
             this.checkBoxPassword.UseVisualStyleBackColor = true;
             // 
-            // lbPhoneNumber
-            // 
-            this.lbPhoneNumber.AutoSize = true;
-            this.lbPhoneNumber.Location = new System.Drawing.Point(331, 53);
-            this.lbPhoneNumber.Name = "lbPhoneNumber";
-            this.lbPhoneNumber.Size = new System.Drawing.Size(107, 13);
-            this.lbPhoneNumber.TabIndex = 48;
-            this.lbPhoneNumber.Text = "Numero de Telefone:";
-            // 
             // tbPhoneNum
             // 
-            this.tbPhoneNum.Location = new System.Drawing.Point(281, 92);
+            this.tbPhoneNum.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhoneNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPhoneNum.Location = new System.Drawing.Point(691, 166);
             this.tbPhoneNum.Name = "tbPhoneNum";
-            this.tbPhoneNum.Size = new System.Drawing.Size(201, 20);
+            this.tbPhoneNum.Size = new System.Drawing.Size(251, 35);
             this.tbPhoneNum.TabIndex = 47;
             // 
             // tbPostcode
             // 
-            this.tbPostcode.Location = new System.Drawing.Point(548, 92);
+            this.tbPostcode.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPostcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPostcode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPostcode.Location = new System.Drawing.Point(962, 166);
             this.tbPostcode.Name = "tbPostcode";
-            this.tbPostcode.Size = new System.Drawing.Size(137, 20);
+            this.tbPostcode.Size = new System.Drawing.Size(186, 35);
             this.tbPostcode.TabIndex = 46;
-            // 
-            // lbPostcode
-            // 
-            this.lbPostcode.AutoSize = true;
-            this.lbPostcode.Location = new System.Drawing.Point(578, 49);
-            this.lbPostcode.Name = "lbPostcode";
-            this.lbPostcode.Size = new System.Drawing.Size(75, 13);
-            this.lbPostcode.TabIndex = 45;
-            this.lbPostcode.Text = "Codigo-Postal:";
-            // 
-            // lbIDNumber
-            // 
-            this.lbIDNumber.AutoSize = true;
-            this.lbIDNumber.Location = new System.Drawing.Point(297, 143);
-            this.lbIDNumber.Name = "lbIDNumber";
-            this.lbIDNumber.Size = new System.Drawing.Size(164, 13);
-            this.lbIDNumber.TabIndex = 44;
-            this.lbIDNumber.Text = "Numero de Identificação Escolar:";
             // 
             // tbSchoolMemberID
             // 
-            this.tbSchoolMemberID.Location = new System.Drawing.Point(281, 175);
+            this.tbSchoolMemberID.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbSchoolMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSchoolMemberID.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(691, 283);
             this.tbSchoolMemberID.Name = "tbSchoolMemberID";
-            this.tbSchoolMemberID.Size = new System.Drawing.Size(201, 20);
+            this.tbSchoolMemberID.Size = new System.Drawing.Size(251, 35);
             this.tbSchoolMemberID.TabIndex = 43;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(422, 361);
+            this.btnEdit.BackColor = System.Drawing.Color.Sienna;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEdit.Location = new System.Drawing.Point(484, 484);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(141, 54);
+            this.btnEdit.Size = new System.Drawing.Size(262, 54);
             this.btnEdit.TabIndex = 40;
             this.btnEdit.Text = "Confirmar";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // tbPassword_Confirm
             // 
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(281, 281);
+            this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Menu;
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(691, 401);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
             this.tbPassword_Confirm.PasswordChar = '*';
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(201, 20);
+            this.tbPassword_Confirm.Size = new System.Drawing.Size(251, 35);
             this.tbPassword_Confirm.TabIndex = 39;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(49, 278);
+            this.tbPassword.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPassword.Location = new System.Drawing.Point(414, 401);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(201, 20);
+            this.tbPassword.Size = new System.Drawing.Size(251, 35);
             this.tbPassword.TabIndex = 38;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(49, 175);
+            this.tbName.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbName.Location = new System.Drawing.Point(414, 283);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(201, 20);
+            this.tbName.Size = new System.Drawing.Size(251, 35);
             this.tbName.TabIndex = 37;
-            // 
-            // lbConfirm_Password
-            // 
-            this.lbConfirm_Password.AutoSize = true;
-            this.lbConfirm_Password.Location = new System.Drawing.Point(313, 242);
-            this.lbConfirm_Password.Name = "lbConfirm_Password";
-            this.lbConfirm_Password.Size = new System.Drawing.Size(125, 13);
-            this.lbConfirm_Password.TabIndex = 36;
-            this.lbConfirm_Password.Text = "Confirmar Palavra-Passe:";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(49, 92);
+            this.tbEmail.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbEmail.Location = new System.Drawing.Point(414, 166);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(201, 20);
+            this.tbEmail.Size = new System.Drawing.Size(251, 35);
             this.tbEmail.TabIndex = 35;
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(103, 239);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(78, 13);
-            this.lbPassword.TabIndex = 34;
-            this.lbPassword.Text = "Palavra-Passe:";
-            // 
-            // lbNome
-            // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(123, 143);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 33;
-            this.lbNome.Text = "Nome";
-            // 
-            // lbEmail
-            // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(126, 53);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(32, 13);
-            this.lbEmail.TabIndex = 32;
-            this.lbEmail.Text = "Email";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(256, 361);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(752, 484);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(141, 54);
+            this.btnCancel.Size = new System.Drawing.Size(262, 54);
             this.btnCancel.TabIndex = 52;
             this.btnCancel.Text = "Cancelar Alterações";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -215,26 +172,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1183, 678);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.pbUserProfilePicture);
             this.Controls.Add(this.checkBoxPasswordConfirm);
             this.Controls.Add(this.checkBoxPassword);
-            this.Controls.Add(this.lbPhoneNumber);
             this.Controls.Add(this.tbPhoneNum);
             this.Controls.Add(this.tbPostcode);
-            this.Controls.Add(this.lbPostcode);
-            this.Controls.Add(this.lbIDNumber);
             this.Controls.Add(this.tbSchoolMemberID);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbPassword_Confirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbConfirm_Password);
             this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.lbEmail);
             this.Name = "Edit_Profile";
             this.Text = "Editar Perfil";
             this.Load += new System.EventHandler(this.Edit_Profile_Load);
@@ -249,21 +201,14 @@
         private System.Windows.Forms.PictureBox pbUserProfilePicture;
         private System.Windows.Forms.CheckBox checkBoxPasswordConfirm;
         private System.Windows.Forms.CheckBox checkBoxPassword;
-        private System.Windows.Forms.Label lbPhoneNumber;
         private System.Windows.Forms.TextBox tbPhoneNum;
         private System.Windows.Forms.TextBox tbPostcode;
-        private System.Windows.Forms.Label lbPostcode;
-        private System.Windows.Forms.Label lbIDNumber;
         private System.Windows.Forms.TextBox tbSchoolMemberID;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox tbPassword_Confirm;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lbConfirm_Password;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Button btnCancel;
     }
 }
