@@ -50,6 +50,7 @@
     <Compile Include="Globals\CurrentSession.cs" />
     <Compile Include="Globals\FAQs.cs" />
     <Compile Include="Globals\Holder.cs" />
+    <Compile Include="Globals\Meal.cs" />
     <Compile Include="Globals\Order.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
