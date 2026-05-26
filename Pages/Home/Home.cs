@@ -17,44 +17,7 @@ namespace MealSync_APP
         //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-            Home_Tabs_Visibility();
-        }
-        //Métodos Auxiliares
-        private void Home_Tabs_Visibility()
-        {
-            int role = CurrentSession.User.Role;
-            if(role == 2)
-            {
-                deactivate_BankAccount.Visible=false;
-                reactivate_BankAccount.Visible = false;
-                add_Meal.Visible = false;
-                remove_Meal.Visible = false;
-                Students.Visible = false;
-                Employees.Visible = false;
-                Admins.Visible = false;
-                answer_FAQs.Visible = false;
-                reactivate_FAQs.Visible = false;
-            }
-            else if(role == 1)
-            {
-                deactivate_BankAccount.Visible=false;
-                reactivate_BankAccount.Visible=false;
-                Students.Visible=false; 
-                Employees.Visible=false;
-                Admins.Visible=false;
-            }
-        }
-        private void Home_Resize(object sender, EventArgs e)
-        {
-            try
-            {
-                Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
-                this.BackgroundImage = img;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Ocorreu um erro ao tentar carregar a image de fundo: " + err.Message, "ERROR");
-            }
+            //Adicionar método de Home Visibility
         }
 
         //Métodos dos componentes gráficos
@@ -70,6 +33,19 @@ namespace MealSync_APP
             }
         }
 
+        //Pedidos
+        private void show_Orders_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void make_Orders_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void cancel_Order_Click(object sender, EventArgs e)
+        {
+            
+        }
 
         //Refeições
         private void show_Meals_Click(object sender, EventArgs e)
@@ -149,26 +125,23 @@ namespace MealSync_APP
         //Perfil do Utilizador
         private void Edit_Profile_Click(object sender, EventArgs e){ OpenForm.EditUserProfile(); }
 
-        // Conta bancária
+        //Conta bancária
         private void Associate_BankAccount_Click(object sender, EventArgs e){OpenForm.AssociateToBankAccount();}
         private void Create_BankAccount_Click(object sender, EventArgs e){OpenForm.CreateBankAccount();}
-        private void Deactivate_BankAccount_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
-        private void Reactivate_BankAccount_Click(object sender, EventArgs e){OpenForm.ReactivateBankAccount();}
+        private void DeactivateToolStripMenuItem_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
+        private void ReativarToolStripMenuItem_Click(object sender, EventArgs e){ OpenForm.ReactivateBankAccount(); }
 
-
-        private void Show_Orders_Click_1(object sender, EventArgs e)
+        private void Home_Resize(object sender, EventArgs e)
         {
-            
-        }
-
-        private void Make_Orders_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cancel_Order_Click_1(object sender, EventArgs e)
-        {
-
+            try
+            {
+                Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
+                this.BackgroundImage = img;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar carregar a image de fundo: " + err.Message, "ERROR");
+            }
         }
     }
 }

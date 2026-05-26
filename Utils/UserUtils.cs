@@ -393,12 +393,6 @@ namespace MealSync_APP.Utils
             CurrentSession.User.SchoolIDNumber = string.Empty;
         }
         static public new ValidatorResult Save(User user)
-        
-        
-        
-        
-        
-        
         {
             try
             {
@@ -412,9 +406,9 @@ namespace MealSync_APP.Utils
                     CurrentSession.User.Name = dt.Rows[0][4].ToString();
                     CurrentSession.User.Password = dt.Rows[0][5].ToString();
                     CurrentSession.User.PhoneNumber = dt.Rows[0][6].ToString();
-                    CurrentSession.User.PostCode = dt.Rows[0][7].ToString();
+                    CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][7]);
                     CurrentSession.User.ProfileImage = dt.Rows[0][8] != DBNull.Value ? (byte[])dt.Rows[0][8] : null;
-                    CurrentSession.User.Role = Convert.ToInt16(dt.Rows[0][9]);
+                    CurrentSession.User.PostCode = dt.Rows[0][9].ToString();
                     CurrentSession.User.SchoolIDNumber = dt.Rows[0][10].ToString();
 
                     return new ValidatorResult { IsValid = true };

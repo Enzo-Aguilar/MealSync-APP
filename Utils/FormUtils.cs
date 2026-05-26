@@ -5,9 +5,6 @@ using MealSync_APP.Funcionários;
 using MealSync_APP.ProfileFolder;
 using System.Windows.Forms;
 using MealSync_APP.Alunos;
-using MealSync_APP.Pages.FAQsFolder;
-using MealSync_APP.OrdersFolder;
-
 
 namespace MealSync_APP.Utils
 {
@@ -53,7 +50,7 @@ namespace MealSync_APP.Utils
             ep.Show();
         }
 
-        // Bank Account (usuário currente)
+        //Bank Account (usuário currente)
         public static void AssociateToBankAccount()
         {
             Associate_BankAccount ab = new Associate_BankAccount { MdiParent = _home};
@@ -73,45 +70,6 @@ namespace MealSync_APP.Utils
         {
             Reactivate_BankAccount rba = new Reactivate_BankAccount { MdiParent = _home };
             rba.Show();
-        }
-
-        // Pedidos/Marcações
-        public static void CancelOrder()
-        {
-            Cancel_Order co = new Cancel_Order { MdiParent = _home };
-            co.Show();
-        }
-        public static void MakeOrder()
-        {
-            Make_Order mo = new Make_Order { MdiParent = _home };
-            mo.Show();
-        }
-        public static void ShowOrders()
-        {
-            Show_Orders so = new Show_Orders { MdiParent = _home };
-            so.Show();
-        }
-
-        // FAQs
-        public static void AnswerFAQs()
-        {
-            Answer_FAQ answer_FAQ = new Answer_FAQ { MdiParent = _home };
-            answer_FAQ.Show();
-        }
-        public static void CreateFAQs()
-        {
-            Create_FAQs create_FAQs = new Create_FAQs { MdiParent = _home };
-            create_FAQs.Show();
-        }
-        public static void ReactivateFAQs()
-        {
-            Reactivate_FAQ reactivate_FAQ = new Reactivate_FAQ { MdiParent = _home };
-            reactivate_FAQ.Show();
-        }
-        public static void ShowFAQs()
-        {
-            Show_FAQs show_FAQs = new Show_FAQs { MdiParent = _home };
-            show_FAQs.Show();
         }
     }
     public class FormUtils 

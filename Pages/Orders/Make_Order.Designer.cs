@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.OrdersFolder
+﻿namespace MealSync_APP.Marcações
 {
     partial class Make_Order
     {
