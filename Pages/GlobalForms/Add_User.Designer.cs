@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.GlobalForms
 {
-    partial class Create_User
+    partial class Add_User
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_User));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_User));
             this.btnRegister = new System.Windows.Forms.Button();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.tbPassword_Confirm = new System.Windows.Forms.TextBox();

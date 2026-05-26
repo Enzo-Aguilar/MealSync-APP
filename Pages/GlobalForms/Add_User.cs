@@ -12,13 +12,12 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.GlobalForms
 {
-    public partial class Create_User : Form
+    public partial class Add_User : Form
     {
-        private readonly string _form;
-        public Create_User(Form form)
+        public Add_User(string fromWhere)
         {
             InitializeComponent();
-            _form = form.Text;
+            
         }
 
         //Load do form

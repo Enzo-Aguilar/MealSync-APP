@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Marcações
+namespace MealSync_APP.OrderFolder
 {
     public partial class Make_Order : Form
     {
@@ -17,7 +17,7 @@ namespace MealSync_APP.Marcações
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Make_Order_Load(object sender, EventArgs e)
         {
 
         }

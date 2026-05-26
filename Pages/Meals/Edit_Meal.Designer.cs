@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.Refeições
+﻿namespace MealSync_APP.MealFolder
 {
     partial class Edit_Meal
     {

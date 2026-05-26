@@ -362,7 +362,10 @@ namespace BusinessLogicLayer
 	}
 	public class Order_BLL
 	{
-
+		static public DataTable Show_TodayMeal()
+		{
+			return null;
+		}
 	}
 	public class User_BLL
 	{

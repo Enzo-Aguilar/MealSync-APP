@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Pedidos
+namespace MealSync_APP.OrderFolder
 {
     public partial class Cancel_Order : Form
     {

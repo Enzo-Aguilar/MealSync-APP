@@ -51,24 +51,6 @@
     <Compile Include="Globals\FAQs.cs" />
     <Compile Include="Globals\Holder.cs" />
     <Compile Include="Globals\Order.cs" />
-    <Compile Include="Pages\Admins\Edit_Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Admins\Edit_Admin.Designer.cs">
-      <DependentUpon>Edit_Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Admins\Remove_Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Admins\Remove_Admin.Designer.cs">
-      <DependentUpon>Remove_Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Admins\Show_Admins.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Admins\Show_Admins.Designer.cs">
-      <DependentUpon>Show_Admins.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +93,11 @@
     <Compile Include="Pages\FAQs\Show_FAQs.Designer.cs">
       <DependentUpon>Show_FAQs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GlobalForms\Create_User.cs">
+    <Compile Include="Pages\GlobalForms\Add_User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\GlobalForms\Create_User.Designer.cs">
-      <DependentUpon>Create_User.cs</DependentUpon>
+    <Compile Include="Pages\GlobalForms\Add_User.Designer.cs">
+      <DependentUpon>Add_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalForms\Edit_User.cs">
       <SubType>Form</SubType>
@@ -123,59 +105,17 @@
     <Compile Include="Pages\GlobalForms\Edit_User.Designer.cs">
       <DependentUpon>Edit_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GlobalForms\Remove_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Remove_User.Designer.cs">
+      <DependentUpon>Remove_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GlobalForms\Show_User.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pages\GlobalForms\Show_User.Designer.cs">
       <DependentUpon>Show_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Student\Add_Student.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Student\Add_Student.Designer.cs">
-      <DependentUpon>Add_Student.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Student\Edit_Student.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Student\Edit_Student.Designer.cs">
-      <DependentUpon>Edit_Student.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Student\Remove_Student.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Student\Remove_Student.Designer.cs">
-      <DependentUpon>Remove_Student.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Student\Show_Students.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Student\Show_Students.Designer.cs">
-      <DependentUpon>Show_Students.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Employee\Add_Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Employee\Add_Employee.Designer.cs">
-      <DependentUpon>Add_Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Employee\Edit_Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Employee\Edit_Employee.Designer.cs">
-      <DependentUpon>Edit_Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Employee\Remove_Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Employee\Remove_Employee.Designer.cs">
-      <DependentUpon>Remove_Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Employee\Show_Employees.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Employee\Show_Employees.Designer.cs">
-      <DependentUpon>Show_Employees.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Orders\Cancel_Order.cs">
       <SubType>Form</SubType>
@@ -294,8 +234,8 @@
     <EmbeddedResource Include="Pages\FAQs\Show_FAQs.resx">
       <DependentUpon>Show_FAQs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\GlobalForms\Create_User.resx">
-      <DependentUpon>Create_User.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\GlobalForms\Add_User.resx">
+      <DependentUpon>Add_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Edit_User.resx">
       <DependentUpon>Edit_User.cs</DependentUpon>

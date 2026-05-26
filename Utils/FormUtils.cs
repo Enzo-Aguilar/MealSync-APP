@@ -1,10 +1,13 @@
 ﻿using MealSync_APP.Pages.BankAccountFolder;
 using MealSync_APP.BankAccountFolder;
-using MealSync_APP.Administradores;
-using MealSync_APP.Funcionários;
 using MealSync_APP.ProfileFolder;
 using System.Windows.Forms;
-using MealSync_APP.Alunos;
+using MealSync_APP.OrderFolder;
+using MealSync_APP.Refeições;
+using MealSync_APP.MealFolder;
+using MealSync_APP.Pages.GlobalForms;
+using System.Runtime.InteropServices;
+using MealSync_APP.Pages.FAQsFolder;
 
 namespace MealSync_APP.Utils
 {
@@ -71,132 +74,88 @@ namespace MealSync_APP.Utils
             Reactivate_BankAccount rba = new Reactivate_BankAccount { MdiParent = _home };
             rba.Show();
         }
-    }
-    public class FormUtils 
-    {
-        static protected Home _home = new Home();
 
-        //Register
-        static public void Open_Register(Form form)
+        // Marcações
+        public static void CancelOrder()
         {
-            Register register = new Register();
-            form.Hide();
+            Cancel_Order co = new Cancel_Order { MdiParent = _home };
+            co.Show();
         }
-
-        //Login
-        static public void Open_Login()
+        public static void MakeOrder()
         {
-            Login login = new Login();
+            Make_Order mo = new Make_Order { MdiParent = _home };
+            mo.Show();
         }
-
-        //Home
-        static public void Open_Home()
+        public static void ShowOrder()
         {
-            _home = new Home();
+            Show_Orders so = new Show_Orders { MdiParent = _home };
+            so.Show();
         }
 
-        //User em sessão
-        static public void OpenForm_EditProfile()
+        // Refeições
+        public static void AddMeal()
         {
-            Edit_Profile editProfile = new Edit_Profile();
-            editProfile.MdiParent = _home;
-            editProfile.Show();
-
+            Add_Meal am = new Add_Meal { MdiParent = _home };
+            am.Show();
+        }
+        public static void EditMeal()
+        {
+            Edit_Meal em = new Edit_Meal { MdiParent = _home };
+            em.Show();
+        }
+        public static void RemoveMeal()
+        {
+            Remove_Meal rm = new Remove_Meal { MdiParent = _home };
+            rm.Show();
+        }
+        public static void ShowMeal()
+        {
+            Show_Meals sm = new Show_Meals { MdiParent = _home };
+            sm.Show();
         }
 
-        //Bank Account
-        static public void OpenForm_AssociateBankAccount()
+        //Global forms (os mesmos forms servem pra student,employee,admin)
+        public static void AddUser(string fromWhere)
         {
-            Associate_BankAccount ab = new Associate_BankAccount();
-            ab.MdiParent = _home;
-            ab.Show();
+            Add_User addUser = new Add_User(fromWhere) { MdiParent= _home };
+            addUser.Show();
         }
-        static public void OpenForm_CreateBankAccount()
+        public static void EditUser(string fromWhere)
         {
-            Create_BankAccount createBankAccount = new Create_BankAccount();
-            createBankAccount.MdiParent = _home;
-            createBankAccount.Show();
+            Edit_User eu = new Edit_User(fromWhere) { MdiParent = _home };
+            eu.Show();
         }
-
-        //Admin
-        static public void OpenForm_AddAdmin()
+        public static void ShowUser(string fromWhere)
         {
+            Show_User su = new Show_User(fromWhere) { MdiParent = _home };
+            su.Show();
         }
-        static public void OpenForm_EditAdmin()
+        public static void RemoveUser(string fromWhere)
         {
-            Edit_Admin editAdmin = new Edit_Admin();
-            editAdmin.MdiParent = _home;
-            editAdmin.Show();
-        }
-        static public void OpenForm_RemoveAdmin()
-        {
-            Remove_Admin removeAdmin = new Remove_Admin();
-            removeAdmin.MdiParent = _home;
-        }
-        static public void OpenForm_ShowAdmins()
-        {
-            Show_Admins showAdmin = new Show_Admins();
-            showAdmin.MdiParent = _home;
-            showAdmin.Show();
+            Remove_User ru = new Remove_User(fromWhere) { MdiParent =_home };
+            ru.Show();
         }
 
-        //Employee = Funcionario
-        static public void OpenForm_AddEmployee()
+        //FAQs
+        public static void AnswerFAQs()
         {
-            Add_Employee addEmployee = new Add_Employee();
-            addEmployee.MdiParent = _home;
-            addEmployee.Show();
+            Answer_FAQ answer_FAQ = new Answer_FAQ() { MdiParent = _home };
+            answer_FAQ.Show();
         }
-        static public void OpenForm_EditEmployee()
+        public static void MakeFAQs()
         {
-            Edit_Employee editEmployee = new Edit_Employee();
-            editEmployee.MdiParent = _home;
-            editEmployee.Show();
+            Create_FAQs create_FAQs = new Create_FAQs() { MdiParent = _home };
+            create_FAQs.Show();
         }
-        static public void OpenForm_RemoveEmployee()
+        public static void ReactivateFAQs()
         {
-            Remove_Employee removeEmployee = new Remove_Employee();
-            removeEmployee.MdiParent = _home;
-            removeEmployee.Show();
+            Reactivate_FAQ reactivate_FAQ = new Reactivate_FAQ() {MdiParent = _home};
+            reactivate_FAQ.Show();
         }
-        static public void OpenForm_ShowEmployees()
+        public static void ShowFAQs()
         {
-            Show_Employees showEmployees = new Show_Employees();
-            showEmployees.MdiParent = _home;
-            showEmployees.Show();
+            Show_FAQs showFAQs = new Show_FAQs(){ MdiParent = _home };
+            showFAQs.Show();
         }
-
-        //Students = Alunos
-        static public void OpenForm_AddStudent()
-        {
-            Add_Student addStudent = new Add_Student();
-            addStudent.MdiParent = _home;
-            addStudent.Show();
-        }
-        static public void OpenForm_EditStudent()
-        {
-            Edit_Student editStudent = new Edit_Student();
-            editStudent.MdiParent = _home;
-            editStudent.Show();
-        }
-        static public void OpenForm_RemoveStudent()
-        {
-            Remove_Student removeStudent = new Remove_Student();
-            removeStudent.MdiParent = _home;
-            removeStudent.Show();
-        }
-        static public void OpenForm_ShowStudents()
-        {
-            Show_Students showStudents = new Show_Students();
-            showStudents.MdiParent = _home;
-            showStudents.Show();
-        }
-
-        //Orders = Pedidos
-
-
-        //Meals = Refeições
-
-
     }
 }

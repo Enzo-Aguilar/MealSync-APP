@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.Pedidos
+﻿namespace MealSync_APP.OrderFolder
 {
     partial class Cancel_Order
     {

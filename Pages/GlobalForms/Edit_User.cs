@@ -12,7 +12,7 @@ namespace MealSync_APP.Pages.GlobalForms
 {
     public partial class Edit_User : Form
     {
-        public Edit_User()
+        public Edit_User(string fromWhere)
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.Marcações
+﻿namespace MealSync_APP.OrderFolder
 {
     partial class Make_Order
     {
@@ -33,32 +33,32 @@
             this.lbMealType = new System.Windows.Forms.Label();
             this.lbDatetime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbPrice3 = new System.Windows.Forms.Label();
+            this.lbDatetime3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lbMealType3 = new System.Windows.Forms.Label();
+            this.lbMealName3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbMealPrice2 = new System.Windows.Forms.Label();
+            this.lbDatetime2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbMealType2 = new System.Windows.Forms.Label();
+            this.lbMealName2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbMealPrice = new System.Windows.Forms.Label();
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.lbMealPrice = new System.Windows.Forms.Label();
-            this.lbMealPrice2 = new System.Windows.Forms.Label();
-            this.lbDatetime2 = new System.Windows.Forms.Label();
-            this.lbMealType2 = new System.Windows.Forms.Label();
-            this.lbMealName2 = new System.Windows.Forms.Label();
-            this.lbPrice3 = new System.Windows.Forms.Label();
-            this.lbDatetime3 = new System.Windows.Forms.Label();
-            this.lbMealType3 = new System.Windows.Forms.Label();
-            this.lbMealName3 = new System.Windows.Forms.Label();
             this.lbText = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -101,43 +101,10 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(23, 114);
+            this.panel1.Location = new System.Drawing.Point(44, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 409);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbMealPrice);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.lbDatetime);
-            this.panel2.Controls.Add(this.lbMealType);
-            this.panel2.Controls.Add(this.lbMealName);
-            this.panel2.Location = new System.Drawing.Point(31, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(215, 358);
-            this.panel2.TabIndex = 12;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lbMealPrice2);
-            this.panel3.Controls.Add(this.lbDatetime2);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.lbMealType2);
-            this.panel3.Controls.Add(this.lbMealName2);
-            this.panel3.Location = new System.Drawing.Point(262, 22);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(215, 358);
-            this.panel3.TabIndex = 13;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(18, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // panel4
             // 
@@ -150,86 +117,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(215, 358);
             this.panel4.TabIndex = 13;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(14, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(179, 170);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnMakeOrder
-            // 
-            this.btnMakeOrder.Location = new System.Drawing.Point(203, 548);
-            this.btnMakeOrder.Name = "btnMakeOrder";
-            this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
-            this.btnMakeOrder.TabIndex = 13;
-            this.btnMakeOrder.Text = "Marcar";
-            this.btnMakeOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(479, 548);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(132, 64);
-            this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(341, 548);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(132, 64);
-            this.btnUpdate.TabIndex = 15;
-            this.btnUpdate.Text = "Atualizar";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // lbMealPrice
-            // 
-            this.lbMealPrice.AutoSize = true;
-            this.lbMealPrice.Location = new System.Drawing.Point(11, 332);
-            this.lbMealPrice.Name = "lbMealPrice";
-            this.lbMealPrice.Size = new System.Drawing.Size(38, 13);
-            this.lbMealPrice.TabIndex = 4;
-            this.lbMealPrice.Text = "Preço:";
-            // 
-            // lbMealPrice2
-            // 
-            this.lbMealPrice2.AutoSize = true;
-            this.lbMealPrice2.Location = new System.Drawing.Point(15, 332);
-            this.lbMealPrice2.Name = "lbMealPrice2";
-            this.lbMealPrice2.Size = new System.Drawing.Size(38, 13);
-            this.lbMealPrice2.TabIndex = 8;
-            this.lbMealPrice2.Text = "Preço:";
-            // 
-            // lbDatetime2
-            // 
-            this.lbDatetime2.AutoSize = true;
-            this.lbDatetime2.Location = new System.Drawing.Point(15, 297);
-            this.lbDatetime2.Name = "lbDatetime2";
-            this.lbDatetime2.Size = new System.Drawing.Size(33, 13);
-            this.lbDatetime2.TabIndex = 7;
-            this.lbDatetime2.Text = "Data:";
-            // 
-            // lbMealType2
-            // 
-            this.lbMealType2.AutoSize = true;
-            this.lbMealType2.Location = new System.Drawing.Point(15, 254);
-            this.lbMealType2.Name = "lbMealType2";
-            this.lbMealType2.Size = new System.Drawing.Size(37, 13);
-            this.lbMealType2.TabIndex = 6;
-            this.lbMealType2.Text = "Menu:";
-            // 
-            // lbMealName2
-            // 
-            this.lbMealName2.AutoSize = true;
-            this.lbMealName2.Location = new System.Drawing.Point(15, 216);
-            this.lbMealName2.Name = "lbMealName2";
-            this.lbMealName2.Size = new System.Drawing.Size(38, 13);
-            this.lbMealName2.TabIndex = 5;
-            this.lbMealName2.Text = "Nome:";
             // 
             // lbPrice3
             // 
@@ -249,6 +136,14 @@
             this.lbDatetime3.TabIndex = 11;
             this.lbDatetime3.Text = "Data:";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(14, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(179, 170);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // lbMealType3
             // 
             this.lbMealType3.AutoSize = true;
@@ -267,6 +162,110 @@
             this.lbMealName3.TabIndex = 9;
             this.lbMealName3.Text = "Nome:";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lbMealPrice2);
+            this.panel3.Controls.Add(this.lbDatetime2);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Controls.Add(this.lbMealType2);
+            this.panel3.Controls.Add(this.lbMealName2);
+            this.panel3.Location = new System.Drawing.Point(262, 22);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(215, 358);
+            this.panel3.TabIndex = 13;
+            // 
+            // lbMealPrice2
+            // 
+            this.lbMealPrice2.AutoSize = true;
+            this.lbMealPrice2.Location = new System.Drawing.Point(15, 332);
+            this.lbMealPrice2.Name = "lbMealPrice2";
+            this.lbMealPrice2.Size = new System.Drawing.Size(38, 13);
+            this.lbMealPrice2.TabIndex = 8;
+            this.lbMealPrice2.Text = "Preço:";
+            // 
+            // lbDatetime2
+            // 
+            this.lbDatetime2.AutoSize = true;
+            this.lbDatetime2.Location = new System.Drawing.Point(15, 297);
+            this.lbDatetime2.Name = "lbDatetime2";
+            this.lbDatetime2.Size = new System.Drawing.Size(33, 13);
+            this.lbDatetime2.TabIndex = 7;
+            this.lbDatetime2.Text = "Data:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(18, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lbMealType2
+            // 
+            this.lbMealType2.AutoSize = true;
+            this.lbMealType2.Location = new System.Drawing.Point(15, 254);
+            this.lbMealType2.Name = "lbMealType2";
+            this.lbMealType2.Size = new System.Drawing.Size(37, 13);
+            this.lbMealType2.TabIndex = 6;
+            this.lbMealType2.Text = "Menu:";
+            // 
+            // lbMealName2
+            // 
+            this.lbMealName2.AutoSize = true;
+            this.lbMealName2.Location = new System.Drawing.Point(15, 216);
+            this.lbMealName2.Name = "lbMealName2";
+            this.lbMealName2.Size = new System.Drawing.Size(38, 13);
+            this.lbMealName2.TabIndex = 5;
+            this.lbMealName2.Text = "Nome:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbMealPrice);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lbDatetime);
+            this.panel2.Controls.Add(this.lbMealType);
+            this.panel2.Controls.Add(this.lbMealName);
+            this.panel2.Location = new System.Drawing.Point(31, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(215, 358);
+            this.panel2.TabIndex = 12;
+            // 
+            // lbMealPrice
+            // 
+            this.lbMealPrice.AutoSize = true;
+            this.lbMealPrice.Location = new System.Drawing.Point(11, 332);
+            this.lbMealPrice.Name = "lbMealPrice";
+            this.lbMealPrice.Size = new System.Drawing.Size(38, 13);
+            this.lbMealPrice.TabIndex = 4;
+            this.lbMealPrice.Text = "Preço:";
+            // 
+            // btnMakeOrder
+            // 
+            this.btnMakeOrder.Location = new System.Drawing.Point(203, 586);
+            this.btnMakeOrder.Name = "btnMakeOrder";
+            this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
+            this.btnMakeOrder.TabIndex = 13;
+            this.btnMakeOrder.Text = "Marcar";
+            this.btnMakeOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(479, 586);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(132, 64);
+            this.btnCancel.TabIndex = 14;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(341, 586);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(132, 64);
+            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.Text = "Atualizar";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
             // lbText
             // 
             this.lbText.AutoSize = true;
@@ -280,7 +279,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(111, 11);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(186, 20);
             this.dateTimePicker1.TabIndex = 17;
             // 
             // Make_Order
@@ -296,16 +295,17 @@
             this.Controls.Add(this.panel1);
             this.Name = "Make_Order";
             this.Text = "Fazer_Marcacoes";
+            this.Load += new System.EventHandler(this.Make_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

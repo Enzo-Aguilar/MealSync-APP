@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Funcionários
+namespace MealSync_APP.Pages.GlobalForms
 {
-    public partial class Show_Employees : Form
+    public partial class Remove_User : Form
     {
-        public Show_Employees()
+        public Remove_User(string fromWhere)
         {
             InitializeComponent();
         }

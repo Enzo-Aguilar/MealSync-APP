@@ -12,7 +12,7 @@ namespace MealSync_APP.Pages.GlobalForms
 {
     public partial class Show_User : Form
     {
-        public Show_User(Form form)
+        public Show_User(string fromWhere)
         {
             InitializeComponent();
         }

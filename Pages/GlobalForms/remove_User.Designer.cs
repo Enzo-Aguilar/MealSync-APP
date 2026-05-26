@@ -1,6 +1,6 @@
-﻿namespace MealSync_APP.Administradores
+﻿namespace MealSync_APP.Pages.GlobalForms
 {
-    partial class Edit_Admin
+    partial class Remove_User
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Editar_Administrador";
+            this.Text = "remove_User";
         }
 
         #endregion

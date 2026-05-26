@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Refeições
+namespace MealSync_APP.MealFolder
 {
     public partial class Edit_Meal : Form
     {
