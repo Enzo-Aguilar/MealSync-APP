@@ -44,36 +44,36 @@ namespace MealSync_APP.Pages.GlobalForms
         //Métodos Auxiliares
         private void CbRole_Visibility()
         {
-            if (_form == "Index" || _form == "Dashboard")
-            {
-                this.Text = "Register";
-                cbRole.SelectedItem = "Aluno";
-                cbRole.Enabled = false;
-            }
-            else if (_form == "Add_Student")
-            {
-                this.Text = "Adicionar Aluno";
-                cbRole.SelectedItem = "Aluno";
-                cbRole.Enabled = false;
-            }
-            else if (_form == "Add_Employee")
-            {
-                this.Text = "Adicionar Funcionario";
-                cbRole.SelectedItem = "Funcionario";
-                cbRole.Enabled = false;
-            }
-            else if (_form == "Add_Admin")
-            {
-                this.Text = "Adicionar Administrador";
-                cbRole.SelectedItem = "Admin";
-                cbRole.Enabled = false;
-            }
-            else
-            {
-                this.Text = "Register";
-                cbRole.SelectedItem = "Aluno";
-                cbRole.Enabled = false;
-            }
+            //if (_form == "Index" || _form == "Dashboard")
+            //{
+            //    this.Text = "Register";
+            //    cbRole.SelectedItem = "Aluno";
+            //    cbRole.Enabled = false;
+            //}
+            //else if (_form == "Add_Student")
+            //{
+            //    this.Text = "Adicionar Aluno";
+            //    cbRole.SelectedItem = "Aluno";
+            //    cbRole.Enabled = false;
+            //}
+            //else if (_form == "Add_Employee")
+            //{
+            //    this.Text = "Adicionar Funcionario";
+            //    cbRole.SelectedItem = "Funcionario";
+            //    cbRole.Enabled = false;
+            //}
+            //else if (_form == "Add_Admin")
+            //{
+            //    this.Text = "Adicionar Administrador";
+            //    cbRole.SelectedItem = "Admin";
+            //    cbRole.Enabled = false;
+            //}
+            //else
+            //{
+            //    this.Text = "Register";
+            //    cbRole.SelectedItem = "Aluno";
+            //    cbRole.Enabled = false;
+            //}
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
