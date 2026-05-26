@@ -360,6 +360,10 @@ namespace BusinessLogicLayer
 		}
 
 	}
+	public class Order_BLL
+	{
+
+	}
 	public class User_BLL
 	{
 		static public DataTable Login(User user)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.Logout = new System.Windows.Forms.ToolStripMenuItem();
             this.Bank_Account = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +66,8 @@
             this.FAQs = new System.Windows.Forms.ToolStripMenuItem();
             this.verFAQs = new System.Windows.Forms.ToolStripMenuItem();
             this.createFAQs = new System.Windows.Forms.ToolStripMenuItem();
+            this.clockTimer = new System.Windows.Forms.Timer(this.components);
+            this.clock = new System.Windows.Forms.Label();
             this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -316,8 +319,8 @@
             this.FAQs});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.MenuStrip.Size = new System.Drawing.Size(1556, 24);
+            this.MenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.MenuStrip.Size = new System.Drawing.Size(1167, 24);
             this.MenuStrip.TabIndex = 0;
             this.MenuStrip.Text = "menuStrip1";
             // 
@@ -357,18 +360,33 @@
             this.createFAQs.Size = new System.Drawing.Size(163, 22);
             this.createFAQs.Text = "❓ Fazer Questão";
             // 
+            // clockTimer
+            // 
+            this.clockTimer.Enabled = true;
+            this.clockTimer.Interval = 1000;
+            this.clockTimer.Tick += new System.EventHandler(this.ClockTimer_Tick);
+            // 
+            // clock
+            // 
+            this.clock.AutoSize = true;
+            this.clock.Location = new System.Drawing.Point(1031, 9);
+            this.clock.Name = "clock";
+            this.clock.Size = new System.Drawing.Size(35, 13);
+            this.clock.TabIndex = 2;
+            this.clock.Text = "label1";
+            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1556, 794);
+            this.ClientSize = new System.Drawing.Size(1167, 645);
+            this.Controls.Add(this.clock);
             this.Controls.Add(this.MenuStrip);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
@@ -417,5 +435,7 @@
         private System.Windows.Forms.ToolStripMenuItem FAQs;
         private System.Windows.Forms.ToolStripMenuItem verFAQs;
         private System.Windows.Forms.ToolStripMenuItem createFAQs;
+        private System.Windows.Forms.Timer clockTimer;
+        private System.Windows.Forms.Label clock;
     }
 }
