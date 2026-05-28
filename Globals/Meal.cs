@@ -11,7 +11,7 @@ namespace MealSync_APP.Globals
     {
         public int ID { get; set; }
         public string Description { get; set; }
-        public string bool IsActive { get; set; }
+        public  bool IsActive { get; set; }
         public byte[] MealImage { get; set; }
         public string Name { get; set; }
         public SqlMoney Price { get; set; }

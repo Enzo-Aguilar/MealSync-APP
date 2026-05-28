@@ -362,10 +362,15 @@ namespace BusinessLogicLayer
 	}
 	public class Order_BLL
 	{
-		static public DataTable Show_TodayMeal()
+		static public DataTable Show_TodayMeal(DateTime date)
 		{
-			return null;
-		}
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@date", date),
+            };
+			return dal.ExecuteReader("SELECT FROM [Meal] where @date=date",sqlParams);
+        }
 	}
 	public class User_BLL
 	{
