@@ -111,5 +111,15 @@ namespace MealSync_APP.ProfileFolder
                 return false;
             }
         }
+
+        private void checkBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
