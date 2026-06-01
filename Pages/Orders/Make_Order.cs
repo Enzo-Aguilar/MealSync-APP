@@ -1,25 +1,337 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using MealSync_APP.Globals;
+using MealSync_APP.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace MealSync_APP.OrderFolder
 {
     public partial class Make_Order : Form
     {
+        private Meal selectedMeal = null;
+
         public Make_Order()
         {
             InitializeComponent();
         }
-
+        //Load do Forms
         private void Make_Order_Load(object sender, EventArgs e)
         {
+            MealDateTime.Value = DateTime.Today;
+            LoadMealsForDate(MealDateTime.Value);
+        }
+        //Métodos dos componentes graficos
+        private void LoadMealsForDate(DateTime selectedDate)
+        {
+            panelMeals.Controls.Clear();
+            selectedMeal = null;
 
+            int xPosition = 10;
+            int yPosition = 10;
+            int cardWidth = 200;
+            int cardHeight = 280;
+            int cardSpacing = 10;
+            int cardCount = 0;
+
+            var todayMeals = Utils.OrderUtils.IndexTodayMeals(selectedDate);
+            foreach (Meal m in todayMeals)
+            {
+                if (m == null) continue;
+                Panel mealCard = CreateMealComponent(m);
+
+                mealCard.Location = new Point(xPosition, yPosition);
+                panelMeals.Controls.Add(mealCard);
+
+                cardCount++;
+                if(cardCount == 3)//3 cards por linha
+                {
+                    xPosition = 10;
+                    yPosition += cardHeight + cardSpacing;
+                }
+                else
+                {
+                    xPosition += cardWidth + cardSpacing;
+                }
+            }
+        }
+        private Panel CreateMealComponent(Meal meal, int width = 200, int height = 280)
+        {
+            string mealName = meal.Name;
+            string description = meal.Description;
+            string menuType = meal.Type;
+            SqlMoney price = meal.Price;
+            Image mealImage = meal.MealImage != null ? Image.FromStream(new System.IO.MemoryStream(meal.MealImage)) : null;
+
+            // Main container panel
+            Panel mealPanel = new Panel 
+            {
+                Size = new Size(width, height),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Tag = meal,
+                Cursor = Cursors.Hand
+            };
+
+            // Add click handler to select meal
+            mealPanel.Click += (s, e) => OnMealCardClicked(meal, mealPanel);
+            mealPanel.MouseEnter += (s, e) => mealPanel.BackColor = Color.LightGray;
+            mealPanel.MouseLeave += (s, e) => mealPanel.BackColor = selectedMeal?.ID == meal.ID ? Color.LightBlue : Color.White;
+
+            // PictureBox for meal image
+            PictureBox pictureBox = new PictureBox 
+            { 
+                Image = mealImage,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(width - 10, 120),
+                Location = new Point(5,5),
+            };
+
+            // Label for meal name
+            Label nameLabel = new Label
+            {
+                Text = mealName,
+                Font = new Font("Arial", 11, FontStyle.Bold),
+                AutoSize = false,
+                Size = new Size(width - 10, 30),
+                Location = new Point(5, pictureBox.Bottom +5 ),
+                TextAlign = ContentAlignment.TopLeft,
+            };
+
+            //Label for meal description
+            Label descriptionLabel = new Label
+            {
+                Text = $"Descrição:{description}",
+                Font = new Font("Arial", 9),
+                AutoSize = false,
+                Size = new Size(width - 10, 40),
+                Location = new Point(5, nameLabel.Bottom + 2),
+                TextAlign = ContentAlignment.TopLeft,
+                ForeColor = Color.Gray,
+            };
+
+            // Label for menu type
+            Label typeLabel = new Label
+            {
+                Text = $"Tipe: {menuType}",
+                Font = new Font("Arial", 9),
+                AutoSize = false,
+                Size = new Size (width - 10, 25),
+                Location = new Point(5, descriptionLabel.Bottom + 2),
+                TextAlign = ContentAlignment.TopLeft,
+                ForeColor = Color.Gray,
+            };
+
+            // Label for price
+            Label priceLabel = new Label
+            {
+                Text = $"${price:F2}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                AutoSize = false,
+                Size = new Size(width - 10, 25),
+                Location = new Point(5, typeLabel.Bottom + 5),
+                TextAlign = ContentAlignment.TopLeft,
+                ForeColor = Color.Green,
+            };
+
+            // Add controls to panel
+            mealPanel.Controls.Add(pictureBox);
+            mealPanel.Controls.Add(descriptionLabel);
+            mealPanel.Controls.Add(nameLabel);
+            mealPanel.Controls.Add(typeLabel);
+            mealPanel.Controls.Add(priceLabel);
+
+            // Add click handlers to child controls as well
+            foreach (Control control in mealPanel.Controls)
+            {
+                control.Click += (s, e) => OnMealCardClicked(meal, mealPanel);
+                control.MouseEnter += (s, e) => mealPanel.BackColor = Color.LightGray;
+                control.MouseLeave += (s, e) => mealPanel.BackColor = selectedMeal?.ID == meal.ID ? Color.LightBlue : Color.White;
+            }
+
+            panelMeals.Controls.Add(mealPanel);
+            return mealPanel;
+        }
+        private void OnMealCardClicked(Meal meal, Panel mealCard)
+        {
+            // Deselect previous meal card
+            if (selectedMeal != null && selectedMeal.ID != meal.ID)
+            {
+                foreach (Control control in panelMeals.Controls)
+                {
+                    if (control is Panel panel && panel.Tag is Meal prevMeal && prevMeal.ID == selectedMeal.ID)
+                    {
+                        panel.BackColor = Color.White;
+                    }
+                }
+            }
+
+            // Select new meal
+            selectedMeal = meal;
+            mealCard.BackColor = Color.LightBlue;
+        }
+        private void MealDateTime_ValueChanged(object sender, EventArgs e)
+        {
+            LoadMealsForDate(MealDateTime.Value);
+        }
+
+        private void BtnMakeOrder_Click(object sender, EventArgs e)
+        {
+            if (selectedMeal == null)
+            {
+                MessageBox.Show("Por favor selecione uma refeição.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Aplicar está validação no final commit
+            //if (CurrentSession.User == null || CurrentSession.User.ID == 0)
+            //{
+            //    MessageBox.Show("User not logged in. Please log in first.", "Not Logged In", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+
+            try
+            {
+                // Load user's bank accounts
+                DataTable bankAccountsTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
+
+                if (bankAccountsTable == null || bankAccountsTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+               //Show bank account selection dialog
+               var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
+
+                if (selectedBankAccountId > 0)
+                {
+                    // Pegar o seleceted bankAccount ID e executar uma order retirando o valor da refeição selecionada
+                    // Criando um pedido e uma transação associada
+                    // O utilizador não pode fazer dois pedidos pra o mesmo dia,
+                    // Fazer tabela mostrando as transações
+                    // Testar e Validar (Lima)
+                }
+                else
+                {
+                    //User cancelou ou não escolher nada
+                    return;
+                }
+
+
+
+
+                if ( > 0)
+                {
+                    MessageBox.Show($"Pedido concluido com sucesso {selectedMeal.Name}!", "Pedido Sucedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    selectedMeal = null;
+                    LoadMealsForDate(MealDateTime.Value);
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao criar pedido, tente novamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int ShowBankAccountSelectionDialog(DataTable bankAccountsTable)
+        {
+            Form selectionForm = new Form
+            {
+                Text = "Selecione com qual conta deseja pagar",
+                Width = 400,
+                Height = 250,
+                StartPosition = FormStartPosition.CenterParent,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                ShowInTaskbar = false,
+                DialogResult = DialogResult.Cancel
+            };
+
+            Label label = new Label
+            {
+                Text = "Com qual conta deseja pagar?",
+                Location = new Point(20, 20),
+                AutoSize = true,
+                Font = new Font("Arial", 10)
+            };
+
+            ComboBox comboBox = new ComboBox
+            {
+                Location = new Point(20, 50),
+                Width = 350,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Arial", 10)
+            };
+
+            // Populate combo box with bank account info
+            foreach (DataRow row in bankAccountsTable.Rows)
+            {
+                string owner = row["Owner"].ToString();
+                string iban = row["IBAN"].ToString();
+                SqlMoney balance = (SqlMoney)row["balance"];
+                int id = Convert.ToInt32(row["ID"]);
+
+                string displayText = $"{owner} - {iban} (Balance: ${balance:F2})";
+                comboBox.Items.Add(new { Id = id, DisplayText = displayText });
+            }
+
+            if (comboBox.Items.Count > 0)
+            {
+                comboBox.SelectedIndex = 0;
+            }
+
+            Button okButton = new Button
+            {
+                Text = "OK",
+                Location = new Point(150, 120),
+                Width = 100,
+                Height = 40,
+                DialogResult = DialogResult.OK,
+                Font = new Font("Arial", 10)
+            };
+
+            Button cancelButton = new Button
+            {
+                Text = "Cancel",
+                Location = new Point(260, 120),
+                Width = 100,
+                Height = 40,
+                DialogResult = DialogResult.Cancel,
+                Font = new Font("Arial", 10)
+            };
+
+            selectionForm.Controls.Add(label);
+            selectionForm.Controls.Add(comboBox);
+            selectionForm.Controls.Add(okButton);
+            selectionForm.Controls.Add(cancelButton);
+
+            selectionForm.AcceptButton = okButton;
+            selectionForm.CancelButton = cancelButton;
+
+            DialogResult result = selectionForm.ShowDialog(this);
+
+            if (result == DialogResult.OK && comboBox.SelectedItem != null)
+            {
+                dynamic selectedItem = comboBox.SelectedItem;
+                return selectedItem.Id;
+            }
+
+            return -1;
         }
     }
 }

@@ -4,6 +4,7 @@ using DataAccessLayer;
 using MealSync_APP;
 using System.Data;
 using System;
+using System.Data.SqlTypes;
 
 namespace BusinessLogicLayer
 {
@@ -129,12 +130,12 @@ namespace BusinessLogicLayer
 		}
 
 		//Detalhes da conta bancária
-		static public DataTable GetBankAccountDetails(BankAccount bkAccount)
+		static public DataTable GetBankAccountDetails(int ID)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
-				new SqlParameter("@ID", bkAccount.ID)
+				new SqlParameter("@ID", ID)
 			};
 			return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE ID=@ID", sqlParams);
 		}
@@ -263,29 +264,6 @@ namespace BusinessLogicLayer
 			return dal.ExecuteReader("SELECT answer FROM [FAQs] WHERE question = @question AND isAnswered = 0", sqlParams);
 		}
 	}
-	public class Image_BLL
-	{
-		static public object LoadImage(int ID)
-		{
-			DAL dal = new DAL();
-			SqlParameter[] sqlParams = new SqlParameter[]
-			{
-				new SqlParameter("@ID",ID)
-			};
-			return dal.ExecuteScalar("SELECT image FROM [Image] WHERE ID=@ID", sqlParams);
-		}
-		static public DataTable LoadImageDetails()
-		{
-			DAL dal = new DAL();
-			return dal.ExecuteReader("SELECT * FROM [Image]", null);
-		}
-		static public int AddImage(byte[] img)
-		{
-			DAL dal = new DAL();
-			SqlParameter[] sqlParams = new SqlParameter[] { new SqlParameter("img", img) };
-			return dal.ExecuteNonQuery("INSERT INTO [Image] (Img) VALUES(@img)",sqlParams);
-		}
-	}
 	public class Holder_BLL
 	{
 		static public int Create_Holder(Holder holder)
@@ -319,6 +297,16 @@ namespace BusinessLogicLayer
 			};
 			dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 1 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
 		}
+
+		static public int Get_UserHolderID(int ID) 
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User", ID)
+			};
+			return Convert.ToInt32(dal.ExecuteScalar("SELECT ID FROM [Holder] WHERE ID_User=@ID_User", sqlParams));
+        }
 
 		//Métodos de Procura
 		static public DataTable Search_Holder(int ID_User, int ID_BankAccount)
@@ -358,7 +346,6 @@ namespace BusinessLogicLayer
 				sqlParams);
 			return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
 		}
-
 	}
 	public class Order_BLL
 	{
@@ -368,11 +355,52 @@ namespace BusinessLogicLayer
 			SqlParameter[] sqlParams = new SqlParameter[]
 			{
 				new SqlParameter("@date", date),
-            };
-			return dal.ExecuteReader("SELECT FROM [Meal] where @date=date",sqlParams);
-        }
+			};
+			return dal.ExecuteReader("SELECT * FROM [Meal] WHERE @date=date",sqlParams);
+		}
+		static public int Create_Order(Order order)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_User", order.ID_User),
+				new SqlParameter("@ID_Meal", order.ID_Meal),
+				new SqlParameter("@BookedAt", order.BookedAt),
+				new SqlParameter("@ID_Transaction", order.ID_Transaction)
+			};
+			return dal.ExecuteNonQuery("INSERT INTO [Order] (ID_User, ID_Meal, BookedAt, ID_transaction) VALUES(@ID_User, @ID_Meal, @BookedAt, @ID_Transaction)",
+				sqlParams);
+		}
 	}
-	public class User_BLL
+    public class Transaction_BLL
+    {
+        static public int Create_Transaction(Transaction transaction)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID_Holder", transaction.ID_Holder),
+                new SqlParameter("@amount", transaction.Amount),
+				new SqlParameter("@dateTime",transaction.DateTime),
+				new SqlParameter("@description",transaction.Description),
+                new SqlParameter("@type", transaction.Type),
+            };
+			return dal.ExecuteNonQuery("INSERT INTO [Transaction] (ID_Holder, amount, type) VALUES(@ID_Holder, @amount, @type)", sqlParams);
+        }
+		static public int Get_TransactionID(Transaction transaction)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID_Holder",transaction.ID_Holder),
+                new SqlParameter("@amount", transaction.Amount),
+                new SqlParameter("@dateTime", transaction.DateTime),
+				new SqlParameter("@description", transaction.Description)
+            };
+			return Convert.ToInt16(dal.ExecuteReader("SELECT ID FROM [Transaction] WHERE ID_Holder=@ID_Holder AND amount=@amount AND dateTime=@dateTime AND description=@description",sqlParams));
+        }
+    }
+    public class User_BLL
 	{
 		static public DataTable Login(User user)
 		{

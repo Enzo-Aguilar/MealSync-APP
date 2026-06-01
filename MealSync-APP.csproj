@@ -58,6 +58,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Globals\Transaction.cs" />
     <Compile Include="Pages\BankAccount\Deactivate_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,7 +206,9 @@
     </Compile>
     <Compile Include="Utils\HolderUtils.cs" />
     <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\MealUtils.cs" />
     <Compile Include="Utils\OrderUtils.cs" />
+    <Compile Include="Utils\TransactionUtils.cs" />
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">

@@ -134,7 +134,7 @@ namespace MealSync_APP.Utils
     {
         public static void Save(BankAccount bankAccount)
         {
-            DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount);
+            DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount.ID);
             if (dt.Rows.Count != 0)
             {
                 bankAccount = new BankAccount
@@ -175,7 +175,6 @@ namespace MealSync_APP.Utils
         }
         public static void Reset()
         {
-            CurrentSession.UserBkAccountsList.Clear();
             CurrentSession.UserBkAccountsDataTable.Clear();
         }
         public static void Load_BkAccountsAssociatedToUser()
