@@ -78,15 +78,15 @@ namespace MealSync_APP.BankAccountFolder
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if (label1.Text.Contains("🔒"))
+            if (label2.Text.Contains("🔒"))
             {
                 tbPasswordConfirm.PasswordChar = '\0';
-                label1.Text = "🔓";
+                label2.Text = "🔓";
             }
             else
             {
                 tbPasswordConfirm.PasswordChar = '*';
-                label1.Text = "🔒";
+                label2.Text = "🔒";
             }
         }
     }

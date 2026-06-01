@@ -5,6 +5,7 @@ using MealSync_APP;
 using System.Data;
 using System;
 using System.Data.SqlTypes;
+using System.Runtime.InteropServices;
 
 namespace BusinessLogicLayer
 {
@@ -139,8 +140,20 @@ namespace BusinessLogicLayer
 			};
 			return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE ID=@ID", sqlParams);
 		}
-	}
-	public class FAQs_BLL
+
+        //Atualizar saldo da conta bancária
+		static public void UpdateBankAccountBalance(int ID, SqlMoney newBalance)
+		{
+			DAL dal = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID", ID),
+				new SqlParameter("@balance", newBalance),
+            };
+			dal.ExecuteNonQuery("UPDATE [BankAccount] SET balance=@balance WHERE ID=@ID", sqlParams);
+        }
+    }
+    public class FAQs_BLL
 	{
 		//Métodos para DataGridView
 		static public DataTable Show_FAQs()

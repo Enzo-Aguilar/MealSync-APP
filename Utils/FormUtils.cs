@@ -1,13 +1,12 @@
 ﻿using MealSync_APP.Pages.BankAccountFolder;
-using MealSync_APP.BankAccountFolder;
-using MealSync_APP.ProfileFolder;
-using System.Windows.Forms;
-using MealSync_APP.OrderFolder;
-using MealSync_APP.Refeições;
-using MealSync_APP.MealFolder;
 using MealSync_APP.Pages.GlobalForms;
-using System.Runtime.InteropServices;
+using MealSync_APP.BankAccountFolder;
 using MealSync_APP.Pages.FAQsFolder;
+using MealSync_APP.ProfileFolder;
+using MealSync_APP.OrderFolder;
+using MealSync_APP.MealFolder;
+using MealSync_APP.Refeições;
+using System.Windows.Forms;
 
 namespace MealSync_APP.Utils
 {
@@ -63,6 +62,11 @@ namespace MealSync_APP.Utils
         {
             Create_BankAccount cba = new Create_BankAccount { MdiParent = _home};
             cba.Show();
+        }
+        public static void BankAccountTransactions()
+        {
+           Transactions_BankAccount tbc = new Transactions_BankAccount { MdiParent = _home };
+            tbc.Show();
         }
         public static void DeactivateBankAccount()
         {

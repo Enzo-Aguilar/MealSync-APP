@@ -31,7 +31,7 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount);
+                DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount.ID);
                 if (dt.Rows.Count != 0)
                 {
                     string passwordDecrypted = Encryptor.Decrypt(dt.Rows[0][6].ToString());

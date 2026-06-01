@@ -134,7 +134,7 @@ namespace MealSync_APP.OrderFolder
             // Label for price
             Label priceLabel = new Label
             {
-                Text = $"${price:F2}",
+                Text = $"€{price:F2}",
                 Font = new Font("Arial", 10, FontStyle.Bold),
                 AutoSize = false,
                 Size = new Size(width - 10, 25),
@@ -209,36 +209,52 @@ namespace MealSync_APP.OrderFolder
                     MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
+                
                //Show bank account selection dialog
                var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
-
                 if (selectedBankAccountId > 0)
                 {
+                    foreach (DataRow bk in bankAccountsTable.Rows)
+                    {
+                        int bkID = Convert.ToInt32(bk["ID"]);
+                        if (bkID == selectedBankAccountId)
+                        {
+                            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])): SqlMoney.Zero;
+                            SqlMoney amount = balance - selectedMeal.Price;
+                            if (amount >= 0)
+                            {
+                                var user = CurrentSession.User;
+                                var order = OrderUtils.Create_Order(user, selectedMeal, bkID);
+                                if (order.IsValid)
+                                {
+                                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (selectedBankAccountId > 0)
+                {
+
                     // Pegar o seleceted bankAccount ID e executar uma order retirando o valor da refeição selecionada
                     // Criando um pedido e uma transação associada
                     // O utilizador não pode fazer dois pedidos pra o mesmo dia,
                     // Fazer tabela mostrando as transações
                     // Testar e Validar (Lima)
-                }
-                else
-                {
-                    //User cancelou ou não escolher nada
-                    return;
-                }
-
-
-
-
-                if ( > 0)
-                {
-                    MessageBox.Show($"Pedido concluido com sucesso {selectedMeal.Name}!", "Pedido Sucedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    selectedMeal = null;
-                    LoadMealsForDate(MealDateTime.Value);
-                }
-                else
-                {
-                    MessageBox.Show("Falha ao criar pedido, tente novamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -283,11 +299,11 @@ namespace MealSync_APP.OrderFolder
             {
                 string owner = row["Owner"].ToString();
                 string iban = row["IBAN"].ToString();
-                SqlMoney balance = (SqlMoney)row["balance"];
+                SqlMoney balance = row["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(row["balance"])) : SqlMoney.Zero;
                 int id = Convert.ToInt32(row["ID"]);
 
-                string displayText = $"{owner} - {iban} (Balance: ${balance:F2})";
-                comboBox.Items.Add(new { Id = id, DisplayText = displayText });
+                string displayText = $" " + owner + " - "+balance+" - " + iban + "";
+                comboBox.Items.Add(new { id, displayText });
             }
 
             if (comboBox.Items.Count > 0)

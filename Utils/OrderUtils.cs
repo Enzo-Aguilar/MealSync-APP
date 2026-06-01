@@ -33,7 +33,7 @@ namespace MealSync_APP.Utils
             }
             return mealList.ToArray();
         }
-        public static ValidatorResult CreateOrder(User user, Meal meal)
+        public static ValidatorResult Create_Order(User user, Meal meal, int ID_Bk)
         {
             try
             {
@@ -46,6 +46,8 @@ namespace MealSync_APP.Utils
                     Description = "Pagamento Refeição",
                     Type = "remover",
                 };
+                BankAccount_BLL.UpdateBankAccountBalance(ID_Bk, meal.Price);
+                //Validar e retirar o valor da conta do usuário
                 Transaction_BLL.Create_Transaction(transaction);
                 int ID_Transaction = Transaction_BLL.Get_TransactionID(transaction);
 
