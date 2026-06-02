@@ -14,16 +14,26 @@ namespace MealSync_APP.Pages.GlobalForms
 {
     public partial class Add_User : Form
     {
+        private readonly int _role;
+
         public Add_User(string fromWhere)
         {
             InitializeComponent();
-            
+            _role = _role;
+
         }
 
         //Load do form
         private void Create_User_Load(object sender, EventArgs e)
         {
             CbRole_Visibility();
+
+            cbRole.Items.Add("Administrador"); 
+            cbRole.Items.Add("Funcionário");   
+            cbRole.Items.Add("Aluno");         
+
+            cbRole.SelectedIndex = _role; 
+            cbRole.Enabled = false;       
         }
 
         //Métodos dos Componentes Gráficos

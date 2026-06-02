@@ -62,7 +62,7 @@
             this.tbPhoneNum.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNum.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPhoneNum.Location = new System.Drawing.Point(691, 166);
+            this.tbPhoneNum.Location = new System.Drawing.Point(687, 169);
             this.tbPhoneNum.Name = "tbPhoneNum";
             this.tbPhoneNum.Size = new System.Drawing.Size(251, 35);
             this.tbPhoneNum.TabIndex = 47;
@@ -72,7 +72,7 @@
             this.tbPostcode.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPostcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPostcode.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPostcode.Location = new System.Drawing.Point(962, 166);
+            this.tbPostcode.Location = new System.Drawing.Point(962, 169);
             this.tbPostcode.Name = "tbPostcode";
             this.tbPostcode.Size = new System.Drawing.Size(186, 35);
             this.tbPostcode.TabIndex = 46;
@@ -82,7 +82,7 @@
             this.tbSchoolMemberID.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbSchoolMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSchoolMemberID.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSchoolMemberID.Location = new System.Drawing.Point(691, 283);
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(687, 285);
             this.tbSchoolMemberID.Name = "tbSchoolMemberID";
             this.tbSchoolMemberID.Size = new System.Drawing.Size(251, 35);
             this.tbSchoolMemberID.TabIndex = 43;
@@ -105,7 +105,7 @@
             this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Menu;
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(691, 401);
+            this.tbPassword_Confirm.Location = new System.Drawing.Point(687, 404);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
             this.tbPassword_Confirm.PasswordChar = '*';
             this.tbPassword_Confirm.Size = new System.Drawing.Size(251, 35);
@@ -116,7 +116,7 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(414, 401);
+            this.tbPassword.Location = new System.Drawing.Point(414, 404);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(251, 35);
@@ -127,7 +127,7 @@
             this.tbName.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbName.Location = new System.Drawing.Point(414, 283);
+            this.tbName.Location = new System.Drawing.Point(414, 285);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(251, 35);
             this.tbName.TabIndex = 37;
@@ -137,7 +137,7 @@
             this.tbEmail.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbEmail.Location = new System.Drawing.Point(414, 166);
+            this.tbEmail.Location = new System.Drawing.Point(414, 169);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(251, 35);
             this.tbEmail.TabIndex = 35;
@@ -161,7 +161,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(907, 406);
+            this.label1.Location = new System.Drawing.Point(901, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 24);
             this.label1.TabIndex = 53;
@@ -173,7 +173,7 @@
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(632, 406);
+            this.label2.Location = new System.Drawing.Point(630, 410);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 24);
             this.label2.TabIndex = 54;

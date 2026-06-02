@@ -145,7 +145,7 @@
             this.Controls.Add(this.dgvFAQs);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Reactivate_FAQ";
-            this.Text = "Reativar Perguntas";
+            this.Text = "\\";
             this.Load += new System.EventHandler(this.Reactivate_FAQ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFAQs)).EndInit();
             this.ResumeLayout(false);
