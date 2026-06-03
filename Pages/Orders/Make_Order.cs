@@ -349,5 +349,12 @@ namespace MealSync_APP.OrderFolder
 
             return -1;
         }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            MealDateTime.Visible = false;
+            LoadMealsForDate(MealDateTime.Value);
+            MealDateTime.Visible = true;
+        }
     }
 }
