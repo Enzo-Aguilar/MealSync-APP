@@ -28,83 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.dgvBankAccounts = new System.Windows.Forms.DataGridView();
+            this.dgvTransaction = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lbBankAccount = new System.Windows.Forms.Label();
+            this.lbTrasactions = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBankAccounts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(330, 387);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBankAccounts.Location = new System.Drawing.Point(31, 108);
+            this.dgvBankAccounts.Name = "dgvBankAccounts";
+            this.dgvBankAccounts.Size = new System.Drawing.Size(330, 387);
+            this.dgvBankAccounts.TabIndex = 0;
+            this.dgvBankAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellContentClick);
             // 
-            // dataGridView2
+            // dgvTransaction
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(508, 108);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(381, 385);
-            this.dataGridView2.TabIndex = 1;
+            this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransaction.Location = new System.Drawing.Point(455, 108);
+            this.dgvTransaction.Name = "dgvTransaction";
+            this.dgvTransaction.Size = new System.Drawing.Size(381, 385);
+            this.dgvTransaction.TabIndex = 1;
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(321, 586);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 77);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(351, 522);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(122, 77);
+            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.Text = "Atualizar";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // button2
+            // lbBankAccount
             // 
-            this.button2.Location = new System.Drawing.Point(470, 586);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 77);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lbBankAccount.AutoSize = true;
+            this.lbBankAccount.Location = new System.Drawing.Point(116, 80);
+            this.lbBankAccount.Name = "lbBankAccount";
+            this.lbBankAccount.Size = new System.Drawing.Size(150, 13);
+            this.lbBankAccount.TabIndex = 4;
+            this.lbBankAccount.Text = "Contas Bancarias Associadas:";
             // 
-            // label1
+            // lbTrasactions
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(673, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.lbTrasactions.AutoSize = true;
+            this.lbTrasactions.Location = new System.Drawing.Point(603, 80);
+            this.lbTrasactions.Name = "lbTrasactions";
+            this.lbTrasactions.Size = new System.Drawing.Size(63, 13);
+            this.lbTrasactions.TabIndex = 5;
+            this.lbTrasactions.Text = "Transações";
             // 
             // Transactions_BankAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 713);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(850, 611);
+            this.Controls.Add(this.lbTrasactions);
+            this.Controls.Add(this.lbBankAccount);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.dgvTransaction);
+            this.Controls.Add(this.dgvBankAccounts);
             this.Name = "Transactions_BankAccount";
             this.Text = "Transactions_BankAccount";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.Transactions_BankAccount_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,11 +104,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvBankAccounts;
+        private System.Windows.Forms.DataGridView dgvTransaction;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lbBankAccount;
+        private System.Windows.Forms.Label lbTrasactions;
     }
 }

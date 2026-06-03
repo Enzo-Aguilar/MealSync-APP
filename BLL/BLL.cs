@@ -310,7 +310,8 @@ namespace BusinessLogicLayer
 			};
 			dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 1 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
 		}
-
+		
+		//Buscar ID
 		static public int Get_UserHolderID(int ID) 
 		{
 			DAL dal = new DAL();
@@ -411,6 +412,15 @@ namespace BusinessLogicLayer
 				new SqlParameter("@description", transaction.Description)
             };
 			return Convert.ToInt16(dal.ExecuteReader("SELECT ID FROM [Transaction] WHERE ID_Holder=@ID_Holder AND amount=@amount AND dateTime=@dateTime AND description=@description",sqlParams));
+        }
+		static public DataTable Show_BankAccountTransactions(int bankAccountID)
+		{
+			DAL dal  = new DAL();
+			SqlParameter[] sqlParams = new SqlParameter[]
+			{
+				new SqlParameter("@ID_BankAccount", bankAccountID)
+			};
+			return dal.ExecuteReader("SELECT * FROM [Transaction] t INNER JOIN [Holder] h ON t.ID_Holder = h.ID WHERE h.ID_BankAccount = @ID_BankAccount ORDER BY dateTime DESC", sqlParams);
         }
     }
     public class User_BLL

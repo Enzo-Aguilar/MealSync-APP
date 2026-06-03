@@ -136,6 +136,8 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(921, 132);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 197);
@@ -152,7 +154,7 @@
             this.textBox3.Size = new System.Drawing.Size(231, 40);
             this.textBox3.TabIndex = 44;
             // 
-            // Create_User
+            // Add_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -170,7 +172,7 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Create_User";
+            this.Name = "Add_User";
             this.Text = "Criar";
             this.Load += new System.EventHandler(this.Create_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
