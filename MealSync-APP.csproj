@@ -262,6 +262,9 @@
     <EmbeddedResource Include="Pages\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Meals\Add_Meal.resx">
+      <DependentUpon>Add_Meal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Orders\Make_Order.resx">
       <DependentUpon>Make_Order.cs</DependentUpon>
     </EmbeddedResource>

@@ -19,8 +19,6 @@ namespace MealSync_APP.Pages.GlobalForms
         public Add_User(string fromWhere)
         {
             InitializeComponent();
-            _role = _role;
-
         }
 
         //Load do form

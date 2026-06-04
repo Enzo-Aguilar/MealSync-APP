@@ -361,7 +361,29 @@ namespace BusinessLogicLayer
 			return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
 		}
 	}
-	public class Order_BLL
+	public class Meal_BLL
+    {
+        static public DataTable Show_Meals()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT * FROM [Meal]", null);
+        }
+        static public int Create_Meal(Meal meal)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]	
+            {
+				new SqlParameter("@date",meal.Date),
+                new SqlParameter("@description", meal.Description),
+                new SqlParameter("@mealImage", meal.MealImage),
+                new SqlParameter("@name", meal.Name),
+                new SqlParameter("@price", meal.Price),
+				new SqlParameter("@type", meal.Type)
+            };
+            return dal.ExecuteNonQuery("INSERT INTO [Meal] (date,description,mealImage,name,price,type) VALUES(@date,@description,@mealImage,@name,@price,@type)", sqlParams);
+        }
+    }
+    public class Order_BLL
 	{
 		static public DataTable Show_TodayMeal(DateTime date)
 		{
@@ -399,20 +421,27 @@ namespace BusinessLogicLayer
 				new SqlParameter("@description",transaction.Description),
                 new SqlParameter("@type", transaction.Type),
             };
-			return dal.ExecuteNonQuery("INSERT INTO [Transaction] (ID_Holder, amount, type) VALUES(@ID_Holder, @amount, @type)", sqlParams);
+			return dal.ExecuteNonQuery("INSERT INTO [Transaction] (ID_Holder, amount, dateTime, description, type) VALUES(@ID_Holder, @amount, @dateTime, @description,  @type)", sqlParams);
         }
 		static public int Get_TransactionID(Transaction transaction)
 		{
 			DAL dal = new DAL();
 			SqlParameter[] sqlParams = new SqlParameter[]
-            {
-                new SqlParameter("@ID_Holder",transaction.ID_Holder),
-                new SqlParameter("@amount", transaction.Amount),
-                new SqlParameter("@dateTime", transaction.DateTime),
+			{
+				new SqlParameter("@ID_Holder",transaction.ID_Holder),
+				new SqlParameter("@amount", transaction.Amount),
+				new SqlParameter("@dateTime", transaction.DateTime),
 				new SqlParameter("@description", transaction.Description)
-            };
-			return Convert.ToInt16(dal.ExecuteReader("SELECT ID FROM [Transaction] WHERE ID_Holder=@ID_Holder AND amount=@amount AND dateTime=@dateTime AND description=@description",sqlParams));
-        }
+			};
+			DataTable dt = dal.ExecuteReader("SELECT ID FROM [Transaction] WHERE ID_Holder=@ID_Holder AND amount=@amount AND dateTime=@dateTime AND description=@description",sqlParams);
+
+			if (dt != null && dt.Rows.Count > 0)
+			{
+				return Convert.ToInt16(dt.Rows[0]["ID"]);
+			}
+
+			return 0;
+		}
 		static public DataTable Show_BankAccountTransactions(int bankAccountID)
 		{
 			DAL dal  = new DAL();

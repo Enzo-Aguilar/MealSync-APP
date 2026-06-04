@@ -19,7 +19,6 @@ namespace MealSync_APP.OrderFolder
     public partial class Make_Order : Form
     {
         private Meal selectedMeal = null;
-
         public Make_Order()
         {
             InitializeComponent();
@@ -29,41 +28,102 @@ namespace MealSync_APP.OrderFolder
         {
             MealDateTime.Value = DateTime.Today;
             LoadMealsForDate(MealDateTime.Value);
+            LogCheck.UserIsLogged(this);
         }
+
         //Métodos dos componentes graficos
-        private void LoadMealsForDate(DateTime selectedDate)
+        private void BtnMakeOrder_Click(object sender, EventArgs e)
         {
-            panelMeals.Controls.Clear();
-            selectedMeal = null;
-
-            int xPosition = 10;
-            int yPosition = 10;
-            int cardWidth = 200;
-            int cardHeight = 280;
-            int cardSpacing = 10;
-            int cardCount = 0;
-
-            var todayMeals = Utils.OrderUtils.IndexTodayMeals(selectedDate);
-            foreach (Meal m in todayMeals)
+            if (selectedMeal == null)
             {
-                if (m == null) continue;
-                Panel mealCard = CreateMealComponent(m);
+                MessageBox.Show("Por favor selecione uma refeição.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if(MealDateTime.Value <= DateTime.Today)
+            {
+                MessageBox.Show("Não pode marcar refeições de datas já passadas");
+                return;
+            }
+            try
+            {
+                // Load user's bank accounts
+                DataTable bankAccountsTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
 
-                mealCard.Location = new Point(xPosition, yPosition);
-                panelMeals.Controls.Add(mealCard);
-
-                cardCount++;
-                if(cardCount == 3)//3 cards por linha
+                if (bankAccountsTable == null || bankAccountsTable.Rows.Count == 0)
                 {
-                    xPosition = 10;
-                    yPosition += cardHeight + cardSpacing;
+                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                
+               //Show bank account selection dialog
+               var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
+                if (selectedBankAccountId > 0)
+                {
+                    foreach (DataRow bk in bankAccountsTable.Rows)
+                    {
+                        int bkID = Convert.ToInt32(bk["ID"]);
+                        if (bkID == selectedBankAccountId)
+                        {
+                            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])): SqlMoney.Zero;
+                            SqlMoney amount = balance - selectedMeal.Price;
+                            if (amount >= 0)
+                            {
+                                var user = CurrentSession.User;
+                                var order = OrderUtils.Create_Order(user, selectedMeal, bkID);
+                                if (order.IsValid)
+                                {
+                                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    xPosition += cardWidth + cardSpacing;
+                    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            MealDateTime.Visible = false;
+            LoadMealsForDate(MealDateTime.Value);
+            MealDateTime.Visible = true;
+        }
+        private void OnMealCardClicked(Meal meal, Panel mealCard)
+        {
+            // Deselect previous meal card
+            if (selectedMeal != null && selectedMeal.ID != meal.ID)
+            {
+                foreach (Control control in panelMeals.Controls)
+                {
+                    if (control is Panel panel && panel.Tag is Meal prevMeal && prevMeal.ID == selectedMeal.ID)
+                    {
+                        panel.BackColor = Color.White;
+                    }
+                }
+            }
+
+            // Select new meal
+            selectedMeal = meal;
+            mealCard.BackColor = Color.LightBlue;
+        }
+
+        //Método para criar o componente visual de cada refeição
         private Panel CreateMealComponent(Meal meal, int width = 200, int height = 280)
         {
             string mealName = meal.Name;
@@ -161,108 +221,6 @@ namespace MealSync_APP.OrderFolder
             panelMeals.Controls.Add(mealPanel);
             return mealPanel;
         }
-        private void OnMealCardClicked(Meal meal, Panel mealCard)
-        {
-            // Deselect previous meal card
-            if (selectedMeal != null && selectedMeal.ID != meal.ID)
-            {
-                foreach (Control control in panelMeals.Controls)
-                {
-                    if (control is Panel panel && panel.Tag is Meal prevMeal && prevMeal.ID == selectedMeal.ID)
-                    {
-                        panel.BackColor = Color.White;
-                    }
-                }
-            }
-
-            // Select new meal
-            selectedMeal = meal;
-            mealCard.BackColor = Color.LightBlue;
-        }
-        private void MealDateTime_ValueChanged(object sender, EventArgs e)
-        {
-            LoadMealsForDate(MealDateTime.Value);
-        }
-
-        private void BtnMakeOrder_Click(object sender, EventArgs e)
-        {
-            if (selectedMeal == null)
-            {
-                MessageBox.Show("Por favor selecione uma refeição.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            //Aplicar está validação no final commit
-            //if (CurrentSession.User == null || CurrentSession.User.ID == 0)
-            //{
-            //    MessageBox.Show("User not logged in. Please log in first.", "Not Logged In", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-
-            try
-            {
-                // Load user's bank accounts
-                DataTable bankAccountsTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
-
-                if (bankAccountsTable == null || bankAccountsTable.Rows.Count == 0)
-                {
-                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                
-               //Show bank account selection dialog
-               var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
-                if (selectedBankAccountId > 0)
-                {
-                    foreach (DataRow bk in bankAccountsTable.Rows)
-                    {
-                        int bkID = Convert.ToInt32(bk["ID"]);
-                        if (bkID == selectedBankAccountId)
-                        {
-                            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])): SqlMoney.Zero;
-                            SqlMoney amount = balance - selectedMeal.Price;
-                            if (amount >= 0)
-                            {
-                                var user = CurrentSession.User;
-                                var order = OrderUtils.Create_Order(user, selectedMeal, bkID);
-                                if (order.IsValid)
-                                {
-                                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                if (selectedBankAccountId > 0)
-                {
-
-                    // Pegar o seleceted bankAccount ID e executar uma order retirando o valor da refeição selecionada
-                    // Criando um pedido e uma transação associada
-                    // O utilizador não pode fazer dois pedidos pra o mesmo dia,
-                    // Fazer tabela mostrando as transações
-                    // Testar e Validar (Lima)
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private int ShowBankAccountSelectionDialog(DataTable bankAccountsTable)
         {
             Form selectionForm = new Form
@@ -344,17 +302,49 @@ namespace MealSync_APP.OrderFolder
             if (result == DialogResult.OK && comboBox.SelectedItem != null)
             {
                 dynamic selectedItem = comboBox.SelectedItem;
-                return selectedItem.Id;
+                return selectedItem.id;
             }
 
             return -1;
         }
 
-        private void BtnUpdate_Click(object sender, EventArgs e)
+        //Métodos de secundários
+        private void LoadMealsForDate(DateTime selectedDate)
         {
-            MealDateTime.Visible = false;
+            panelMeals.Controls.Clear();
+            selectedMeal = null;
+
+            int xPosition = 10;
+            int yPosition = 10;
+            int cardWidth = 200;
+            int cardHeight = 280;
+            int cardSpacing = 10;
+            int cardCount = 0;
+
+            var todayMeals = Utils.OrderUtils.IndexTodayMeals(selectedDate);
+            foreach (Meal m in todayMeals)
+            {
+                if (m == null) continue;
+                Panel mealCard = CreateMealComponent(m);
+
+                mealCard.Location = new Point(xPosition, yPosition);
+                panelMeals.Controls.Add(mealCard);
+
+                cardCount++;
+                if(cardCount == 3)//3 cards por linha
+                {
+                    xPosition = 10;
+                    yPosition += cardHeight + cardSpacing;
+                }
+                else
+                {
+                    xPosition += cardWidth + cardSpacing;
+                }
+            }
+        }
+        private void MealDateTime_ValueChanged(object sender, EventArgs e)
+        {
             LoadMealsForDate(MealDateTime.Value);
-            MealDateTime.Visible = true;
         }
     }
 }

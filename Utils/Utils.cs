@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MealSync_APP.Globals;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MealSync_APP.Utils
 {
@@ -86,6 +88,19 @@ namespace MealSync_APP.Utils
             {
                 return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [palavra-passe]: " + err.Message };
             }
+        }
+    }
+    public class LogCheck
+    {
+        static public void UserIsLogged(Form f)
+        {
+            User u = CurrentSession.User;
+            if (u == null)
+            {
+                MessageBox.Show("Nenhum utilizador logado");
+                LoginForm.Open(f);
+            }
+
         }
     }
 }

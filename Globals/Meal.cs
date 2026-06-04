@@ -10,6 +10,7 @@ namespace MealSync_APP.Globals
     public class Meal
     {
         public int ID { get; set; }
+        public DateTime Date { get; set; }
         public string Description { get; set; }
         public  bool IsActive { get; set; }
         public byte[] MealImage { get; set; }

@@ -59,7 +59,7 @@ namespace MealSync_APP
             }
             catch (Exception err)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar carregar a image de fundo: " + err.Message, "ERROR");
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar a image de fundo: {err.Message}", "ERROR");
             }
         }   
         private void ClockTimer_Tick(object sender, EventArgs e)

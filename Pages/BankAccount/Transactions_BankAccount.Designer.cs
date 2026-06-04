@@ -33,6 +33,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lbBankAccount = new System.Windows.Forms.Label();
             this.lbTrasactions = new System.Windows.Forms.Label();
+            this.btnCleanSelection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.SuspendLayout();
@@ -40,8 +41,10 @@
             // dgvBankAccounts
             // 
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(31, 108);
+            this.dgvBankAccounts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 108);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
+            this.dgvBankAccounts.ReadOnly = true;
             this.dgvBankAccounts.Size = new System.Drawing.Size(330, 387);
             this.dgvBankAccounts.TabIndex = 0;
             this.dgvBankAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellContentClick);
@@ -49,14 +52,15 @@
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(455, 108);
+            this.dgvTransaction.Location = new System.Drawing.Point(457, 108);
             this.dgvTransaction.Name = "dgvTransaction";
+            this.dgvTransaction.ReadOnly = true;
             this.dgvTransaction.Size = new System.Drawing.Size(381, 385);
             this.dgvTransaction.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(351, 522);
+            this.btnUpdate.Location = new System.Drawing.Point(281, 522);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(122, 77);
             this.btnUpdate.TabIndex = 2;
@@ -67,7 +71,7 @@
             // lbBankAccount
             // 
             this.lbBankAccount.AutoSize = true;
-            this.lbBankAccount.Location = new System.Drawing.Point(116, 80);
+            this.lbBankAccount.Location = new System.Drawing.Point(100, 80);
             this.lbBankAccount.Name = "lbBankAccount";
             this.lbBankAccount.Size = new System.Drawing.Size(150, 13);
             this.lbBankAccount.TabIndex = 4;
@@ -82,11 +86,22 @@
             this.lbTrasactions.TabIndex = 5;
             this.lbTrasactions.Text = "Transações";
             // 
+            // btnCleanSelection
+            // 
+            this.btnCleanSelection.Location = new System.Drawing.Point(428, 522);
+            this.btnCleanSelection.Name = "btnCleanSelection";
+            this.btnCleanSelection.Size = new System.Drawing.Size(122, 77);
+            this.btnCleanSelection.TabIndex = 6;
+            this.btnCleanSelection.Text = "Limpar Seleção";
+            this.btnCleanSelection.UseVisualStyleBackColor = true;
+            this.btnCleanSelection.Click += new System.EventHandler(this.BtnCleanSelection_Click);
+            // 
             // Transactions_BankAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 611);
+            this.Controls.Add(this.btnCleanSelection);
             this.Controls.Add(this.lbTrasactions);
             this.Controls.Add(this.lbBankAccount);
             this.Controls.Add(this.btnUpdate);
@@ -109,5 +124,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lbBankAccount;
         private System.Windows.Forms.Label lbTrasactions;
+        private System.Windows.Forms.Button btnCleanSelection;
     }
 }

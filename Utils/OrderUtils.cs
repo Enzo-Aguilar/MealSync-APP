@@ -22,6 +22,7 @@ namespace MealSync_APP.Utils
                 Meal meal = new Meal
                 {
                     ID = Convert.ToInt16(dr[0]),
+                    Date = dr[1] != DBNull.Value ? Convert.ToDateTime(dr[1]) : DateTime.Now,
                     Description = dr[2].ToString(),
                     IsActive = Convert.ToBoolean(dr[3]),
                     MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,

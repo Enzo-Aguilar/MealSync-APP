@@ -1,6 +1,8 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
+using BusinessLogicLayer;
+using MealSync_APP.BankAccountFolder;
 
 namespace MealSync_APP
 {
@@ -31,6 +33,7 @@ namespace MealSync_APP
                 if (login.IsValid)
                 {
                     var save = UserData.Save(user);
+                    BankAccountData.Load_BkAccountsAssociatedToUser();
                     if (save.IsValid)
                     {
                         MessageBox.Show("Bem-Vindo", "SUCCESS");

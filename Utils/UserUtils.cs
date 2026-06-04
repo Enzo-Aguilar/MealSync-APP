@@ -18,7 +18,11 @@ namespace MealSync_APP.Utils
             {
                 if (Search_Name(name) != null)
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Este nome não está disponivel" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Este nome não está disponivel" 
+                    };
                 }
                 else
                 {
@@ -27,7 +31,11 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao procurar o nome do utilizador " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro ao procurar o nome do utilizador: {err.Message}"
+                };
             }
         }
         static protected ValidatorResult IsEmailTaken(string email)
@@ -36,7 +44,11 @@ namespace MealSync_APP.Utils
             {
                 if (Search_Email(email) != null)
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Este email não está disponivel" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Este email não está disponivel" 
+                    };
                 }
                 else
                 {
@@ -45,7 +57,11 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao procurar o email do utilizador " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro ao procurar o email do utilizador: {err.Message}"
+                };
             }
         }
         static protected ValidatorResult IsPhoneNumberTaken(string phoneNumber)

@@ -19,7 +19,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
             InitializeComponent();
         }
-        //Load do form
+        // Load do form
         private void Transactions_BankAccount_Load(object sender, EventArgs e)
         {
             int rows = CurrentSession.UserBkAccountsDataTable.Rows.Count;
@@ -29,18 +29,18 @@ namespace MealSync_APP.Pages.BankAccountFolder
             }
             dgvBankAccounts.DataSource = CurrentSession.UserBkAccountsDataTable;
         }
+        // Métodos dos componentes gráficos
         private void DgvBankAccounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Ensure that the click is on a valid row
             {
                 DataGridViewRow selectedRow = dgvBankAccounts.Rows[e.RowIndex];
-                int bankAccountId = Convert.ToInt32(selectedRow.Cells["BankAccountId"].Value); // Adjust the column name as needed
+                int bankAccountId = Convert.ToInt32(selectedRow.Cells["ID"].Value); // Adjust the column name as needed
 
                 // Fetch transactions for the selected bank account
                 dgvTransaction.DataSource = Transaction_BLL.Show_BankAccountTransactions(bankAccountId);
             }
         }
-
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             dgvBankAccounts.Visible = false;
@@ -48,8 +48,12 @@ namespace MealSync_APP.Pages.BankAccountFolder
             dgvBankAccounts.Visible = true;
 
             dgvTransaction.Visible = false;
-            dgvTransaction.DataSource = null; // Clear the transactions DataGridView
+            dgvTransaction.DataSource = null; 
             dgvTransaction.Visible = true;
+        }
+        private void BtnCleanSelection_Click(object sender, EventArgs e)
+        {
+            dgvTransaction.DataSource = null;
         }
     }
 }
