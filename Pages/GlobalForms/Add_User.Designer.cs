@@ -59,16 +59,16 @@
             // 
             this.cbRole.BackColor = System.Drawing.SystemColors.MenuText;
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRole.Font = new System.Drawing.Font("Symbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.cbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRole.ForeColor = System.Drawing.SystemColors.Window;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "Admin",
             "Funcionario",
             "Aluno"});
-            this.cbRole.Location = new System.Drawing.Point(391, 246);
+            this.cbRole.Location = new System.Drawing.Point(391, 247);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(235, 42);
+            this.cbRole.Size = new System.Drawing.Size(235, 39);
             this.cbRole.TabIndex = 36;
             this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 

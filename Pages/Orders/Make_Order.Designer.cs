@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Make_Order));
             this.panelMeals = new System.Windows.Forms.Panel();
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -39,18 +40,17 @@
             // panelMeals
             // 
             this.panelMeals.AutoScroll = true;
-            this.panelMeals.Location = new System.Drawing.Point(59, 46);
-            this.panelMeals.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMeals.BackColor = System.Drawing.Color.White;
+            this.panelMeals.Location = new System.Drawing.Point(44, 37);
             this.panelMeals.Name = "panelMeals";
-            this.panelMeals.Size = new System.Drawing.Size(987, 800);
+            this.panelMeals.Size = new System.Drawing.Size(744, 534);
             this.panelMeals.TabIndex = 12;
             // 
             // btnMakeOrder
             // 
-            this.btnMakeOrder.Location = new System.Drawing.Point(245, 853);
-            this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMakeOrder.Location = new System.Drawing.Point(133, 577);
             this.btnMakeOrder.Name = "btnMakeOrder";
-            this.btnMakeOrder.Size = new System.Drawing.Size(176, 79);
+            this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
             this.btnMakeOrder.TabIndex = 13;
             this.btnMakeOrder.Text = "Marcar";
             this.btnMakeOrder.UseVisualStyleBackColor = true;
@@ -58,20 +58,18 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(715, 853);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(593, 577);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(176, 79);
+            this.btnCancel.Size = new System.Drawing.Size(132, 64);
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(475, 853);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(361, 577);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(176, 79);
+            this.btnUpdate.Size = new System.Drawing.Size(132, 64);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -80,36 +78,36 @@
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(19, 15);
-            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbText.Location = new System.Drawing.Point(14, 12);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(105, 16);
+            this.lbText.Size = new System.Drawing.Size(84, 13);
             this.lbText.TabIndex = 16;
             this.lbText.Text = "Marcar para dia:";
             // 
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(139, 15);
-            this.MealDateTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MealDateTime.Location = new System.Drawing.Point(104, 12);
             this.MealDateTime.Name = "MealDateTime";
-            this.MealDateTime.Size = new System.Drawing.Size(247, 22);
+            this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 17;
             this.MealDateTime.Value = new System.DateTime(2026, 5, 30, 0, 0, 0, 0);
             this.MealDateTime.ValueChanged += new System.EventHandler(this.MealDateTime_ValueChanged);
             // 
             // Make_Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1091, 946);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(820, 674);
             this.Controls.Add(this.MealDateTime);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Make_Order";
             this.Text = "Fazer_Marcacoes";
             this.Load += new System.EventHandler(this.Make_Order_Load);

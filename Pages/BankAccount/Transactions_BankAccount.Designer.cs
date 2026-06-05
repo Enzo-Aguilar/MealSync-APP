@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transactions_BankAccount));
             this.dgvBankAccounts = new System.Windows.Forms.DataGridView();
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.lbBankAccount = new System.Windows.Forms.Label();
-            this.lbTrasactions = new System.Windows.Forms.Label();
             this.btnCleanSelection = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.SuspendLayout();
@@ -42,68 +43,83 @@
             // 
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBankAccounts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 108);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(286, 118);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
-            this.dgvBankAccounts.Size = new System.Drawing.Size(330, 387);
+            this.dgvBankAccounts.Size = new System.Drawing.Size(311, 319);
             this.dgvBankAccounts.TabIndex = 0;
             this.dgvBankAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellContentClick);
             // 
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(457, 108);
+            this.dgvTransaction.Location = new System.Drawing.Point(614, 118);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.ReadOnly = true;
-            this.dgvTransaction.Size = new System.Drawing.Size(381, 385);
+            this.dgvTransaction.Size = new System.Drawing.Size(309, 319);
             this.dgvTransaction.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(281, 522);
+            this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdate.Location = new System.Drawing.Point(369, 470);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(122, 77);
+            this.btnUpdate.Size = new System.Drawing.Size(196, 51);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Atualizar";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // lbBankAccount
-            // 
-            this.lbBankAccount.AutoSize = true;
-            this.lbBankAccount.Location = new System.Drawing.Point(100, 80);
-            this.lbBankAccount.Name = "lbBankAccount";
-            this.lbBankAccount.Size = new System.Drawing.Size(150, 13);
-            this.lbBankAccount.TabIndex = 4;
-            this.lbBankAccount.Text = "Contas Bancarias Associadas:";
-            // 
-            // lbTrasactions
-            // 
-            this.lbTrasactions.AutoSize = true;
-            this.lbTrasactions.Location = new System.Drawing.Point(603, 80);
-            this.lbTrasactions.Name = "lbTrasactions";
-            this.lbTrasactions.Size = new System.Drawing.Size(63, 13);
-            this.lbTrasactions.TabIndex = 5;
-            this.lbTrasactions.Text = "Transações";
             // 
             // btnCleanSelection
             // 
-            this.btnCleanSelection.Location = new System.Drawing.Point(428, 522);
+            this.btnCleanSelection.BackColor = System.Drawing.Color.Sienna;
+            this.btnCleanSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCleanSelection.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCleanSelection.Location = new System.Drawing.Point(639, 470);
             this.btnCleanSelection.Name = "btnCleanSelection";
-            this.btnCleanSelection.Size = new System.Drawing.Size(122, 77);
+            this.btnCleanSelection.Size = new System.Drawing.Size(196, 51);
             this.btnCleanSelection.TabIndex = 6;
-            this.btnCleanSelection.Text = "Limpar Seleção";
-            this.btnCleanSelection.UseVisualStyleBackColor = true;
+            this.btnCleanSelection.Text = "Limpar seleção";
+            this.btnCleanSelection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCleanSelection.UseVisualStyleBackColor = false;
             this.btnCleanSelection.Click += new System.EventHandler(this.BtnCleanSelection_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(390, 476);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 37);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "🔄";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(648, 477);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 33);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "🗑️";
             // 
             // Transactions_BankAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 611);
+            this.BackColor = System.Drawing.Color.Sienna;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(954, 634);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCleanSelection);
-            this.Controls.Add(this.lbTrasactions);
-            this.Controls.Add(this.lbBankAccount);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.dgvBankAccounts);
@@ -122,8 +138,8 @@
         private System.Windows.Forms.DataGridView dgvBankAccounts;
         private System.Windows.Forms.DataGridView dgvTransaction;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lbBankAccount;
-        private System.Windows.Forms.Label lbTrasactions;
         private System.Windows.Forms.Button btnCleanSelection;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

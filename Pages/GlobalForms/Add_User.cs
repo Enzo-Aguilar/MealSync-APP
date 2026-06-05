@@ -19,6 +19,7 @@ namespace MealSync_APP.Pages.GlobalForms
         public Add_User(string fromWhere)
         {
             InitializeComponent();
+            _role = fromWhere == "Admin" ? 0 : fromWhere == "Employee" ? 1 : 2;
         }
 
         //Load do form
@@ -42,7 +43,7 @@ namespace MealSync_APP.Pages.GlobalForms
             string name = tbName.Text;
             string password = tbPassword.Text;
             string passwordConfirm = tbPassword_Confirm.Text;
-            int role = cbRole.SelectedIndex;
+            int role = _role;
 
             //UserAuth.Register(email, name, password, passwordConfirm, role);
             //BLL.User.Create_User(createdAt, email, name, password, role);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Meal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMealTypeUserPreview = new System.Windows.Forms.Label();
             this.lbMealPriceUserPreview = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lbMealTypeUserPreview);
             this.panel1.Controls.Add(this.lbMealPriceUserPreview);
@@ -72,6 +74,8 @@
             // lbMealTypeUserPreview
             // 
             this.lbMealTypeUserPreview.AutoSize = true;
+            this.lbMealTypeUserPreview.BackColor = System.Drawing.Color.Transparent;
+            this.lbMealTypeUserPreview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealTypeUserPreview.Location = new System.Drawing.Point(16, 317);
             this.lbMealTypeUserPreview.Name = "lbMealTypeUserPreview";
             this.lbMealTypeUserPreview.Size = new System.Drawing.Size(31, 13);
@@ -81,6 +85,8 @@
             // lbMealPriceUserPreview
             // 
             this.lbMealPriceUserPreview.AutoSize = true;
+            this.lbMealPriceUserPreview.BackColor = System.Drawing.Color.Transparent;
+            this.lbMealPriceUserPreview.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbMealPriceUserPreview.Location = new System.Drawing.Point(16, 366);
             this.lbMealPriceUserPreview.Name = "lbMealPriceUserPreview";
             this.lbMealPriceUserPreview.Size = new System.Drawing.Size(38, 13);
@@ -90,6 +96,8 @@
             // lbMealDescriptionUserPreview
             // 
             this.lbMealDescriptionUserPreview.AutoSize = true;
+            this.lbMealDescriptionUserPreview.BackColor = System.Drawing.Color.Transparent;
+            this.lbMealDescriptionUserPreview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealDescriptionUserPreview.Location = new System.Drawing.Point(16, 269);
             this.lbMealDescriptionUserPreview.Name = "lbMealDescriptionUserPreview";
             this.lbMealDescriptionUserPreview.Size = new System.Drawing.Size(58, 13);
@@ -99,6 +107,8 @@
             // lbMealNameUserPreview
             // 
             this.lbMealNameUserPreview.AutoSize = true;
+            this.lbMealNameUserPreview.BackColor = System.Drawing.Color.Transparent;
+            this.lbMealNameUserPreview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealNameUserPreview.Location = new System.Drawing.Point(16, 218);
             this.lbMealNameUserPreview.Name = "lbMealNameUserPreview";
             this.lbMealNameUserPreview.Size = new System.Drawing.Size(38, 13);
@@ -118,9 +128,12 @@
             // lbWhatUserSee
             // 
             this.lbWhatUserSee.AutoSize = true;
-            this.lbWhatUserSee.Location = new System.Drawing.Point(720, 87);
+            this.lbWhatUserSee.BackColor = System.Drawing.Color.Transparent;
+            this.lbWhatUserSee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWhatUserSee.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbWhatUserSee.Location = new System.Drawing.Point(624, 74);
             this.lbWhatUserSee.Name = "lbWhatUserSee";
-            this.lbWhatUserSee.Size = new System.Drawing.Size(107, 13);
+            this.lbWhatUserSee.Size = new System.Drawing.Size(216, 25);
             this.lbWhatUserSee.TabIndex = 1;
             this.lbWhatUserSee.Text = "O que o utilizador vê:";
             // 
@@ -138,6 +151,7 @@
             // lbMealName
             // 
             this.lbMealName.AutoSize = true;
+            this.lbMealName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealName.Location = new System.Drawing.Point(98, 298);
             this.lbMealName.Name = "lbMealName";
             this.lbMealName.Size = new System.Drawing.Size(38, 13);
@@ -147,7 +161,8 @@
             // lbDescription
             // 
             this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(98, 350);
+            this.lbDescription.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDescription.Location = new System.Drawing.Point(78, 350);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(58, 13);
             this.lbDescription.TabIndex = 7;
@@ -156,7 +171,8 @@
             // lbMealType
             // 
             this.lbMealType.AutoSize = true;
-            this.lbMealType.Location = new System.Drawing.Point(98, 405);
+            this.lbMealType.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbMealType.Location = new System.Drawing.Point(105, 405);
             this.lbMealType.Name = "lbMealType";
             this.lbMealType.Size = new System.Drawing.Size(31, 13);
             this.lbMealType.TabIndex = 8;
@@ -165,6 +181,7 @@
             // lbMealPrice
             // 
             this.lbMealPrice.AutoSize = true;
+            this.lbMealPrice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealPrice.Location = new System.Drawing.Point(98, 463);
             this.lbMealPrice.Name = "lbMealPrice";
             this.lbMealPrice.Size = new System.Drawing.Size(38, 13);
@@ -174,6 +191,7 @@
             // lbMealDatetime
             // 
             this.lbMealDatetime.AutoSize = true;
+            this.lbMealDatetime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMealDatetime.Location = new System.Drawing.Point(98, 247);
             this.lbMealDatetime.Name = "lbMealDatetime";
             this.lbMealDatetime.Size = new System.Drawing.Size(33, 13);
@@ -182,7 +200,7 @@
             // 
             // mealTimePicker
             // 
-            this.mealTimePicker.Location = new System.Drawing.Point(156, 240);
+            this.mealTimePicker.Location = new System.Drawing.Point(142, 247);
             this.mealTimePicker.Name = "mealTimePicker";
             this.mealTimePicker.Size = new System.Drawing.Size(193, 20);
             this.mealTimePicker.TabIndex = 11;
@@ -197,7 +215,7 @@
             // 
             // tbMealDescription
             // 
-            this.tbMealDescription.Location = new System.Drawing.Point(156, 347);
+            this.tbMealDescription.Location = new System.Drawing.Point(142, 347);
             this.tbMealDescription.Multiline = true;
             this.tbMealDescription.Name = "tbMealDescription";
             this.tbMealDescription.Size = new System.Drawing.Size(193, 20);
@@ -211,7 +229,7 @@
             "Vegetariano",
             "Peixe",
             "Carne"});
-            this.cbMealType.Location = new System.Drawing.Point(135, 402);
+            this.cbMealType.Location = new System.Drawing.Point(142, 402);
             this.cbMealType.Name = "cbMealType";
             this.cbMealType.Size = new System.Drawing.Size(214, 21);
             this.cbMealType.TabIndex = 14;
@@ -219,7 +237,7 @@
             // 
             // tbMealPrice
             // 
-            this.tbMealPrice.Location = new System.Drawing.Point(142, 463);
+            this.tbMealPrice.Location = new System.Drawing.Point(142, 460);
             this.tbMealPrice.Name = "tbMealPrice";
             this.tbMealPrice.Size = new System.Drawing.Size(207, 20);
             this.tbMealPrice.TabIndex = 15;
@@ -227,6 +245,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.tbMealPrice);
             this.panel3.Controls.Add(this.cbMealType);
             this.panel3.Controls.Add(this.tbMealDescription);
@@ -238,44 +257,55 @@
             this.panel3.Controls.Add(this.lbDescription);
             this.panel3.Controls.Add(this.lbMealName);
             this.panel3.Controls.Add(this.pictureBoxMealImage);
-            this.panel3.Location = new System.Drawing.Point(12, 103);
+            this.panel3.Location = new System.Drawing.Point(27, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(459, 507);
+            this.panel3.Size = new System.Drawing.Size(451, 549);
             this.panel3.TabIndex = 16;
             // 
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Location = new System.Drawing.Point(197, 87);
+            this.lbText.BackColor = System.Drawing.Color.Transparent;
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbText.Location = new System.Drawing.Point(22, 33);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(72, 13);
+            this.lbText.Size = new System.Drawing.Size(147, 25);
             this.lbText.TabIndex = 17;
             this.lbText.Text = "Criar refeição:";
             // 
             // btnCreateMeal
             // 
+            this.btnCreateMeal.BackColor = System.Drawing.Color.Sienna;
+            this.btnCreateMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMeal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCreateMeal.Location = new System.Drawing.Point(799, 543);
             this.btnCreateMeal.Name = "btnCreateMeal";
             this.btnCreateMeal.Size = new System.Drawing.Size(114, 58);
             this.btnCreateMeal.TabIndex = 18;
             this.btnCreateMeal.Text = "Criar Refeição";
-            this.btnCreateMeal.UseVisualStyleBackColor = true;
+            this.btnCreateMeal.UseVisualStyleBackColor = false;
             this.btnCreateMeal.Click += new System.EventHandler(this.BtnCreateMeal_Click);
             // 
             // btnCancelMeal
             // 
+            this.btnCancelMeal.BackColor = System.Drawing.Color.Sienna;
+            this.btnCancelMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelMeal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancelMeal.Location = new System.Drawing.Point(647, 543);
             this.btnCancelMeal.Name = "btnCancelMeal";
             this.btnCancelMeal.Size = new System.Drawing.Size(114, 58);
             this.btnCancelMeal.TabIndex = 19;
             this.btnCancelMeal.Text = "Cancelar Refeição";
-            this.btnCancelMeal.UseVisualStyleBackColor = true;
+            this.btnCancelMeal.UseVisualStyleBackColor = false;
             this.btnCancelMeal.Click += new System.EventHandler(this.BtnCancelMeal_Click);
             // 
             // Add_Meal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(983, 644);
             this.Controls.Add(this.btnCancelMeal);
             this.Controls.Add(this.btnCreateMeal);
@@ -283,6 +313,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lbWhatUserSee);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "Add_Meal";
             this.Text = "Adicionar_Refeicoes";
             this.panel1.ResumeLayout(false);

@@ -1,8 +1,10 @@
 ﻿using MealSync_APP.Globals;
 using MealSync_APP.Pages.BankAccountFolder;
 using MealSync_APP.Pages.FAQsFolder;
+using MealSync_APP.Pages.GlobalForms;
 using MealSync_APP.Utils;
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -103,20 +105,30 @@ namespace MealSync_APP
         private void Remove_Meal_Click(object sender, EventArgs e){ OpenForm.RemoveMeal(); }
 
         // Alunos
-        private void Show_Students_Click(object sender, EventArgs e){ OpenForm.ShowUser("Stundent"); }
-        private void Add_Student_Click(object sender, EventArgs e) { OpenForm.AddUser("Student"); }
+        private void Show_Students_Click(object sender, EventArgs e){ OpenForm.ShowUser("Stundent");}
+        private void Add_Student_Click(object sender, EventArgs e)
+        { OpenForm.AddUser("Student");
+            new Add_User("Student").ShowDialog();
+        }
         private void Edit_Student_Click(object sender, EventArgs e){ OpenForm.EditUser("Student"); }
         private void Remove_Student_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Student"); }
 
         // Funcionarios
         private void Show_Employees_Click(object sender, EventArgs e){ OpenForm.ShowUser("Employee"); }
-        private void Add_Employee_Click(object sender, EventArgs e){ OpenForm.AddUser("Employee"); }
+        private void Add_Employee_Click(object sender, EventArgs e)
+        { OpenForm.AddUser("Employee");
+            new Add_User("Employee").ShowDialog();
+        }
         private void Edit_Employee_Click(object sender, EventArgs e){ OpenForm.EditUser("Employee"); }
         private void Remove_Employee_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Employee"); }
 
         // Administradores
         private void Show_Admins_Click(object sender, EventArgs e){ OpenForm.ShowUser("Admin"); }
-        private void Add_Admin_Click(object sender, EventArgs e){ OpenForm.AddUser("Admin"); }
+        private void Add_Admin_Click(object sender, EventArgs e)
+        { OpenForm.AddUser("Admin");
+            new Add_User("Admin").ShowDialog();
+        }
+       
         private void Edit_Admin_Click(object sender, EventArgs e){ OpenForm.EditUser("Admin"); }
         private void Remove_Admin_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Admin"); }
 
