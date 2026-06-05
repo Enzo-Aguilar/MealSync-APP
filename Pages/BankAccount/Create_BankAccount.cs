@@ -1,8 +1,9 @@
-﻿using System.Windows.Forms;
-using System.Data.SqlTypes;
-using MealSync_APP.Globals;
+﻿using MealSync_APP.Globals;
 using MealSync_APP.Utils;
 using System;
+using System.Data.SqlTypes;
+using System.Reflection.Emit;
+using System.Windows.Forms;
 
 namespace MealSync_APP.BankAccountFolder
 {
@@ -25,68 +26,58 @@ namespace MealSync_APP.BankAccountFolder
                 bankAccount.IBAN = IBAN.Create();
                 string passwordConfirm = tbPasswordConfirm.Text;
 
-                var createBankAccount = BankAuth.Create_BankAccount(bankAccount,passwordConfirm);
-                if (createBankAccount.IsValid)
+                var createBK = BankAuth.Create_BankAccount(bankAccount,passwordConfirm);
+                if (createBK.IsValid)
                 {
                     MessageBox.Show("Conta criada com sucesso!");
                     HolderAuth.Create_Holder(bankAccount, CurrentSession.User, 1);
-                    BankAccountData.Save(bankAccount);//Falta Adicionar as contas ja vinculadas anteriormente
-                    ResetElements();
+                    BankAccountData.Save(bankAccount);
+                    ClearFields();
+                    bankAccount.Reset();
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível criar a conta bancária: " + createBankAccount.ErrorMessage);
+                    MessageBox.Show($"Não foi possível criar a conta bancária: {createBK.ErrorMessage}");
                 }
             }
-            catch(Exception err)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar criar a conta bancária: " + err.Message);
+                MessageBox.Show($"Ocorreu um erro ao tentar criar a conta bancária: {ex.Message}");
             }
         }
         private void LinkLabelAssociateBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){OpenForm.AssociateToBankAccount();}
 
-        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void CheckBoxPasswordConfirm_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         //Métodos Auxiliares
-        private void ResetElements()
+        private void ClearFields()
         {
             cbAccountType.SelectedIndex = -1;
             tbPassword.Clear();
             tbPasswordConfirm.Clear();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void LbPassword_Click(object sender, EventArgs e)
         {
-            if (label1.Text.Contains("🔒"))
+            if (lbPassword.Text.Contains("🔒"))
             {
                 tbPassword.PasswordChar = '\0';
-                label1.Text = "🔓";
+                lbPassword.Text = "🔓";
             }
             else
             {
                 tbPassword.PasswordChar = '*';
-                label1.Text = "🔒";
+                lbPassword.Text = "🔒";
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void LbPasswordConfirm_Click(object sender, EventArgs e)
         {
-            if (label2.Text.Contains("🔒"))
+            if (lbPasswordConfirm.Text.Contains("🔒"))
             {
-                tbPasswordConfirm.PasswordChar = '\0';
-                label2.Text = "🔓";
+                tbPassword.PasswordChar = '\0';
+                lbPasswordConfirm.Text = "🔓";
             }
             else
             {
                 tbPasswordConfirm.PasswordChar = '*';
-                label2.Text = "🔒";
+                lbPasswordConfirm.Text = "🔒";
             }
         }
     }

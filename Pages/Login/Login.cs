@@ -1,8 +1,7 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
-using BusinessLogicLayer;
-using MealSync_APP.BankAccountFolder;
+using MealSync_APP.Globals;
 
 namespace MealSync_APP
 {
@@ -16,14 +15,13 @@ namespace MealSync_APP
         //Load do form
         private void Login_Load(object sender, EventArgs e)
         {
-            UserData.Reset();
+            CurrentSession.User.Reset();
             BankAccountData.Reset();
         }
 
         //Métodos dos componentes graficos
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            UserData.Reset();
             try
             {
                 user.Name = tbName.Text;
@@ -49,24 +47,34 @@ namespace MealSync_APP
                     MessageBox.Show(login.ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             } 
-            catch(Exception err)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar fazer login: " + err.Message,"EXCEPTION",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro ao tentar fazer login: {ex.Message}","EXCEPTION",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                user.Reset();
             }
         }
         private void LbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { RegisterForm.Open(this); }
+
+        //Métodos Auxiliares
         private void LbPassword_Click(object sender, EventArgs e)
         {
-            if (label1.Text.Contains("🔒"))
+            if (lbPassword.Text.Contains("🔒"))
             {
                 tbPassword.PasswordChar = '\0';
-                label1.Text = "🔓";
+                lbPassword.Text = "🔓";
             }
             else
             {
                 tbPassword.PasswordChar = '*';
-                label1.Text = "🔒";
+                lbPassword.Text = "🔒";
             }
+        }
+        private void LbRandomNameGenerator_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

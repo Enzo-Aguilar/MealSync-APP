@@ -29,12 +29,12 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
                 return new ValidatorResult
                 {
                     IsValid = false,
-                    ErrorMessage = $"Ocorreu um erro ao procurar o nome do utilizador: {err.Message}"
+                    ErrorMessage = $"Ocorreu um erro ao procurar o nome do utilizador: {ex.Message}"
                 };
             }
         }
@@ -55,12 +55,12 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
                 return new ValidatorResult
                 {
                     IsValid = false,
-                    ErrorMessage = $"Ocorreu um erro ao procurar o email do utilizador: {err.Message}"
+                    ErrorMessage = $"Ocorreu um erro ao procurar o email do utilizador: {ex.Message}"
                 };
             }
         }
@@ -70,16 +70,24 @@ namespace MealSync_APP.Utils
             {
                 if (Search_PhoneNumber(phoneNumber) != null)
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Este número de telemovel já está associado a outro utilizador" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Este número de telemovel já está associado a outro utilizador" 
+                    };
                 }
                 else
                 {
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao procurar o número de telefone do utilizador " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = $"Ocorreu um erro ao procurar o número de telefone do utilizador {ex.Message}" 
+                };
             }
         }
         static protected ValidatorResult IsSchoolMemberIDTaken(string school_member_ID)
@@ -88,23 +96,31 @@ namespace MealSync_APP.Utils
             {
                 if (Search_SchoolMemberID(school_member_ID) != null)
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Este número de identificação escolar já está associado a outro utilizador" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Este número de identificação escolar já está associado a outro utilizador" 
+                    };
                 }
                 else
                 {
                     return new ValidatorResult { IsValid = true };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao procurar o número de identificação escolar do utilizador " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = $"Ocorreu um erro ao procurar o número de identificação escolar do utilizador: {ex.Message}" 
+                };
             }
         }
 
         //Métodos de Autenticação
         static protected ValidatorResult Validate_Email(string email)
         {
-            List<string> possibleDomains = new List<string>{ "gmail", "outlook", "icloud", "sapo", "epge","proton","hotmail"};
+            List<string> possibleDomains = new List<string> { "gmail", "outlook", "icloud", "sapo", "epge", "proton", "hotmail", "gustaveeiffel" };
             try
             {
                 if (email.Contains("@"))
@@ -120,26 +136,46 @@ namespace MealSync_APP.Utils
                                     return new ValidatorResult { IsValid = true };
                                 }
                             }
-                            return new ValidatorResult { IsValid = false, ErrorMessage = "O dominio do email é invalido" };
+                            return new ValidatorResult 
+                            { 
+                                IsValid = false, 
+                                ErrorMessage = "O dominio do email é invalido" 
+                            };
                         }
                         else
                         {
-                            return new ValidatorResult { IsValid = false, ErrorMessage = "Email muito curto" };
+                            return new ValidatorResult 
+                            { 
+                                IsValid = false, 
+                                ErrorMessage = "Email muito curto" 
+                            };
                         }
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "Email deve terminar com '.com' ou '.pt'" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "Email deve terminar com '.com' ou '.pt'" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Email tem que conter '@' " };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Email tem que conter '@'" 
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [email]: " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [email]: {ex.Message }" 
+                };
             }
         }
         static protected ValidatorResult Validate_Name(string name)
@@ -154,17 +190,29 @@ namespace MealSync_APP.Utils
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [nome] não pode estar vazio" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "O campo [nome] não pode estar vazio" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "nome muito curto" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "nome muito curto" 
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [nome]: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [nome]: {ex.Message}"
+                };
             }
         }
         static protected ValidatorResult Validate_Role(int role)
@@ -173,7 +221,11 @@ namespace MealSync_APP.Utils
             {
                 if (role < 0 || role > 3)
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Campo [função] invalido" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Campo [função] invalido" 
+                    };
                 }
                 else
                 {
@@ -182,7 +234,11 @@ namespace MealSync_APP.Utils
             }
             catch (Exception err)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao Validar o campo [função]: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro ao Validar o campo [função]: {err.Message}"
+                };
             }
         }
         static protected ValidatorResult Validate_PhoneNumber(string phoneNumber)
@@ -244,7 +300,11 @@ namespace MealSync_APP.Utils
                                     {
                                         continue;
                                     }
-                                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [código-potal] deve conter apenas números" };
+                                    return new ValidatorResult 
+                                    { 
+                                        IsValid = false, 
+                                        ErrorMessage = "O campo [código-potal] deve conter apenas números" 
+                                    };
                                 }
                                 cont++;
                             }
@@ -252,22 +312,38 @@ namespace MealSync_APP.Utils
                         }
                         else
                         {
-                            return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [código-postal] deve conter um hífen no meio" };
+                            return new ValidatorResult 
+                            { 
+                                IsValid = false, 
+                                ErrorMessage = "O campo [código-postal] deve conter um hífen no meio" 
+                            };
                         }
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [código postal] deve conter 8 caracteres" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "O campo [código postal] deve conter 8 caracteres" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [código postal] não pode estar vazio" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "O campo [código postal] não pode estar vazio" 
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [código postal]: " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [código postal]: {ex.Message}" 
+                };
             }
         }
         static protected ValidatorResult Validate_ProfileImage(byte[] image)
@@ -282,7 +358,11 @@ namespace MealSync_APP.Utils
             }
             else
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um a tentar processar a imagem" };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = "Ocorreu um a tentar processar a imagem" 
+                };
             }
         }
         static protected ValidatorResult Validate_SchoolMemberID(string schoolMemberID)
@@ -299,30 +379,50 @@ namespace MealSync_APP.Utils
                             {
                                 if (!char.IsDigit(c))
                                 {
-                                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [código-potal] deve conter apenas números" };
+                                    return new ValidatorResult 
+                                    { 
+                                        IsValid = false, 
+                                        ErrorMessage = "O campo [código-potal] deve conter apenas números" 
+                                    };
                                 }
                             }
                             return new ValidatorResult { IsValid = true };
                         }
                         else
                         {
-                            return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [número de identificação escolar] com sequencia de dígitos inválida" };
+                            return new ValidatorResult 
+                            { 
+                                IsValid = false, 
+                                ErrorMessage = "O campo [número de identificação escolar] com sequencia de dígitos inválida" 
+                            };
                         }
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [número de identificação escolar] deve conter 6 dígitos" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "O campo [número de identificação escolar] deve conter 6 dígitos" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [número de identificação escolar] não pode estar vazio" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "O campo [número de identificação escolar] não pode estar vazio" 
+                    };
                 }
 
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [número de identificação escolar]: " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [número de identificação escolar]: {ex.Message}" 
+                };
             }
         }
 
@@ -330,8 +430,13 @@ namespace MealSync_APP.Utils
         static protected ValidatorResult PasswordConfirm(string password, string passwordConfirm)
         {
             if (password != passwordConfirm)
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Palavras-Passe não coincidem" };
-
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = "Palavras-Passe não coincidem"
+                };
+            }
             return new ValidatorResult { IsValid = true };
         }
     }
@@ -378,17 +483,29 @@ namespace MealSync_APP.Utils
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "nome ou palavra-passe incorretos" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "nome ou palavra-passe incorretos" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Não existe utilizadores com estas credenciais" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "Não existe utilizadores com estas credenciais" 
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro inesperado ao tentar fazer login: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro inesperado ao tentar fazer login: {ex.Message}"
+                };
             }
         }
     }

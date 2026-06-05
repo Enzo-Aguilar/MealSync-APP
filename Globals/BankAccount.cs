@@ -12,6 +12,17 @@ namespace MealSync_APP.Globals
         public string IBAN { get; set; }
         public bool IsActive { get; set; }
         public string Password { get; set; }
+
+        public void Reset()
+        {
+            ID = -1; 
+            AccountType = string.Empty;
+            Balance = -1;
+            CreatedAt = DateTime.MinValue;
+            IBAN = string.Empty;
+            IsActive = false;
+            Password = string.Empty;
+        }
     }
     public class IBAN
     {

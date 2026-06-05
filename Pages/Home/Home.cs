@@ -22,6 +22,7 @@ namespace MealSync_APP
         public void Home_Load(object sender, EventArgs e)
         {
             Home_Tabs_Visibility();
+            LogCheck.UserIsLogged(this);
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
@@ -124,6 +125,5 @@ namespace MealSync_APP
         private void Make_FAQs_Click(object sender, EventArgs e){ OpenForm.MakeFAQs(); }
         private void Answer_FAQs_Click(object sender, EventArgs e){ OpenForm.AnswerFAQs(); }
         private void Reactivate_FAQs_Click(object sender, EventArgs e){ OpenForm.ReactivateFAQs(); }
-
     }
 }

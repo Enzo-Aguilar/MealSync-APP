@@ -35,8 +35,8 @@
             this.lbText = new System.Windows.Forms.Label();
             this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnCreateBankAccount = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.lbPasswordConfirm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbPassword
@@ -112,31 +112,31 @@
             this.btnCreateBankAccount.UseVisualStyleBackColor = false;
             this.btnCreateBankAccount.Click += new System.EventHandler(this.BtnCreate_BankAccount_Click);
             // 
-            // label1
+            // lbPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(259, 200);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 24);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "🔒";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbPassword.Location = new System.Drawing.Point(259, 200);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(31, 24);
+            this.lbPassword.TabIndex = 9;
+            this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
-            // label2
+            // lbPasswordConfirm
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(259, 290);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "🔒";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbPasswordConfirm.AutoSize = true;
+            this.lbPasswordConfirm.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPasswordConfirm.Location = new System.Drawing.Point(259, 290);
+            this.lbPasswordConfirm.Name = "lbPasswordConfirm";
+            this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 24);
+            this.lbPasswordConfirm.TabIndex = 10;
+            this.lbPasswordConfirm.Text = "🔒";
+            this.lbPasswordConfirm.Click += new System.EventHandler(this.LbPasswordConfirm_Click);
             // 
             // Create_BankAccount
             // 
@@ -145,8 +145,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(379, 530);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbPasswordConfirm);
+            this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.btnCreateBankAccount);
             this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.lbText);
@@ -154,7 +154,7 @@
             this.Controls.Add(this.cbAccountType);
             this.Controls.Add(this.tbPassword);
             this.Name = "Create_BankAccount";
-            this.Text = "\\";
+            this.Text = "Criar Conta Bancaria";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +168,7 @@
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.Button btnCreateBankAccount;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.Label lbPasswordConfirm;
     }
 }

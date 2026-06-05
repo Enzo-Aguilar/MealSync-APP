@@ -17,5 +17,20 @@ namespace MealSync_APP
         public byte[] ProfileImage { get; set; }
         public int Role { get; set; }
         public string SchoolIDNumber { get; set; }
+
+        public void Reset()
+        {
+            ID = -1;
+            CreatedAt = DateTime.MinValue;
+            Email = string.Empty;
+            IsActive = false;
+            Name = string.Empty;
+            Password = string.Empty;
+            PhoneNumber = string.Empty;
+            PostCode = string.Empty;
+            ProfileImage = null;
+            Role = -1;
+            SchoolIDNumber = string.Empty;
+        }
     }
 }

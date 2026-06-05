@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using MealSync_APP.Utils;
 using System;
 using System.Drawing;
+using MealSync_APP.Globals;
 
 namespace MealSync_APP
 {
@@ -17,7 +18,7 @@ namespace MealSync_APP
         //Load do form
         private void Registo_Load(object sender, EventArgs e)
         {
-            UserData.Reset();
+            CurrentSession.User.Reset();
         }
 
         //Métodos dos componentes gráficos

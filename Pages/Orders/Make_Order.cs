@@ -260,8 +260,11 @@ namespace MealSync_APP.OrderFolder
                 SqlMoney balance = row["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(row["balance"])) : SqlMoney.Zero;
                 int id = Convert.ToInt32(row["ID"]);
 
-                string displayText = $" " + owner + " - "+balance+" - " + iban + "";
-                comboBox.Items.Add(new { id, displayText });
+                string displayText = $"{owner} - {id} - {balance}€ - {iban}";
+                var item = new { Display = displayText, Id = id };
+                comboBox.Items.Add(item);
+                comboBox.DisplayMember = "Display";
+                comboBox.ValueMember = "Id";
             }
 
             if (comboBox.Items.Count > 0)
@@ -301,8 +304,7 @@ namespace MealSync_APP.OrderFolder
 
             if (result == DialogResult.OK && comboBox.SelectedItem != null)
             {
-                dynamic selectedItem = comboBox.SelectedItem;
-                return selectedItem.id;
+                return Convert.ToInt32(comboBox.SelectedValue);
             }
 
             return -1;
