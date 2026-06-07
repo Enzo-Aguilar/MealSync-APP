@@ -32,7 +32,7 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
+            this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Index = new System.Windows.Forms.LinkLabel();
@@ -76,16 +76,16 @@
             this.tbPassword.Size = new System.Drawing.Size(207, 38);
             this.tbPassword.TabIndex = 8;
             // 
-            // tbPassword_Confirm
+            // tbPasswordConfirm
             // 
-            this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(678, 373);
-            this.tbPassword_Confirm.Name = "tbPassword_Confirm";
-            this.tbPassword_Confirm.PasswordChar = '*';
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(207, 38);
-            this.tbPassword_Confirm.TabIndex = 9;
+            this.tbPasswordConfirm.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPasswordConfirm.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(678, 373);
+            this.tbPasswordConfirm.Name = "tbPasswordConfirm";
+            this.tbPasswordConfirm.PasswordChar = '*';
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(207, 38);
+            this.tbPasswordConfirm.TabIndex = 9;
             // 
             // btnRegister
             // 
@@ -162,6 +162,7 @@
             this.pbUserProfilePicture.Location = new System.Drawing.Point(917, 233);
             this.pbUserProfilePicture.Name = "pbUserProfilePicture";
             this.pbUserProfilePicture.Size = new System.Drawing.Size(226, 197);
+            this.pbUserProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUserProfilePicture.TabIndex = 31;
             this.pbUserProfilePicture.TabStop = false;
             this.pbUserProfilePicture.Click += new System.EventHandler(this.PbUserProfilePicture_Click);
@@ -208,7 +209,7 @@
             this.Controls.Add(this.lbLink_Index);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.tbPassword_Confirm);
+            this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
@@ -225,7 +226,7 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.TextBox tbPassword_Confirm;
+        private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Index;

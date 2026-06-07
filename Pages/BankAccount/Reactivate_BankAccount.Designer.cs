@@ -37,7 +37,7 @@
             this.tbIBAN = new System.Windows.Forms.TextBox();
             this.tbAccountOwner = new System.Windows.Forms.TextBox();
             this.dgvBankAccounts = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
@@ -103,7 +103,6 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(233, 30);
             this.tbPassword.TabIndex = 32;
-            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // tbIBAN
             // 
@@ -138,18 +137,18 @@
             this.dgvBankAccounts.TabIndex = 29;
             this.dgvBankAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellClick);
             // 
-            // label1
+            // lbPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(975, 472);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 24);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "🔒";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Black;
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbPassword.Location = new System.Drawing.Point(975, 472);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(31, 24);
+            this.lbPassword.TabIndex = 44;
+            this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // label2
             // 
@@ -184,7 +183,7 @@
             this.ClientSize = new System.Drawing.Size(1182, 651);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.btnDeactivatedAccounts);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.tbBankAccountID);
@@ -195,7 +194,7 @@
             this.Controls.Add(this.dgvBankAccounts);
             this.Name = "Reactivate_BankAccount";
             this.Text = "Reativar conta";
-            this.Load += new System.EventHandler(this.Reactivate_BankAccount_Load_1);
+            this.Load += new System.EventHandler(this.Reactivate_BankAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,7 +211,7 @@
         private System.Windows.Forms.TextBox tbIBAN;
         private System.Windows.Forms.TextBox tbAccountOwner;
         private System.Windows.Forms.DataGridView dgvBankAccounts;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

@@ -1,37 +1,29 @@
-﻿using System.Windows.Forms;
+﻿using BusinessLogicLayer;
 using MealSync_APP.Globals;
-using BusinessLogicLayer;
 using MealSync_APP.Utils;
-using System.Data;
 using System;
+using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.BankAccountFolder
 {
     public partial class Deactivate_BankAccount : Form
     {
-        private static readonly BankAccount bankAccount = new BankAccount();
-        private static readonly User currentUser = CurrentSession.User;
+        private readonly BankAccount _bk = new BankAccount();
+        private readonly User _user = CurrentSession.User;
 
         public Deactivate_BankAccount()
         {
             InitializeComponent();
         }
-        //Load do form
         private void Deactivate_BankAccount_Load(object sender, EventArgs e)
         {
-            LoadBankAccountData();
+            LoadBkAccountData();
         }
-
-        //Métodos dos componentes gráficos
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbSearch.Text))
+            if (!string.IsNullOrEmpty(tbSearch.Text))
             {
-                LoadBankAccountData();
-            }
-            else
-            {
-                DataTable dt = BankAccount_BLL.Search_AccountUserDataByName(tbSearch.Text);
+                var dt = BankAccount_BLL.Search_AccountUserDataByName(tbSearch.Text);
                 if (dt.Rows.Count == 0)
                 {
                     dgvBankAccounts.DataSource = null;
@@ -41,45 +33,57 @@ namespace MealSync_APP.Pages.BankAccountFolder
                     dgvBankAccounts.DataSource = dt;
                 }
             }
+            else
+            {
+                LoadBkAccountData();
+            }
         }
         private void BtnDeactivateAccount_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!String.IsNullOrEmpty(tbBankAccountID.Text))
+                var res = MessageBox.Show("Tem certeza que deseja desativar conta?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
                 {
-                    bankAccount.ID = int.Parse(tbBankAccountID.Text);
-                    bankAccount.Password = tbPassword.Text;
-                    currentUser.ID = CurrentSession.User.ID;
-                    var deactivate = HolderAuth.DeactivateBkAccountToUser(currentUser, bankAccount);
-                    if (deactivate.IsValid)
+                    if (!string.IsNullOrEmpty(tbBankAccountID.Text))
                     {
-                        var res = MessageBox.Show("Tem certeza que deseja desativar conta?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (res == DialogResult.Yes)
+                        _bk.ID = int.Parse(tbBankAccountID.Text);
+                        _bk.Password = tbPassword.Text;
+
+                        var deactivate = HolderAuth.DisassociateBkToUser(_user, _bk);
+                        if (deactivate.IsValid)
                         {
-                            MessageBox.Show("Conta desativado com sucesso");
-                            ResetElements();
+                            MessageBox.Show($"Conta bancária {_bk.ID} desativada com sucesso","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(deactivate.ErrorMessage, deactivate.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show(deactivate.ErrorMessage);
+                        MessageBox.Show("Utilizador não pode desativar, campos invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Não pode associar! Campos invalidos");
+                    return;
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao desativar a conta: " + err.Message, "Error");
+                MessageBox.Show($"Ocorreu um erro a desativar a conta: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                LoadBkAccountData();
+                ClearFields();
             }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)//Sabor "atualizar"
         {
             dgvBankAccounts.Visible = false;
-            LoadBankAccountData();
+            LoadBkAccountData();
             dgvBankAccounts.Visible = true;
         }
         private void DgvBankAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -98,70 +102,59 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show("Ocorreu um erro selecionando a tabela: " + err.Message, "Error");
+                    MessageBox.Show($"Ocorreu um erro selecionando a tabela: {err.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        //Métodos Auxiliares
-        private void LoadBankAccountData()
+        //Helpers
+        private void LoadBkAccountData()
         {
             try
             {
-                DataTable dt = BankAccount_BLL.DataTable_BkAccount_With_OwnerData();
-
+                var dt = BankAccount_BLL.Active_BkAccounts_WithOwnerData();
                 if (dt == null || dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("Nenhum utilizador encontrado", "Info");
+                    MessageBox.Show("Nenhum utilizador conta bancária ativa e coletiva foi encontrado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
                 dgvBankAccounts.DataSource = dt;
-
-                // Format column headers
                 if (dgvBankAccounts.Columns.Count >= 5)
                 {
-                    dgvBankAccounts.Columns[0].HeaderText = "Name";
+                    dgvBankAccounts.Columns[0].HeaderText = "Nome";
                     dgvBankAccounts.Columns[1].HeaderText = "Email";
-                    dgvBankAccounts.Columns[2].HeaderText = "Phone Number";
-                    dgvBankAccounts.Columns[3].HeaderText = "Account ID";
+                    dgvBankAccounts.Columns[2].HeaderText = "NumTel";
+                    dgvBankAccounts.Columns[3].HeaderText = "ID Conta";
                     dgvBankAccounts.Columns[4].HeaderText = "IBAN";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro carregando dados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro a carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ResetElements()
+        private void ClearFields()
         {
-            tbAccountOwner.Text = string.Empty;
-            tbBankAccountID.Text = string.Empty;
-            tbIBAN.Text = string.Empty;
-            tbPassword.Text = string.Empty;
-            BtnUpdate_Click(null, null);
+            tbAccountOwner.Clear();
+            tbBankAccountID.Clear();
+            tbIBAN.Clear();
+            tbPassword.Clear();
+
+            dgvBankAccounts.Visible = false;
+            LoadBkAccountData();
+            dgvBankAccounts.Visible = true;
         }
-
-        private void tbBankAccountID_TextChanged(object sender, EventArgs e)
+        private void LbPassword_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            if (label1.Text.Contains("🔒"))
+            if (lbPassword.Text.Contains("🔒"))
             {
                 tbPassword.PasswordChar = '\0';
-                label1.Text = "🔓";
+                lbPassword.Text = "🔓";
             }
             else
             {
                 tbPassword.PasswordChar = '*';
-                label1.Text = "🔒";
+                lbPassword.Text = "🔒";
             }
         }
     }

@@ -1,64 +1,55 @@
 ﻿using System.Windows.Forms;
+using MealSync_APP.Globals;
 using MealSync_APP.Utils;
 using System;
-using MealSync_APP.Globals;
 
 namespace MealSync_APP
 {
     public partial class Login : Form
     {
-        static protected User user = new User();
+        private static readonly User _user = new User();
         public Login()
         {
             InitializeComponent();
         }
-        //Load do form
         private void Login_Load(object sender, EventArgs e)
         {
-            CurrentSession.User.Reset();
-            BankAccountData.Reset();
+            CurrentSession.Clear();
         }
-
-        //Métodos dos componentes graficos
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                user.Name = tbName.Text;
-                user.Password = tbPassword.Text;
-                var login = UserAuth.Login(user);
-
+                _user.Name = tbName.Text;
+                _user.Password = tbPassword.Text;
+                var login = UserAuth.Login(_user);
                 if (login.IsValid)
                 {
-                    var save = UserData.Save(user);
-                    BankAccountData.Load_BkAccountsAssociatedToUser();
+                    var save = UserData.Save(_user);
+                    BankAccountData.LoadBkAssociatedToUser();
                     if (save.IsValid)
                     {
-                        MessageBox.Show("Bem-Vindo", "SUCCESS");
+                        MessageBox.Show("Bem-Vindo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         HomeForm.Open(this);
                     }
                     else
                     {
-                        MessageBox.Show(save.ErrorMessage);
+                        MessageBox.Show(save.ErrorMessage,save.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(login.ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(login.ErrorMessage, login.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            } 
+            }
             catch(Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar fazer login: {ex.Message}","EXCEPTION",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                user.Reset();
+                MessageBox.Show($"Ocorreu um erro a fazer login: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         private void LbLink_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { RegisterForm.Open(this); }
 
-        //Métodos Auxiliares
+        //Helpers
         private void LbPassword_Click(object sender, EventArgs e)
         {
             if (lbPassword.Text.Contains("🔒"))
@@ -71,10 +62,6 @@ namespace MealSync_APP
                 tbPassword.PasswordChar = '*';
                 lbPassword.Text = "🔒";
             }
-        }
-        private void LbRandomNameGenerator_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

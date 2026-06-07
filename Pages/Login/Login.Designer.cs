@@ -35,7 +35,6 @@
             this.lbText = new System.Windows.Forms.Label();
             this.lbLink_Register = new System.Windows.Forms.LinkLabel();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.LbRandomNameGenerator = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbName
@@ -109,17 +108,6 @@
             this.lbPassword.Text = "🔒";
             this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
-            // LbRandomNameGenerator
-            // 
-            this.LbRandomNameGenerator.AutoSize = true;
-            this.LbRandomNameGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbRandomNameGenerator.Location = new System.Drawing.Point(1024, 324);
-            this.LbRandomNameGenerator.Name = "LbRandomNameGenerator";
-            this.LbRandomNameGenerator.Size = new System.Drawing.Size(31, 24);
-            this.LbRandomNameGenerator.TabIndex = 8;
-            this.LbRandomNameGenerator.Text = "🔒";
-            //this.LbRandomNameGenerator.Click += new System.EventHandler(this.lbRandomNameGenerator_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,7 +116,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1216, 635);
-            this.Controls.Add(this.LbRandomNameGenerator);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbLink_Register);
             this.Controls.Add(this.lbText);
@@ -152,6 +139,5 @@
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.LinkLabel lbLink_Register;
         private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.Label LbRandomNameGenerator;
     }
 }

@@ -23,15 +23,12 @@ namespace MealSync_APP.OrderFolder
         {
             InitializeComponent();
         }
-        //Load do Forms
         private void Make_Order_Load(object sender, EventArgs e)
         {
             MealDateTime.Value = DateTime.Today;
             LoadMealsForDate(MealDateTime.Value);
             LogCheck.UserIsLogged(this);
         }
-
-        //Métodos dos componentes graficos
         private void BtnMakeOrder_Click(object sender, EventArgs e)
         {
             if (selectedMeal == null)
@@ -69,7 +66,7 @@ namespace MealSync_APP.OrderFolder
                             if (amount >= 0)
                             {
                                 var user = CurrentSession.User;
-                                var order = OrderUtils.Create_Order(user, selectedMeal, bkID);
+                                var order = OrderUtils.CreateOrder(user, selectedMeal, bkID);
                                 if (order.IsValid)
                                 {
                                     MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -123,7 +120,7 @@ namespace MealSync_APP.OrderFolder
             mealCard.BackColor = Color.LightBlue;
         }
 
-        //Método para criar o componente visual de cada refeição
+        // Create the Meal Components
         private Panel CreateMealComponent(Meal meal, int width = 200, int height = 280)
         {
             string mealName = meal.Name;
@@ -310,7 +307,7 @@ namespace MealSync_APP.OrderFolder
             return -1;
         }
 
-        //Métodos de secundários
+        //Helpers
         private void LoadMealsForDate(DateTime selectedDate)
         {
             panelMeals.Controls.Clear();

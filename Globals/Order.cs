@@ -8,10 +8,18 @@ namespace MealSync_APP.Globals
 {
     public class Order
     {
-        public int ID {  get; set; }
-        public int ID_Meal { get; set; }
-        public int ID_Transaction { get; set; }
-        public int ID_User { get; set; }
-        public DateTime BookedAt {  get; set; }
+        public int ID { get; set; } = -1;
+        public int ID_Meal { get; set; } = -1;
+        public int ID_Transaction { get; set; } = -1;
+        public int ID_User { get; set; } = -1;
+        public DateTime BookedAt { get; set; } = DateTime.MinValue;
+        public void Clear()
+        {
+            ID = -1;
+            ID_Meal = -1;
+            ID_Transaction = -1;
+            ID_User = -1;
+            BookedAt = DateTime.MinValue;
+        }
     }
 }

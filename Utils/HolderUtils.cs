@@ -1,215 +1,287 @@
-﻿using System.Windows.Forms;
-using MealSync_APP.Globals;
+﻿using System;
 using BusinessLogicLayer;
-using System.Data;
-using System;
+using MealSync_APP.Globals;
 
 namespace MealSync_APP.Utils
 {
-    public class HolderUtils
+    internal static class HolderValidator
     {
-        static protected ValidatorResult IsUserAlredyAssociatedToBkAccount(User user, BankAccount bankAccount)
+        public static ValidatorResult IsUserNotAssociatedToBk(User u, BankAccount bk)
         {
             try
             {
-                DataTable dt = Holder_BLL.Search_Holder(user.ID, bankAccount.ID);
+                var dt = Holder_BLL.Search_Holder(u.ID, bk.ID);
                 if (dt.Rows.Count == 0)
                 {
                     return new ValidatorResult { IsValid = true };
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador já está associado a esta conta bancária." };
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "O utilizador já está associado a esta conta",
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar se o utilizador já está associado a esta conta bancária: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(IsUserNotAssociatedToBk),
+                    ErrorMessage = $"Ocorreu um erro ao tentar verificar se o utilizador tem associação com esta conta: {ex.Message}",
+                };
             }
         }
-        static protected ValidatorResult IsPasswordEqualToBkAccountPassword(BankAccount bankAccount)
+        public static ValidatorResult IsPasswordEqualToBKPassword(BankAccount bk)
         {
             try
             {
-                DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount.ID);
+                var dt = BankAccount_BLL.Get_BankAccountDetails(bk.ID);
                 if (dt.Rows.Count != 0)
                 {
-                    string passwordDecrypted = Encryptor.Decrypt(dt.Rows[0][6].ToString());
-                    if (bankAccount.Password == passwordDecrypted)
+                    string password = Password.HashPassword(bk.Password);
+                    if (password == dt.Rows[0][6].ToString())
                     {
                         return new ValidatorResult { IsValid = true };
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "A palavra-passe incorreta" };
+                        return new ValidatorResult
+                        {
+                            IsValid = false,
+                            ErrorMessage = "Palavra-passe Incorreta",
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "Não é possivel obter detalhes desta conta bancária" };
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Não é possivel obter detalhes da conta bancária",
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar a palavra-passe da conta bancária: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(IsPasswordEqualToBKPassword),
+                    ErrorMessage = $"Ocorreu um erro ao tentar entrar na conta: {ex.Message}",
+                };
             }
         }
-        static protected ValidatorResult IsNameEqualToActiveBkAccounOwner(User user)
+        public static ValidatorResult IsUserNameEqualToActiveBkOwnerName(User u)
         {
             try
             {
-                DataTable dt = BankAccount_BLL.Search_AccountUserDataByName(user.Name);
+                var dt = BankAccount_BLL.Search_AccountUserDataByName(u.Name);
                 if (dt.Rows.Count != 0)
                 {
                     return new ValidatorResult { IsValid = true };
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "O utilizador não pode desativa contas que não estão em seu nome",
+                    };
                 }
             }
-            catch(Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: "+err.Message };
-            }
-        }
-        static protected ValidatorResult IsNameEqualToDeactivatedBkAccountOwner(User user)
-        {
-            try
-            {
-                DataTable dt = BankAccount_BLL.Search_DeactivatedAccountUserByName(user.Name);
-                if (dt.Rows.Count != 0)
+                return new ValidatorResult
                 {
-                    return new ValidatorResult { IsValid = true };
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O utilizador só pode apagar contas que estão no seu nome" };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu erro ao tentar validar o nome do dono da conta bancaria: " + err.Message };
+                    IsValid = false,
+                    Source = nameof(IsUserNameEqualToActiveBkOwnerName),
+                    ErrorMessage = $"Ocorreu erro ao tentar validar o dono da conta: {ex.Message}",
+                };
             }
         }
     }
-    public class HolderAuth : HolderUtils
+    public class HolderAuth
     {
-        static public void Create_Holder(BankAccount bankAccount, User user, int ownershipOrder)
+        public static ValidatorResult CreateHolder(User u, BankAccount bk, int ownerShipOrder)
         {
             try
             {
-                DataTable dt = BankAccount_BLL.Search_IBAN(bankAccount.IBAN);
-                if(dt.Rows.Count != 0)
+                var dt = BankAccount_BLL.Search_IBAN(bk.Iban);
+                if (dt.Rows.Count != 0)
                 {
-                    bankAccount.ID = Convert.ToInt32(dt.Rows[0][0]);
-                    Holder holder = new Holder
+                    bk.ID = int.Parse(dt.Rows[0][0].ToString());
+                    Holder h = new Holder
                     {
-                        ID_User = user.ID,
-                        ID_BankAccount = bankAccount.ID,
-                        OwnershipOrder = ownershipOrder
+                        ID_User = u.ID,
+                        ID_BankAccount = bk.ID,
+                        OwnershipOrder = ownerShipOrder,
                     };
-                    Holder_BLL.Create_Holder(holder);
+                    Holder_BLL.Create_Holder(h);
+                    return new ValidatorResult { IsValid = true };
                 }
                 else
                 {
-                    MessageBox.Show("Não é possivel obter detalhes desta conta bancária");
-                    return;
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Conta bancária não encontrada",
+                    };
                 }
             }
-            catch(Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar criar Holder: "+err.Message);
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(CreateHolder),
+                    ErrorMessage = $"Ocorreu um erro ao criar conexão entre utilizador e conta bancária: {ex.Message}",
+                };
             }
-       }
-        static public void Deactivate_Holder(BankAccount bkAccount, User user)
+        }
+        public static ValidatorResult DeactivateHolder(User u, BankAccount bk)
         {
             try
             {
-                Holder holder = new Holder
+                Holder h = new Holder
                 {
-                    ID_User = user.ID,
-                    ID_BankAccount = bkAccount.ID,
+                    ID_User = u.ID,
+                    ID_BankAccount = bk.ID,
                 };
-                Holder_BLL.Deactivate_Holder(holder);
+                Holder_BLL.Deactivate_Holder(h);
+                return new ValidatorResult { IsValid = true };
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar desativar Holder: " + err.Message);
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(DeactivateHolder),
+                    ErrorMessage = $"Ocorreu um erro a desativar o titular: {ex.Message}",
+                };
             }
         }
-        static public void Reactivate_Holder(User user, BankAccount bkAccount)
+        public static ValidatorResult ReactivateHolder(User u, BankAccount bk)
         {
             try
             {
-                Holder holder = new Holder
+                Holder h = new Holder
                 {
-                    ID_User = user.ID,
-                    ID_BankAccount = bkAccount.ID
+                    ID_User = u.ID,
+                    ID_BankAccount = bk.ID,
                 };
-                Holder_BLL.Reactivate_Holder(holder);
+                Holder_BLL.Reactivate_Holder(h);
+                return new ValidatorResult { IsValid = true };
             }
-            catch(Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar ativar Holder: "+err.Message);
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(ReactivateHolder),
+                    ErrorMessage = $"Ocorreu um erro ao tentar reativar o titular: {ex.Message}",
+                };
             }
         }
-        static public ValidatorResult AssociateBankAccountToUser(User currentUser, BankAccount bankAccount)
+        public static ValidatorResult AssociateBkToUser(User u, BankAccount bk)
         {
-            int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bankAccount.ID)+1;
-
-            if(ownerShipOrder >= 8)return new ValidatorResult { IsValid = false, ErrorMessage = "Número máximo de titulares atingido para esta conta bancária." };
-
-            var checks = new[]
+            try
             {
-                IsPasswordEqualToBkAccountPassword(bankAccount),
-                IsUserAlredyAssociatedToBkAccount(currentUser, bankAccount)
+                int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
+                if (ownerShipOrder >= 8)
+                {
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Não é possível associar mais de 7 utilizadores a mesma conta bancária",
+                    };
+                }
+                var validations = new[]
+                {
+                HolderValidator.IsUserNotAssociatedToBk(u, bk),
+                HolderValidator.IsPasswordEqualToBKPassword(bk),
+                HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
             };
-            foreach(var result in checks)
-            {
-                if (!result.IsValid) return result;
+                foreach (var validation in validations)
+                {
+                    if (!validation.IsValid)
+                    {
+                        return validation;
+                    }
+                }
+                CreateHolder(u, bk, ownerShipOrder);
+                return new ValidatorResult { IsValid = true };
             }
-            Create_Holder(bankAccount, currentUser, ownerShipOrder);
-            return new ValidatorResult { IsValid = true };
+            catch (Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(AssociateBkToUser),
+                    ErrorMessage = $"Ocorreu um erro criando associação entre utilizador e conta bancária: {ex.Message}",
+                };
+            }
         }
-        static public ValidatorResult DeactivateBkAccountToUser(User currentUser, BankAccount bkAccount)
+        public static ValidatorResult DisassociateBkToUser(User u, BankAccount bk)
         {
             try
             {
-                var checks = new[]
+                var validations = new[]
                 {
-                    IsPasswordEqualToBkAccountPassword(bkAccount),
-                    IsNameEqualToActiveBkAccounOwner(currentUser)
+                    HolderValidator.IsPasswordEqualToBKPassword(bk),
+                    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
                 };
-                foreach (var res in checks) if (!res.IsValid) return res;
-
-                BankAuth.Deactivate_BankAccount(bkAccount);
-                Deactivate_Holder(bkAccount, currentUser);
+                foreach(var validate in validations)
+                {
+                    if (!validate.IsValid)
+                    {
+                        return validate;
+                    }
+                }
+                BankAuth.DeactivateBankAccount(bk);
+                DeactivateHolder(u, bk);
                 return new ValidatorResult { IsValid = true };
             }
-            catch(Exception err)
+            catch(Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar desativar: "+err.Message};
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof (AssociateBkToUser),
+                    ErrorMessage = $"Ocorreu um erro ao desativar conexão entre utilizador e conta bancária: {ex.Message}",
+                };
             }
         }
-        static public ValidatorResult ReactivateBkAccountAndHolder(User currentUser, BankAccount bkAccount)
+        public static ValidatorResult ReassociateBkToUser(User u, BankAccount bk)
         {
             try
             {
-                var checks = new[]
+                var validations = new[]
                 {
-                    IsPasswordEqualToBkAccountPassword(bkAccount),
-                    IsNameEqualToDeactivatedBkAccountOwner(currentUser)
+                    HolderValidator.IsPasswordEqualToBKPassword(bk),
+                    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
                 };
-                foreach (var res in checks) if (!res.IsValid) return res;
-
-                BankAuth.Reactivate_BankAccount(bkAccount);
-                Reactivate_Holder(currentUser, bkAccount);
+                foreach (var validate in validations)
+                {
+                    if (!validate.IsValid)
+                    {
+                        return validate;
+                    }
+                }
+                BankAuth.ReactivateBankAccount(bk);
+                ReactivateHolder(u, bk);
                 return new ValidatorResult { IsValid = true };
             }
-            catch (Exception err)
+            catch(Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar ativa: " + err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(ReassociateBkToUser),
+                    ErrorMessage = $"Ocorreu um erro ao tentar reativar conexão entre utilizador e conta bancária: {ex.Message}",
+                };
             }
         }
     }

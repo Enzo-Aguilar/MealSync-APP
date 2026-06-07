@@ -7,6 +7,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
+
 
 namespace MealSync_APP.Utils
 {
@@ -14,6 +16,7 @@ namespace MealSync_APP.Utils
     {
         public bool IsValid { get; set; }
         public string ErrorMessage { get; set; }
+        public string Source { get; set; }
     }
     public class Encryptor
     {
@@ -62,9 +65,9 @@ namespace MealSync_APP.Utils
             }
         }
     }
-    public class Validator
+    public class Password
     {
-        static public ValidatorResult Validate_Password(string password)
+        public static ValidatorResult Validate(string password)
         {
             try
             {
@@ -76,18 +79,54 @@ namespace MealSync_APP.Utils
                     }
                     else
                     {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "palavra-passe muito fraca" };
+                        return new ValidatorResult 
+                        { 
+                            IsValid = false, 
+                            ErrorMessage = "palavra-passe muito fraca" 
+                        };
                     }
                 }
                 else
                 {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "campo [palavra-passe] não pode estar vazio" };
+                    return new ValidatorResult 
+                    { 
+                        IsValid = false, 
+                        ErrorMessage = "campo [palavra-passe] não pode estar vazio" 
+                    };
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar validar o campo [palavra-passe]: " + err.Message };
+                return new ValidatorResult 
+                { 
+                    IsValid = false, 
+                    Source = nameof(Validate),
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [palavra-passe]: {ex.Message}" 
+                };
             }
+        }
+        public static ValidatorResult ValidatePasswordConfirmation(string password, string passwordConfirm)
+        {
+            {
+                if (password != passwordConfirm)
+                {
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "As palavras-passe não coincidem."
+                    };
+                }
+
+                return new ValidatorResult { IsValid = true };
+            }
+        }
+        public static string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
+        public static bool VerifyPassword(string password, string storedHash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, storedHash);
         }
     }
     public class LogCheck
@@ -97,7 +136,7 @@ namespace MealSync_APP.Utils
             User u = CurrentSession.User;
             if (u == null)
             {
-                MessageBox.Show("Nenhum utilizador logado");
+                MessageBox.Show("Nenhum utilizador logado","Erro");
                 LoginForm.Open(f);
             }
 

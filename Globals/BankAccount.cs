@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlTypes;
 using System;
+using MealSync_APP.Utils;
 
 namespace MealSync_APP.Globals
 {
@@ -9,32 +10,32 @@ namespace MealSync_APP.Globals
         public string AccountType { get; set; }
         public SqlMoney Balance { get; set; }
         public DateTime CreatedAt { get; set; }
-        public string IBAN { get; set; }
+        public string Iban { get; set; }
         public bool IsActive { get; set; }
         public string Password { get; set; }
 
-        public void Reset()
+        public void Clear()
         {
             ID = -1; 
             AccountType = string.Empty;
             Balance = -1;
             CreatedAt = DateTime.MinValue;
-            IBAN = string.Empty;
+            Iban = string.Empty;
             IsActive = false;
             Password = string.Empty;
         }
     }
-    public class IBAN
+    public class Iban
     {
         static public string Create()
         {
-            string IBAN = "PT50";
+            string Iban = "PT50";
             Random random = new Random();
-            for(int i = 0; IBAN.Length < 25; i++)
+            for(int i = 0; Iban.Length < 25; i++)
             {
-                IBAN += random.Next(0, 10).ToString();
+                Iban += random.Next(0, 10).ToString();
             }
-            return IBAN;
+            return Iban;
         }
     }
 }

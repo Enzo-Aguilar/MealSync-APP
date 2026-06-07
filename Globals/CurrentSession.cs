@@ -7,5 +7,10 @@ namespace MealSync_APP.Globals
     {
         public static User User { get; set; } = new User();
         public static DataTable UserBkAccountsDataTable = new DataTable();
+        public static void Clear()
+        {
+            User.Clear();
+            UserBkAccountsDataTable.Clear();
+        }
     }
 }

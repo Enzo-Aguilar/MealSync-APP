@@ -39,7 +39,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,18 +162,18 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "🔗‍";
             // 
-            // label3
+            // lbPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(996, 463);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 24);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "🔒";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.SystemColors.Desktop;
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbPassword.Location = new System.Drawing.Point(996, 463);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(31, 24);
+            this.lbPassword.TabIndex = 15;
+            this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // Associate_BankAccount
             // 
@@ -182,7 +182,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1189, 642);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearch);
@@ -215,6 +215,6 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbPassword;
     }
 }

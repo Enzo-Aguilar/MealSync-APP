@@ -34,37 +34,69 @@ namespace MealSync_APP.Utils
             }
             return mealList.ToArray();
         }
-        public static ValidatorResult Create_Order(User user, Meal meal, int ID_Bk)
+        public static Meal[] GetUserOrderedMeals(User user, DateTime date)
         {
+            DataTable dt = Order_BLL.Show_UserOrdersByDate(user.ID, date);
+            List<Meal> mealList = new List<Meal>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Meal meal = new Meal
+                {
+                    ID = Convert.ToInt16(dr[0]),
+                    Date = dr[1] != DBNull.Value ? Convert.ToDateTime(dr[1]) : DateTime.Now,
+                    Description = dr[2].ToString(),
+                    IsActive = Convert.ToBoolean(dr[3]),
+                    MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
+                    Name = dr[5].ToString(),
+                    Price = SqlMoney.Parse(dr[6].ToString()),
+                    Type = dr[7].ToString(),
+                };
+                mealList.Add(meal);
+            }
+            return mealList.ToArray();
+        }
+        public static ValidatorResult CreateOrder(User u, Meal m, int ID_Bk)
+        {
+            int IdHolder; 
+            int IdTransfer;
+
             try
             {
-                int ID_Holder = Holder_BLL.Get_UserHolderID(user.ID);
-                Transaction transaction = new Transaction
+                IdHolder = Holder_BLL.Get_UserHolderID(u.ID);
+                var t = new Transaction
                 {
-                    ID_Holder = ID_Holder,
-                    Amount = meal.Price,
-                    DateTime = DateTime.UtcNow,
-                    Description = "Pagamento Refeição",
-                    Type = "remover",
+                    ID_Holder = IdHolder,
+                    Amount = m.Price,
+                    DateTime = DateTime.Now,
+                    Description = "Pagamente Refeição",
+                    Type = "Retirada"
                 };
-                BankAccount_BLL.UpdateBankAccountBalance(ID_Bk, meal.Price);
-                //Validar e retirar o valor da conta do usuário
-                Transaction_BLL.Create_Transaction(transaction);
-                int ID_Transaction = Transaction_BLL.Get_TransactionID(transaction);
-
-                Order order = new Order
+                BankAccount_BLL.Update_BankAccountBalance(ID_Bk, m.Price);
+                Transaction_BLL.Create_Transaction(t);
+                IdTransfer = Transaction_BLL.Get_TransactionID(t);
+                var o = new Order
                 {
-                    ID_Meal = meal.ID,
-                    ID_Transaction = ID_Transaction,
-                    ID_User = user.ID,
-                    BookedAt = DateTime.UtcNow,
+                    ID_Meal = m.ID,
+                    ID_Transaction = t.ID,
+                    ID_User = u.ID,
+                    BookedAt = DateTime.Now,
                 };
-                Order_BLL.Create_Order(order);
+                Order_BLL.Create_Order(o);
                 return new ValidatorResult { IsValid = true };
             }
-            catch (Exception err) 
+            catch (Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar criar pedido: "+err.Message };
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(CreateOrder),
+                    ErrorMessage = $"Ocorreu um erro a criar marcação: {ex.Message}"
+                };
+            }
+            finally
+            {
+                u.Clear();
+                m.Clear();
             }
         }
     }

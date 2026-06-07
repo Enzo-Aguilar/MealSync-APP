@@ -9,13 +9,25 @@ namespace MealSync_APP.Globals
 {
     public class Meal
     {
-        public int ID { get; set; }
-        public DateTime Date { get; set; }
-        public string Description { get; set; }
-        public  bool IsActive { get; set; }
-        public byte[] MealImage { get; set; }
-        public string Name { get; set; }
-        public SqlMoney Price { get; set; }
-        public string Type { get; set; }
+        public int ID { get; set; } = -1;
+        public DateTime Date { get; set; } = DateTime.MinValue;
+        public string Description { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+        public byte[] MealImage { get; set; } = new byte[0];
+        public string Name { get; set; } = string.Empty;
+        public SqlMoney Price { get; set; } = SqlMoney.Zero;
+        public string Type { get; set; } = string.Empty;
+
+        public void Clear()
+        {
+            ID = -1;
+            Date = DateTime.MinValue;
+            Description = string.Empty;
+            IsActive = false;
+            MealImage = new byte[0];
+            Name = string.Empty;
+            Price = SqlMoney.Zero;
+            Type = string.Empty;
+        }
     }
 }

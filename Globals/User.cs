@@ -14,11 +14,11 @@ namespace MealSync_APP
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string PostCode { get; set; }
-        public byte[] ProfileImage { get; set; }
+        public byte[] ProfileImage { get; set; } = null;
         public int Role { get; set; }
         public string SchoolIDNumber { get; set; }
 
-        public void Reset()
+        public void Clear()
         {
             ID = -1;
             CreatedAt = DateTime.MinValue;

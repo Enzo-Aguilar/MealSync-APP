@@ -5,33 +5,31 @@ using MealSync_APP.Utils;
 using System.Data;
 using System;
 
+
 namespace MealSync_APP.BankAccountFolder
 {
     public partial class Associate_BankAccount : Form
     {
-        private static readonly BankAccount bankAccount = new BankAccount();
-        private static readonly User currentUser = CurrentSession.User;
+        private readonly User _user = CurrentSession.User;
+        private readonly BankAccount _bk = new BankAccount();
         public Associate_BankAccount()
         {
             InitializeComponent();
         }
-        //Load do form
         private void Associate_BankAccount_Load(object sender, EventArgs e)
         {
-            LoadBankAccountData();
+            LoadBkAccountData();
         }
-
-        //Métodos dos componentes gráficos
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbSearch.Text))
             {
-                LoadBankAccountData();
+                LoadBkAccountData();
             }
             else
             {
                 DataTable dt = BankAccount_BLL.Search_AccountUserDataByName(tbSearch.Text);
-                if(dt.Rows.Count == 0)
+                if (dt.Rows.Count == 0)
                 {
                     dgvBankAccounts.DataSource = null;
                 }
@@ -45,30 +43,35 @@ namespace MealSync_APP.BankAccountFolder
         {
             try
             {
-                bankAccount.ID = int.Parse(tbBankAccountID.Text);
-                bankAccount.IBAN = tbIBAN.Text;
-                bankAccount.Password = tbPassword.Text;
-                var associate = HolderAuth.AssociateBankAccountToUser(currentUser, bankAccount);
-                if(!associate.IsValid)
+                _bk.ID = int.Parse(tbBankAccountID.Text);
+                _bk.Iban = tbIBAN.Text;
+                _bk.Password = tbPassword.Text;
+                var associate = HolderAuth.AssociateBkToUser(_user, _bk);
+                if(associate.IsValid)
                 {
-                    MessageBox.Show(associate.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    BankAccountData.Save(_bk);
+                    MessageBox.Show("Conta Bancária associada com sucesso","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Conta bancária associada com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BankAccountData.Save(bankAccount);
-                    ResetElemets();
+                    MessageBox.Show(associate.ErrorMessage,associate.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
             }
-            catch(Exception err)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao associar a conta bancária: " + err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro ao tentar associar a conta bancária: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            finally
+            {
+                _bk.Clear();
+                _user.Clear();
+                ClearFields();
             }
         }
-        private void BtnUpdate_Click(object sender, EventArgs e)//Sabor "atualizar"
+        private void BtnUpdate_Click(object sender, EventArgs e)
         {
             dgvBankAccounts.Visible = false;
-            LoadBankAccountData();
+            LoadBkAccountData();
             dgvBankAccounts.Visible = true;
         }
         private void DgvBankAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,66 +90,60 @@ namespace MealSync_APP.BankAccountFolder
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show("Ocorreu um erro selecionando a tabela: " + err.Message, "Error");
+                    MessageBox.Show($"Ocorreu um erro selecionando a tabela: {err.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }
-        private void CheckBoxPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
 
-        //Métodos Auxiliares
-        private void LoadBankAccountData()
+        //Helpers
+        private void LoadBkAccountData()
         {
             try
             {
-                DataTable dt = BankAccount_BLL.DataTable_BkAccount_With_OwnerData();
-
-                if (dt == null || dt.Rows.Count == 0)
+                var dt = BankAccount_BLL.Active_BkAccounts_WithOwnerData();
+                if(dt == null || dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("Nenhum utilizador encontrado", "Info");
                     dgvBankAccounts.DataSource = null;
+                    MessageBox.Show("Nenhum utilizador com conta bancárica coletiva encontrado", "Info",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
                 }
-
                 dgvBankAccounts.DataSource = dt;
-
-                // Format column headers
-                if (dgvBankAccounts.Columns.Count >= 5)
+                if(dgvBankAccounts.Columns.Count >= 5)
                 {
-                    dgvBankAccounts.Columns[0].HeaderText = "Name";
+                    dgvBankAccounts.Columns[0].HeaderText = "Nome";
                     dgvBankAccounts.Columns[1].HeaderText = "Email";
-                    dgvBankAccounts.Columns[2].HeaderText = "Phone Number";
-                    dgvBankAccounts.Columns[3].HeaderText = "Account ID";
+                    dgvBankAccounts.Columns[2].HeaderText = "NumeroTel";
+                    dgvBankAccounts.Columns[3].HeaderText = "ID conta bancária";
                     dgvBankAccounts.Columns[4].HeaderText = "IBAN";
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro carregando dados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro a carregar os dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ResetElemets()
+        private void ClearFields()
         {
-            tbAccountOwner.Text = string.Empty;
-            tbBankAccountID.Text = string.Empty;
-            tbIBAN.Text = string.Empty;
-            tbPassword.Text = string.Empty;
-            BtnUpdate_Click(null, null);
-        }
+            tbAccountOwner.Clear();
+            tbBankAccountID.Clear();
+            tbIBAN.Clear();
+            tbPassword.Clear();
 
-        private void label3_Click(object sender, EventArgs e)
+            dgvBankAccounts.Visible = false;
+            LoadBkAccountData();
+            dgvBankAccounts.Visible = true;
+        }
+        private void LbPassword_Click(object sender, EventArgs e)
         {
-            if (label3.Text.Contains("🔒"))
+            if (lbPassword.Text.Contains("🔒"))
             {
                 tbIBAN.PasswordChar = '\0';
-                label3.Text = "🔓";
+                lbPassword.Text = "🔓";
             }
             else
             {
                 tbIBAN.PasswordChar = '*';
-                label3.Text = "🔒";
+                lbPassword.Text = "🔒";
             }
         }
     }

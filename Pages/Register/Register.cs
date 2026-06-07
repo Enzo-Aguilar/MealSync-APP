@@ -9,51 +9,56 @@ namespace MealSync_APP
 {
     public partial class Register : Form
     {
-         private readonly User user = new User { ProfileImage = null};
-        
+        private readonly User _u = new User();
+
         public Register()
         {
             InitializeComponent();
         }
-        //Load do form
         private void Registo_Load(object sender, EventArgs e)
         {
-            CurrentSession.User.Reset();
+            CurrentSession.Clear();
         }
-
-        //Métodos dos componentes gráficos
         private void BtnRegister_Click(object sender, EventArgs e)
         {
             try
             {
-                user.CreatedAt = DateTime.UtcNow;
-                user.Email = tbEmail.Text;
-                user.Name = tbName.Text;
-                user.Password = tbPassword.Text;
-                user.PhoneNumber = tbPhoneNum.Text;
-                user.Role = 2;
-                user.SchoolIDNumber = tbSchoolMemberID.Text;
-                user.PostCode = tbPostcode.Text;
+                int roleStudent = 2;
+                string passwordConfirm = tbPasswordConfirm.Text;
 
-                var register = UserAuth.Register(user, tbPassword_Confirm.Text);
+                _u.CreatedAt = DateTime.Now;
+                _u.Email = tbEmail.Text;
+                _u.Name = tbName.Text;
+                _u.Password = tbPassword.Text;
+                _u.PhoneNumber = tbPhoneNum.Text;
+                _u.PostCode = tbPostcode.Text;
+                _u.Role = roleStudent;
+                _u.SchoolIDNumber = tbSchoolMemberID.Text;
+
+                var register = UserAuth.Register(_u, passwordConfirm);
                 if (register.IsValid)
                 {
-                    MessageBox.Show("Utilizador criado com sucesso!", "SUCESSO");
+                    MessageBox.Show("Utilizador criado com sucesso", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFields();
                     LoginForm.Open(this);
                 }
                 else
                 {
-                    MessageBox.Show(register.ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(register.ErrorMessage, register.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
-            catch(Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar registar o utilizador: " + err.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro a criar utilizador: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            finally
+            {
+                _u.Clear();
+            }
         }
-        private void LbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){LoginForm.Open(this);}
-
+        private void LbLink_Index_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { LoginForm.Open(this); }
         private void PbUserProfilePicture_Click(object sender, EventArgs e)
         {
             try
@@ -66,12 +71,13 @@ namespace MealSync_APP
                     {
                         pbUserProfilePicture.Image = null;
                         pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
-                        user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
+                        _u.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
                     }
                 }
-            }catch(Exception err)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar carregar imagem: " + err.Message);
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar imagem: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LbPassword_Click(object sender, EventArgs e)
@@ -91,14 +97,27 @@ namespace MealSync_APP
         {
             if (labelPasswordConfirm.Text.Contains("🔒"))
             {
-                tbPassword_Confirm.PasswordChar = '\0'; 
+                tbPasswordConfirm.PasswordChar = '\0';
                 labelPasswordConfirm.Text = "🔓";
             }
             else
             {
-                tbPassword_Confirm.PasswordChar = '*';
+                tbPasswordConfirm.PasswordChar = '*';
                 labelPasswordConfirm.Text = "🔒";
             }
+        }
+
+        //Helpers
+        private void ClearFields()
+        {
+            tbEmail.Clear();
+            tbName.Clear();
+            tbPassword.Clear();
+            tbPasswordConfirm.Clear();
+            tbPhoneNum.Clear();
+            tbSchoolMemberID.Clear();
+            tbPostcode.Clear();
+            pbUserProfilePicture.Image = null;
         }
     }
 }

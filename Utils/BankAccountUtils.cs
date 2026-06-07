@@ -1,213 +1,218 @@
-﻿using System.Data.SqlTypes;
-using MealSync_APP.Globals;
-using BusinessLogicLayer;
+﻿using System;
 using System.Data;
-using System;
+using BusinessLogicLayer;
+using System.Data.SqlTypes;
+using MealSync_APP.Globals;
 
 namespace MealSync_APP.Utils
 {
-    public class BankAccountValidator
+    internal static class BankAccountValidator
     {
-        //Métodos de validação de dados relacionados a conta bancária
-        static protected ValidatorResult Validate_IBAN(string IBAN)
+        //IBAN
+        public static ValidatorResult ValidateIban(string iban)
         {
             try
             {
-                if (!String.IsNullOrEmpty(IBAN))
-                {
-                    if (IBAN.Length == 25)
-                    {
-                        if (IBAN.StartsWith("PT50"))
-                        {
-                            return new ValidatorResult { IsValid = true };
-                        }
-                        else
-                        {
-                            return new ValidatorResult { IsValid = false, ErrorMessage = "O IBAN deve começar com 'PT50'" };
-                        }
-                    }
-                    else
-                    {
-                        return new ValidatorResult { IsValid = false, ErrorMessage = "O IBAN deve conter exatamente 25 caracteres" };
-                    }
-                }
-                else
-                {
-                    return new ValidatorResult { IsValid = false, ErrorMessage = "O campo [IBAN] está invalido" };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
-            }
-        }
-        static protected ValidatorResult Validate_PasswordConfirm(string password, string passwordConfirm)
-        {
-            try
-            {
-                if (password != passwordConfirm)
+                if (string.IsNullOrWhiteSpace(iban))
                 {
                     return new ValidatorResult
                     {
                         IsValid = false,
-                        ErrorMessage = "As palavras-passe não coincidem"
+                        ErrorMessage = "O campo [IBAN] está inválido.",
                     };
                 }
-                else
+                if(iban.Length != 25)
                 {
-                    return new ValidatorResult { IsValid = true };
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "O IBAN deve conter exatamente 25 caracteres",
+                    };
                 }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar a confirmação da palavra-passe: " + err.Message };
-            }
-        }
-        //Métodos de procura
-        static protected ValidatorResult IsIBANTaken(string iban)
-        {
-            try
-            {
-                DataTable dt = BankAccount_BLL.Search_IBAN(iban);
-                if (dt.Rows.Count != 0)
+                if (!iban.StartsWith("PT50"))
                 {
-                    IsIBANTaken(IBAN.Create());
-                    return new ValidatorResult { IsValid = false};
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "O IBAN deve começar por 'PT50'",
+                    };
                 }
-                else
-                {
-                    return new ValidatorResult { IsValid = true };
-                }
-            }
-            catch (Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao validar o IBAN: " + err.Message };
-            }
-        }
-    }
-    public class BankAuth : BankAccountValidator
-    {
-        static public ValidatorResult Create_BankAccount(BankAccount bankAccount, string passwordConfirm)
-        {
-            var checks = new[]
-            {
-                Validate_IBAN(bankAccount.IBAN),
-                IsIBANTaken(bankAccount.IBAN),
-                Validator.Validate_Password(bankAccount.Password),
-                Validate_PasswordConfirm(bankAccount.Password, passwordConfirm)
-            };
-            foreach(var result in checks)
-            {
-                if (!result.IsValid) return result;
-            }
-            bankAccount.Password = Encryptor.Encrypt(bankAccount.Password);
-
-            BankAccount_BLL.Create_BankAccount(bankAccount);
-            return new ValidatorResult { IsValid = true };
-        }
-        static public ValidatorResult Deactivate_BankAccount(BankAccount bkAccount)
-        {
-            try
-            {
-                BankAccount_BLL.Deactivate_BankAccount(bkAccount);
                 return new ValidatorResult { IsValid = true };
             }
-            catch (Exception err)
+            catch(Exception ex)
             {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao desativar a conta bancária: " + err.Message };
-            }
-        }
-        static public ValidatorResult Reactivate_BankAccount(BankAccount bkAccount)
-        {
-            try
-            {
-                BankAccount_BLL.Reactivate_BankAccount(bkAccount);
-                return new ValidatorResult { IsValid = true };
-            }
-            catch(Exception err)
-            {
-                return new ValidatorResult { IsValid = false, ErrorMessage = "Ocorreu um erro ao tentar ativar conta bancária: " + err.Message };
-            }
-        }
-    }
-    public class BankAccountData
-    {
-        public static void Save(BankAccount bankAccount)
-        {
-            DataTable dt = BankAccount_BLL.GetBankAccountDetails(bankAccount.ID);
-            if (dt.Rows.Count != 0)
-            {
-                bankAccount = new BankAccount
+                return new ValidatorResult
                 {
-                    ID = int.Parse(dt.Rows[0][0].ToString()),
-                    Balance = SqlMoney.Parse(dt.Rows[0][2].ToString()),
-                    CreatedAt = DateTime.Parse(dt.Rows[0][3].ToString()),
-                    IBAN = dt.Rows[0][4].ToString(),
-                    IsActive = true
+                    IsValid = false,
+                    Source = nameof(ValidateIban),
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o IBAN: {ex.Message}",
                 };
-
-                // Ensure the session DataTable exists
-                if (CurrentSession.UserBkAccountsDataTable == null)
-                {
-                    CurrentSession.UserBkAccountsDataTable = new DataTable();
-                }
-
-                // If the DataTable has no schema yet, add columns matching the data we'll store.
-                // This avoids exceptions when calling Rows.Add with strongly-typed values.
-                if (CurrentSession.UserBkAccountsDataTable.Columns.Count == 0)
-                {
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("Owner", typeof(string));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("OwnerNumber", typeof(int));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("ID", typeof(int));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("balance", typeof(SqlMoney));
-                    CurrentSession.UserBkAccountsDataTable.Columns.Add("IBAN", typeof(string));
-                }
-
-                // Add a new row with the bank account data.
-                CurrentSession.UserBkAccountsDataTable.Rows.Add(
-                    CurrentSession.User.Name,
-                    1,
-                    bankAccount.ID,
-                    bankAccount.Balance,
-                    bankAccount.IBAN
-                );
             }
         }
-        public static void Reset()
+        public static ValidatorResult IsIbanTaken(string iban)
         {
-            CurrentSession.UserBkAccountsDataTable.Clear();
+            try
+            {
+                var dt = BankAccount_BLL.Search_IBAN(iban);
+                if(dt.Rows.Count > 0)
+                {
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "O IBAN já se encontra registado"
+                    };
+                }
+                return new ValidatorResult { IsValid = true };
+            }
+            catch(Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(IsIbanTaken),
+                    ErrorMessage = $"Ocorreu um erro ao verificar o IBAN: {ex.Message}",
+                };
+            }
         }
-        public static void Load_BkAccountsAssociatedToUser()
+    }
+    public static class BankAuth
+    {
+        public static ValidatorResult CreateBankAccount(BankAccount bk, string passwordConfirm)
+        {
+            var validations = new[]
+            {
+                BankAccountValidator.ValidateIban(bk.Iban),
+                BankAccountValidator.IsIbanTaken(bk.Iban),
+                Password.Validate(bk.Password),
+                Password.ValidatePasswordConfirmation(bk.Password, passwordConfirm),
+            };
+            foreach (var validation in validations) 
+            {
+                if (!validation.IsValid)
+                {
+                    return validation;
+                }
+            }
+            bk.Password = Password.HashPassword(bk.Password);
+            try
+            {
+                BankAccount_BLL.Create_BankAccount(bk);
+                return new ValidatorResult
+                {
+                    IsValid = true,
+                };
+            }
+            catch(Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(CreateBankAccount),
+                    ErrorMessage = $"Ocorreu um erro ao tentar criar conta bancária: {ex.Message}",
+                };
+            }
+        }
+        public static ValidatorResult DeactivateBankAccount(BankAccount bk)
+        {
+            try
+            {
+                BankAccount_BLL.Deactivate_BankAccount(bk);
+                return new ValidatorResult
+                {
+                    IsValid = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(DeactivateBankAccount),
+                    ErrorMessage = $"Ocorreu um erro ao tentar desativar conta: {ex.Message}",
+                };
+            }
+        }
+        public static ValidatorResult ReactivateBankAccount(BankAccount bk)
+        {
+            try
+            {
+                BankAccount_BLL.Reactivate_BankAccount(bk);
+                return new ValidatorResult
+                {
+                    IsValid = true,
+                };
+            }
+            catch(Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(ReactivateBankAccount),
+                    ErrorMessage = $"Ocorreu um erro ao tentar reativar conta: {ex.Message}",
+                };
+            }
+        }
+    }
+    public static class BankAccountData
+    {
+        private static readonly int _ownerNumber = 1;
+        private static void EnsureBkTableExists()
+        {
+
+            var bkTable = CurrentSession.UserBkAccountsDataTable ?? (CurrentSession.UserBkAccountsDataTable = new DataTable());
+            if (bkTable.Columns.Count > 0)
+            {
+                return;
+            }
+            bkTable.Columns.Add("Owner", typeof(string));
+            bkTable.Columns.Add("OwnerNumber", typeof(int));
+            bkTable.Columns.Add("ID", typeof(int));
+            bkTable.Columns.Add("Balance", typeof(SqlMoney));
+            bkTable.Columns.Add("IBAN", typeof(string));
+        }
+        public static void Save(BankAccount bk)
+        {
+            var bkDetails = BankAccount_BLL.Get_BankAccountDetails(bk.ID);
+            var bkTables = CurrentSession.UserBkAccountsDataTable;
+            if (bkDetails.Rows.Count == 0)
+            {
+                return;
+            }
+            bk = new BankAccount
+            {
+                ID = int.Parse(bkDetails.Rows[0][0].ToString()),
+                AccountType = bkDetails.Rows[0][1].ToString(),
+                Balance = SqlMoney.Parse(bkDetails.Rows[0][2].ToString()),
+                CreatedAt = DateTime.Parse(bkDetails.Rows[0][3].ToString()),
+                Iban = bkDetails.Rows[0][4].ToString(),
+                IsActive = true,
+            };
+            EnsureBkTableExists();
+            bkTables.Rows.Add(
+                CurrentSession.User.Name,
+                _ownerNumber,
+                bk.ID,
+                bk.Balance,
+                bk.Iban
+            );
+        }
+        public static void LoadBkAssociatedToUser()
         {
             CurrentSession.UserBkAccountsDataTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
         }
-        public static void Append_BkAccountToDataTable(BankAccount bk)
+        public static void ClearBkTable()
         {
-            // Ensure the session DataTable exists
-            if (CurrentSession.UserBkAccountsDataTable == null)
-            {
-                CurrentSession.UserBkAccountsDataTable = new DataTable();
-            }
-
-            // If the DataTable has no schema yet, add columns matching the data we'll store.
-            if (CurrentSession.UserBkAccountsDataTable.Columns.Count == 0)
-            {
-                CurrentSession.UserBkAccountsDataTable.Columns.Add("Owner", typeof(string));
-                CurrentSession.UserBkAccountsDataTable.Columns.Add("OwnerNumber", typeof(int));
-                CurrentSession.UserBkAccountsDataTable.Columns.Add("ID", typeof(int));
-                CurrentSession.UserBkAccountsDataTable.Columns.Add("balance", typeof(SqlMoney));
-                CurrentSession.UserBkAccountsDataTable.Columns.Add("IBAN", typeof(string));
-            }
-
-            // Add a new row with the bank account data.
+            CurrentSession.UserBkAccountsDataTable?.Clear();
+        }
+        public static void AppendBkToUserBkTable(BankAccount bk)
+        {
+            EnsureBkTableExists();
             CurrentSession.UserBkAccountsDataTable.Rows.Add(
-                CurrentSession.User.Name,
-                1,
-                bk.ID,
-                bk.Balance,
-                bk.IBAN
-            );
+              CurrentSession.User.Name,
+              _ownerNumber,
+              bk.ID,
+              bk.Balance,
+              bk.Iban);
         }
     }
 }
- 

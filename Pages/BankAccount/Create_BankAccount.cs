@@ -1,15 +1,15 @@
 ﻿using MealSync_APP.Globals;
+using System.Windows.Forms;
+using System.Data.SqlTypes;
 using MealSync_APP.Utils;
 using System;
-using System.Data.SqlTypes;
-using System.Reflection.Emit;
-using System.Windows.Forms;
 
 namespace MealSync_APP.BankAccountFolder
 {
     public partial class Create_BankAccount : Form
     {
-        static private readonly BankAccount bankAccount = new BankAccount();
+        static private readonly BankAccount _bk = new BankAccount();
+        static private readonly User _user = CurrentSession.User;
         public Create_BankAccount()
         {
             InitializeComponent();
@@ -17,32 +17,37 @@ namespace MealSync_APP.BankAccountFolder
         //Métodos dos componentes gráficos
         private void BtnCreate_BankAccount_Click(object sender, EventArgs e)
         {
+            int ownerNumber = 1;
             try
             {
-                bankAccount.AccountType = cbAccountType.SelectedItem.ToString();
-                bankAccount.Balance = SqlMoney.Parse("2.15");
-                bankAccount.CreatedAt = DateTime.Now;
-                bankAccount.Password = tbPassword.Text;
-                bankAccount.IBAN = IBAN.Create();
+                _bk.AccountType = cbAccountType.SelectedItem.ToString();
+                _bk.Balance = SqlMoney.Parse("2.15");
+                _bk.CreatedAt = DateTime.Now;
+                _bk.Password = tbPassword.Text;
+                _bk.Iban = Iban.Create();
                 string passwordConfirm = tbPasswordConfirm.Text;
 
-                var createBK = BankAuth.Create_BankAccount(bankAccount,passwordConfirm);
-                if (createBK.IsValid)
+                var createBk = BankAuth.CreateBankAccount(_bk, passwordConfirm);
+                if (createBk.IsValid)
                 {
-                    MessageBox.Show("Conta criada com sucesso!");
-                    HolderAuth.Create_Holder(bankAccount, CurrentSession.User, 1);
-                    BankAccountData.Save(bankAccount);
-                    ClearFields();
-                    bankAccount.Reset();
+                    HolderAuth.CreateHolder(_user,_bk,ownerNumber);
+                    BankAccountData.Save(_bk);
+                    MessageBox.Show("Conta criada com sucesso");
                 }
                 else
                 {
-                    MessageBox.Show($"Não foi possível criar a conta bancária: {createBK.ErrorMessage}");
+                    MessageBox.Show($"Não é possivel criar conta bancária: {createBk.ErrorMessage}",createBk.Source,MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar criar a conta bancária: {ex.Message}");
+                MessageBox.Show($"Ocorreu um erro a criar conta bancária: {ex.Message}","Erro",MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                _bk.Clear();
+                _user.Clear();
+                ClearFields();
             }
         }
         private void LinkLabelAssociateBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){OpenForm.AssociateToBankAccount();}
@@ -50,7 +55,7 @@ namespace MealSync_APP.BankAccountFolder
         //Métodos Auxiliares
         private void ClearFields()
         {
-            cbAccountType.SelectedIndex = -1;
+            cbAccountType.ResetText();
             tbPassword.Clear();
             tbPasswordConfirm.Clear();
         }
@@ -71,7 +76,7 @@ namespace MealSync_APP.BankAccountFolder
         {
             if (lbPasswordConfirm.Text.Contains("🔒"))
             {
-                tbPassword.PasswordChar = '\0';
+                tbPasswordConfirm.PasswordChar = '\0';
                 lbPasswordConfirm.Text = "🔓";
             }
             else
