@@ -39,7 +39,7 @@ namespace MealSync_APP.Pages.FAQsFolder
             }
             else
             {
-                dgvFAQs.DataSource = FAQs_BLL.GetUnansweredAnswerByQuestion(tbSearch.Text);
+                dgvFAQs.DataSource = Faq_BLL.GetUnansweredAnswerByQuestion(tbSearch.Text);
             }
         }
         private void BtnAnswerQuestion_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace MealSync_APP.Pages.FAQsFolder
                     string question = tbQuestion.Text;
                     string answer = tbAnswer.Text;
                     MessageBox.Show("Pergunta Respondida", "Sucesso");
-                    FAQs_BLL.AnswerQuestion(answer, question);
+                    Faq_BLL.AnswerQuestion(answer, question);
                     ResetElements();
                 }
                 catch (Exception err)
@@ -66,7 +66,7 @@ namespace MealSync_APP.Pages.FAQsFolder
             {
                 string question = tbQuestion.Text;
                 MessageBox.Show("Pergunta foi invalidada");
-                FAQs_BLL.Deativate_FAQ(question);
+                Faq_BLL.Deativate_FAQ(question);
             }
             catch(Exception err)
             {
@@ -82,7 +82,7 @@ namespace MealSync_APP.Pages.FAQsFolder
         private void LoadContent()
         {
             dgvFAQs.Visible = false; 
-            dgvFAQs.DataSource = FAQs_BLL.Show_UnansweredFAQs();
+            dgvFAQs.DataSource = Faq_BLL.Show_UnansweredFAQs();
             dgvFAQs.Visible = true;
         }
         private void ResetElements()

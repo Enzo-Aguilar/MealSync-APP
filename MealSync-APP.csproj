@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Globals\BankAccount.cs" />
     <Compile Include="Globals\CurrentSession.cs" />
-    <Compile Include="Globals\FAQs.cs" />
+    <Compile Include="Globals\Faq.cs" />
     <Compile Include="Globals\Holder.cs" />
     <Compile Include="Globals\Meal.cs" />
     <Compile Include="Globals\Order.cs" />
@@ -280,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Meals\Add_Meal.resx">
       <DependentUpon>Add_Meal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Orders\Cancel_Order.resx">
+      <DependentUpon>Cancel_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Orders\Make_Order.resx">
       <DependentUpon>Make_Order.cs</DependentUpon>

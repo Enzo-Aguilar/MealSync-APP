@@ -11,18 +11,18 @@ namespace MealSync_APP.Utils
 {
     public class TransactionUtils
     {
-        static public Transaction MakeTransaction(int ID_User, SqlMoney amount, string type)
+        static public Transaction MakeTransaction(int UserId, SqlMoney amount, string type)
         {
             try
             {
-                int ID_Holder = Holder_BLL.Get_UserHolderID(ID_User); 
-                if (ID_Holder != 0)
+                int HolderId = Holder_BLL.Get_UserHolderID(UserId); 
+                if (HolderId != 0)
                 {
                     if (!string.IsNullOrEmpty(type))
                     {
                         Transaction transaction = new Transaction
                         {
-                            ID_Holder = ID_Holder,
+                            HolderId = HolderId,
                             Amount = amount,
                             DateTime = DateTime.Now,
                             Type = type
@@ -36,7 +36,7 @@ namespace MealSync_APP.Utils
                 }
                 else
                 {
-                    throw new ArgumentException("ID_Holder não pode ser zero.");
+                    throw new ArgumentException("HolderId não pode ser zero.");
                 }
             } 
             catch (Exception err)

@@ -22,7 +22,7 @@ namespace MealSync_APP.Pages.FAQsFolder
             try
             {
                 string question = tbQuestion.Text;
-                FAQs_BLL.Reactivate_FAQ(question);
+                Faq_BLL.Reactivate_FAQ(question);
                 ResetElements();
             }
             catch (Exception err)
@@ -42,7 +42,7 @@ namespace MealSync_APP.Pages.FAQsFolder
             }
             else
             {
-                dgvFAQs.DataSource = FAQs_BLL.GetUnansweredQuestions(tbSearch.Text);
+                dgvFAQs.DataSource = Faq_BLL.GetUnansweredQuestions(tbSearch.Text);
             }
         }
         private void DgvFAQ_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,7 +64,7 @@ namespace MealSync_APP.Pages.FAQsFolder
         private void LoadContent()
         {
             dgvFAQs.Visible = false;
-            dgvFAQs.DataSource = FAQs_BLL.Show_DeactivatedFAQs();
+            dgvFAQs.DataSource = Faq_BLL.Show_DeactivatedFAQs();
             dgvFAQs.Visible = true;
         }
         private void ResetElements()

@@ -8,7 +8,7 @@ namespace MealSync_APP.Pages.FAQsFolder
 {
     public partial class Create_FAQs : Form
     {
-        static protected FAQs faq = new FAQs { ID_User = CurrentSession.User.ID};
+        static protected Faq faq = new Faq { UserId = CurrentSession.User.ID};
         public Create_FAQs()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace MealSync_APP.Pages.FAQsFolder
         {
             try
             {
-                DataTable dt = FAQs_BLL.GetQuestion(tbQuestion.Text);
+                DataTable dt = Faq_BLL.GetQuestion(tbQuestion.Text);
                 if (dt.Rows.Count >= 1)
                 {
                     MessageBox.Show("Está pergunta já foi feita");
@@ -27,7 +27,7 @@ namespace MealSync_APP.Pages.FAQsFolder
                     faq.Question = tbQuestion.Text;
                     faq.IsActive = true;
                     faq.IsAnswered = false;
-                    FAQs_BLL.Create_FAQ(faq);
+                    Faq_BLL.Create_FAQ(faq);
                 }
             }
             catch (Exception err)
@@ -39,11 +39,11 @@ namespace MealSync_APP.Pages.FAQsFolder
         {
             if (checkBox.Checked)
             {
-                return faq.ID_User = 0;
+                return faq.UserId = 0;
             }
             else
             {
-                return faq.ID_User = CurrentSession.User.ID;
+                return faq.UserId = CurrentSession.User.ID;
             }
         }
 

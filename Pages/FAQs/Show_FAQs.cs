@@ -14,7 +14,7 @@ namespace MealSync_APP.Pages.FAQsFolder
         //Load do form
         private void Show_FAQs_Load(object sender, EventArgs e)
         {
-            dgvQuestions.DataSource = FAQs_BLL.Show_FAQs();
+            dgvQuestions.DataSource = Faq_BLL.Show_FAQs();
         }
         //Métodos dos componentes graficos
         private void DgvQuestions_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -24,7 +24,7 @@ namespace MealSync_APP.Pages.FAQsFolder
                 try
                 {
                     string question = dgvQuestions.Rows[e.RowIndex].Cells[0].Value?.ToString() ?? string.Empty;
-                    DataTable dt = FAQs_BLL.GetAnsweredQuestions(question);
+                    DataTable dt = Faq_BLL.GetAnsweredQuestions(question);
                     string answer = dt.Rows[0][0].ToString();
                     tbAnswers.Text = answer;
                 }
@@ -37,18 +37,18 @@ namespace MealSync_APP.Pages.FAQsFolder
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             dgvQuestions.Visible = false;
-            dgvQuestions.DataSource = FAQs_BLL.Show_FAQs();
+            dgvQuestions.DataSource = Faq_BLL.Show_FAQs();
             dgvQuestions.Visible = true;
         }
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbSearch.Text))
             {
-                dgvQuestions.DataSource = FAQs_BLL.Show_FAQs();
+                dgvQuestions.DataSource = Faq_BLL.Show_FAQs();
             }
             else
             {
-                dgvQuestions.DataSource = FAQs_BLL.GetAnsweredQuestions(tbSearch.Text);
+                dgvQuestions.DataSource = Faq_BLL.GetAnsweredQuestions(tbSearch.Text);
             }  
         }
     }

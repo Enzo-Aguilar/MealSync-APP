@@ -15,14 +15,14 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@userID", user.ID)
+                new SqlParameter("@ID_User", user.ID)
             };
             return dal.ExecuteReader(
                 "SELECT u.name AS Owner, h.ownerShipOrder AS OwnerNumber, ba.ID, ba.balance, ba.IBAN " +
                 "FROM [BankAccount] ba " +
                 "INNER JOIN [Holder] h ON ba.ID = h.ID_BankAccount " +
                 "INNER JOIN [User] u ON h.ID_User = u.ID " +
-                "WHERE h.ID_User = @userID",
+                "WHERE h.ID_User = @ID_User",
                 sqlParams);
         }
         static public int Create_BankAccount(BankAccount bkAccount)
@@ -152,7 +152,7 @@ namespace BusinessLogicLayer
             dal.ExecuteNonQuery("UPDATE [BankAccount] SET balance=@balance WHERE ID=@ID", sqlParams);
         }
     }
-    public class FAQs_BLL
+    public class Faq_BLL
     {
         //Métodos para DataGridView
         static public DataTable Show_FAQs()
@@ -172,12 +172,12 @@ namespace BusinessLogicLayer
         }
 
         //Criar, Desativar, Reativar e Responder FAQs
-        static public int Create_FAQ(FAQs faq)
+        static public int Create_FAQ(Faq faq)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_User",faq.ID_User),
+                new SqlParameter("@ID_User",faq.UserId),
                 new SqlParameter("@answer",faq.Answer),
                 new SqlParameter("@isAnswered",faq.IsAnswered),
                 new SqlParameter("@question",faq.Question)
@@ -283,8 +283,8 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_User", holder.ID_User),
-                new SqlParameter("@ID_BankAccount", holder.ID_BankAccount),
+                new SqlParameter("@ID_User", holder.UserId),
+                new SqlParameter("@ID_BankAccount", holder.BankAccountId),
                 new SqlParameter("@ownerShipOrder", holder.OwnershipOrder)
             };
             return dal.ExecuteNonQuery("INSERT INTO [Holder] (ID_User,ID_BankAccount,ownerShipOrder) VALUES(@ID_User,@ID_BankAccount,@ownerShipOrder)", sqlParams);
@@ -294,8 +294,8 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_User", holder.ID_User),
-                new SqlParameter("@ID_BankAccount", holder.ID_BankAccount)
+                new SqlParameter("@ID_User", holder.UserId),
+                new SqlParameter("@ID_BankAccount", holder.BankAccountId)
             };
             dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 0 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
         }
@@ -304,8 +304,8 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_User",holder.ID_User),
-                new SqlParameter("@ID_BankAccount",holder.ID_BankAccount)
+                new SqlParameter("@ID_User",holder.UserId),
+                new SqlParameter("@ID_BankAccount",holder.BankAccountId)
             };
             dal.ExecuteNonQuery("UPDATE [Holder] SET isActive = 1 WHERE ID_User=@ID_User AND ID_BankAccount=@ID_BankAccount", sqlParams);
         }
@@ -334,12 +334,12 @@ namespace BusinessLogicLayer
         }
 
         //Verificar ordem de propriedade da conta
-        static public DataTable GetMaxOwnershipOrderDataTable(int bankAccountID)
+        static public DataTable GetMaxOwnershipOrderDataTable(int ID_BankAccount)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_BankAccount", bankAccountID)
+                new SqlParameter("@ID_BankAccount", ID_BankAccount)
             };
             return dal.ExecuteReader(
                 "SELECT TOP 1 * FROM [Holder] WHERE ID_BankAccount=@ID_BankAccount ORDER BY ownerShipOrder DESC",
@@ -347,12 +347,12 @@ namespace BusinessLogicLayer
         }
 
         //Retorna o maior numero de ordem na prioridade
-        static public int GetMaxOwnershipOrderValue(int bankAccountID)
+        static public int GetMaxOwnershipOrderValue(int ID_BankAccount)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_BankAccount", bankAccountID)
+                new SqlParameter("@ID_BankAccount", ID_BankAccount)
             };
             object result = dal.ExecuteScalar(
                 "SELECT MAX(ownerShipOrder) FROM [Holder] WHERE ID_BankAccount=@ID_BankAccount",
@@ -398,28 +398,53 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_User", order.ID_User),
-                new SqlParameter("@ID_Meal", order.ID_Meal),
+                new SqlParameter("@ID_User", order.UserId),
+                new SqlParameter("@MealId", order.MealId),
                 new SqlParameter("@BookedAt", order.BookedAt),
-                new SqlParameter("@ID_Transaction", order.ID_Transaction)
+                new SqlParameter("@TransactionId", order.TransactionId)
             };
-            return dal.ExecuteNonQuery("INSERT INTO [Order] (ID_User, ID_Meal, BookedAt, ID_transaction) VALUES(@ID_User, @ID_Meal, @BookedAt, @ID_Transaction)",
+            return dal.ExecuteNonQuery("INSERT INTO [Order] (ID_User, MealId, BookedAt, TransactionId) VALUES(@ID_User, @MealId, @BookedAt, @TransactionId)",
                 sqlParams);
         }
-        static public DataTable Show_UserOrdersByDate(int userID, DateTime date)
+        static public DataTable Show_UserOrdersByDate(int ID_User, DateTime date)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@userID", userID),
+                new SqlParameter("@ID_User", ID_User),
                 new SqlParameter("@date", date)
             };
             return dal.ExecuteReader(
                 "SELECT m.* FROM [Meal] m " +
-                "INNER JOIN [Order] o ON m.ID = o.ID_Meal " +
-                "WHERE o.ID_User = @userID AND CAST(m.date AS DATE) = CAST(@date AS DATE) " +
+                "INNER JOIN [Order] o ON m.ID = o.MealId " +
+                "WHERE o.ID_User = @ID_User AND CAST(m.date AS DATE) = CAST(@date AS DATE) " +
                 "ORDER BY o.BookedAt DESC",
                 sqlParams);
+        }
+        static public DataTable Show_CancellableUserOrdersByDate(int ID_User, DateTime date)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID_User", ID_User),
+                new SqlParameter("@date", date)
+            };
+            return dal.ExecuteReader(
+                "SELECT m.ID, m.date, m.description, m.isActive, m.mealImage, m.name, m.price, m.type, o.ID AS OrderID FROM [Meal] m " +
+                "INNER JOIN [Order] o ON m.ID = o.MealId " +
+                "WHERE o.ID_User = @ID_User AND CAST(m.date AS DATE) = CAST(@date AS DATE) " +
+                "AND DATEDIFF(DAY, GETDATE(), m.date) >= 7 " +
+                "ORDER BY o.BookedAt DESC",
+                sqlParams);
+        }
+        static public int Delete_Order(int orderID)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID", orderID)
+            };
+            return dal.ExecuteNonQuery("DELETE FROM [Order] WHERE ID = @ID", sqlParams);
         }
     }
     public class Transaction_BLL
@@ -429,7 +454,7 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_Holder", transaction.ID_Holder),
+                new SqlParameter("@ID_Holder", transaction.HolderId),
                 new SqlParameter("@amount", transaction.Amount),
                 new SqlParameter("@dateTime",transaction.DateTime),
                 new SqlParameter("@description",transaction.Description),
@@ -442,7 +467,7 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_Holder",transaction.ID_Holder),
+                new SqlParameter("@ID_Holder",transaction.HolderId),
                 new SqlParameter("@amount", transaction.Amount),
                 new SqlParameter("@dateTime", transaction.DateTime),
                 new SqlParameter("@description", transaction.Description)
@@ -456,12 +481,12 @@ namespace BusinessLogicLayer
 
             return 0;
         }
-        static public DataTable Show_BankAccountTransactions(int bankAccountID)
+        static public DataTable Show_BankAccountTransactions(int ID_BankAccount)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID_BankAccount", bankAccountID)
+                new SqlParameter("@ID_BankAccount", ID_BankAccount)
             };
             return dal.ExecuteReader("SELECT * FROM [Transaction] t INNER JOIN [Holder] h ON t.ID_Holder = h.ID WHERE h.ID_BankAccount = @ID_BankAccount ORDER BY dateTime DESC", sqlParams);
         }

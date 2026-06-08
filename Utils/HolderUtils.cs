@@ -115,8 +115,8 @@ namespace MealSync_APP.Utils
                     bk.ID = int.Parse(dt.Rows[0][0].ToString());
                     Holder h = new Holder
                     {
-                        ID_User = u.ID,
-                        ID_BankAccount = bk.ID,
+                        UserId = u.ID,
+                        BankAccountId = bk.ID,
                         OwnershipOrder = ownerShipOrder,
                     };
                     Holder_BLL.Create_Holder(h);
@@ -147,8 +147,8 @@ namespace MealSync_APP.Utils
             {
                 Holder h = new Holder
                 {
-                    ID_User = u.ID,
-                    ID_BankAccount = bk.ID,
+                    UserId = u.ID,
+                    BankAccountId = bk.ID,
                 };
                 Holder_BLL.Deactivate_Holder(h);
                 return new ValidatorResult { IsValid = true };
@@ -169,8 +169,8 @@ namespace MealSync_APP.Utils
             {
                 Holder h = new Holder
                 {
-                    ID_User = u.ID,
-                    ID_BankAccount = bk.ID,
+                    UserId = u.ID,
+                    BankAccountId = bk.ID,
                 };
                 Holder_BLL.Reactivate_Holder(h);
                 return new ValidatorResult { IsValid = true };

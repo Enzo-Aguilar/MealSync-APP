@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MealSync_APP.Globals
+﻿namespace MealSync_APP.Globals
 {
     public class Holder
     {
-        public int ID { get; set; }
-        public int ID_User { get; set; }
-        public int ID_BankAccount { get; set; }
-        public bool IsActive { get; set; }
-        public int OwnershipOrder { get; set; }
+        private const int _InvalidId = -1;
+        public int ID { get; set; } = _InvalidId;
+        public int UserId { get; set; } = _InvalidId;
+        public int BankAccountId { get; set; } = _InvalidId;
+        public bool IsActive { get; set; } = true;
+        public int OwnershipOrder { get; set; } = 1;
+        public Holder Clear()
+        {
+            return new Holder();
+        }
     }
 }
