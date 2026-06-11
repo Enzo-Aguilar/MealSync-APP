@@ -1,33 +1,33 @@
 ﻿using System.Windows.Forms;
 using BusinessLogicLayer;
 using System;
+using MealSync_APP.Globals;
+using MealSync_APP.Utils;
 
 namespace MealSync_APP.Pages.FAQsFolder
 {
-    public partial class Answer_FAQ : Form
+    public partial class Answer_Faq : Form
     {
-        public Answer_FAQ()
+        private static readonly Faq _faq = new Faq();
+        public Answer_Faq()
         {
             InitializeComponent();
         }
-        //Load do Form
-        private void Answer_FAQs_Load(object sender, EventArgs e)
+        private void Answer_Faq_Load(object sender, EventArgs e)
         {
             LoadContent();
         }
-
-        //Métodos dos componentes graficos
         private void DgvFAQs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 try
                 {
                     tbQuestion.Text = dgvFAQs.Rows[e.RowIndex].Cells[0].Value?.ToString();
                 }
-                catch(Exception err)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Ocorreu um erro: "+err.Message);
+                    MessageBox.Show($"Ocorreu um erro: {ex.Message}");
                 }
             }
         }
@@ -39,38 +39,70 @@ namespace MealSync_APP.Pages.FAQsFolder
             }
             else
             {
-                dgvFAQs.DataSource = Faq_BLL.GetUnansweredAnswerByQuestion(tbSearch.Text);
+                dgvFAQs.DataSource = Faq_BLL.Search_UnansweredQuestion(tbSearch.Text);
             }
         }
         private void BtnAnswerQuestion_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbAnswer.Text) && !string.IsNullOrEmpty(tbQuestion.Text))
+            try
             {
-                try
+                _faq.UserId = CurrentSession.User.ID;
+                _faq.Answer = tbAnswer.Text;
+                _faq.Question = tbQuestion.Text;
+                var answerQuestion = FaqAuth.AnswerQuestion(_faq);
+                if (answerQuestion.IsValid)
                 {
-                    string question = tbQuestion.Text;
-                    string answer = tbAnswer.Text;
-                    MessageBox.Show("Pergunta Respondida", "Sucesso");
-                    Faq_BLL.AnswerQuestion(answer, question);
-                    ResetElements();
+                    MessageBox.Show("Pergunta respondida com sucesso", "Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    _faq.Clear();
                 }
-                catch (Exception err)
+                else
                 {
-                    MessageBox.Show("Ocorreu um erro: " + err.Message);
+                    MessageBox.Show(answerQuestion.ErrorMessage, answerQuestion.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                LoadContent();
+                ClearFields();
             }
         }
         private void BtnDeactivate_Click(object sender, EventArgs e)
         {
             try
             {
-                string question = tbQuestion.Text;
-                MessageBox.Show("Pergunta foi invalidada");
-                Faq_BLL.Deativate_FAQ(question);
+                _faq.Question = tbQuestion.Text;
+                var deactivate = FaqAuth.DeactivateQuestion(_faq);
+                if (deactivate.IsValid)
+                {
+                    var message = MessageBox.Show("Tem certeza", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (message == DialogResult.Yes)
+                    {
+
+                        MessageBox.Show("Pergunta desativada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _faq.Clear();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(deactivate.ErrorMessage, deactivate.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
             }
-            catch(Exception err)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro: " + err.Message);
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                LoadContent();
+                ClearFields();
             }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -78,29 +110,19 @@ namespace MealSync_APP.Pages.FAQsFolder
             LoadContent();
         }
 
-        //Métodos Auxiliares
+        // Helpers
         private void LoadContent()
         {
-            dgvFAQs.Visible = false; 
+            dgvFAQs.Visible = false;
             dgvFAQs.DataSource = Faq_BLL.Show_UnansweredFAQs();
             dgvFAQs.Visible = true;
         }
-        private void ResetElements()
+        private void ClearFields()
         {
             LoadContent();
             tbAnswer.Clear();
             tbQuestion.Clear();
             tbSearch.Clear();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

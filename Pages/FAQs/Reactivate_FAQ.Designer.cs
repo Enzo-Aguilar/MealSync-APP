@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.FAQsFolder
 {
-    partial class Reactivate_FAQ
+    partial class Reactivate_Faq
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reactivate_FAQ));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reactivate_Faq));
             this.dgvFAQs = new System.Windows.Forms.DataGridView();
             this.tbQuestion = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -100,6 +100,7 @@
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
             this.tbSearch.Location = new System.Drawing.Point(553, 133);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(539, 34);
             this.tbSearch.TabIndex = 6;
@@ -116,6 +117,7 @@
             this.label1.Size = new System.Drawing.Size(46, 31);
             this.label1.TabIndex = 7;
             this.label1.Text = "🔄";
+            this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label2
             // 
@@ -128,8 +130,9 @@
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 8;
             this.label2.Text = "🔓";
+            this.label2.Click += new System.EventHandler(this.BtnReactivate_Click);
             // 
-            // Reactivate_FAQ
+            // Reactivate_Faq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,7 +147,7 @@
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.dgvFAQs);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Reactivate_FAQ";
+            this.Name = "Reactivate_Faq";
             this.Text = "\\";
             this.Load += new System.EventHandler(this.Reactivate_FAQ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFAQs)).EndInit();

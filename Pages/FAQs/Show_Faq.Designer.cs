@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.FAQsFolder
 {
-    partial class Show_FAQs
+    partial class Show_Faq
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_FAQs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_Faq));
             this.tbAnswers = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvQuestions = new System.Windows.Forms.DataGridView();

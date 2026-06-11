@@ -143,22 +143,22 @@ namespace MealSync_APP.Utils
         //FAQs
         public static void AnswerFAQs()
         {
-            Answer_FAQ answer_FAQ = new Answer_FAQ() { MdiParent = _home };
+            Answer_Faq answer_FAQ = new Answer_Faq() { MdiParent = _home };
             answer_FAQ.Show();
         }
         public static void MakeFAQs()
         {
-            Create_FAQs create_FAQs = new Create_FAQs() { MdiParent = _home };
+            Create_Faq create_FAQs = new Create_Faq() { MdiParent = _home };
             create_FAQs.Show();
         }
         public static void ReactivateFAQs()
         {
-            Reactivate_FAQ reactivate_FAQ = new Reactivate_FAQ() {MdiParent = _home};
+            Reactivate_Faq reactivate_FAQ = new Reactivate_Faq() {MdiParent = _home};
             reactivate_FAQ.Show();
         }
         public static void ShowFAQs()
         {
-            Show_FAQs showFAQs = new Show_FAQs(){ MdiParent = _home };
+            Show_Faq showFAQs = new Show_Faq(){ MdiParent = _home };
             showFAQs.Show();
         }
     }

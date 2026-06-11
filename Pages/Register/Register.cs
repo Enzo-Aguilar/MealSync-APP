@@ -39,8 +39,8 @@ namespace MealSync_APP
                 if (register.IsValid)
                 {
                     MessageBox.Show("Utilizador criado com sucesso", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearFields();
                     LoginForm.Open(this);
+                    ClearFields();
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace MealSync_APP
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro a criar utilizador: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally

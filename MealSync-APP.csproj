@@ -93,29 +93,29 @@
     <Compile Include="Pages\BankAccount\Transactions_BankAccount.Designer.cs">
       <DependentUpon>Transactions_BankAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FAQs\Answer_FAQ.cs">
+    <Compile Include="Pages\FAQs\Answer_Faq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\FAQs\Answer_FAQ.Designer.cs">
-      <DependentUpon>Answer_FAQ.cs</DependentUpon>
+    <Compile Include="Pages\FAQs\Answer_Faq.Designer.cs">
+      <DependentUpon>Answer_Faq.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FAQs\Create_FAQs.cs">
+    <Compile Include="Pages\FAQs\Create_Faq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\FAQs\Create_FAQs.Designer.cs">
-      <DependentUpon>Create_FAQs.cs</DependentUpon>
+    <Compile Include="Pages\FAQs\Create_Faq.Designer.cs">
+      <DependentUpon>Create_Faq.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FAQs\Reactivate_FAQ.cs">
+    <Compile Include="Pages\FAQs\Reactivate_Faq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\FAQs\Reactivate_FAQ.Designer.cs">
-      <DependentUpon>Reactivate_FAQ.cs</DependentUpon>
+    <Compile Include="Pages\FAQs\Reactivate_Faq.Designer.cs">
+      <DependentUpon>Reactivate_Faq.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FAQs\Show_FAQs.cs">
+    <Compile Include="Pages\FAQs\Show_Faq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\FAQs\Show_FAQs.Designer.cs">
-      <DependentUpon>Show_FAQs.cs</DependentUpon>
+    <Compile Include="Pages\FAQs\Show_Faq.Designer.cs">
+      <DependentUpon>Show_Faq.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalForms\Add_User.cs">
       <SubType>Form</SubType>
@@ -198,6 +198,7 @@
       <DependentUpon>Create_BankAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\BankAccountUtils.cs" />
+    <Compile Include="Utils\FaqUtils.cs" />
     <Compile Include="Utils\FormUtils.cs" />
     <Compile Include="Globals\User.cs" />
     <Compile Include="Pages\Home\Home.cs">
@@ -251,17 +252,17 @@
     <EmbeddedResource Include="Pages\BankAccount\Transactions_BankAccount.resx">
       <DependentUpon>Transactions_BankAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\FAQs\Answer_FAQ.resx">
-      <DependentUpon>Answer_FAQ.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\FAQs\Answer_Faq.resx">
+      <DependentUpon>Answer_Faq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\FAQs\Create_FAQs.resx">
-      <DependentUpon>Create_FAQs.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\FAQs\Create_Faq.resx">
+      <DependentUpon>Create_Faq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\FAQs\Reactivate_FAQ.resx">
-      <DependentUpon>Reactivate_FAQ.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\FAQs\Reactivate_Faq.resx">
+      <DependentUpon>Reactivate_Faq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\FAQs\Show_FAQs.resx">
-      <DependentUpon>Show_FAQs.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\FAQs\Show_Faq.resx">
+      <DependentUpon>Show_Faq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Add_User.resx">
       <DependentUpon>Add_User.cs</DependentUpon>

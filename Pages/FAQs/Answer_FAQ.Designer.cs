@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.FAQsFolder
 {
-    partial class Answer_FAQ
+    partial class Answer_Faq
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Answer_FAQ));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Answer_Faq));
             this.dgvFAQs = new System.Windows.Forms.DataGridView();
             this.tbQuestion = new System.Windows.Forms.TextBox();
             this.tbAnswer = new System.Windows.Forms.TextBox();
@@ -46,7 +46,7 @@
             // 
             this.dgvFAQs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFAQs.Location = new System.Drawing.Point(77, 109);
-            this.dgvFAQs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvFAQs.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFAQs.Name = "dgvFAQs";
             this.dgvFAQs.ReadOnly = true;
             this.dgvFAQs.RowHeadersWidth = 51;
@@ -60,7 +60,7 @@
             this.tbQuestion.BackColor = System.Drawing.SystemColors.Desktop;
             this.tbQuestion.ForeColor = System.Drawing.SystemColors.Window;
             this.tbQuestion.Location = new System.Drawing.Point(556, 214);
-            this.tbQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
             this.tbQuestion.ReadOnly = true;
@@ -72,7 +72,7 @@
             this.tbAnswer.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbAnswer.ForeColor = System.Drawing.SystemColors.Window;
             this.tbAnswer.Location = new System.Drawing.Point(556, 324);
-            this.tbAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.tbAnswer.Multiline = true;
             this.tbAnswer.Name = "tbAnswer";
             this.tbAnswer.Size = new System.Drawing.Size(523, 136);
@@ -84,7 +84,7 @@
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
             this.tbSearch.Location = new System.Drawing.Point(556, 119);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(523, 31);
             this.tbSearch.TabIndex = 6;
@@ -96,7 +96,7 @@
             this.btnAnswerQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnswerQuestion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAnswerQuestion.Location = new System.Drawing.Point(919, 497);
-            this.btnAnswerQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnswerQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnswerQuestion.Name = "btnAnswerQuestion";
             this.btnAnswerQuestion.Size = new System.Drawing.Size(160, 58);
             this.btnAnswerQuestion.TabIndex = 8;
@@ -111,7 +111,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnUpdate.Location = new System.Drawing.Point(737, 497);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(160, 58);
             this.btnUpdate.TabIndex = 10;
@@ -147,6 +147,7 @@
             this.label1.Size = new System.Drawing.Size(46, 31);
             this.label1.TabIndex = 12;
             this.label1.Text = "🚫";
+            this.label1.Click += new System.EventHandler(this.BtnDeactivate_Click);
             // 
             // label2
             // 
@@ -159,7 +160,7 @@
             this.label2.Size = new System.Drawing.Size(46, 31);
             this.label2.TabIndex = 13;
             this.label2.Text = "🔄";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label3
             // 
@@ -172,9 +173,9 @@
             this.label3.Size = new System.Drawing.Size(46, 31);
             this.label3.TabIndex = 14;
             this.label3.Text = "📨";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Click += new System.EventHandler(this.BtnAnswerQuestion_Click);
             // 
-            // Answer_FAQ
+            // Answer_Faq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,10 +192,10 @@
             this.Controls.Add(this.tbAnswer);
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.dgvFAQs);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Answer_FAQ";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "Answer_Faq";
             this.Text = "Responder Perguntas";
-            this.Load += new System.EventHandler(this.Answer_FAQs_Load);
+            this.Load += new System.EventHandler(this.Answer_Faq_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFAQs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

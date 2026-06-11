@@ -131,7 +131,7 @@ namespace MealSync_APP.Utils
     }
     public class LogCheck
     {
-        static public void UserIsLogged(Form f)
+        public static void UserIsLogged(Form f)
         {
             User u = CurrentSession.User;
             if (u == null)

@@ -286,7 +286,7 @@ namespace MealSync_APP.Utils
     }
     public class MealAuth : MealValidator
     {
-        static public new ValidatorResult Create_Meal(Meal meal)
+        public static new ValidatorResult Create_Meal(Meal meal)
         {
             var checks = new[]
             {

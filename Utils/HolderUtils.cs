@@ -117,7 +117,7 @@ namespace MealSync_APP.Utils
                     {
                         UserId = u.ID,
                         BankAccountId = bk.ID,
-                        OwnershipOrder = ownerShipOrder,
+                        OwnerShipOrder = ownerShipOrder,
                     };
                     Holder_BLL.Create_Holder(h);
                     return new ValidatorResult { IsValid = true };

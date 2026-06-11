@@ -481,7 +481,7 @@ namespace MealSync_APP.Utils
             User_BLL.Register(u);
             return new ValidatorResult { IsValid = true };
         }
-        static public ValidatorResult Login(User u)
+        public static ValidatorResult Login(User u)
         {
             try
             {
@@ -524,7 +524,7 @@ namespace MealSync_APP.Utils
     }
     public class UserData
     {
-        static public ValidatorResult Save(User u)
+        public static ValidatorResult Save(User u)
         {
             try
             {
@@ -568,7 +568,7 @@ namespace MealSync_APP.Utils
                 u.Clear();
             }
         }
-        static public ValidatorResult Update(User u, string passwordConfirm)
+        public static ValidatorResult Update(User u, string passwordConfirm)
         {
             var validations = new[]
             {

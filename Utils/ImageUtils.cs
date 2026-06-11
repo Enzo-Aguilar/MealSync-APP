@@ -13,7 +13,7 @@ namespace MealSync_APP.Utils
 {
     internal class ImageValidator
     {
-        static public ValidatorResult ValidateImage(Image img)
+        public static ValidatorResult ValidateImage(Image img)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        static public ValidatorResult ValidateBytes(byte[] bytes)
+        public static ValidatorResult ValidateBytes(byte[] bytes)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace MealSync_APP.Utils
     }
     public class ImageUtils
     {
-        static public byte[] ImageToBytes(Image img)
+        public static byte[] ImageToBytes(Image img)
         {
             MemoryStream ms = new MemoryStream();
             try
@@ -116,7 +116,7 @@ namespace MealSync_APP.Utils
                 ms.Close();
             }
         }
-        static public Image BytesToImage(byte[] bytes)
+        public static Image BytesToImage(byte[] bytes)
         {
             MemoryStream ms = new MemoryStream();
             try

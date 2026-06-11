@@ -29,7 +29,7 @@ namespace MealSync_APP
                     BankAccountData.LoadBkAssociatedToUser();
                     if (save.IsValid)
                     {
-                        MessageBox.Show("Bem-Vindo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Bem-Vindo", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         HomeForm.Open(this);
                     }
                     else

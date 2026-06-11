@@ -20,7 +20,7 @@ namespace MealSync_APP.Globals
     }
     public class Iban
     {
-        static public string Create()
+        public static string Create()
         {
             string Iban = "PT50";
             Random random = new Random();

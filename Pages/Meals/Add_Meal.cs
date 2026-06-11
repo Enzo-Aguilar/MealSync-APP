@@ -16,7 +16,7 @@ namespace MealSync_APP.MealFolder
 {
     public partial class Add_Meal : Form
     {
-        static private Meal meal = new Meal();
+        private static Meal meal = new Meal();
         public Add_Meal()
         {
             InitializeComponent();

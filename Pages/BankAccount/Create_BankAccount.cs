@@ -8,8 +8,8 @@ namespace MealSync_APP.BankAccountFolder
 {
     public partial class Create_BankAccount : Form
     {
-        static private readonly BankAccount _bk = new BankAccount();
-        static private readonly User _user = CurrentSession.User;
+        private static readonly BankAccount _bk = new BankAccount();
+        private static readonly User _user = CurrentSession.User;
         public Create_BankAccount()
         {
             InitializeComponent();

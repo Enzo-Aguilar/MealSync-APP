@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.FAQsFolder
 {
-    partial class Create_FAQs
+    partial class Create_Faq
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_FAQs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_Faq));
             this.tbQuestion = new System.Windows.Forms.TextBox();
             this.checkBox = new System.Windows.Forms.CheckBox();
             this.btnSendQuestion = new System.Windows.Forms.Button();
@@ -53,7 +53,6 @@
             this.checkBox.Size = new System.Drawing.Size(15, 14);
             this.checkBox.TabIndex = 2;
             this.checkBox.UseVisualStyleBackColor = false;
-            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // btnSendQuestion
             // 
@@ -79,8 +78,9 @@
             this.label1.Size = new System.Drawing.Size(48, 33);
             this.label1.TabIndex = 6;
             this.label1.Text = "📨";
+            this.label1.Click += new System.EventHandler(this.BtnSendQuestion_Click);
             // 
-            // Create_FAQs
+            // Create_Faq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +91,7 @@
             this.Controls.Add(this.btnSendQuestion);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.tbQuestion);
-            this.Name = "Create_FAQs";
+            this.Name = "Create_Faq";
             this.Text = "Fazer Pergunta";
             this.ResumeLayout(false);
             this.PerformLayout();
