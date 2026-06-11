@@ -13,7 +13,7 @@ namespace MealSync_APP.Utils
 {
     public class MealValidator : Meal_BLL
     {
-        static protected ValidatorResult Validate_DateTimePicker(DateTime mealDate)
+        static protected ValidatorResult Validate_DateTimePicker(DateTime? mealDate)
         {
             try
             {

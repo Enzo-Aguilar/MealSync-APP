@@ -23,8 +23,8 @@ namespace MealSync_APP
         //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-            Home_Tabs_Visibility();
-            LogCheck.UserIsLogged(this);
+            //Home_Tabs_Visibility();
+            //LogCheck.UserIsLogged(this);
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
@@ -107,7 +107,8 @@ namespace MealSync_APP
         // Alunos
         private void Show_Students_Click(object sender, EventArgs e){ OpenForm.ShowUser("Stundent");}
         private void Add_Student_Click(object sender, EventArgs e)
-        { OpenForm.AddUser("Student");
+        {
+           
             new Add_User("Student").ShowDialog();
         }
         private void Edit_Student_Click(object sender, EventArgs e){ OpenForm.EditUser("Student"); }
@@ -116,7 +117,8 @@ namespace MealSync_APP
         // Funcionarios
         private void Show_Employees_Click(object sender, EventArgs e){ OpenForm.ShowUser("Employee"); }
         private void Add_Employee_Click(object sender, EventArgs e)
-        { OpenForm.AddUser("Employee");
+        {
+           
             new Add_User("Employee").ShowDialog();
         }
         private void Edit_Employee_Click(object sender, EventArgs e){ OpenForm.EditUser("Employee"); }
@@ -125,7 +127,8 @@ namespace MealSync_APP
         // Administradores
         private void Show_Admins_Click(object sender, EventArgs e){ OpenForm.ShowUser("Admin"); }
         private void Add_Admin_Click(object sender, EventArgs e)
-        { OpenForm.AddUser("Admin");
+        {
+          
             new Add_User("Admin").ShowDialog();
         }
        

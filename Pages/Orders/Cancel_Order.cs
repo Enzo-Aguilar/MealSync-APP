@@ -294,7 +294,7 @@ namespace MealSync_APP.OrderFolder
             {
                 if (meal == null) continue;
 
-                // Check if meal can be cancelled (at least 7 days in advance)
+                //Check if meal can be cancelled (at least 7 days in advance)
                 TimeSpan daysUntilMeal = meal.Date - DateTime.Today;
                 bool isCancellable = daysUntilMeal.TotalDays >= 7;
 
