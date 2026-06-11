@@ -32,11 +32,9 @@
             this.MealDateTime = new System.Windows.Forms.DateTimePicker();
             this.lbText = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.panelMeals = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -67,7 +65,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(353, 579);
+            this.btnUpdate.Location = new System.Drawing.Point(546, 580);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(132, 64);
             this.btnUpdate.TabIndex = 21;
@@ -75,20 +73,6 @@
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Sienna;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancel.Location = new System.Drawing.Point(586, 579);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(132, 64);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnMakeOrder
             // 
@@ -102,6 +86,7 @@
             this.btnMakeOrder.Text = "Desmarcar";
             this.btnMakeOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMakeOrder.UseVisualStyleBackColor = false;
+            this.btnMakeOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
             // panelMeals
             // 
@@ -118,23 +103,12 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(360, 590);
+            this.label2.Location = new System.Drawing.Point(551, 594);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 37);
             this.label2.TabIndex = 24;
             this.label2.Text = "🔄";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Sienna;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(602, 594);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 29);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "✖️";
+            this.label2.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label1
             // 
@@ -147,6 +121,7 @@
             this.label1.Size = new System.Drawing.Size(39, 29);
             this.label1.TabIndex = 26;
             this.label1.Text = "🗳️";
+            this.label1.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
             // Cancel_Order
             // 
@@ -156,15 +131,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(841, 701);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MealDateTime);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Cancel_Order";
             this.Text = "Desmarcar_Pedido";
             this.Load += new System.EventHandler(this.Cancel_Order_Load);
@@ -178,11 +151,9 @@
         private System.Windows.Forms.DateTimePicker MealDateTime;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnMakeOrder;
         private System.Windows.Forms.Panel panelMeals;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
     }
 }

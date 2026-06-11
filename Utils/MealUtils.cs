@@ -43,7 +43,7 @@ namespace MealSync_APP.Utils
                     // Check if the meal date is less than 7 days away
                     else if (mealDate < oneWeekLater)
                     {
-                        int daysAhead = (mealDate - today).Days;
+                        int daysAhead = (mealDate.Value - today).Days;
                         return new ValidatorResult
                         {
                             IsValid = false,

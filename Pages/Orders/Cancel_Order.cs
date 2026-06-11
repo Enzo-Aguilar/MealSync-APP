@@ -17,7 +17,7 @@ namespace MealSync_APP.OrderFolder
     public partial class Cancel_Order : Form
     {
         private Dictionary<int, int> mealOrderMap = new Dictionary<int, int>(); // Maps Meal ID to Order ID
-        private Dictionary<int, bool> mealCancellableMap = new Dictionary<int, bool>(); // Maps Meal ID to cancellable status
+        private readonly Dictionary<int, bool> mealCancellableMap = new Dictionary<int, bool>(); // Maps Meal ID to cancellable status
 
         public Cancel_Order()
         {
@@ -30,8 +30,7 @@ namespace MealSync_APP.OrderFolder
             LoadCancellableOrdersForDate(MealDateTime.Value);
             LogCheck.UserIsLogged(this);
         }
-
-        private void BtnMakeOrder_Click(object sender, EventArgs e)
+        private void BtnCancelOrder_Click(object sender, EventArgs e)
         {
             // Find selected meal (cancellable only)
             Meal selectedMeal = null;
@@ -97,31 +96,24 @@ namespace MealSync_APP.OrderFolder
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             LoadCancellableOrdersForDate(MealDateTime.Value);
         }
-
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void OnMealCardClicked(Meal meal, Panel mealCard, bool isCancellable)
+        private void OnMealCardClicked(Meal meal, Panel mealCard)
         {
             // Deselect previous meal card
             foreach (Control control in panelMeals.Controls)
             {
                 if (control is Panel panel && panel.Tag is Meal prevMeal && prevMeal.ID != meal.ID)
                 {
-                    bool prevCancellable = mealCancellableMap.ContainsKey(prevMeal.ID) ? mealCancellableMap[prevMeal.ID] : false;
+                    mealCancellableMap.TryGetValue(prevMeal.ID, out bool prevCancellable);
                     panel.BackColor = prevCancellable ? Color.LightYellow : Color.LightGray;
                 }
             }
 
             // Select new meal
-            mealCard.BackColor = Color.LightCoral;
+            mealCard.BackColor = Color.LightCoral; 
         }
 
         // Create the Meal Components for cancellable orders
@@ -146,7 +138,7 @@ namespace MealSync_APP.OrderFolder
             // Add click handler only if cancellable
             if (isCancellable)
             {
-                mealPanel.Click += (s, e) => OnMealCardClicked(meal, mealPanel, isCancellable);
+                mealPanel.Click += (s, e) => OnMealCardClicked(meal, mealPanel);
                 mealPanel.MouseEnter += (s, e) => mealPanel.BackColor = Color.LightCoral;
                 mealPanel.MouseLeave += (s, e) => mealPanel.BackColor = Color.LightYellow;
             }
@@ -248,7 +240,7 @@ namespace MealSync_APP.OrderFolder
             {
                 foreach (Control control in mealPanel.Controls)
                 {
-                    control.Click += (s, e) => OnMealCardClicked(meal, mealPanel, isCancellable);
+                    control.Click += (s, e) => OnMealCardClicked(meal, mealPanel);
                     control.MouseEnter += (s, e) => mealPanel.BackColor = Color.LightCoral;
                     control.MouseLeave += (s, e) => mealPanel.BackColor = Color.LightYellow;
                 }
@@ -295,8 +287,8 @@ namespace MealSync_APP.OrderFolder
                 if (meal == null) continue;
 
                 //Check if meal can be cancelled (at least 7 days in advance)
-                TimeSpan daysUntilMeal = meal.Date - DateTime.Today;
-                bool isCancellable = daysUntilMeal.TotalDays >= 7;
+                TimeSpan? daysUntilMeal = meal.Date?.Date - DateTime.Today;
+                bool isCancellable = daysUntilMeal.HasValue && daysUntilMeal.Value.TotalDays >= 7;
 
                 mealCancellableMap[meal.ID] = isCancellable;
 
@@ -316,7 +308,6 @@ namespace MealSync_APP.OrderFolder
                 }
             }
         }
-
         private void MealDateTime_ValueChanged(object sender, EventArgs e)
         {
             LoadCancellableOrdersForDate(MealDateTime.Value);
