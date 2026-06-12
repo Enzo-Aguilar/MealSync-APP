@@ -149,6 +149,7 @@
             this.label1.Size = new System.Drawing.Size(48, 33);
             this.label1.TabIndex = 13;
             this.label1.Text = "🔄";
+            this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label2
             // 
@@ -161,6 +162,7 @@
             this.label2.Size = new System.Drawing.Size(46, 31);
             this.label2.TabIndex = 14;
             this.label2.Text = "🔗‍";
+            this.label2.Click += new System.EventHandler(this.BtnAssociateAccount_Click);
             // 
             // lbPassword
             // 

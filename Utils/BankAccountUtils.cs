@@ -74,6 +74,21 @@ namespace MealSync_APP.Utils
                 };
             }
         }
+        public static ValidatorResult ValidateMoney(SqlMoney money)
+        {
+            if(money.IsNull || money < 0)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = "Quantia Monetária Invalida",
+                };
+            }
+            else
+            {
+                return new ValidatorResult { IsValid = true, };
+            }
+        }
     }
     public static class BankAuth
     {
@@ -151,6 +166,27 @@ namespace MealSync_APP.Utils
                     ErrorMessage = $"Ocorreu um erro ao tentar reativar conta: {ex.Message}",
                 };
             }
+        }
+        public static ValidatorResult AddAmountToBkAccount(BankAccount bk, SqlMoney money)
+        {
+            var validations = new[]
+            {
+                BankAccountValidator.ValidateIban(bk.Iban),
+                BankAccountValidator.ValidateMoney(money),
+            };
+            foreach(var validation in validations)
+            {
+                if (!validation.IsValid)
+                {
+                    return validation;
+                }
+            }
+            BankAccount_BLL.Update_BankAccountBalance(bk.ID,money);
+            return new ValidatorResult { IsValid = true, };
+            /*Verificar o valor da dinheiro,
+             * Update na bd na conta
+             * Returnar
+             */
         }
     }
     public static class BankAccountData

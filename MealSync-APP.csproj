@@ -75,6 +75,12 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals\Transaction.cs" />
+    <Compile Include="Pages\BankAccount\Add_MoneyToBk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\BankAccount\Add_MoneyToBk.Designer.cs">
+      <DependentUpon>Add_MoneyToBk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankAccount\Deactivate_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     <Compile Include="Utils\TransactionUtils.cs" />
     <Compile Include="Utils\UserUtils.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <EmbeddedResource Include="Pages\BankAccount\Add_MoneyToBk.resx">
+      <DependentUpon>Add_MoneyToBk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\BankAccount\Associate_BankAccount.resx">
       <DependentUpon>Associate_BankAccount.cs</DependentUpon>
     </EmbeddedResource>
