@@ -86,7 +86,6 @@
             this.btnMakeOrder.Text = "Desmarcar";
             this.btnMakeOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMakeOrder.UseVisualStyleBackColor = false;
-            this.btnMakeOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
             // panelMeals
             // 

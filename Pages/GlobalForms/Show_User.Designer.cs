@@ -131,6 +131,7 @@
             this.label1.Size = new System.Drawing.Size(55, 39);
             this.label1.TabIndex = 8;
             this.label1.Text = "🔄";
+            this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label2
             // 
@@ -143,6 +144,7 @@
             this.label2.Size = new System.Drawing.Size(34, 42);
             this.label2.TabIndex = 9;
             this.label2.Text = "⬇️";
+            this.label2.Click += new System.EventHandler(this.BtnTableOrder_Click);
             // 
             // label3
             // 
@@ -155,6 +157,7 @@
             this.label3.Size = new System.Drawing.Size(20, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "𝐀";
+            this.label3.Click += new System.EventHandler(this.BtnTableOrder_Click);
             // 
             // label4
             // 
@@ -167,6 +170,7 @@
             this.label4.Size = new System.Drawing.Size(19, 24);
             this.label4.TabIndex = 11;
             this.label4.Text = "𝐙";
+            this.label4.Click += new System.EventHandler(this.BtnTableOrder_Click);
             // 
             // label5
             // 
@@ -179,6 +183,7 @@
             this.label5.Size = new System.Drawing.Size(54, 37);
             this.label5.TabIndex = 12;
             this.label5.Text = "🪪";
+            this.label5.Click += new System.EventHandler(this.BtnTableOrder1_Click);
             // 
             // label7
             // 
@@ -191,6 +196,7 @@
             this.label7.Size = new System.Drawing.Size(48, 33);
             this.label7.TabIndex = 14;
             this.label7.Text = "📝";
+            this.label7.Click += new System.EventHandler(this.BtnTableOrder2_Click);
             // 
             // Show_User
             // 

@@ -161,6 +161,7 @@
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 47;
             this.label2.Text = "🔄";
+            this.label2.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label3
             // 
@@ -173,6 +174,7 @@
             this.label3.Size = new System.Drawing.Size(48, 33);
             this.label3.TabIndex = 48;
             this.label3.Text = "🔓";
+            this.label3.Click += new System.EventHandler(this.BtnReactivateAccounts_Click);
             // 
             // Reactivate_BankAccount
             // 

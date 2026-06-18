@@ -312,5 +312,10 @@ namespace MealSync_APP.OrderFolder
         {
             LoadCancellableOrdersForDate(MealDateTime.Value);
         }
+
+        private void btnMakeOrder_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

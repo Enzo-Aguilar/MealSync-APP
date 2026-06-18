@@ -142,7 +142,7 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(611, 503);
+            this.label1.Location = new System.Drawing.Point(613, 501);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 31);
             this.label1.TabIndex = 12;
@@ -155,7 +155,7 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(793, 503);
+            this.label2.Location = new System.Drawing.Point(793, 501);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 31);
             this.label2.TabIndex = 13;
@@ -192,8 +192,8 @@
             this.Controls.Add(this.tbAnswer);
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.dgvFAQs);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Answer_Faq";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "Answer_FAQ";
             this.Text = "Responder Perguntas";
             this.Load += new System.EventHandler(this.Answer_Faq_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFAQs)).EndInit();
