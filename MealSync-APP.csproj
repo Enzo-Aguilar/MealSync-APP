@@ -291,6 +291,9 @@
     <EmbeddedResource Include="Pages\Meals\Add_Meal.resx">
       <DependentUpon>Add_Meal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Meals\Edit_Meal.resx">
+      <DependentUpon>Edit_Meal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Orders\Cancel_Order.resx">
       <DependentUpon>Cancel_Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +318,12 @@
     <EmbeddedResource Include="Pages\Register\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="EDIT_MEAL_DIAGRAMS.md" />
+    <None Include="EDIT_MEAL_IMPLEMENTATION.md" />
+    <None Include="EDIT_MEAL_QUICK_START.md" />
+    <None Include="EDIT_MEAL_REQUIREMENTS_CHECKLIST.md" />
+    <None Include="EDIT_MEAL_SUMMARY.md" />
+    <None Include="EDIT_MEAL_UI_GUIDE.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -53,7 +53,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
                         var deactivate = HolderAuth.DisassociateBkToUser(_user, _bk);
                         if (deactivate.IsValid)
                         {
-                            MessageBox.Show($"Conta bancária {_bk.ID} desativada com sucesso","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            MessageBox.Show($"Conta bancária {_bk.ID} desativada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {

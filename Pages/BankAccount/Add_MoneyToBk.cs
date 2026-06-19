@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MealSync_APP.Pages.BankAccount
+namespace MealSync_APP.Pages.BankAccountFolder
 {
     public partial class Add_MoneyToBk : Form
     {

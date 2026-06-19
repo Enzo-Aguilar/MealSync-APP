@@ -36,6 +36,9 @@
             this.lbMealNameUserPreview = new System.Windows.Forms.Label();
             this.pictureBoxUserMealImagePreview = new System.Windows.Forms.PictureBox();
             this.lbWhatUserSee = new System.Windows.Forms.Label();
+            this.lbText = new System.Windows.Forms.Label();
+            this.btnCreateMeal = new System.Windows.Forms.Button();
+            this.btnCancelMeal = new System.Windows.Forms.Button();
             this.pictureBoxMealImage = new System.Windows.Forms.PictureBox();
             this.lbMealName = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
@@ -48,9 +51,6 @@
             this.cbMealType = new System.Windows.Forms.ComboBox();
             this.tbMealPrice = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbText = new System.Windows.Forms.Label();
-            this.btnCreateMeal = new System.Windows.Forms.Button();
-            this.btnCancelMeal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserMealImagePreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMealImage)).BeginInit();
@@ -136,6 +136,44 @@
             this.lbWhatUserSee.Size = new System.Drawing.Size(216, 25);
             this.lbWhatUserSee.TabIndex = 1;
             this.lbWhatUserSee.Text = "O que o utilizador vê:";
+            // 
+            // lbText
+            // 
+            this.lbText.AutoSize = true;
+            this.lbText.BackColor = System.Drawing.Color.Transparent;
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbText.Location = new System.Drawing.Point(22, 33);
+            this.lbText.Name = "lbText";
+            this.lbText.Size = new System.Drawing.Size(147, 25);
+            this.lbText.TabIndex = 17;
+            this.lbText.Text = "Criar refeição:";
+            // 
+            // btnCreateMeal
+            // 
+            this.btnCreateMeal.BackColor = System.Drawing.Color.Sienna;
+            this.btnCreateMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMeal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreateMeal.Location = new System.Drawing.Point(799, 543);
+            this.btnCreateMeal.Name = "btnCreateMeal";
+            this.btnCreateMeal.Size = new System.Drawing.Size(114, 58);
+            this.btnCreateMeal.TabIndex = 18;
+            this.btnCreateMeal.Text = "Criar Refeição";
+            this.btnCreateMeal.UseVisualStyleBackColor = false;
+            this.btnCreateMeal.Click += new System.EventHandler(this.BtnCreateMeal_Click);
+            // 
+            // btnCancelMeal
+            // 
+            this.btnCancelMeal.BackColor = System.Drawing.Color.Sienna;
+            this.btnCancelMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelMeal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelMeal.Location = new System.Drawing.Point(647, 543);
+            this.btnCancelMeal.Name = "btnCancelMeal";
+            this.btnCancelMeal.Size = new System.Drawing.Size(114, 58);
+            this.btnCancelMeal.TabIndex = 19;
+            this.btnCancelMeal.Text = "Cancelar Refeição";
+            this.btnCancelMeal.UseVisualStyleBackColor = false;
+            this.btnCancelMeal.Click += new System.EventHandler(this.BtnCancelMeal_Click);
             // 
             // pictureBoxMealImage
             // 
@@ -262,44 +300,6 @@
             this.panel3.Size = new System.Drawing.Size(451, 549);
             this.panel3.TabIndex = 16;
             // 
-            // lbText
-            // 
-            this.lbText.AutoSize = true;
-            this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbText.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lbText.Location = new System.Drawing.Point(22, 33);
-            this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(147, 25);
-            this.lbText.TabIndex = 17;
-            this.lbText.Text = "Criar refeição:";
-            // 
-            // btnCreateMeal
-            // 
-            this.btnCreateMeal.BackColor = System.Drawing.Color.Sienna;
-            this.btnCreateMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateMeal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreateMeal.Location = new System.Drawing.Point(799, 543);
-            this.btnCreateMeal.Name = "btnCreateMeal";
-            this.btnCreateMeal.Size = new System.Drawing.Size(114, 58);
-            this.btnCreateMeal.TabIndex = 18;
-            this.btnCreateMeal.Text = "Criar Refeição";
-            this.btnCreateMeal.UseVisualStyleBackColor = false;
-            this.btnCreateMeal.Click += new System.EventHandler(this.BtnCreateMeal_Click);
-            // 
-            // btnCancelMeal
-            // 
-            this.btnCancelMeal.BackColor = System.Drawing.Color.Sienna;
-            this.btnCancelMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelMeal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelMeal.Location = new System.Drawing.Point(647, 543);
-            this.btnCancelMeal.Name = "btnCancelMeal";
-            this.btnCancelMeal.Size = new System.Drawing.Size(114, 58);
-            this.btnCancelMeal.TabIndex = 19;
-            this.btnCancelMeal.Text = "Cancelar Refeição";
-            this.btnCancelMeal.UseVisualStyleBackColor = false;
-            this.btnCancelMeal.Click += new System.EventHandler(this.BtnCancelMeal_Click);
-            // 
             // Add_Meal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +336,9 @@
         private System.Windows.Forms.Label lbMealPriceUserPreview;
         private System.Windows.Forms.Label lbMealDescriptionUserPreview;
         private System.Windows.Forms.Label lbMealTypeUserPreview;
+        private System.Windows.Forms.Label lbText;
+        private System.Windows.Forms.Button btnCreateMeal;
+        private System.Windows.Forms.Button btnCancelMeal;
         private System.Windows.Forms.PictureBox pictureBoxMealImage;
         private System.Windows.Forms.Label lbMealName;
         private System.Windows.Forms.Label lbDescription;
@@ -348,8 +351,5 @@
         private System.Windows.Forms.ComboBox cbMealType;
         private System.Windows.Forms.TextBox tbMealPrice;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbText;
-        private System.Windows.Forms.Button btnCreateMeal;
-        private System.Windows.Forms.Button btnCancelMeal;
     }
 }

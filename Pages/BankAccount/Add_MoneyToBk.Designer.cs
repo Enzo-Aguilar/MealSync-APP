@@ -1,4 +1,4 @@
-﻿namespace MealSync_APP.Pages.BankAccount
+﻿namespace MealSync_APP.Pages.BankAccountFolder
 {
     partial class Add_MoneyToBk
     {

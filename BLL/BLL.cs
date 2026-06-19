@@ -370,6 +370,15 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             return dal.ExecuteReader("SELECT * FROM [Meal]", null);
         }
+        public static DataTable Show_MealsByDate(DateTime Date)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@Date", Date)
+            };
+            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date) ORDER BY Date DESC", sqlParams);
+        }
         public static int Create_Meal(Meal meal)
         {
             DAL dal = new DAL();
@@ -383,6 +392,21 @@ namespace BusinessLogicLayer
                 new SqlParameter("@Type", meal.Type)
             };
             return dal.ExecuteNonQuery("INSERT INTO [Meal] (Date,Description,MealImage,Name,Price,Type) VALUES(@Date,@Description,@MealImage,@Name,@Price,@Type)", sqlParams);
+        }
+        public static int Update_Meal(Meal meal)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID", meal.ID),
+                new SqlParameter("@Date", meal.Date),
+                new SqlParameter("@Description", meal.Description),
+                new SqlParameter("@MealImage", meal.MealImage),
+                new SqlParameter("@Name", meal.Name),
+                new SqlParameter("@Price", meal.Price),
+                new SqlParameter("@Type", meal.Type)
+            };
+            return dal.ExecuteNonQuery("UPDATE [Meal] SET Date=@Date, Description=@Description, MealImage=@MealImage, Name=@Name, Price=@Price, Type=@Type WHERE ID=@ID", sqlParams);
         }
     }
     public class Order_BLL
