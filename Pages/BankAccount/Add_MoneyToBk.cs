@@ -65,5 +65,10 @@ namespace MealSync_APP.Pages.BankAccountFolder
             tbBankAccountID.Clear();
             tbAddedAmount.Clear();
         }
+
+        private void lbText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

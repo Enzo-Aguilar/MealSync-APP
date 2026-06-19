@@ -119,7 +119,7 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(149, 589);
+            this.label1.Location = new System.Drawing.Point(149, 590);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 31);
             this.label1.TabIndex = 18;
@@ -131,7 +131,7 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(371, 589);
+            this.label2.Location = new System.Drawing.Point(371, 591);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 19;

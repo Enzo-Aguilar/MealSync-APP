@@ -26,10 +26,7 @@ namespace MealSync_APP.OrderFolder
             LoadUserOrdersForDate(OrderDateTime.Value);
             LogCheck.UserIsLogged(this);
         }
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+ 
         // Create the Meal Components for ordered meals
         private Panel CreateMealComponent(Meal meal, int width = 200, int height = 280)
         {
