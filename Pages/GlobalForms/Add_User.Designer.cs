@@ -53,7 +53,7 @@
             this.btnRegister.TabIndex = 37;
             this.btnRegister.Text = "Criar Conta";
             this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnRegister.Click += new System.EventHandler(this.BtnCreateUser_Click);
             // 
             // cbRole
             // 
@@ -70,7 +70,6 @@
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(235, 39);
             this.cbRole.TabIndex = 36;
-            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // tbPassword_Confirm
             // 
@@ -101,7 +100,6 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(235, 40);
             this.tbName.TabIndex = 33;
-            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbEmail
             // 

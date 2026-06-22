@@ -564,6 +564,23 @@ namespace BusinessLogicLayer
             };
             dal.ExecuteNonQuery("UPDATE [User] SET IsActive = 1 WHERE ID=@ID", sqlParams);
         }
+        public static int Create_User(User u)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@CreatedAt",u.CreatedAt),
+                    new SqlParameter("@Email",u.Email),
+                    new SqlParameter("@Name",u.Name),
+                    new SqlParameter("@Password",u.Password),
+                    new SqlParameter("@PhoneNumber",u.PhoneNumber),
+                    new SqlParameter("@PostCode",u.PostCode),
+                    new SqlParameter("@ProfileImage",u.ProfileImage),
+                    new SqlParameter("@Role",u.Role),
+                    new SqlParameter("@SchoolMemberId",u.SchoolIDNumber)
+            };
+            return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
+        }
 
         //Para guardar dados do utilizador de sessão
         public static DataTable Save(User user)

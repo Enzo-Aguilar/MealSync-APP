@@ -183,10 +183,6 @@ namespace MealSync_APP.Utils
             }
             BankAccount_BLL.Update_BankAccountBalance(bk.ID,money);
             return new ValidatorResult { IsValid = true, };
-            /*Verificar o valor da dinheiro,
-             * Update na bd na conta
-             * Returnar
-             */
         }
     }
     public static class BankAccountData

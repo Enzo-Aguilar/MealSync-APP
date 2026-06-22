@@ -1,8 +1,10 @@
 ﻿using MealSync_APP.Globals;
+using MealSync_APP.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
 {
     public partial class Add_MoneyToBk : Form
     {
+        private static readonly BankAccount _bk = new BankAccount();
         public Add_MoneyToBk()
         {
             InitializeComponent();
@@ -43,7 +46,27 @@ namespace MealSync_APP.Pages.BankAccountFolder
         }
         private void BtnAddMoney_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                _bk.Iban = tbIban.Text;
+                _bk.ID = int.Parse(tbBankAccountID.Text);
+                SqlMoney money = SqlMoney.Parse(tbAddedAmount.Text);
+                var addAmount = BankAuth.AddAmountToBkAccount(_bk, money);
+                if (addAmount.IsValid)
+                {
+                    MessageBox.Show("Valor adicionado com sucesso","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    ClearFields();
+                    _bk.Clear();
+                }
+                else
+                {
+                    MessageBox.Show(addAmount.ErrorMessage, addAmount.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}");
+            }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {

@@ -14,29 +14,19 @@ namespace MealSync_APP.Pages.GlobalForms
 {
     public partial class Add_User : Form
     {
-        private readonly int _role;
-
+        private static readonly User _user = new User(); 
         public Add_User(string fromWhere)
         {
             InitializeComponent();
-            _role = fromWhere == "Admin" ? 0 : fromWhere == "Employee" ? 1 : 2;
         }
-
         //Load do form
         private void Create_User_Load(object sender, EventArgs e)
         {
             CbRole_Visibility();
-
-            cbRole.Items.Add("Administrador"); 
-            cbRole.Items.Add("Funcionário");   
-            cbRole.Items.Add("Aluno");         
-
-            cbRole.SelectedIndex = _role; 
-            cbRole.Enabled = false;       
         }
 
         //Métodos dos Componentes Gráficos
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void BtnCreateUser_Click(object sender, EventArgs e)
         {
             DateTime createdAt = DateTime.UtcNow;
             string email = tbEmail.Text;
@@ -45,30 +35,17 @@ namespace MealSync_APP.Pages.GlobalForms
             string passwordConfirm = tbPassword_Confirm.Text;
             int role = _role;
 
-            //UserAuth.Register(email, name, password, passwordConfirm, role);
-            //BLL.User.Create_User(createdAt, email, name, password, role);
+         
+            User_BLL.Create_User();
             MessageBox.Show("Utilizador Criado com sucesso");
         }
 
         //Métodos Auxiliares
         private void CbRole_Visibility()
         {
-           
+            //Fazer switch pra verificar se é 0 1 ou 2
         }
 
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
