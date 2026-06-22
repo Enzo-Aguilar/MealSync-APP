@@ -97,6 +97,7 @@
             this.label1.Size = new System.Drawing.Size(54, 37);
             this.label1.TabIndex = 7;
             this.label1.Text = "🔄";
+            this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // label2
             // 
@@ -108,6 +109,7 @@
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 8;
             this.label2.Text = "🗑️";
+            this.label2.Click += new System.EventHandler(this.BtnCleanSelection_Click);
             // 
             // Transactions_BankAccount
             // 

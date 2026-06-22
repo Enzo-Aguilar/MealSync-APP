@@ -156,11 +156,12 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(227, 527);
+            this.label2.Location = new System.Drawing.Point(230, 525);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 28;
             this.label2.Text = "🔒";
+            this.label2.Click += new System.EventHandler(this.BtnDeactivateAccount_Click);
             // 
             // label3
             // 
@@ -168,11 +169,12 @@
             this.label3.BackColor = System.Drawing.Color.Sienna;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(460, 527);
+            this.label3.Location = new System.Drawing.Point(460, 525);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 33);
             this.label3.TabIndex = 29;
             this.label3.Text = "🔄";
+            this.label3.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // Deactivate_BankAccount
             // 
