@@ -144,7 +144,6 @@
             this.lbText.Size = new System.Drawing.Size(20, 24);
             this.lbText.TabIndex = 15;
             this.lbText.Text = "€";
-            this.lbText.Click += new System.EventHandler(this.lbText_Click);
             // 
             // label3
             // 

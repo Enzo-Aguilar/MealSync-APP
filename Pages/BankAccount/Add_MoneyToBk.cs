@@ -47,14 +47,14 @@ namespace MealSync_APP.Pages.BankAccountFolder
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-
+            LoadContent();
         }
 
         // Helpers
         private void LoadContent()
         {
             dgvBankAccounts.Visible = false;
-            dgvBankAccounts.DataSource = null;//Uma metodos que returna uma tabela com as contas daquele user e as associadas. o parametro da função é o ID do User
+            dgvBankAccounts.DataSource = null;//Um metodos que returna uma tabela com as contas daquele user e as associadas. o parametro da função é o ID do User
             dgvBankAccounts.Visible = true;
         }
         private void ClearFields()
@@ -64,11 +64,6 @@ namespace MealSync_APP.Pages.BankAccountFolder
             tbIban.Clear();
             tbBankAccountID.Clear();
             tbAddedAmount.Clear();
-        }
-
-        private void lbText_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
