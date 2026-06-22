@@ -84,6 +84,7 @@
             // panelSelectedMeal
             // 
             this.panelSelectedMeal.BackColor = System.Drawing.Color.Transparent;
+            this.panelSelectedMeal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelSelectedMeal.Controls.Add(this.tbMealPrice);
             this.panelSelectedMeal.Controls.Add(this.cbMealType);
             this.panelSelectedMeal.Controls.Add(this.tbMealDescription);
@@ -193,7 +194,7 @@
             // 
             // pictureBoxMealImage
             // 
-            this.pictureBoxMealImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxMealImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxMealImage.Location = new System.Drawing.Point(101, 27);
             this.pictureBoxMealImage.Name = "pictureBoxMealImage";
             this.pictureBoxMealImage.Size = new System.Drawing.Size(251, 174);
@@ -206,6 +207,7 @@
             // 
             this.panelMealCards.AutoScroll = true;
             this.panelMealCards.BackColor = System.Drawing.Color.Transparent;
+            this.panelMealCards.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelMealCards.Location = new System.Drawing.Point(12, 49);
             this.panelMealCards.Name = "panelMealCards";
             this.panelMealCards.Size = new System.Drawing.Size(546, 548);

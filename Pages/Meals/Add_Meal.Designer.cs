@@ -60,7 +60,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lbMealTypeUserPreview);
             this.panel1.Controls.Add(this.lbMealPriceUserPreview);
             this.panel1.Controls.Add(this.lbMealDescriptionUserPreview);
@@ -117,7 +117,7 @@
             // 
             // pictureBoxUserMealImagePreview
             // 
-            this.pictureBoxUserMealImagePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxUserMealImagePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxUserMealImagePreview.Location = new System.Drawing.Point(19, 19);
             this.pictureBoxUserMealImagePreview.Name = "pictureBoxUserMealImagePreview";
             this.pictureBoxUserMealImagePreview.Size = new System.Drawing.Size(251, 174);
@@ -130,7 +130,7 @@
             this.lbWhatUserSee.AutoSize = true;
             this.lbWhatUserSee.BackColor = System.Drawing.Color.Transparent;
             this.lbWhatUserSee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWhatUserSee.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbWhatUserSee.ForeColor = System.Drawing.Color.White;
             this.lbWhatUserSee.Location = new System.Drawing.Point(624, 74);
             this.lbWhatUserSee.Name = "lbWhatUserSee";
             this.lbWhatUserSee.Size = new System.Drawing.Size(216, 25);
@@ -142,7 +142,7 @@
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbText.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbText.ForeColor = System.Drawing.Color.White;
             this.lbText.Location = new System.Drawing.Point(22, 33);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(147, 25);
@@ -177,7 +177,7 @@
             // 
             // pictureBoxMealImage
             // 
-            this.pictureBoxMealImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxMealImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxMealImage.Location = new System.Drawing.Point(101, 27);
             this.pictureBoxMealImage.Name = "pictureBoxMealImage";
             this.pictureBoxMealImage.Size = new System.Drawing.Size(251, 174);
@@ -284,6 +284,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.tbMealPrice);
             this.panel3.Controls.Add(this.cbMealType);
             this.panel3.Controls.Add(this.tbMealDescription);
