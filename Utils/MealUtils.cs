@@ -286,7 +286,7 @@ namespace MealSync_APP.Utils
     }
     public class MealAuth : MealValidator
     {
-        public static new ValidatorResult Create_Meal(Meal meal)
+        public static ValidatorResult CreateMeal(Meal meal)
         {
             var checks = new[]
             {
@@ -306,6 +306,18 @@ namespace MealSync_APP.Utils
             {
                 IsValid = true,
                 ErrorMessage = ""
+            };
+        }
+        public static ValidatorResult EditMeal(Meal m)
+        {
+            var checks = new[]
+            {
+                Validate_DateTimePicker(m.Date),
+                Validate_Description(m.Description),
+                Validate_MealImage(m.MealImage),
+                Validate_Name(m.Name),
+                Validate_Price(m.Price),
+                Validate_Type(m.Type),
             };
         }
     }

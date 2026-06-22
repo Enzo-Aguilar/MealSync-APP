@@ -521,6 +521,33 @@ namespace MealSync_APP.Utils
                 };
             }
         }
+        public static ValidatorResult CreateUser(User u, string passwordConfirm)
+        {
+            var validations = new[]
+            {
+                UserValidator.ValidateEmail(u.Email),
+                UserValidator.IsEmailTaken(u.Email),
+                UserValidator.ValidateName(u.Name),
+                UserValidator.IsNameTaken(u.Name),
+                Password.Validate(u.Password),
+                Password.ValidatePasswordConfirmation(u.Password, passwordConfirm),
+                UserValidator.ValidateRole(u.Role),
+                UserValidator.ValidatePhoneNumber(u.PhoneNumber),
+                UserValidator.IsPhoneNumberTaken(u.PhoneNumber),
+                UserValidator.ValidatePostcode(u.PostCode),
+                UserValidator.ValidateProfileImage(u.ProfileImage),
+                UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber),
+                UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber),
+            };
+
+            foreach (var validation in validations)
+            {
+                if (!validation.IsValid) return validation;
+            }
+            u.Password = Password.HashPassword(u.Password);
+            User_BLL.Create_User(u);
+            return new ValidatorResult { IsValid = true };
+        }
     }
     public class UserData
     {

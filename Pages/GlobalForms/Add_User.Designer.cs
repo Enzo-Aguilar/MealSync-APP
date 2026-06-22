@@ -35,11 +35,11 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tbPostCode = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
+            this.pbProfileImage = new System.Windows.Forms.PictureBox();
+            this.tbSchoolMemberID = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -68,7 +68,7 @@
             "Aluno"});
             this.cbRole.Location = new System.Drawing.Point(391, 247);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(235, 39);
+            this.cbRole.Size = new System.Drawing.Size(235, 47);
             this.cbRole.TabIndex = 36;
             // 
             // tbPassword_Confirm
@@ -78,7 +78,7 @@
             this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Window;
             this.tbPassword_Confirm.Location = new System.Drawing.Point(663, 246);
             this.tbPassword_Confirm.Name = "tbPassword_Confirm";
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(231, 40);
+            this.tbPassword_Confirm.Size = new System.Drawing.Size(231, 49);
             this.tbPassword_Confirm.TabIndex = 35;
             // 
             // tbPassword
@@ -88,7 +88,7 @@
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
             this.tbPassword.Location = new System.Drawing.Point(663, 138);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(231, 40);
+            this.tbPassword.Size = new System.Drawing.Size(231, 49);
             this.tbPassword.TabIndex = 34;
             // 
             // tbName
@@ -98,7 +98,7 @@
             this.tbName.ForeColor = System.Drawing.SystemColors.Window;
             this.tbName.Location = new System.Drawing.Point(391, 358);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(235, 40);
+            this.tbName.Size = new System.Drawing.Size(235, 49);
             this.tbName.TabIndex = 33;
             // 
             // tbEmail
@@ -108,61 +108,61 @@
             this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
             this.tbEmail.Location = new System.Drawing.Point(391, 138);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(235, 40);
+            this.tbEmail.Size = new System.Drawing.Size(235, 49);
             this.tbEmail.TabIndex = 31;
             // 
-            // textBox1
+            // tbPostCode
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(663, 358);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 40);
-            this.textBox1.TabIndex = 38;
+            this.tbPostCode.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbPostCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPostCode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPostCode.Location = new System.Drawing.Point(663, 358);
+            this.tbPostCode.Name = "tbPostCode";
+            this.tbPostCode.Size = new System.Drawing.Size(231, 49);
+            this.tbPostCode.TabIndex = 38;
             // 
-            // textBox2
+            // tbPhoneNumber
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.MenuText;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(391, 469);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 40);
-            this.textBox2.TabIndex = 39;
+            this.tbPhoneNumber.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhoneNumber.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPhoneNumber.Location = new System.Drawing.Point(391, 469);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(235, 49);
+            this.tbPhoneNumber.TabIndex = 39;
             // 
-            // pictureBox1
+            // pbProfileImage
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(921, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 197);
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
+            this.pbProfileImage.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pbProfileImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbProfileImage.BackgroundImage")));
+            this.pbProfileImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbProfileImage.Location = new System.Drawing.Point(921, 132);
+            this.pbProfileImage.Name = "pbProfileImage";
+            this.pbProfileImage.Size = new System.Drawing.Size(194, 197);
+            this.pbProfileImage.TabIndex = 42;
+            this.pbProfileImage.TabStop = false;
             // 
-            // textBox3
+            // tbSchoolMemberID
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.MenuText;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox3.Location = new System.Drawing.Point(663, 469);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 40);
-            this.textBox3.TabIndex = 44;
+            this.tbSchoolMemberID.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbSchoolMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSchoolMemberID.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(663, 469);
+            this.tbSchoolMemberID.Name = "tbSchoolMemberID";
+            this.tbSchoolMemberID.Size = new System.Drawing.Size(231, 49);
+            this.tbSchoolMemberID.TabIndex = 44;
             // 
             // Add_User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1159, 670);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbSchoolMemberID);
+            this.Controls.Add(this.pbProfileImage);
+            this.Controls.Add(this.tbPhoneNumber);
+            this.Controls.Add(this.tbPostCode);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.tbPassword_Confirm);
@@ -171,9 +171,8 @@
             this.Controls.Add(this.tbEmail);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Add_User";
-            this.Text = "Criar";
-            this.Load += new System.EventHandler(this.Create_User_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Criar Utilizador";
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,9 +185,9 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbPostCode;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
+        private System.Windows.Forms.PictureBox pbProfileImage;
+        private System.Windows.Forms.TextBox tbSchoolMemberID;
     }
 }

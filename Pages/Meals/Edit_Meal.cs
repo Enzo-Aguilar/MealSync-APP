@@ -21,6 +21,7 @@ namespace MealSync_APP.MealFolder
         private bool isEditMode = false;
         private Dictionary<int, bool> mealEditableMap = new Dictionary<int, bool>();
 
+        private static readonly Meal _meal = new Meal();
         public Edit_Meal()
         {
             InitializeComponent();
