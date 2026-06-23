@@ -1,16 +1,13 @@
-﻿using BusinessLogicLayer;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using MealSync_APP.Globals;
-using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlTypes;
+using BusinessLogicLayer;
+using MealSync_APP.Utils;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data;
+using System;
 
 namespace MealSync_APP.MealFolder
 {
@@ -19,7 +16,7 @@ namespace MealSync_APP.MealFolder
         private Meal originalMeal = null;
         private Meal currentMeal = null;
         private bool isEditMode = false;
-        private Dictionary<int, bool> mealEditableMap = new Dictionary<int, bool>();
+        private readonly Dictionary<int, bool> mealEditableMap = new Dictionary<int, bool>();
 
         private static readonly Meal _meal = new Meal();
         public Edit_Meal()
@@ -29,25 +26,23 @@ namespace MealSync_APP.MealFolder
 
         private void Edit_Meal_Load(object sender, EventArgs e)
         {
-            dateTimePicker1.Value = DateTime.Today;
-            LoadMealsForDate(dateTimePicker1.Value);
+            dateTimerPickerMeals.Value = DateTime.Today;
+            LoadMealsForDate(dateTimerPickerMeals.Value);
             LogCheck.UserIsLogged(this);
             tbSearch.TextChanged += TbSearch_TextChanged;
-            dateTimePicker1.ValueChanged += DateTimePicker1_ValueChanged;
+            dateTimerPickerMeals.ValueChanged += DateTimePicker1_ValueChanged;
             btnEdit.Click += BtnEdit_Click;
             btnUpdate.Click += BtnUpdate_Click;
         }
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            LoadMealsForDate(dateTimePicker1.Value);
+            LoadMealsForDate(dateTimerPickerMeals.Value);
         }
-
         private void TbSearch_TextChanged(object sender, EventArgs e)
         {
             FilterMealsByName(tbSearch.Text);
         }
-
         private void LoadMealsForDate(DateTime date)
         {
             try
@@ -89,19 +84,17 @@ namespace MealSync_APP.MealFolder
                 MessageBox.Show($"Erro ao carregar refeições: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private bool IsEditable(DateTime mealDate)
         {
             DateTime today = DateTime.Today;
             DateTime sevenDaysLater = today.AddDays(7);
             return mealDate >= sevenDaysLater;
         }
-
         private void FilterMealsByName(string searchTerm)
         {
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
-                LoadMealsForDate(dateTimePicker1.Value);
+                LoadMealsForDate(dateTimerPickerMeals.Value);
                 return;
             }
 
@@ -113,7 +106,6 @@ namespace MealSync_APP.MealFolder
                 }
             }
         }
-
         private Panel CreateMealComponent(Meal meal, bool isEditable, int width = 200, int height = 320)
         {
             string mealName = meal.Name;
@@ -205,7 +197,6 @@ namespace MealSync_APP.MealFolder
 
             return mealPanel;
         }
-
         private void OnMealCardClicked(Meal meal, Panel mealCard)
         {
             foreach (Control control in panelMealCards.Controls)
@@ -222,7 +213,6 @@ namespace MealSync_APP.MealFolder
             mealCard.BackColor = Color.LightCyan;
             DisplayMealDetails(meal);
         }
-
         private void DisplayMealDetails(Meal meal)
         {
             originalMeal = new Meal
@@ -267,7 +257,6 @@ namespace MealSync_APP.MealFolder
             DisableEditMode();
             isEditMode = false;
         }
-
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             try
@@ -299,7 +288,6 @@ namespace MealSync_APP.MealFolder
                 MessageBox.Show($"Erro ao entrar em modo de edição: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private bool HasChanges()
         {
             return !AreStringsEqual(tbMealName.Text, originalMeal.Name) ||
@@ -309,12 +297,10 @@ namespace MealSync_APP.MealFolder
                    mealTimePicker.Value != originalMeal.Date ||
                    !AreMealImagesEqual(pictureBoxMealImage.Image, originalMeal.MealImage);
         }
-
         private bool AreStringsEqual(string str1, string str2)
         {
             return string.Equals(str1 ?? "", str2 ?? "", StringComparison.OrdinalIgnoreCase);
         }
-
         private bool AreMealImagesEqual(Image currentImage, byte[] originalImageBytes)
         {
             if (currentImage == null && (originalImageBytes == null || originalImageBytes.Length == 0))
@@ -326,7 +312,6 @@ namespace MealSync_APP.MealFolder
             byte[] currentImageBytes = ImageUtils.ImageToBytes(currentImage);
             return currentImageBytes.SequenceEqual(originalImageBytes);
         }
-
         private void EnableEditMode()
         {
             tbMealName.ReadOnly = false;
@@ -338,7 +323,6 @@ namespace MealSync_APP.MealFolder
             btnEdit.Text = "Cancelar";
             btnUpdate.Enabled = true;
         }
-
         private void DisableEditMode()
         {
             tbMealName.ReadOnly = true;
@@ -350,7 +334,6 @@ namespace MealSync_APP.MealFolder
             btnEdit.Text = "Editar";
             btnUpdate.Enabled = false;
         }
-
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -425,7 +408,7 @@ namespace MealSync_APP.MealFolder
                     MessageBox.Show("Refeição atualizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DisableEditMode();
                     isEditMode = false;
-                    LoadMealsForDate(dateTimePicker1.Value);
+                    LoadMealsForDate(dateTimerPickerMeals.Value);
                 }
                 else
                 {
@@ -437,7 +420,6 @@ namespace MealSync_APP.MealFolder
                 MessageBox.Show($"Erro ao atualizar refeição: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void DisableMealPanel()
         {
             tbMealName.Clear();
@@ -448,7 +430,6 @@ namespace MealSync_APP.MealFolder
             pictureBoxMealImage.Image = null;
             DisableEditMode();
         }
-
         private void PictureBoxMealImage_Click(object sender, EventArgs e)
         {
             if (!isEditMode)
@@ -473,6 +454,64 @@ namespace MealSync_APP.MealFolder
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao carregar imagem: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DateTimePickerMeals_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Helpers
+        private void LoadMealsByDate(DateTime date)
+        {
+            try
+            {
+                panelMealCards.Controls.Clear();
+                mealEditableMap.Clear();
+                var dt = Meal_BLL.Show_MealsByDate(date);// Returns a table with all meals for the selected day
+                if()
+            }
+        }
+        private void LoadMealsForDate(DateTime date)
+        {
+            try
+            {
+                panelMealCards.Controls.Clear();
+                mealEditableMap.Clear();
+
+                DataTable dt = Meal_BLL.Show_MealsByDate(date);
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Nenhuma refeição encontrada para a data selecionada.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisableMealPanel();
+                    return;
+                }
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Meal meal = new Meal
+                    {
+                        ID = Convert.ToInt32(row["ID"]),
+                        Date = Convert.ToDateTime(row["Date"]),
+                        Description = row["Description"].ToString(),
+                        IsActive = Convert.ToBoolean(row["IsActive"]),
+                        MealImage = row["MealImage"] != DBNull.Value ? (byte[])row["MealImage"] : Array.Empty<byte>(),
+                        Name = row["Name"].ToString(),
+                        Price = row["Price"] != DBNull.Value ? (SqlMoney)row["Price"] : SqlMoney.Zero,
+                        Type = row["Type"].ToString()
+                    };
+
+                    bool isEditable = IsEditable(meal.Date);
+                    mealEditableMap[meal.ID] = isEditable;
+
+                    Panel mealCard = CreateMealComponent(meal, isEditable);
+                    panelMealCards.Controls.Add(mealCard);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar refeições: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

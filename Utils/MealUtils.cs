@@ -2,6 +2,7 @@
 using MealSync_APP.Globals;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -288,7 +289,7 @@ namespace MealSync_APP.Utils
     {
         public static ValidatorResult CreateMeal(Meal meal)
         {
-            var checks = new[]
+            var validations = new[]
             {
                 Validate_DateTimePicker(meal.Date),
                 Validate_Description(meal.Description),
@@ -297,20 +298,16 @@ namespace MealSync_APP.Utils
                 Validate_Price(meal.Price),
                 Validate_Type(meal.Type),
             };
-            foreach(var res in checks)
+            foreach(var validation in validations)
             {
-                if (!res.IsValid) return res;
+                if (!validation.IsValid) return validation;
             }
             Meal_BLL.Create_Meal(meal);
-            return new ValidatorResult
-            {
-                IsValid = true,
-                ErrorMessage = ""
-            };
+            return new ValidatorResult { IsValid = true, };
         }
         public static ValidatorResult EditMeal(Meal m)
         {
-            var checks = new[]
+            var validations = new[]
             {
                 Validate_DateTimePicker(m.Date),
                 Validate_Description(m.Description),
@@ -319,6 +316,20 @@ namespace MealSync_APP.Utils
                 Validate_Price(m.Price),
                 Validate_Type(m.Type),
             };
+            foreach(var validation in validations)
+            {
+                if(!validation.IsValid) return validation;
+            }
+            Meal_BLL.Update_Meal(m);
+            return new ValidatorResult { IsValid = true, };
+        } // Use this in edit_meal form 
+        public static Meal IndexMeals(DateTime date)
+        {
+            var dt = Meal_BLL.Show_MealsByDate(date);
+            if(dt == null || dt.Rows.Count == 0)
+            {
+                return null;
+            }
         }
     }
 }

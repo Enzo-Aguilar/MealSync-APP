@@ -377,7 +377,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@Date", Date)
             };
-            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date) ORDER BY Date DESC", sqlParams);
+            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date)", sqlParams);
         }
         public static int Create_Meal(Meal meal)
         {
