@@ -48,9 +48,9 @@
             this.btnDeactivatedAccounts.BackColor = System.Drawing.Color.Sienna;
             this.btnDeactivatedAccounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivatedAccounts.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDeactivatedAccounts.Location = new System.Drawing.Point(137, 534);
+            this.btnDeactivatedAccounts.Location = new System.Drawing.Point(593, 534);
             this.btnDeactivatedAccounts.Name = "btnDeactivatedAccounts";
-            this.btnDeactivatedAccounts.Size = new System.Drawing.Size(216, 65);
+            this.btnDeactivatedAccounts.Size = new System.Drawing.Size(138, 69);
             this.btnDeactivatedAccounts.TabIndex = 43;
             this.btnDeactivatedAccounts.Text = "Reativar";
             this.btnDeactivatedAccounts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -62,9 +62,9 @@
             this.tbSearch.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(776, 161);
+            this.tbSearch.Location = new System.Drawing.Point(729, 12);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(233, 30);
+            this.tbSearch.Size = new System.Drawing.Size(218, 30);
             this.tbSearch.TabIndex = 41;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
@@ -73,10 +73,10 @@
             this.tbBankAccountID.BackColor = System.Drawing.SystemColors.ControlText;
             this.tbBankAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBankAccountID.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbBankAccountID.Location = new System.Drawing.Point(776, 317);
+            this.tbBankAccountID.Location = new System.Drawing.Point(600, 269);
             this.tbBankAccountID.Name = "tbBankAccountID";
             this.tbBankAccountID.ReadOnly = true;
-            this.tbBankAccountID.Size = new System.Drawing.Size(233, 30);
+            this.tbBankAccountID.Size = new System.Drawing.Size(279, 30);
             this.tbBankAccountID.TabIndex = 39;
             // 
             // btnUpdate
@@ -84,9 +84,9 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(372, 534);
+            this.btnUpdate.Location = new System.Drawing.Point(747, 534);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(215, 65);
+            this.btnUpdate.Size = new System.Drawing.Size(137, 69);
             this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -98,7 +98,7 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(776, 469);
+            this.tbPassword.Location = new System.Drawing.Point(600, 472);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(233, 30);
@@ -109,10 +109,10 @@
             this.tbIBAN.BackColor = System.Drawing.SystemColors.Desktop;
             this.tbIBAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIBAN.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbIBAN.Location = new System.Drawing.Point(776, 393);
+            this.tbIBAN.Location = new System.Drawing.Point(600, 366);
             this.tbIBAN.Name = "tbIBAN";
             this.tbIBAN.ReadOnly = true;
-            this.tbIBAN.Size = new System.Drawing.Size(233, 30);
+            this.tbIBAN.Size = new System.Drawing.Size(279, 30);
             this.tbIBAN.TabIndex = 31;
             // 
             // tbAccountOwner
@@ -120,45 +120,45 @@
             this.tbAccountOwner.BackColor = System.Drawing.SystemColors.Desktop;
             this.tbAccountOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAccountOwner.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbAccountOwner.Location = new System.Drawing.Point(776, 240);
+            this.tbAccountOwner.Location = new System.Drawing.Point(600, 173);
             this.tbAccountOwner.Name = "tbAccountOwner";
             this.tbAccountOwner.ReadOnly = true;
-            this.tbAccountOwner.Size = new System.Drawing.Size(233, 30);
+            this.tbAccountOwner.Size = new System.Drawing.Size(279, 30);
             this.tbAccountOwner.TabIndex = 30;
             // 
             // dgvBankAccounts
             // 
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 48);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 52);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
             this.dgvBankAccounts.RowHeadersWidth = 51;
-            this.dgvBankAccounts.Size = new System.Drawing.Size(678, 299);
+            this.dgvBankAccounts.Size = new System.Drawing.Size(535, 317);
             this.dgvBankAccounts.TabIndex = 29;
             this.dgvBankAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellClick);
             // 
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.Color.Black;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbPassword.Location = new System.Drawing.Point(975, 472);
+            this.lbPassword.Location = new System.Drawing.Point(839, 476);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(31, 24);
+            this.lbPassword.Size = new System.Drawing.Size(20, 24);
             this.lbPassword.TabIndex = 44;
-            this.lbPassword.Text = "🔒";
+            this.lbPassword.Text = "€";
             this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Sienna;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(456, 538);
+            this.label2.Location = new System.Drawing.Point(787, 538);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 33);
+            this.label2.Size = new System.Drawing.Size(54, 37);
             this.label2.TabIndex = 47;
             this.label2.Text = "🔄";
             this.label2.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -167,11 +167,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Sienna;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(225, 538);
+            this.label3.Location = new System.Drawing.Point(636, 538);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 33);
+            this.label3.Size = new System.Drawing.Size(54, 37);
             this.label3.TabIndex = 48;
             this.label3.Text = "🔓";
             this.label3.Click += new System.EventHandler(this.BtnReactivateAccounts_Click);
@@ -182,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1182, 651);
+            this.ClientSize = new System.Drawing.Size(1024, 651);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbPassword);
