@@ -40,6 +40,7 @@
             this.lbText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,16 +59,16 @@
             this.tbSearch.BackColor = System.Drawing.Color.Black;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.White;
-            this.tbSearch.Location = new System.Drawing.Point(646, 109);
+            this.tbSearch.Location = new System.Drawing.Point(789, 12);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(199, 31);
+            this.tbSearch.Size = new System.Drawing.Size(227, 31);
             this.tbSearch.TabIndex = 1;
             // 
             // tbAccountOwner
             // 
             this.tbAccountOwner.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbAccountOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAccountOwner.Location = new System.Drawing.Point(646, 180);
+            this.tbAccountOwner.Location = new System.Drawing.Point(642, 176);
             this.tbAccountOwner.Name = "tbAccountOwner";
             this.tbAccountOwner.ReadOnly = true;
             this.tbAccountOwner.Size = new System.Drawing.Size(306, 31);
@@ -78,7 +79,7 @@
             this.tbIban.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIban.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbIban.Location = new System.Drawing.Point(646, 283);
+            this.tbIban.Location = new System.Drawing.Point(643, 273);
             this.tbIban.Name = "tbIban";
             this.tbIban.ReadOnly = true;
             this.tbIban.Size = new System.Drawing.Size(306, 31);
@@ -89,7 +90,7 @@
             this.tbBankAccountID.BackColor = System.Drawing.Color.Black;
             this.tbBankAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBankAccountID.ForeColor = System.Drawing.Color.White;
-            this.tbBankAccountID.Location = new System.Drawing.Point(646, 383);
+            this.tbBankAccountID.Location = new System.Drawing.Point(642, 372);
             this.tbBankAccountID.Name = "tbBankAccountID";
             this.tbBankAccountID.ReadOnly = true;
             this.tbBankAccountID.Size = new System.Drawing.Size(306, 31);
@@ -100,7 +101,7 @@
             this.tbAddedAmount.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbAddedAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAddedAmount.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbAddedAmount.Location = new System.Drawing.Point(646, 498);
+            this.tbAddedAmount.Location = new System.Drawing.Point(642, 476);
             this.tbAddedAmount.Name = "tbAddedAmount";
             this.tbAddedAmount.Size = new System.Drawing.Size(199, 29);
             this.tbAddedAmount.TabIndex = 9;
@@ -110,7 +111,7 @@
             this.btnAddMoney.BackColor = System.Drawing.Color.Sienna;
             this.btnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMoney.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddMoney.Location = new System.Drawing.Point(641, 547);
+            this.btnAddMoney.Location = new System.Drawing.Point(631, 545);
             this.btnAddMoney.Name = "btnAddMoney";
             this.btnAddMoney.Size = new System.Drawing.Size(155, 69);
             this.btnAddMoney.TabIndex = 13;
@@ -124,7 +125,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(812, 547);
+            this.btnUpdate.Location = new System.Drawing.Point(795, 545);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(155, 69);
             this.btnUpdate.TabIndex = 14;
@@ -137,11 +138,11 @@
             // 
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(860, 502);
+            this.lbText.Location = new System.Drawing.Point(854, 479);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(20, 24);
+            this.lbText.Size = new System.Drawing.Size(23, 25);
             this.lbText.TabIndex = 15;
             this.lbText.Text = "€";
             // 
@@ -151,7 +152,7 @@
             this.label3.BackColor = System.Drawing.Color.Sienna;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(866, 552);
+            this.label3.Location = new System.Drawing.Point(846, 551);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 33);
             this.label3.TabIndex = 30;
@@ -164,12 +165,23 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(695, 552);
+            this.label1.Location = new System.Drawing.Point(682, 550);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 33);
             this.label1.TabIndex = 31;
             this.label1.Text = "➕";
             this.label1.Click += new System.EventHandler(this.BtnAddMoney_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(743, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 31);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "   ";
             // 
             // Add_MoneyToBk
             // 
@@ -178,6 +190,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1099, 661);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbText);
@@ -211,5 +224,6 @@
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
