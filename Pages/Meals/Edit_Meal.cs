@@ -408,7 +408,7 @@ namespace MealSync_APP.MealFolder
                     MessageBox.Show("Refeição atualizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DisableEditMode();
                     isEditMode = false;
-                    LoadMealsForDate(dateTimerPickerMeals.Value);
+                    LoadMealsByDate(dateTimerPickerMeals.Value);
                 }
                 else
                 {
@@ -469,8 +469,25 @@ namespace MealSync_APP.MealFolder
             {
                 panelMealCards.Controls.Clear();
                 mealEditableMap.Clear();
-                var dt = Meal_BLL.Show_MealsByDate(date);// Returns a table with all meals for the selected day
-                if()
+
+                Meal[] meals = MealAuth.IndexMeals(date);
+                if(meals == null)
+                {
+                    MessageBox.Show("Nenhuma refeição encontrada para a data selecionada.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisableMealPanel();
+                    return;
+                }
+                foreach(Meal m in meals)
+                {
+                    bool isEditable = MealValidator.IsMealOnTimeToBeEditable(m.Date);
+                    mealEditableMap[m.ID] = isEditable;
+                    Panel mealCard = CreateMealComponent(m, isEditable);
+                    panelMealCards.Controls.Add(mealCard);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}");
             }
         }
         private void LoadMealsForDate(DateTime date)

@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
+using System.Drawing.Text;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -284,6 +286,12 @@ namespace MealSync_APP.Utils
                 };
             }
         }
+        static public  bool IsMealOnTimeToBeEditable(DateTime? date)
+        {
+            DateTime today = DateTime.Today;
+            DateTime sevenDaysLater = today.AddDays(7);
+            return date >= sevenDaysLater;
+        }
     }
     public class MealAuth : MealValidator
     {
@@ -323,13 +331,32 @@ namespace MealSync_APP.Utils
             Meal_BLL.Update_Meal(m);
             return new ValidatorResult { IsValid = true, };
         } // Use this in edit_meal form 
-        public static Meal IndexMeals(DateTime date)
+        public static Meal[] IndexMeals(DateTime date)
         {
+            Dictionary<int,bool> mealEditableMap = new Dictionary<int,bool>();
+
             var dt = Meal_BLL.Show_MealsByDate(date);
+            Meal[] meals = new Meal[15];
             if(dt == null || dt.Rows.Count == 0)
             {
                 return null;
             }
+            foreach (DataRow row in dt.Rows)
+            {
+                Meal m = new Meal
+                {
+                    ID = Convert.ToInt32(row["ID"]),
+                    Date = Convert.ToDateTime(row["Date"]),
+                    Description = row["Description"].ToString(),
+                    IsActive = Convert.ToBoolean(row["IsActive"]),
+                    MealImage = row["MealImage"] != DBNull.Value ? (byte[])row["MealImage"] : Array.Empty<byte>(),
+                    Name = row["Name"].ToString(),
+                    Price = row["Price"] != DBNull.Value ? (SqlMoney)row["Price"] : SqlMoney.Zero,
+                    Type = row["Type"].ToString()
+                };
+                meals.Append(m);
+            }
+            return meals;
         }
     }
 }
