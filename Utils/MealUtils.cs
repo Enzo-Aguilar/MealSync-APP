@@ -286,7 +286,7 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        static public  bool IsMealOnTimeToBeEditable(DateTime? date)
+        static public bool IsMealOnTimeToBeEditable(DateTime? date)
         {
             DateTime today = DateTime.Today;
             DateTime sevenDaysLater = today.AddDays(7);
@@ -306,7 +306,7 @@ namespace MealSync_APP.Utils
                 Validate_Price(meal.Price),
                 Validate_Type(meal.Type),
             };
-            foreach(var validation in validations)
+            foreach (var validation in validations)
             {
                 if (!validation.IsValid) return validation;
             }
@@ -315,6 +315,8 @@ namespace MealSync_APP.Utils
         }
         public static ValidatorResult EditMeal(Meal m)
         {
+            if (m == null) return new ValidatorResult { IsValid = false, ErrorMessage = "Nenhuma refeição selecionada", };
+
             var validations = new[]
             {
                 Validate_DateTimePicker(m.Date),
@@ -324,20 +326,18 @@ namespace MealSync_APP.Utils
                 Validate_Price(m.Price),
                 Validate_Type(m.Type),
             };
-            foreach(var validation in validations)
+            foreach (var validation in validations)
             {
-                if(!validation.IsValid) return validation;
+                if (!validation.IsValid) return validation;
             }
             Meal_BLL.Update_Meal(m);
             return new ValidatorResult { IsValid = true, };
-        } // Use this in edit_meal form 
+        }
         public static Meal[] IndexMeals(DateTime date)
         {
-            Dictionary<int,bool> mealEditableMap = new Dictionary<int,bool>();
-
             var dt = Meal_BLL.Show_MealsByDate(date);
             Meal[] meals = new Meal[15];
-            if(dt == null || dt.Rows.Count == 0)
+            if (dt == null || dt.Rows.Count == 0)
             {
                 return null;
             }

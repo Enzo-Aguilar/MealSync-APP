@@ -133,8 +133,8 @@ namespace MealSync_APP.Utils
     {
         public static void UserIsLogged(Form f)
         {
-            User u = CurrentSession.User;
-            if (u == null)
+
+            if (CurrentSession.User == null)
             {
                 MessageBox.Show("Nenhum utilizador logado","Erro");
                 LoginForm.Open(f);

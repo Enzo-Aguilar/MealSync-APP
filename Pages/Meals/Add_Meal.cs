@@ -37,7 +37,7 @@ namespace MealSync_APP.MealFolder
                     Price = SqlMoney.Parse(tbMealPrice.Text),
                     Type = cbMealType.SelectedItem.ToString()
                 };
-                var create_meal = MealAuth.Create_Meal(meal);
+                var create_meal = MealAuth.CreateMeal(meal);
                 if (create_meal.IsValid)
                 {
                     MessageBox.Show("Refeição criada com sucesso!");
