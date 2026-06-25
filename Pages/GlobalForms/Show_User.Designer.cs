@@ -47,9 +47,11 @@
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(288, 67);
+            this.dgvUsers.Location = new System.Drawing.Point(384, 82);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(707, 404);
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.Size = new System.Drawing.Size(943, 497);
             this.dgvUsers.TabIndex = 0;
             // 
             // btnUpdate
@@ -58,9 +60,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(72, 278);
+            this.btnUpdate.Location = new System.Drawing.Point(96, 342);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(154, 76);
+            this.btnUpdate.Size = new System.Drawing.Size(205, 94);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -73,9 +76,10 @@
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.Color.White;
-            this.lbText.Location = new System.Drawing.Point(284, 500);
+            this.lbText.Location = new System.Drawing.Point(379, 615);
+            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(74, 24);
+            this.lbText.Size = new System.Drawing.Size(94, 29);
             this.lbText.TabIndex = 3;
             this.lbText.Text = "Ordem:";
             // 
@@ -84,9 +88,10 @@
             this.btnAlphabeticOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnAlphabeticOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlphabeticOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlphabeticOrder.Location = new System.Drawing.Point(393, 488);
+            this.btnAlphabeticOrder.Location = new System.Drawing.Point(524, 601);
+            this.btnAlphabeticOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAlphabeticOrder.Name = "btnAlphabeticOrder";
-            this.btnAlphabeticOrder.Size = new System.Drawing.Size(194, 50);
+            this.btnAlphabeticOrder.Size = new System.Drawing.Size(259, 62);
             this.btnAlphabeticOrder.TabIndex = 4;
             this.btnAlphabeticOrder.Text = "Alfabetica";
             this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -98,9 +103,10 @@
             this.btnIdOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnIdOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIdOrder.ForeColor = System.Drawing.Color.White;
-            this.btnIdOrder.Location = new System.Drawing.Point(593, 488);
+            this.btnIdOrder.Location = new System.Drawing.Point(791, 601);
+            this.btnIdOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIdOrder.Name = "btnIdOrder";
-            this.btnIdOrder.Size = new System.Drawing.Size(199, 50);
+            this.btnIdOrder.Size = new System.Drawing.Size(265, 62);
             this.btnIdOrder.TabIndex = 5;
             this.btnIdOrder.Text = "              ID";
             this.btnIdOrder.UseVisualStyleBackColor = false;
@@ -111,9 +117,10 @@
             this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnCreatedAtOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatedAtOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreatedAtOrder.Location = new System.Drawing.Point(798, 488);
+            this.btnCreatedAtOrder.Location = new System.Drawing.Point(1064, 601);
+            this.btnCreatedAtOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreatedAtOrder.Name = "btnCreatedAtOrder";
-            this.btnCreatedAtOrder.Size = new System.Drawing.Size(188, 50);
+            this.btnCreatedAtOrder.Size = new System.Drawing.Size(251, 62);
             this.btnCreatedAtOrder.TabIndex = 6;
             this.btnCreatedAtOrder.Text = "Data de Criação";
             this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,9 +133,10 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(123, 285);
+            this.label1.Location = new System.Drawing.Point(164, 351);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 39);
+            this.label1.Size = new System.Drawing.Size(70, 52);
             this.label1.TabIndex = 8;
             this.label1.Text = "🔄";
             this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -139,9 +147,10 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(414, 492);
+            this.label2.Location = new System.Drawing.Point(552, 606);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 42);
+            this.label2.Size = new System.Drawing.Size(45, 54);
             this.label2.TabIndex = 9;
             this.label2.Text = "⬇️";
             this.label2.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
@@ -152,9 +161,10 @@
             this.lbLetterA.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterA.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterA.Location = new System.Drawing.Point(441, 492);
+            this.lbLetterA.Location = new System.Drawing.Point(588, 606);
+            this.lbLetterA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLetterA.Name = "lbLetterA";
-            this.lbLetterA.Size = new System.Drawing.Size(20, 24);
+            this.lbLetterA.Size = new System.Drawing.Size(26, 29);
             this.lbLetterA.TabIndex = 10;
             this.lbLetterA.Text = "𝐀";
             this.lbLetterA.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
@@ -165,9 +175,10 @@
             this.lbLetterZ.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterZ.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterZ.Location = new System.Drawing.Point(442, 510);
+            this.lbLetterZ.Location = new System.Drawing.Point(589, 628);
+            this.lbLetterZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLetterZ.Name = "lbLetterZ";
-            this.lbLetterZ.Size = new System.Drawing.Size(19, 24);
+            this.lbLetterZ.Size = new System.Drawing.Size(24, 29);
             this.lbLetterZ.TabIndex = 11;
             this.lbLetterZ.Text = "𝐙";
             this.lbLetterZ.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
@@ -178,9 +189,10 @@
             this.label5.BackColor = System.Drawing.Color.Sienna;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Snow;
-            this.label5.Location = new System.Drawing.Point(654, 492);
+            this.label5.Location = new System.Drawing.Point(872, 606);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 37);
+            this.label5.Size = new System.Drawing.Size(63, 46);
             this.label5.TabIndex = 12;
             this.label5.Text = "🪪";
             this.label5.Click += new System.EventHandler(this.BtnIdOrder_Click);
@@ -191,20 +203,21 @@
             this.label7.BackColor = System.Drawing.Color.Sienna;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Snow;
-            this.label7.Location = new System.Drawing.Point(809, 493);
+            this.label7.Location = new System.Drawing.Point(1079, 607);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 33);
+            this.label7.Size = new System.Drawing.Size(61, 42);
             this.label7.TabIndex = 14;
             this.label7.Text = "📝";
             this.label7.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // Show_User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1029, 587);
+            this.ClientSize = new System.Drawing.Size(1372, 722);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbLetterZ);
@@ -217,6 +230,7 @@
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvUsers);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Show_User";
             this.Text = "Mostrar";
             this.Load += new System.EventHandler(this.Show_User_Load);

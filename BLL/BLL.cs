@@ -324,7 +324,7 @@ namespace BusinessLogicLayer
             return Convert.ToInt32(dal.ExecuteScalar("SELECT ID FROM [Holder] WHERE UserId=@UserId", sqlParams));
         }
 
-        //Métodos de Procura
+        //Mï¿½todos de Procura
         public static DataTable Search_Holder(int UserId, int BankAccountId)
         {
             DAL dal = new DAL();
@@ -582,7 +582,7 @@ namespace BusinessLogicLayer
             return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
         }
 
-        //Para guardar dados do utilizador de sessão
+        //Current Session User
         public static DataTable Save(User user)
         {
             DAL dal = new DAL();
@@ -608,7 +608,7 @@ namespace BusinessLogicLayer
             dal.ExecuteNonQuery("UPDATE [User] SET Email=@Email,Name=@Name,Password=@Password,PhoneNumber=@PhoneNumber,PostCode=@PostCode,SchoolMemberId=@SchoolMemberId WHERE ID=@ID", sqlParams);
         }
 
-        //Métodos de Procura
+        //Search Methods
         public static object Search_Email(string Email)
         {
             DAL dal = new DAL();
@@ -664,7 +664,24 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0", null);
             }
-            
+
+            public static DataTable Show_Admins_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0 ORDER BY Name ASC", null);
+            }
+
+            public static DataTable Show_Admins_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0 ORDER BY ID ASC", null);
+            }
+
+            public static DataTable Show_Admins_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0 ORDER BY CreatedAt ASC", null);
+            }
         }
         public class Employee
         {
@@ -673,6 +690,24 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1", null);
             }
+
+            public static DataTable Show_Employees_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1 ORDER BY Name ASC", null);
+            }
+
+            public static DataTable Show_Employees_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1 ORDER BY ID ASC", null);
+            }
+
+            public static DataTable Show_Employees_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1 ORDER BY CreatedAt ASC", null);
+            }
         }
         public class Student
         {
@@ -680,6 +715,24 @@ namespace BusinessLogicLayer
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2", null);
+            }
+
+            public static DataTable Show_Students_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2 ORDER BY Name ASC", null);
+            }
+
+            public static DataTable Show_Students_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2 ORDER BY ID ASC", null);
+            }
+
+            public static DataTable Show_Students_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2 ORDER BY CreatedAt ASC", null);
             }
         }
     }

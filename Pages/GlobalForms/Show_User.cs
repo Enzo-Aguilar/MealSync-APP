@@ -1,13 +1,6 @@
-﻿using BusinessLogicLayer;
+﻿using System.Windows.Forms;
+using BusinessLogicLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.GlobalForms
 {
@@ -35,21 +28,31 @@ namespace MealSync_APP.Pages.GlobalForms
         private void BtnAlphabeticOrder_Click(object sender, EventArgs e)
         {
             if (_fromWhere == "Admin")
-                dgvUsers.DataSource = User_BLL.Admin.Show_Admins();
+                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_Alphabetical();
             else if (_fromWhere == "Employee")
-                dgvUsers.DataSource = User_BLL.Employee.Show_Employees();
+                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_Alphabetical();
             else
-                dgvUsers.DataSource = User_BLL.Student.Show_Students();
+                dgvUsers.DataSource = User_BLL.Student.Show_Students_Alphabetical();
         }
 
         private void BtnIdOrder_Click(object sender, EventArgs e)
         {
-
+            if (_fromWhere == "Admin")
+                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderById();
+            else if (_fromWhere == "Employee")
+                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderById();
+            else
+                dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderById();
         }
 
         private void BtnCreatedAtOrder_Click(object sender, EventArgs e)
         {
-
+            if (_fromWhere == "Admin")
+                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderByCreationDate();
+            else if (_fromWhere == "Employee")
+                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderByCreationDate();
+            else
+                dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderByCreationDate();
         }
 
         //Helpers
