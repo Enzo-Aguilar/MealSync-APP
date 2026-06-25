@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_User));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
-            this.btnTableOrder = new System.Windows.Forms.Button();
-            this.btnTableOrder1 = new System.Windows.Forms.Button();
-            this.btnTableOrder2 = new System.Windows.Forms.Button();
+            this.btnAlphabeticOrder = new System.Windows.Forms.Button();
+            this.btnIdOrder = new System.Windows.Forms.Button();
+            this.btnCreatedAtOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbLetterA = new System.Windows.Forms.Label();
+            this.lbLetterZ = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(288, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(707, 404);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(288, 67);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.Size = new System.Drawing.Size(707, 404);
+            this.dgvUsers.TabIndex = 0;
             // 
             // btnUpdate
             // 
@@ -79,46 +79,46 @@
             this.lbText.TabIndex = 3;
             this.lbText.Text = "Ordem:";
             // 
-            // btnTableOrder
+            // btnAlphabeticOrder
             // 
-            this.btnTableOrder.BackColor = System.Drawing.Color.Sienna;
-            this.btnTableOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTableOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTableOrder.Location = new System.Drawing.Point(393, 488);
-            this.btnTableOrder.Name = "btnTableOrder";
-            this.btnTableOrder.Size = new System.Drawing.Size(194, 50);
-            this.btnTableOrder.TabIndex = 4;
-            this.btnTableOrder.Text = "Alfabetica";
-            this.btnTableOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTableOrder.UseVisualStyleBackColor = false;
-            this.btnTableOrder.Click += new System.EventHandler(this.BtnTableOrder_Click);
+            this.btnAlphabeticOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnAlphabeticOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlphabeticOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAlphabeticOrder.Location = new System.Drawing.Point(393, 488);
+            this.btnAlphabeticOrder.Name = "btnAlphabeticOrder";
+            this.btnAlphabeticOrder.Size = new System.Drawing.Size(194, 50);
+            this.btnAlphabeticOrder.TabIndex = 4;
+            this.btnAlphabeticOrder.Text = "Alfabetica";
+            this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlphabeticOrder.UseVisualStyleBackColor = false;
+            this.btnAlphabeticOrder.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
-            // btnTableOrder1
+            // btnIdOrder
             // 
-            this.btnTableOrder1.BackColor = System.Drawing.Color.Sienna;
-            this.btnTableOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTableOrder1.ForeColor = System.Drawing.Color.White;
-            this.btnTableOrder1.Location = new System.Drawing.Point(593, 488);
-            this.btnTableOrder1.Name = "btnTableOrder1";
-            this.btnTableOrder1.Size = new System.Drawing.Size(199, 50);
-            this.btnTableOrder1.TabIndex = 5;
-            this.btnTableOrder1.Text = "              ID";
-            this.btnTableOrder1.UseVisualStyleBackColor = false;
-            this.btnTableOrder1.Click += new System.EventHandler(this.BtnTableOrder1_Click);
+            this.btnIdOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnIdOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIdOrder.ForeColor = System.Drawing.Color.White;
+            this.btnIdOrder.Location = new System.Drawing.Point(593, 488);
+            this.btnIdOrder.Name = "btnIdOrder";
+            this.btnIdOrder.Size = new System.Drawing.Size(199, 50);
+            this.btnIdOrder.TabIndex = 5;
+            this.btnIdOrder.Text = "              ID";
+            this.btnIdOrder.UseVisualStyleBackColor = false;
+            this.btnIdOrder.Click += new System.EventHandler(this.BtnIdOrder_Click);
             // 
-            // btnTableOrder2
+            // btnCreatedAtOrder
             // 
-            this.btnTableOrder2.BackColor = System.Drawing.Color.Sienna;
-            this.btnTableOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTableOrder2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTableOrder2.Location = new System.Drawing.Point(798, 488);
-            this.btnTableOrder2.Name = "btnTableOrder2";
-            this.btnTableOrder2.Size = new System.Drawing.Size(188, 50);
-            this.btnTableOrder2.TabIndex = 6;
-            this.btnTableOrder2.Text = "Numero de Aluno";
-            this.btnTableOrder2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTableOrder2.UseVisualStyleBackColor = false;
-            this.btnTableOrder2.Click += new System.EventHandler(this.BtnTableOrder2_Click);
+            this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnCreatedAtOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreatedAtOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreatedAtOrder.Location = new System.Drawing.Point(798, 488);
+            this.btnCreatedAtOrder.Name = "btnCreatedAtOrder";
+            this.btnCreatedAtOrder.Size = new System.Drawing.Size(188, 50);
+            this.btnCreatedAtOrder.TabIndex = 6;
+            this.btnCreatedAtOrder.Text = "Data de Criação";
+            this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreatedAtOrder.UseVisualStyleBackColor = false;
+            this.btnCreatedAtOrder.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // label1
             // 
@@ -144,33 +144,33 @@
             this.label2.Size = new System.Drawing.Size(34, 42);
             this.label2.TabIndex = 9;
             this.label2.Text = "⬇️";
-            this.label2.Click += new System.EventHandler(this.BtnTableOrder_Click);
+            this.label2.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
-            // label3
+            // lbLetterA
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Sienna;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(441, 492);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "𝐀";
-            this.label3.Click += new System.EventHandler(this.BtnTableOrder_Click);
+            this.lbLetterA.AutoSize = true;
+            this.lbLetterA.BackColor = System.Drawing.Color.Sienna;
+            this.lbLetterA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetterA.ForeColor = System.Drawing.Color.Snow;
+            this.lbLetterA.Location = new System.Drawing.Point(441, 492);
+            this.lbLetterA.Name = "lbLetterA";
+            this.lbLetterA.Size = new System.Drawing.Size(20, 24);
+            this.lbLetterA.TabIndex = 10;
+            this.lbLetterA.Text = "𝐀";
+            this.lbLetterA.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
-            // label4
+            // lbLetterZ
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Sienna;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(442, 510);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 24);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "𝐙";
-            this.label4.Click += new System.EventHandler(this.BtnTableOrder_Click);
+            this.lbLetterZ.AutoSize = true;
+            this.lbLetterZ.BackColor = System.Drawing.Color.Sienna;
+            this.lbLetterZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetterZ.ForeColor = System.Drawing.Color.Snow;
+            this.lbLetterZ.Location = new System.Drawing.Point(442, 510);
+            this.lbLetterZ.Name = "lbLetterZ";
+            this.lbLetterZ.Size = new System.Drawing.Size(19, 24);
+            this.lbLetterZ.TabIndex = 11;
+            this.lbLetterZ.Text = "𝐙";
+            this.lbLetterZ.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // label5
             // 
@@ -183,7 +183,7 @@
             this.label5.Size = new System.Drawing.Size(54, 37);
             this.label5.TabIndex = 12;
             this.label5.Text = "🪪";
-            this.label5.Click += new System.EventHandler(this.BtnTableOrder1_Click);
+            this.label5.Click += new System.EventHandler(this.BtnIdOrder_Click);
             // 
             // label7
             // 
@@ -196,7 +196,7 @@
             this.label7.Size = new System.Drawing.Size(48, 33);
             this.label7.TabIndex = 14;
             this.label7.Text = "📝";
-            this.label7.Click += new System.EventHandler(this.BtnTableOrder2_Click);
+            this.label7.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // Show_User
             // 
@@ -207,20 +207,20 @@
             this.ClientSize = new System.Drawing.Size(1029, 587);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbLetterZ);
+            this.Controls.Add(this.lbLetterA);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnTableOrder2);
-            this.Controls.Add(this.btnTableOrder1);
-            this.Controls.Add(this.btnTableOrder);
+            this.Controls.Add(this.btnCreatedAtOrder);
+            this.Controls.Add(this.btnIdOrder);
+            this.Controls.Add(this.btnAlphabeticOrder);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUsers);
             this.Name = "Show_User";
             this.Text = "Mostrar";
             this.Load += new System.EventHandler(this.Show_User_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,16 +228,16 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lbText;
-        private System.Windows.Forms.Button btnTableOrder;
-        private System.Windows.Forms.Button btnTableOrder1;
-        private System.Windows.Forms.Button btnTableOrder2;
+        private System.Windows.Forms.Button btnAlphabeticOrder;
+        private System.Windows.Forms.Button btnIdOrder;
+        private System.Windows.Forms.Button btnCreatedAtOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbLetterA;
+        private System.Windows.Forms.Label lbLetterZ;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
     }

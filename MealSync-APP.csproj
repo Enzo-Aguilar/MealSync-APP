@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLL.cs" />
     <Compile Include="Globals\BankAccount.cs" />
     <Compile Include="Globals\CurrentSession.cs" />
     <Compile Include="Globals\Faq.cs" />
@@ -195,7 +196,6 @@
     <Compile Include="Pages\BankAccount\Associate_BankAccount.Designer.cs">
       <DependentUpon>Associate_BankAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="BLL\BLL.cs" />
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="Pages\BankAccount\Create_BankAccount.cs">
       <SubType>Form</SubType>

@@ -1,4 +1,4 @@
-Ôªøusing DataAccessLayer;
+using DataAccessLayer;
 using MealSync_APP;
 using MealSync_APP.Globals;
 using System;
@@ -324,7 +324,7 @@ namespace BusinessLogicLayer
             return Convert.ToInt32(dal.ExecuteScalar("SELECT ID FROM [Holder] WHERE UserId=@UserId", sqlParams));
         }
 
-        //M√©todos de Procura
+        //MÈtodos de Procura
         public static DataTable Search_Holder(int UserId, int BankAccountId)
         {
             DAL dal = new DAL();
@@ -582,7 +582,7 @@ namespace BusinessLogicLayer
             return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
         }
 
-        //Para guardar dados do utilizador de sess√£o
+        //Para guardar dados do utilizador de sess„o
         public static DataTable Save(User user)
         {
             DAL dal = new DAL();
@@ -608,7 +608,7 @@ namespace BusinessLogicLayer
             dal.ExecuteNonQuery("UPDATE [User] SET Email=@Email,Name=@Name,Password=@Password,PhoneNumber=@PhoneNumber,PostCode=@PostCode,SchoolMemberId=@SchoolMemberId WHERE ID=@ID", sqlParams);
         }
 
-        //M√©todos de Procura
+        //MÈtodos de Procura
         public static object Search_Email(string Email)
         {
             DAL dal = new DAL();
@@ -664,6 +664,7 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0", null);
             }
+            
         }
         public class Employee
         {

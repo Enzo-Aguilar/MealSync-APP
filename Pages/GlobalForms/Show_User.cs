@@ -24,36 +24,43 @@ namespace MealSync_APP.Pages.GlobalForms
         {
             LoadTable();
         }
-        private void LoadTable()
-        {
-            if (_fromWhere == "Admin")
-                dataGridView1.DataSource = User_BLL.Admin.Show_Admins();
-            else if (_fromWhere == "Employee")
-                dataGridView1.DataSource = User_BLL.Employee.Show_Employees();
-            else 
-                dataGridView1.DataSource = User_BLL.Student.Show_Students();
-        }
-
         //Métodos dos componentes gráficos
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-
+            dgvUsers.Visible = false;
+            LoadTable();
+            dgvUsers.Visible = true;
         }
 
-        private void BtnTableOrder_Click(object sender, EventArgs e)
+        private void BtnAlphabeticOrder_Click(object sender, EventArgs e)
+        {
+            if (_fromWhere == "Admin")
+                dgvUsers.DataSource = User_BLL.Admin.Show_Admins();
+            else if (_fromWhere == "Employee")
+                dgvUsers.DataSource = User_BLL.Employee.Show_Employees();
+            else
+                dgvUsers.DataSource = User_BLL.Student.Show_Students();
+        }
+
+        private void BtnIdOrder_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnTableOrder1_Click(object sender, EventArgs e)
+        private void BtnCreatedAtOrder_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnTableOrder2_Click(object sender, EventArgs e)
+        //Helpers
+        private void LoadTable()
         {
-
+            if (_fromWhere == "Admin")
+                dgvUsers.DataSource = User_BLL.Admin.Show_Admins();
+            else if (_fromWhere == "Employee")
+                dgvUsers.DataSource = User_BLL.Employee.Show_Employees();
+            else
+                dgvUsers.DataSource = User_BLL.Student.Show_Students();
         }
-
     }
 }
