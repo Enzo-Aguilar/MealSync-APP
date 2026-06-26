@@ -314,21 +314,21 @@ namespace MealSync_APP.Utils
                 {
                     if (postCode.Length == 8)
                     {
-                        if (postCode[4] == '-')
+                        if (postCode[3] == '-')
                         {
                             int cont = 0;
                             foreach (char c in postCode)
                             {
                                 if (!char.IsDigit(c))
                                 {
-                                    if (c == '-' && cont == 4)
+                                    if (c == '-' && cont == 3)
                                     {
                                         continue;
                                     }
                                     return new ValidatorResult
                                     {
                                         IsValid = false,
-                                        ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
+                                        ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´-´ exemplo: 1234-567"
                                     };
                                 }
                                 cont++;
@@ -340,7 +340,7 @@ namespace MealSync_APP.Utils
                             return new ValidatorResult
                             {
                                 IsValid = false,
-                                ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
+                                ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´-´ exemplo: 1234-567"
                             };
                         }
                     }
@@ -349,7 +349,7 @@ namespace MealSync_APP.Utils
                         return new ValidatorResult
                         {
                             IsValid = false,
-                            ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
+                            ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´-´ exemplo: 1234-567"
                         };
                     }
                 }
@@ -407,7 +407,7 @@ namespace MealSync_APP.Utils
                                     return new ValidatorResult
                                     {
                                         IsValid = false,
-                                        ErrorMessage = "O campo [código-potal] deve conter apenas números"
+                                        ErrorMessage = "O campo número de identificação escolar deve conter apenas números"
                                     };
                                 }
                             }
@@ -418,7 +418,7 @@ namespace MealSync_APP.Utils
                             return new ValidatorResult
                             {
                                 IsValid = false,
-                                ErrorMessage = "O campo [número de identificação escolar] com sequencia de dígitos inválida"
+                                ErrorMessage = "O campo número de identificação escolar com sequencia de dígitos inválida"
                             };
                         }
                     }
@@ -427,7 +427,7 @@ namespace MealSync_APP.Utils
                         return new ValidatorResult
                         {
                             IsValid = false,
-                            ErrorMessage = "O campo [número de identificação escolar] deve conter 6 dígitos"
+                            ErrorMessage = "O campo número de identificação escolar deve conter 6 dígitos"
                         };
                     }
                 }
@@ -436,7 +436,7 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult
                     {
                         IsValid = false,
-                        ErrorMessage = "O campo [número de identificação escolar] não pode estar vazio"
+                        ErrorMessage = "O campo número de identificação escolar não pode estar vazio"
                     };
                 }
 
@@ -447,7 +447,7 @@ namespace MealSync_APP.Utils
                 {
                     IsValid = false,
                     Source = nameof(ValidateSchoolMemberID),
-                    ErrorMessage = $"Ocorreu um erro ao tentar validar o campo [número de identificação escolar]: {ex.Message}"
+                    ErrorMessage = $"Ocorreu um erro ao tentar validar o número de identificação escolar: {ex.Message}"
                 };
             }
         }
@@ -498,7 +498,7 @@ namespace MealSync_APP.Utils
                         return new ValidatorResult
                         {
                             IsValid = false,
-                            ErrorMessage = "nome ou palavra-passe incorretos"
+                            ErrorMessage = "Nome ou palavra-passe incorretos"
                         };
                     }
                 }

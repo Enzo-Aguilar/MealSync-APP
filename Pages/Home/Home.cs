@@ -1,15 +1,9 @@
 ﻿using MealSync_APP.Globals;
-using MealSync_APP.Pages.BankAccountFolder;
-using MealSync_APP.Pages.FAQsFolder;
 using MealSync_APP.Pages.GlobalForms;
 using MealSync_APP.Utils;
 using System;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using static BusinessLogicLayer.User_BLL;
 
 namespace MealSync_APP
 {
@@ -19,16 +13,15 @@ namespace MealSync_APP
         {
             InitializeComponent();
         }
-
-        //Load do form
         public void Home_Load(object sender, EventArgs e)
         {
-            //Home_Tabs_Visibility();
-            //LogCheck.UserIsLogged(this);
+            HomeResize(null, null);
+            Home_Tabs_Visibility();
+            LogCheck.UserIsLogged(this);
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-        //Métodos Auxiliares
+        //Helpers
         private void Home_Tabs_Visibility()
         {
             int role = CurrentSession.User.Role;
@@ -53,7 +46,7 @@ namespace MealSync_APP
                 Admins.Visible = false;
             }
         }
-        private void Home_Resize(object sender, EventArgs e)
+        private void HomeResize(object sender, EventArgs e)
         {
             try
             {
@@ -62,15 +55,14 @@ namespace MealSync_APP
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar carregar a image de fundo: {err.Message}", "ERROR");
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar a image de fundo: {err.Message}", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-        }   
+        }
         private void ClockTimer_Tick(object sender, EventArgs e)
         {
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-        //Métodos dos componentes gráficos
 
         //LogOut
         private void Logout_Click(object sender, EventArgs e)
@@ -84,61 +76,49 @@ namespace MealSync_APP
         }
 
         //Perfil do Utilizador
-        private void Edit_Profile_Click(object sender, EventArgs e){ OpenForm.EditUserProfile(); }
+        private void Edit_Profile_Click(object sender, EventArgs e) { OpenForm.EditUserProfile(); }
 
         //Conta bancária
-        private void Associate_BankAccount_Click(object sender, EventArgs e){OpenForm.AssociateToBankAccount();}
-        private void Create_BankAccount_Click(object sender, EventArgs e){OpenForm.CreateBankAccount();}
-        private void Transactions_BankAccount_Click(object sender, EventArgs e){OpenForm.BankAccountTransactions();}
-        private void Deactivate_BankAccount_Click(object sender, EventArgs e){OpenForm.DeactivateBankAccount();}
-        private void Reactivate_BankAccount_Click(object sender, EventArgs e){OpenForm.ReactivateBankAccount();}
+        private void Associate_BankAccount_Click(object sender, EventArgs e) { OpenForm.AssociateToBankAccount(); }
+        private void Create_BankAccount_Click(object sender, EventArgs e) { OpenForm.CreateBankAccount(); }
+        private void Transactions_BankAccount_Click(object sender, EventArgs e) { OpenForm.BankAccountTransactions(); }
+        private void Deactivate_BankAccount_Click(object sender, EventArgs e) { OpenForm.DeactivateBankAccount(); }
+        private void Reactivate_BankAccount_Click(object sender, EventArgs e) { OpenForm.ReactivateBankAccount(); }
 
         // Marcações
-        private void Show_Orders_Click(object sender, EventArgs e) { OpenForm.ShowOrder(); } 
-        private void Make_Orders_Click(object sender, EventArgs e){ OpenForm.MakeOrder(); }
-        private void Cancel_Order_Click(object sender, EventArgs e){ OpenForm.CancelOrder(); }
+        private void Show_Orders_Click(object sender, EventArgs e) { OpenForm.ShowOrder(); }
+        private void Make_Orders_Click(object sender, EventArgs e) { OpenForm.MakeOrder(); }
+        private void Cancel_Order_Click(object sender, EventArgs e) { OpenForm.CancelOrder(); }
 
         // Refeições
-        private void Show_Meals_Click(object sender, EventArgs e) { OpenForm.ShowMeal(); } 
-        private void Edit_Meal_Click(object sender, EventArgs e){ OpenForm.EditMeal(); }
-        private void Add_Meal_Click(object sender, EventArgs e){ OpenForm.AddMeal(); }
-        private void Remove_Meal_Click(object sender, EventArgs e){ OpenForm.RemoveMeal(); }
+        private void Show_Meals_Click(object sender, EventArgs e) { OpenForm.ShowMeal(); }
+        private void Edit_Meal_Click(object sender, EventArgs e) { OpenForm.EditMeal(); }
+        private void Add_Meal_Click(object sender, EventArgs e) { OpenForm.AddMeal(); }
+        private void Remove_Meal_Click(object sender, EventArgs e) { OpenForm.RemoveMeal(); }
 
         // Alunos
-        private void Show_Students_Click(object sender, EventArgs e){ OpenForm.ShowUser("Stundent");}
-        private void Add_Student_Click(object sender, EventArgs e)
-        {
-           
-            new Add_User("Student").ShowDialog();
-        }
-        private void Edit_Student_Click(object sender, EventArgs e){ OpenForm.EditUser("Student"); }
-        private void Remove_Student_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Student"); }
+        private void Show_Students_Click(object sender, EventArgs e) { OpenForm.ShowUser("Stundent"); }
+        private void Add_Student_Click(object sender, EventArgs e){ OpenForm.AddUser("Student"); }
+        private void Edit_Student_Click(object sender, EventArgs e) { OpenForm.EditUser("Student"); }
+        private void Remove_Student_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Student"); }
 
         // Funcionarios
-        private void Show_Employees_Click(object sender, EventArgs e){ OpenForm.ShowUser("Employee"); }
-        private void Add_Employee_Click(object sender, EventArgs e)
-        {
-           
-            new Add_User("Employee").ShowDialog();
-        }
-        private void Edit_Employee_Click(object sender, EventArgs e){ OpenForm.EditUser("Employee"); }
-        private void Remove_Employee_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Employee"); }
+        private void Show_Employees_Click(object sender, EventArgs e) { OpenForm.ShowUser("Employee"); }
+        private void Add_Employee_Click(object sender, EventArgs e){ OpenForm.AddUser("Employee"); }
+        private void Edit_Employee_Click(object sender, EventArgs e) { OpenForm.EditUser("Employee"); }
+        private void Remove_Employee_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Employee"); }
 
         // Administradores
-        private void Show_Admins_Click(object sender, EventArgs e){ OpenForm.ShowUser("Admin"); }
-        private void Add_Admin_Click(object sender, EventArgs e)
-        {
-          
-            new Add_User("Admin").ShowDialog();
-        }
-       
-        private void Edit_Admin_Click(object sender, EventArgs e){ OpenForm.EditUser("Admin"); }
-        private void Remove_Admin_Click(object sender, EventArgs e){ OpenForm.RemoveUser("Admin"); }
+        private void Show_Admins_Click(object sender, EventArgs e) { OpenForm.ShowUser("Admin"); }
+        private void Add_Admin_Click(object sender, EventArgs e){ OpenForm.ShowUser("Admin"); }
+
+        private void Edit_Admin_Click(object sender, EventArgs e) { OpenForm.EditUser("Admin"); }
+        private void Remove_Admin_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Admin"); }
 
         //FAQs (perguntas frequentes)
-        private void Show_FAQs_Click(object sender, EventArgs e){ OpenForm.ShowFAQs(); }
-        private void Make_FAQs_Click(object sender, EventArgs e){ OpenForm.MakeFAQs(); }
-        private void Answer_FAQs_Click(object sender, EventArgs e){ OpenForm.AnswerFAQs(); }
-        private void Reactivate_FAQs_Click(object sender, EventArgs e){ OpenForm.ReactivateFAQs(); }
+        private void Show_FAQs_Click(object sender, EventArgs e) { OpenForm.ShowFAQs(); }
+        private void Make_FAQs_Click(object sender, EventArgs e) { OpenForm.MakeFAQs(); }
+        private void Answer_FAQs_Click(object sender, EventArgs e) { OpenForm.AnswerFAQs(); }
+        private void Reactivate_FAQs_Click(object sender, EventArgs e) { OpenForm.ReactivateFAQs(); }
     }
 }

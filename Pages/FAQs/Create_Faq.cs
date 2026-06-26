@@ -1,9 +1,7 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
-using BusinessLogicLayer;
-using System;
-using System.Data;
 using MealSync_APP.Utils;
+using System;
 
 namespace MealSync_APP.Pages.FAQsFolder
 {
@@ -18,17 +16,17 @@ namespace MealSync_APP.Pages.FAQsFolder
         {
             try
             {
-                _faq.IsAnswered = false;
                 _faq.Question = tbQuestion.Text;
                 if (checkBox.Checked)
-                    _faq.UserId = -1;
+                    _faq.UserId = null;
                 else
                     _faq.UserId = CurrentSession.User.ID;
-                
+
                 var createQuestion = FaqAuth.CreateQuestion(_faq);
                 if (createQuestion.IsValid)
                 {
-                    MessageBox.Show("Pergunta criada com sucesso", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pergunta enviada com sucesso","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    ClearFields();
                     _faq.Clear();
                 }
                 else
@@ -39,10 +37,6 @@ namespace MealSync_APP.Pages.FAQsFolder
             catch(Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                ClearFields();
             }
         }
 

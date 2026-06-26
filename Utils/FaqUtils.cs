@@ -1,7 +1,6 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP.Globals;
+﻿using MealSync_APP.Globals;
+using BusinessLogicLayer;
 using System;
-using System.Xml.Schema;
 
 namespace MealSync_APP.Utils
 {
@@ -121,6 +120,8 @@ namespace MealSync_APP.Utils
             }
 
         }
+
+        //Search Methods
         public static ValidatorResult SearchQuestion(string question)
         {
             try
@@ -181,34 +182,6 @@ namespace MealSync_APP.Utils
             }
 
         }
-        public static ValidatorResult DeactivateQuestion(Faq faq)
-        {
-            try
-            {
-                var validations = new[]
-                {
-                    FaqValidator.ValidateQuestion(faq.Question),
-                };
-                foreach(var validation in validations)
-                {
-                    if (!validation.IsValid)
-                    {
-                        return validation;
-                    }
-                }
-                Faq_BLL.Deactivate_Question(faq.Question);
-                return new ValidatorResult { IsValid = true, };
-            }
-            catch(Exception ex)
-            {
-                return new ValidatorResult
-                {
-                    IsValid = false,
-                    Source = nameof(DeactivateQuestion),
-                    ErrorMessage = $"Ocorreu um erro a desativar pergunta: {ex.Message}",
-                };
-            }
-        }
         public static ValidatorResult CreateQuestion(Faq faq)
         {
             try
@@ -235,6 +208,34 @@ namespace MealSync_APP.Utils
                     IsValid = false,
                     Source = nameof(CreateQuestion),
                     ErrorMessage = $"Ocorreu um erro a criar pergunta: {ex.Message}",
+                };
+            }
+        }
+        public static ValidatorResult DeactivateQuestion(Faq faq)
+        {
+            try
+            {
+                var validations = new[]
+                {
+                    FaqValidator.ValidateQuestion(faq.Question),
+                };
+                foreach(var validation in validations)
+                {
+                    if (!validation.IsValid)
+                    {
+                        return validation;
+                    }
+                }
+                Faq_BLL.Deactivate_Question(faq.Question);
+                return new ValidatorResult { IsValid = true, };
+            }
+            catch(Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    Source = nameof(DeactivateQuestion),
+                    ErrorMessage = $"Ocorreu um erro a desativar pergunta: {ex.Message}",
                 };
             }
         }

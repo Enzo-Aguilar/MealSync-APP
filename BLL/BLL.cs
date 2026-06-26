@@ -176,10 +176,10 @@ namespace BusinessLogicLayer
                 new SqlParameter("@UserId",faq.UserId),
                 new SqlParameter("@Answer",null),
                 new SqlParameter("@IsActive",1),
-                new SqlParameter("@IsAnswered",faq.IsAnswered),
+                new SqlParameter("@IsAnswered",0),
                 new SqlParameter("@Question",faq.Question)
             };
-            return dal.ExecuteNonQuery("INSERT INTO [Faq] (UserId,Answer,IsAnswered,Question) VALUES(@UserId,@Answer,@IsAnswered,@Question)", sqlParams);
+            return dal.ExecuteNonQuery("INSERT INTO [Faq] (UserId,Answer,IsAnswered,Question) VALUES(@UserId,@Answer,@IsActive,@IsAnswered,@Question)", sqlParams);
         }
         public static void Deactivate_Question(string Question)
         {
@@ -546,6 +546,24 @@ namespace BusinessLogicLayer
             };
             return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
         }
+        
+        public static int Create_User(User u)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@CreatedAt",u.CreatedAt),
+                    new SqlParameter("@Email",u.Email),
+                    new SqlParameter("@Name",u.Name),
+                    new SqlParameter("@Password",u.Password),
+                    new SqlParameter("@PhoneNumber",u.PhoneNumber),
+                    new SqlParameter("@PostCode",u.PostCode),
+                    new SqlParameter("@ProfileImage",u.ProfileImage),
+                    new SqlParameter("@Role",u.Role),
+                    new SqlParameter("@SchoolMemberId",u.SchoolIDNumber)
+            };
+            return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
+        }
         public static void Deactivate_User(User user)
         {
             DAL dal = new DAL();
@@ -563,23 +581,6 @@ namespace BusinessLogicLayer
                 new SqlParameter("@ID", user.ID)
             };
             dal.ExecuteNonQuery("UPDATE [User] SET IsActive = 1 WHERE ID=@ID", sqlParams);
-        }
-        public static int Create_User(User u)
-        {
-            DAL dal = new DAL();
-            SqlParameter[] sqlParams = new SqlParameter[]
-            {
-                    new SqlParameter("@CreatedAt",u.CreatedAt),
-                    new SqlParameter("@Email",u.Email),
-                    new SqlParameter("@Name",u.Name),
-                    new SqlParameter("@Password",u.Password),
-                    new SqlParameter("@PhoneNumber",u.PhoneNumber),
-                    new SqlParameter("@PostCode",u.PostCode),
-                    new SqlParameter("@ProfileImage",u.ProfileImage),
-                    new SqlParameter("@Role",u.Role),
-                    new SqlParameter("@SchoolMemberId",u.SchoolIDNumber)
-            };
-            return dal.ExecuteNonQuery("INSERT INTO [User] (CreatedAt,Email,Name,Password,PhoneNumber,PostCode,ProfileImage,Role,SchoolMemberId) VALUES(@CreatedAt,@Email,@Name,@Password,@PhoneNumber,@PostCode,@ProfileImage,@Role,@SchoolMemberId)", sqlParams);
         }
 
         //Current Session User
@@ -647,17 +648,6 @@ namespace BusinessLogicLayer
             return dal.ExecuteScalar("SELECT SchoolMemberId  FROM [User] WHERE SchoolMemberId=@SchoolMemberId", sqlParams);
         }
 
-        public static DataTable Has_BankAccount(int UserId)
-        {
-            DAL dal = new DAL();
-            SqlParameter[] sqlParams = new SqlParameter[]
-            {
-                    new SqlParameter("@UserId",UserId)
-            };
-            return dal.ExecuteReader("SELECT * FROM [Holder] WHERE UserId=@UserId", sqlParams);
-        }
-
-
         //Order All Users
         public static DataTable Show_AllUsers_Alphabetical()
         {
@@ -681,19 +671,16 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0", null);
             }
-
             public static DataTable Show_Admins_Alphabetical()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0 ORDER BY Name ASC", null);
             }
-
             public static DataTable Show_Admins_OrderById()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=0 ORDER BY ID ASC", null);
             }
-
             public static DataTable Show_Admins_OrderByCreationDate()
             {
                 DAL dal = new DAL();
@@ -707,19 +694,16 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1", null);
             }
-
             public static DataTable Show_Employees_Alphabetical()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1 ORDER BY Name ASC", null);
             }
-
             public static DataTable Show_Employees_OrderById()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=1 ORDER BY ID ASC", null);
             }
-
             public static DataTable Show_Employees_OrderByCreationDate()
             {
                 DAL dal = new DAL();
@@ -733,19 +717,16 @@ namespace BusinessLogicLayer
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2", null);
             }
-
             public static DataTable Show_Students_Alphabetical()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2 ORDER BY Name ASC", null);
             }
-
             public static DataTable Show_Students_OrderById()
             {
                 DAL dal = new DAL();
                 return dal.ExecuteReader("SELECT * FROM [User] WHERE Role=2 ORDER BY ID ASC", null);
             }
-
             public static DataTable Show_Students_OrderByCreationDate()
             {
                 DAL dal = new DAL();

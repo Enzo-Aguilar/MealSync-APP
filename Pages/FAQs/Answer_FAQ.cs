@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using MealSync_APP.Globals;
+using System.Windows.Forms;
+using MealSync_APP.Utils;
 using BusinessLogicLayer;
 using System;
-using MealSync_APP.Globals;
-using MealSync_APP.Utils;
 
 namespace MealSync_APP.Pages.FAQsFolder
 {
@@ -14,6 +14,66 @@ namespace MealSync_APP.Pages.FAQsFolder
             InitializeComponent();
         }
         private void Answer_Faq_Load(object sender, EventArgs e)
+        {
+            LoadContent();
+        }
+
+        private void BtnAnswerQuestion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _faq.Answer = tbAnswer.Text;
+                _faq.Question = tbQuestion.Text;
+                var answerQuestion = FaqAuth.AnswerQuestion(_faq);
+                if (answerQuestion.IsValid)
+                {
+                    MessageBox.Show("Pergunta Respondida", "Info", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    _faq.Clear();
+                    ClearFields();
+                    LoadContent();
+                }
+                else
+                {
+                    MessageBox.Show(answerQuestion.ErrorMessage, answerQuestion.Source, MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+        private void BtnDeactivate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _faq.Question = tbQuestion.Text;
+                var message = MessageBox.Show("Tem certeza?", "Info",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+                if(message == DialogResult.Yes)
+                {
+                    var deactivateAnswer = FaqAuth.DeactivateQuestion(_faq);
+                    if (deactivateAnswer.IsValid)
+                    {
+                        MessageBox.Show("Pergunta desativada", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _faq.Clear();
+                        ClearFields();
+                        LoadContent();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deactivateAnswer.ErrorMessage,deactivateAnswer.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+        private void BtnUpdate_Click(object sender, EventArgs e)
         {
             LoadContent();
         }
@@ -41,73 +101,6 @@ namespace MealSync_APP.Pages.FAQsFolder
             {
                 dgvFAQs.DataSource = Faq_BLL.Search_UnansweredQuestion(tbSearch.Text);
             }
-        }
-        private void BtnAnswerQuestion_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _faq.UserId = CurrentSession.User.ID;
-                _faq.Answer = tbAnswer.Text;
-                _faq.Question = tbQuestion.Text;
-                var answerQuestion = FaqAuth.AnswerQuestion(_faq);
-                if (answerQuestion.IsValid)
-                {
-                    MessageBox.Show("Pergunta respondida com sucesso", "Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    _faq.Clear();
-                }
-                else
-                {
-                    MessageBox.Show(answerQuestion.ErrorMessage, answerQuestion.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                LoadContent();
-                ClearFields();
-            }
-        }
-        private void BtnDeactivate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _faq.Question = tbQuestion.Text;
-                var deactivate = FaqAuth.DeactivateQuestion(_faq);
-                if (deactivate.IsValid)
-                {
-                    var message = MessageBox.Show("Tem certeza", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (message == DialogResult.Yes)
-                    {
-
-                        MessageBox.Show("Pergunta desativada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _faq.Clear();
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(deactivate.ErrorMessage, deactivate.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                LoadContent();
-                ClearFields();
-            }
-        }
-        private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            LoadContent();
         }
 
         // Helpers
