@@ -70,6 +70,8 @@ namespace MealSync_APP.Pages.GlobalForms
                     cbRole.Text = "Adminstrador";
                     break;
             }
+
+            cbRole.Enabled = false;
         }
         private void CleearFields()
         {
