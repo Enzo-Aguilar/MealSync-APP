@@ -657,6 +657,23 @@ namespace BusinessLogicLayer
             return dal.ExecuteReader("SELECT * FROM [Holder] WHERE UserId=@UserId", sqlParams);
         }
 
+
+        //Order All Users
+        public static DataTable Show_AllUsers_Alphabetical()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT * FROM [User] ORDER BY Name ASC", null);
+        }
+        public static DataTable Show_AllUsers_OrderById()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT * FROM [User] ORDER BY ID ASC", null);
+        }
+        public static DataTable Show_AllUsers_OrderByCreationDate()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT * FROM [User] ORDER BY CreatedAt ASC", null);
+        }
         public class Admin
         {
             public static DataTable Show_Admins()

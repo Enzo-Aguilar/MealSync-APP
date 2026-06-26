@@ -1,12 +1,14 @@
 ﻿using System.Windows.Forms;
 using BusinessLogicLayer;
 using System;
+using System.Data.SqlClient;
 
 namespace MealSync_APP.Pages.GlobalForms
 {
     public partial class Show_User : Form
     {
-        private readonly string _fromWhere;
+        private readonly string _fromWhere = string.Empty;
+        private bool _allUsers = false;
         public Show_User(string fromWhere)
         {
             InitializeComponent();
@@ -27,32 +29,54 @@ namespace MealSync_APP.Pages.GlobalForms
 
         private void BtnAlphabeticOrder_Click(object sender, EventArgs e)
         {
-            if (_fromWhere == "Admin")
-                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_Alphabetical();
-            else if (_fromWhere == "Employee")
-                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_Alphabetical();
+            if (_allUsers == false)
+            {
+                if (_fromWhere == "Admin")
+                    dgvUsers.DataSource = User_BLL.Admin.Show_Admins_Alphabetical();
+                else if (_fromWhere == "Employee")
+                    dgvUsers.DataSource = User_BLL.Employee.Show_Employees_Alphabetical();
+                else
+                    dgvUsers.DataSource = User_BLL.Student.Show_Students_Alphabetical();
+            }
             else
-                dgvUsers.DataSource = User_BLL.Student.Show_Students_Alphabetical();
+            {
+                dgvUsers.DataSource = User_BLL.Show_AllUsers_Alphabetical();
+            }
         }
 
         private void BtnIdOrder_Click(object sender, EventArgs e)
         {
-            if (_fromWhere == "Admin")
-                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderById();
-            else if (_fromWhere == "Employee")
-                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderById();
+            if (_allUsers == false)
+            {
+                if (_fromWhere == "Admin")
+                    dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderById();
+                else if (_fromWhere == "Employee")
+                    dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderById();
+                else
+                    dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderById();
+            }
             else
-                dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderById();
+            {
+                dgvUsers.DataSource = User_BLL.Show_AllUsers_OrderById();
+            }
         }
 
         private void BtnCreatedAtOrder_Click(object sender, EventArgs e)
         {
-            if (_fromWhere == "Admin")
-                dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderByCreationDate();
-            else if (_fromWhere == "Employee")
-                dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderByCreationDate();
+            if (_allUsers == false)
+            {
+                if (_allUsers == false)
+                    if (_fromWhere == "Admin")
+                        dgvUsers.DataSource = User_BLL.Admin.Show_Admins_OrderByCreationDate();
+                    else if (_fromWhere == "Employee")
+                        dgvUsers.DataSource = User_BLL.Employee.Show_Employees_OrderByCreationDate();
+                    else
+                        dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderByCreationDate();
+            }
             else
-                dgvUsers.DataSource = User_BLL.Student.Show_Students_OrderByCreationDate();
+            {
+                dgvUsers.DataSource = User_BLL.Show_AllUsers_OrderByCreationDate();
+            }
         }
 
         //Helpers
@@ -64,6 +88,10 @@ namespace MealSync_APP.Pages.GlobalForms
                 dgvUsers.DataSource = User_BLL.Employee.Show_Employees();
             else
                 dgvUsers.DataSource = User_BLL.Student.Show_Students();
+        }
+        private void BtnAllUsers_Click(object sender, EventArgs e)
+        {
+            _allUsers = !_allUsers;
         }
     }
 }
