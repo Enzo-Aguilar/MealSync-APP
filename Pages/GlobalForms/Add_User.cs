@@ -55,6 +55,7 @@ namespace MealSync_APP.Pages.GlobalForms
         //Helpers
         private void CbRoleVisibility(string userType)
         {
+            cbRole.Enabled = true;
             switch (userType) 
             {
                 case "Student":
@@ -70,7 +71,6 @@ namespace MealSync_APP.Pages.GlobalForms
                     cbRole.Text = "Adminstrador";
                     break;
             }
-
             cbRole.Enabled = false;
         }
         private void CleearFields()

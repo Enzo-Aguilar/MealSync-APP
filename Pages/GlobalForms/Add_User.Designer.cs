@@ -61,7 +61,7 @@
             this.cbRole.BackColor = System.Drawing.SystemColors.MenuText;
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRole.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbRole.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "Admin",

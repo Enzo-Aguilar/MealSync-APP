@@ -104,7 +104,7 @@ namespace MealSync_APP.BankAccountFolder
                 if(dt == null || dt.Rows.Count == 0)
                 {
                     dgvBankAccounts.DataSource = null;
-                    MessageBox.Show("Nenhum utilizador com conta bancárica coletiva encontrado", "Info",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Nenhum utilizador com conta bancárica coletiva encontrado");
                     return;
                 }
                 dgvBankAccounts.DataSource = dt;

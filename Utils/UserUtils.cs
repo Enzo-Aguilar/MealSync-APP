@@ -122,7 +122,7 @@ namespace MealSync_APP.Utils
         //Auth Methods
         public static ValidatorResult ValidateEmail(string email)
         {
-            List<string> possibleDomains = new List<string> { "gmail", "outlook", "icloud", "sapo", "epge", "proton", "hotmail", "gustaveeiffel" };
+            List<string> possibleDomains = new List<string> { "gmail", "outlook", "icloud", "sapo", "epge", "proton", "hotmail", "gustaveeiffel","edu" };
             try
             {
                 if (email.Contains("@"))
@@ -248,7 +248,7 @@ namespace MealSync_APP.Utils
         }
         public static ValidatorResult ValidatePhoneNumber(string phoneNumber)
         {
-            List<string> fakeNumbers = new List<string> { "123456789", "000000000", "111111111", "222222222" };
+            List<string> fakeNumbers = new List<string> { "123456789", "000000000", "111111111", "222222222", "999999999" };
             try
             {
                 if (!string.IsNullOrEmpty(phoneNumber))
@@ -328,7 +328,7 @@ namespace MealSync_APP.Utils
                                     return new ValidatorResult
                                     {
                                         IsValid = false,
-                                        ErrorMessage = "O campo [código-potal] deve conter apenas números"
+                                        ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
                                     };
                                 }
                                 cont++;
@@ -340,7 +340,7 @@ namespace MealSync_APP.Utils
                             return new ValidatorResult
                             {
                                 IsValid = false,
-                                ErrorMessage = "O campo [código-postal] deve conter um hífen no meio"
+                                ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
                             };
                         }
                     }
@@ -349,7 +349,7 @@ namespace MealSync_APP.Utils
                         return new ValidatorResult
                         {
                             IsValid = false,
-                            ErrorMessage = "O campo [código postal] deve conter 8 caracteres"
+                            ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´´-´´ exemplo: 1234-567"
                         };
                     }
                 }
