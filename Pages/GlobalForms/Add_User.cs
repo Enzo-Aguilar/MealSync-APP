@@ -84,5 +84,10 @@ namespace MealSync_APP.Pages.GlobalForms
             pbProfileImage.Image.Dispose();
             tbSchoolMemberID.Clear();
         }
+
+        private void PbProfileImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

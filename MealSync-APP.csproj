@@ -297,6 +297,9 @@
     <EmbeddedResource Include="Pages\Meals\Edit_Meal.resx">
       <DependentUpon>Edit_Meal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Meals\Remove_Meal.resx">
+      <DependentUpon>Remove_Meal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Orders\Cancel_Order.resx">
       <DependentUpon>Cancel_Order.cs</DependentUpon>
     </EmbeddedResource>
