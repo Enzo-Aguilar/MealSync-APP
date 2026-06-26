@@ -279,6 +279,9 @@
     <EmbeddedResource Include="Pages\GlobalForms\Edit_User.resx">
       <DependentUpon>Edit_User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GlobalForms\remove_User.resx">
+      <DependentUpon>Remove_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Show_User.resx">
       <DependentUpon>Show_User.cs</DependentUpon>
     </EmbeddedResource>
