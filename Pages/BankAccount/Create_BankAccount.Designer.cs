@@ -155,6 +155,7 @@
             this.Controls.Add(this.tbPassword);
             this.Name = "Create_BankAccount";
             this.Text = "Criar Conta Bancaria";
+            this.Load += new System.EventHandler(this.Create_BankAccount_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

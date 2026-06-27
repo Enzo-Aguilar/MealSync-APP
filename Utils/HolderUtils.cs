@@ -105,7 +105,7 @@ namespace MealSync_APP.Utils
     }
     public class HolderAuth
     {
-        public static ValidatorResult CreateHolder(User u, BankAccount bk, int ownerShipOrder)
+        public static ValidatorResult CreateHolder(User u, BankAccount bk, int ownerShipOrder = 1)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace MealSync_APP.Utils
                     {
                         UserId = u.ID,
                         BankAccountId = bk.ID,
-                        OwnerShipOrder = ownerShipOrder,
+                        OwnerShipOrder = ownerShipOrder,// 1 cuz he is the owner of the bk account so he has the first association
                     };
                     Holder_BLL.Create_Holder(h);
                     return new ValidatorResult { IsValid = true };

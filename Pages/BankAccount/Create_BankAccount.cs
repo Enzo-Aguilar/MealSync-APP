@@ -14,10 +14,12 @@ namespace MealSync_APP.BankAccountFolder
         {
             InitializeComponent();
         }
-        //Métodos dos componentes gráficos
+        private void Create_BankAccount_Load(object sender, EventArgs e)
+        {
+            LogCheck.UserIsLogged(this);
+        }
         private void BtnCreate_BankAccount_Click(object sender, EventArgs e)
         {
-            int ownerNumber = 1;
             try
             {
                 _bk.AccountType = cbAccountType.SelectedItem.ToString();
@@ -25,30 +27,33 @@ namespace MealSync_APP.BankAccountFolder
                 _bk.CreatedAt = DateTime.Now;
                 _bk.Password = tbPassword.Text;
                 _bk.Iban = Iban.Create();
-                string passwordConfirm = tbPasswordConfirm.Text;
 
-                var createBk = BankAuth.CreateBankAccount(_bk, passwordConfirm);
+                string passwordConfirm = tbPasswordConfirm.Text;
+                var createBk = BankAuth.CreateBankAccount(_bk,passwordConfirm);
                 if (createBk.IsValid)
                 {
-                    HolderAuth.CreateHolder(_user,_bk,ownerNumber);
-                    BankAccountData.Save(_bk);
-                    MessageBox.Show("Conta criada com sucesso");
+                    var createHolder = HolderAuth.CreateHolder(_user, _bk);
+                    if (createHolder.IsValid)
+                    {
+                        BankAccountData.Save(_bk);
+                        MessageBox.Show("Conta Bancaria criado com sucessso", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _bk.Clear();
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show(createHolder.ErrorMessage, createHolder.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show($"Não é possivel criar conta bancária: {createBk.ErrorMessage}",createBk.Source,MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                    MessageBox.Show(createBk.ErrorMessage, createBk.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro a criar conta bancária: {ex.Message}","Erro",MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                _bk.Clear();
-                _user.Clear();
-                ClearFields();
-            }
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            } 
         }
         private void LinkLabelAssociateBankAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){OpenForm.AssociateToBankAccount();}
 
@@ -85,5 +90,7 @@ namespace MealSync_APP.BankAccountFolder
                 lbPasswordConfirm.Text = "🔒";
             }
         }
+
+        
     }
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Data;
-using BusinessLogicLayer;
+﻿using MealSync_APP.Globals;
 using System.Data.SqlTypes;
-using MealSync_APP.Globals;
+using BusinessLogicLayer;
+using System.Data;
+using System;
 
 namespace MealSync_APP.Utils
 {
     internal static class BankAccountValidator
     {
-        //IBAN
         public static ValidatorResult ValidateIban(string iban)
         {
             try
@@ -205,36 +204,15 @@ namespace MealSync_APP.Utils
         public static void Save(BankAccount bk)
         {
             var bkDetails = BankAccount_BLL.Get_BankAccountDetails(bk.ID);
-            var bkTables = CurrentSession.UserBkAccountsDataTable;
-            if (bkDetails.Rows.Count == 0)
+            if(bkDetails.Rows.Count == 0)
             {
                 return;
             }
-            bk = new BankAccount
-            {
-                ID = int.Parse(bkDetails.Rows[0][0].ToString()),
-                AccountType = bkDetails.Rows[0][1].ToString(),
-                Balance = SqlMoney.Parse(bkDetails.Rows[0][2].ToString()),
-                CreatedAt = DateTime.Parse(bkDetails.Rows[0][3].ToString()),
-                Iban = bkDetails.Rows[0][4].ToString(),
-                IsActive = true,
-            };
-            EnsureBkTableExists();
-            bkTables.Rows.Add(
-                CurrentSession.User.Name,
-                _ownerNumber,
-                bk.ID,
-                bk.Balance,
-                bk.Iban
-            );
+            AppendBkToUserBkTable(bk);
         }
         public static void LoadBkAssociatedToUser()
         {
             CurrentSession.UserBkAccountsDataTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
-        }
-        public static void ClearBkTable()
-        {
-            CurrentSession.UserBkAccountsDataTable?.Clear();
         }
         public static void AppendBkToUserBkTable(BankAccount bk)
         {
@@ -244,7 +222,8 @@ namespace MealSync_APP.Utils
               _ownerNumber,
               bk.ID,
               bk.Balance,
-              bk.Iban);
+              bk.Iban
+              );
         }
     }
 }

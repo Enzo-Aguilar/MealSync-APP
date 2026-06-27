@@ -281,16 +281,17 @@ namespace BusinessLogicLayer
     }
     public class Holder_BLL
     {
-        public static int Create_Holder(Holder holder)
+        public static int Create_Holder(Holder h)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@UserId", holder.UserId),
-                new SqlParameter("@BankAccountId", holder.BankAccountId),
-                new SqlParameter("@OwnerShipOrder", holder.OwnerShipOrder)
+                new SqlParameter("@UserId", h.UserId),
+                new SqlParameter("@BankAccountId", h.BankAccountId),
+                new SqlParameter("@IsActive", 1),
+                new SqlParameter("@OwnerShipOrder", h.OwnerShipOrder)
             };
-            return dal.ExecuteNonQuery("INSERT INTO [Holder] (UserId,BankAccountId,OwnerShipOrder) VALUES(@UserId,@BankAccountId,@OwnerShipOrder)", sqlParams);
+            return dal.ExecuteNonQuery("INSERT INTO [Holder] (UserId,BankAccountId,IsActive,OwnerShipOrder) VALUES(@UserId,@BankAccountId,@IsActive,@OwnerShipOrder)", sqlParams);
         }
         public static void Deactivate_Holder(Holder holder)
         {
