@@ -124,11 +124,6 @@ namespace MealSync_APP.Utils
             Add_User addUser = new Add_User(fromWhere) { MdiParent= _home };
             addUser.Show();
         }
-        public static void EditUser(string fromWhere)
-        {
-            Edit_User eu = new Edit_User(fromWhere) { MdiParent = _home };
-            eu.Show();
-        }
         public static void ShowUser(string fromWhere)
         {
             Show_User su = new Show_User(fromWhere) { MdiParent = _home };
@@ -136,7 +131,7 @@ namespace MealSync_APP.Utils
         }
         public static void RemoveUser(string fromWhere)
         {
-            Remove_User ru = new Remove_User(fromWhere) { MdiParent =_home };
+            Deactivate_User ru = new Deactivate_User(fromWhere) { MdiParent =_home };
             ru.Show();
         }
 

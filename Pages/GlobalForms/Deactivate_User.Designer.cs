@@ -1,6 +1,6 @@
 ﻿namespace MealSync_APP.Pages.GlobalForms
 {
-    partial class Remove_User
+    partial class Deactivate_User
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,9 @@
             this.lbLetterZ = new System.Windows.Forms.Label();
             this.lbLetterA = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCreatedAtOrder = new System.Windows.Forms.Button();
             this.btnIdOrder = new System.Windows.Forms.Button();
             this.btnAlphabeticOrder = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.lbText = new System.Windows.Forms.Label();
             this.btnDeactivateUser = new System.Windows.Forms.Button();
@@ -47,7 +45,7 @@
             this.lbUserEmail = new System.Windows.Forms.Label();
             this.tbUserPhoneNumber = new System.Windows.Forms.TextBox();
             this.lbUserPhoneNumber = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbUserProfileImage = new System.Windows.Forms.PictureBox();
             this.lbUserProfilePicture = new System.Windows.Forms.Label();
             this.lbSearch = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -55,8 +53,10 @@
             this.btnFilterByAdmins = new System.Windows.Forms.Button();
             this.btnFilterByEmployee = new System.Windows.Forms.Button();
             this.btnFilterByStudent = new System.Windows.Forms.Button();
+            this.tbUserId = new System.Windows.Forms.TextBox();
+            this.lbUserId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -119,18 +119,6 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "⬇️";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(621, 641);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 39);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "🔄";
-            // 
             // btnCreatedAtOrder
             // 
             this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
@@ -143,6 +131,7 @@
             this.btnCreatedAtOrder.Text = "Data de Criação";
             this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreatedAtOrder.UseVisualStyleBackColor = false;
+            this.btnCreatedAtOrder.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // btnIdOrder
             // 
@@ -155,6 +144,7 @@
             this.btnIdOrder.TabIndex = 21;
             this.btnIdOrder.Text = "              ID";
             this.btnIdOrder.UseVisualStyleBackColor = false;
+            this.btnIdOrder.Click += new System.EventHandler(this.BtnIdOrder_Click);
             // 
             // btnAlphabeticOrder
             // 
@@ -168,20 +158,7 @@
             this.btnAlphabeticOrder.Text = "Alfabetica";
             this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlphabeticOrder.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(563, 633);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(162, 84);
-            this.btnUpdate.TabIndex = 18;
-            this.btnUpdate.Text = "Atualizar";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnAlphabeticOrder.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // dgvUsers
             // 
@@ -191,6 +168,7 @@
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.Size = new System.Drawing.Size(816, 404);
             this.dgvUsers.TabIndex = 17;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsers_CellContentClick);
             // 
             // lbText
             // 
@@ -210,18 +188,19 @@
             this.btnDeactivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDeactivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeactivateUser.Location = new System.Drawing.Point(331, 633);
+            this.btnDeactivateUser.Location = new System.Drawing.Point(454, 636);
             this.btnDeactivateUser.Name = "btnDeactivateUser";
             this.btnDeactivateUser.Size = new System.Drawing.Size(162, 84);
             this.btnDeactivateUser.TabIndex = 30;
             this.btnDeactivateUser.Text = "Desativar";
             this.btnDeactivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeactivateUser.UseVisualStyleBackColor = false;
+            this.btnDeactivateUser.Click += new System.EventHandler(this.BtnDeactivateUser_Click);
             // 
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(946, 86);
+            this.lbUserName.Location = new System.Drawing.Point(935, 186);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(38, 13);
             this.lbUserName.TabIndex = 31;
@@ -229,14 +208,14 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(1008, 83);
+            this.tbUserName.Location = new System.Drawing.Point(1000, 183);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(205, 20);
             this.tbUserName.TabIndex = 32;
             // 
             // tbUserEmail
             // 
-            this.tbUserEmail.Location = new System.Drawing.Point(1008, 157);
+            this.tbUserEmail.Location = new System.Drawing.Point(1000, 230);
             this.tbUserEmail.Name = "tbUserEmail";
             this.tbUserEmail.Size = new System.Drawing.Size(205, 20);
             this.tbUserEmail.TabIndex = 34;
@@ -244,7 +223,7 @@
             // lbUserEmail
             // 
             this.lbUserEmail.AutoSize = true;
-            this.lbUserEmail.Location = new System.Drawing.Point(946, 157);
+            this.lbUserEmail.Location = new System.Drawing.Point(938, 230);
             this.lbUserEmail.Name = "lbUserEmail";
             this.lbUserEmail.Size = new System.Drawing.Size(35, 13);
             this.lbUserEmail.TabIndex = 33;
@@ -252,7 +231,7 @@
             // 
             // tbUserPhoneNumber
             // 
-            this.tbUserPhoneNumber.Location = new System.Drawing.Point(1008, 229);
+            this.tbUserPhoneNumber.Location = new System.Drawing.Point(1000, 279);
             this.tbUserPhoneNumber.Name = "tbUserPhoneNumber";
             this.tbUserPhoneNumber.Size = new System.Drawing.Size(205, 20);
             this.tbUserPhoneNumber.TabIndex = 36;
@@ -260,25 +239,25 @@
             // lbUserPhoneNumber
             // 
             this.lbUserPhoneNumber.AutoSize = true;
-            this.lbUserPhoneNumber.Location = new System.Drawing.Point(946, 229);
+            this.lbUserPhoneNumber.Location = new System.Drawing.Point(948, 279);
             this.lbUserPhoneNumber.Name = "lbUserPhoneNumber";
             this.lbUserPhoneNumber.Size = new System.Drawing.Size(25, 13);
             this.lbUserPhoneNumber.TabIndex = 35;
             this.lbUserPhoneNumber.Text = "Tel:";
             // 
-            // pictureBox1
+            // pbUserProfileImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(959, 305);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 232);
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.pbUserProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbUserProfileImage.Location = new System.Drawing.Point(951, 341);
+            this.pbUserProfileImage.Name = "pbUserProfileImage";
+            this.pbUserProfileImage.Size = new System.Drawing.Size(254, 232);
+            this.pbUserProfileImage.TabIndex = 37;
+            this.pbUserProfileImage.TabStop = false;
             // 
             // lbUserProfilePicture
             // 
             this.lbUserProfilePicture.AutoSize = true;
-            this.lbUserProfilePicture.Location = new System.Drawing.Point(1045, 274);
+            this.lbUserProfilePicture.Location = new System.Drawing.Point(1037, 310);
             this.lbUserProfilePicture.Name = "lbUserProfilePicture";
             this.lbUserProfilePicture.Size = new System.Drawing.Size(72, 13);
             this.lbUserProfilePicture.TabIndex = 38;
@@ -299,6 +278,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(205, 20);
             this.tbSearch.TabIndex = 41;
+            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // label3
             // 
@@ -323,6 +303,7 @@
             this.btnFilterByAdmins.TabIndex = 43;
             this.btnFilterByAdmins.Text = "Administrador";
             this.btnFilterByAdmins.UseVisualStyleBackColor = false;
+            this.btnFilterByAdmins.Click += new System.EventHandler(this.BtnFilterByAdmins_Click);
             // 
             // btnFilterByEmployee
             // 
@@ -335,6 +316,7 @@
             this.btnFilterByEmployee.TabIndex = 44;
             this.btnFilterByEmployee.Text = "Funcionário";
             this.btnFilterByEmployee.UseVisualStyleBackColor = false;
+            this.btnFilterByEmployee.Click += new System.EventHandler(this.BtnFilterByEmployee_Click);
             // 
             // btnFilterByStudent
             // 
@@ -347,6 +329,23 @@
             this.btnFilterByStudent.TabIndex = 45;
             this.btnFilterByStudent.Text = "Aluno";
             this.btnFilterByStudent.UseVisualStyleBackColor = false;
+            this.btnFilterByStudent.Click += new System.EventHandler(this.BtnFilterByStudent_Click);
+            // 
+            // tbUserId
+            // 
+            this.tbUserId.Location = new System.Drawing.Point(1000, 138);
+            this.tbUserId.Name = "tbUserId";
+            this.tbUserId.Size = new System.Drawing.Size(205, 20);
+            this.tbUserId.TabIndex = 47;
+            // 
+            // lbUserId
+            // 
+            this.lbUserId.AutoSize = true;
+            this.lbUserId.Location = new System.Drawing.Point(935, 141);
+            this.lbUserId.Name = "lbUserId";
+            this.lbUserId.Size = new System.Drawing.Size(38, 13);
+            this.lbUserId.TabIndex = 46;
+            this.lbUserId.Text = "Nome:";
             // 
             // Remove_User
             // 
@@ -354,6 +353,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1279, 788);
+            this.Controls.Add(this.tbUserId);
+            this.Controls.Add(this.lbUserId);
             this.Controls.Add(this.btnFilterByStudent);
             this.Controls.Add(this.btnFilterByEmployee);
             this.Controls.Add(this.btnFilterByAdmins);
@@ -361,7 +362,7 @@
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.lbUserProfilePicture);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbUserProfileImage);
             this.Controls.Add(this.tbUserPhoneNumber);
             this.Controls.Add(this.lbUserPhoneNumber);
             this.Controls.Add(this.tbUserEmail);
@@ -374,17 +375,16 @@
             this.Controls.Add(this.lbLetterZ);
             this.Controls.Add(this.lbLetterA);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCreatedAtOrder);
             this.Controls.Add(this.btnIdOrder);
             this.Controls.Add(this.btnAlphabeticOrder);
             this.Controls.Add(this.lbText);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvUsers);
             this.Name = "Remove_User";
             this.Text = "remove_User";
+            this.Load += new System.EventHandler(this.Remove_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,11 +396,9 @@
         private System.Windows.Forms.Label lbLetterZ;
         private System.Windows.Forms.Label lbLetterA;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCreatedAtOrder;
         private System.Windows.Forms.Button btnIdOrder;
         private System.Windows.Forms.Button btnAlphabeticOrder;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Button btnDeactivateUser;
@@ -410,7 +408,7 @@
         private System.Windows.Forms.Label lbUserEmail;
         private System.Windows.Forms.TextBox tbUserPhoneNumber;
         private System.Windows.Forms.Label lbUserPhoneNumber;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbUserProfileImage;
         private System.Windows.Forms.Label lbUserProfilePicture;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox tbSearch;
@@ -418,5 +416,7 @@
         private System.Windows.Forms.Button btnFilterByAdmins;
         private System.Windows.Forms.Button btnFilterByEmployee;
         private System.Windows.Forms.Button btnFilterByStudent;
+        private System.Windows.Forms.TextBox tbUserId;
+        private System.Windows.Forms.Label lbUserId;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.GlobalForms
 {
-    public partial class Remove_User : Form
+    public partial class Reactivate_User : Form
     {
-        public Remove_User(string fromWhere)
+        public Reactivate_User()
         {
             InitializeComponent();
         }

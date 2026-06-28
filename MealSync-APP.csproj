@@ -130,11 +130,17 @@
     <Compile Include="Pages\GlobalForms\Add_User.Designer.cs">
       <DependentUpon>Add_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GlobalForms\Remove_User.cs">
+    <Compile Include="Pages\GlobalForms\Deactivate_User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\GlobalForms\Remove_User.Designer.cs">
-      <DependentUpon>Remove_User.cs</DependentUpon>
+    <Compile Include="Pages\GlobalForms\Deactivate_User.Designer.cs">
+      <DependentUpon>Deactivate_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Reactivate_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\GlobalForms\Reactivate_User.Designer.cs">
+      <DependentUpon>Reactivate_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalForms\Show_User.cs">
       <SubType>Form</SubType>
@@ -270,8 +276,8 @@
     <EmbeddedResource Include="Pages\GlobalForms\Add_User.resx">
       <DependentUpon>Add_User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\GlobalForms\remove_User.resx">
-      <DependentUpon>Remove_User.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\GlobalForms\Deactivate_User.resx">
+      <DependentUpon>Deactivate_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Show_User.resx">
       <DependentUpon>Show_User.cs</DependentUpon>

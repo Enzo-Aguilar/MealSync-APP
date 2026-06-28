@@ -120,6 +120,24 @@ namespace MealSync_APP.Utils
         }
 
         //Auth Methods
+        public static ValidatorResult ValidateId(int ID)
+        {
+            if(ID <= 0)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = "ID invalido",
+                };
+            }
+            else
+            {
+                return new ValidatorResult
+                {
+                    IsValid = true,
+                };
+            }
+        }
         public static ValidatorResult ValidateEmail(string email)
         {
             List<string> possibleDomains = new List<string> { "gmail", "outlook", "icloud", "sapo", "epge", "proton", "hotmail", "gustaveeiffel","edu" };
@@ -547,6 +565,25 @@ namespace MealSync_APP.Utils
             u.Password = Password.HashPassword(u.Password);
             User_BLL.Create_User(u);
             return new ValidatorResult { IsValid = true };
+        }
+        public static ValidatorResult DeactivateUser(int ID)
+        {
+            try
+            {
+                User_BLL.Deactivate_User(ID);
+                return new ValidatorResult
+                {
+                    IsValid = true
+                };
+            }
+            catch(Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro desativando utilizador {ex.Message}",
+                };
+            }
         }
     }
     public class UserData

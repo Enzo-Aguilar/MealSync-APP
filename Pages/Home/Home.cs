@@ -99,20 +99,16 @@ namespace MealSync_APP
         // Alunos
         private void Show_Students_Click(object sender, EventArgs e) { OpenForm.ShowUser("Stundent"); }
         private void Add_Student_Click(object sender, EventArgs e){ OpenForm.AddUser("Student"); }
-        private void Edit_Student_Click(object sender, EventArgs e) { OpenForm.EditUser("Student"); }
         private void Remove_Student_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Student"); }
 
         // Funcionarios
         private void Show_Employees_Click(object sender, EventArgs e) { OpenForm.ShowUser("Employee"); }
         private void Add_Employee_Click(object sender, EventArgs e){ OpenForm.AddUser("Employee"); }
-        private void Edit_Employee_Click(object sender, EventArgs e) { OpenForm.EditUser("Employee"); }
         private void Remove_Employee_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Employee"); }
 
         // Administradores
         private void Show_Admins_Click(object sender, EventArgs e) { OpenForm.ShowUser("Admin"); }
         private void Add_Admin_Click(object sender, EventArgs e){ OpenForm.ShowUser("Admin"); }
-
-        private void Edit_Admin_Click(object sender, EventArgs e) { OpenForm.EditUser("Admin"); }
         private void Remove_Admin_Click(object sender, EventArgs e) { OpenForm.RemoveUser("Admin"); }
 
         //FAQs (perguntas frequentes)

@@ -49,17 +49,14 @@
             this.Students = new System.Windows.Forms.ToolStripMenuItem();
             this.show_Students = new System.Windows.Forms.ToolStripMenuItem();
             this.add_Student = new System.Windows.Forms.ToolStripMenuItem();
-            this.edit_Student = new System.Windows.Forms.ToolStripMenuItem();
             this.remove_Student = new System.Windows.Forms.ToolStripMenuItem();
             this.Employees = new System.Windows.Forms.ToolStripMenuItem();
             this.show_Employees = new System.Windows.Forms.ToolStripMenuItem();
             this.add_Employee = new System.Windows.Forms.ToolStripMenuItem();
-            this.edit_Employee = new System.Windows.Forms.ToolStripMenuItem();
             this.remove_Employee = new System.Windows.Forms.ToolStripMenuItem();
             this.Admins = new System.Windows.Forms.ToolStripMenuItem();
             this.show_Admins = new System.Windows.Forms.ToolStripMenuItem();
             this.add_Admin = new System.Windows.Forms.ToolStripMenuItem();
-            this.edit_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.remove_Admin = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.profile = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,21 +138,21 @@
             // ver_Order
             // 
             this.ver_Order.Name = "ver_Order";
-            this.ver_Order.Size = new System.Drawing.Size(180, 22);
+            this.ver_Order.Size = new System.Drawing.Size(145, 22);
             this.ver_Order.Text = "Ver";
             this.ver_Order.Click += new System.EventHandler(this.Show_Orders_Click);
             // 
             // make_Order
             // 
             this.make_Order.Name = "make_Order";
-            this.make_Order.Size = new System.Drawing.Size(180, 22);
+            this.make_Order.Size = new System.Drawing.Size(145, 22);
             this.make_Order.Text = "📝 Marcar";
             this.make_Order.Click += new System.EventHandler(this.Make_Orders_Click);
             // 
             // cancel_Order
             // 
             this.cancel_Order.Name = "cancel_Order";
-            this.cancel_Order.Size = new System.Drawing.Size(180, 22);
+            this.cancel_Order.Size = new System.Drawing.Size(145, 22);
             this.cancel_Order.Text = "🗑️ Desmarcar";
             this.cancel_Order.Click += new System.EventHandler(this.Cancel_Order_Click);
             // 
@@ -203,7 +200,6 @@
             this.Students.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.show_Students,
             this.add_Student,
-            this.edit_Student,
             this.remove_Student});
             this.Students.Name = "Students";
             this.Students.Size = new System.Drawing.Size(56, 20);
@@ -212,28 +208,21 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(140, 22);
+            this.show_Students.Size = new System.Drawing.Size(180, 22);
             this.show_Students.Text = "👀 Ver";
             this.show_Students.Click += new System.EventHandler(this.Show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(140, 22);
+            this.add_Student.Size = new System.Drawing.Size(180, 22);
             this.add_Student.Text = "➕ Adicionar";
             this.add_Student.Click += new System.EventHandler(this.Add_Student_Click);
-            // 
-            // edit_Student
-            // 
-            this.edit_Student.Name = "edit_Student";
-            this.edit_Student.Size = new System.Drawing.Size(140, 22);
-            this.edit_Student.Text = "✍ Editar";
-            this.edit_Student.Click += new System.EventHandler(this.Edit_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(140, 22);
+            this.remove_Student.Size = new System.Drawing.Size(180, 22);
             this.remove_Student.Text = "🗑️ Remover";
             this.remove_Student.Click += new System.EventHandler(this.Remove_Student_Click);
             // 
@@ -242,7 +231,6 @@
             this.Employees.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.show_Employees,
             this.add_Employee,
-            this.edit_Employee,
             this.remove_Employee});
             this.Employees.Name = "Employees";
             this.Employees.Size = new System.Drawing.Size(87, 20);
@@ -251,28 +239,21 @@
             // show_Employees
             // 
             this.show_Employees.Name = "show_Employees";
-            this.show_Employees.Size = new System.Drawing.Size(140, 22);
+            this.show_Employees.Size = new System.Drawing.Size(180, 22);
             this.show_Employees.Text = "👀 Ver";
             this.show_Employees.Click += new System.EventHandler(this.Show_Employees_Click);
             // 
             // add_Employee
             // 
             this.add_Employee.Name = "add_Employee";
-            this.add_Employee.Size = new System.Drawing.Size(140, 22);
+            this.add_Employee.Size = new System.Drawing.Size(180, 22);
             this.add_Employee.Text = "➕ Adicionar";
             this.add_Employee.Click += new System.EventHandler(this.Add_Employee_Click);
-            // 
-            // edit_Employee
-            // 
-            this.edit_Employee.Name = "edit_Employee";
-            this.edit_Employee.Size = new System.Drawing.Size(140, 22);
-            this.edit_Employee.Text = "✍ Editar";
-            this.edit_Employee.Click += new System.EventHandler(this.Edit_Employee_Click);
             // 
             // remove_Employee
             // 
             this.remove_Employee.Name = "remove_Employee";
-            this.remove_Employee.Size = new System.Drawing.Size(140, 22);
+            this.remove_Employee.Size = new System.Drawing.Size(180, 22);
             this.remove_Employee.Text = "🗑️ Remover";
             this.remove_Employee.Click += new System.EventHandler(this.Remove_Employee_Click);
             // 
@@ -281,7 +262,6 @@
             this.Admins.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.show_Admins,
             this.add_Admin,
-            this.edit_Admin,
             this.remove_Admin});
             this.Admins.Name = "Admins";
             this.Admins.Size = new System.Drawing.Size(106, 20);
@@ -290,28 +270,21 @@
             // show_Admins
             // 
             this.show_Admins.Name = "show_Admins";
-            this.show_Admins.Size = new System.Drawing.Size(140, 22);
+            this.show_Admins.Size = new System.Drawing.Size(180, 22);
             this.show_Admins.Text = "👀 Ver";
             this.show_Admins.Click += new System.EventHandler(this.Show_Admins_Click);
             // 
             // add_Admin
             // 
             this.add_Admin.Name = "add_Admin";
-            this.add_Admin.Size = new System.Drawing.Size(140, 22);
+            this.add_Admin.Size = new System.Drawing.Size(180, 22);
             this.add_Admin.Text = "➕ Adicionar";
             this.add_Admin.Click += new System.EventHandler(this.Add_Admin_Click);
-            // 
-            // edit_Admin
-            // 
-            this.edit_Admin.Name = "edit_Admin";
-            this.edit_Admin.Size = new System.Drawing.Size(140, 22);
-            this.edit_Admin.Text = "✍ Editar";
-            this.edit_Admin.Click += new System.EventHandler(this.Edit_Admin_Click);
             // 
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(140, 22);
+            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
             this.remove_Admin.Text = "🗑️ Remover";
             this.remove_Admin.Click += new System.EventHandler(this.Remove_Admin_Click);
             // 
@@ -443,17 +416,14 @@
         private System.Windows.Forms.ToolStripMenuItem Students;
         private System.Windows.Forms.ToolStripMenuItem show_Students;
         private System.Windows.Forms.ToolStripMenuItem add_Student;
-        private System.Windows.Forms.ToolStripMenuItem edit_Student;
         private System.Windows.Forms.ToolStripMenuItem remove_Student;
         private System.Windows.Forms.ToolStripMenuItem Employees;
         private System.Windows.Forms.ToolStripMenuItem show_Employees;
         private System.Windows.Forms.ToolStripMenuItem add_Employee;
-        private System.Windows.Forms.ToolStripMenuItem edit_Employee;
         private System.Windows.Forms.ToolStripMenuItem remove_Employee;
         private System.Windows.Forms.ToolStripMenuItem Admins;
         private System.Windows.Forms.ToolStripMenuItem show_Admins;
         private System.Windows.Forms.ToolStripMenuItem add_Admin;
-        private System.Windows.Forms.ToolStripMenuItem edit_Admin;
         private System.Windows.Forms.ToolStripMenuItem remove_Admin;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deactivate_BankAccount;

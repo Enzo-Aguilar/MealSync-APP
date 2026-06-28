@@ -100,9 +100,9 @@ namespace MealSync_APP.Pages.BankAccountFolder
                     tbBankAccountID.Text = accountID.ToString();
                     tbIBAN.Text = iban;
                 }
-                catch (Exception err)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocorreu um erro selecionando a tabela: {err.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ocorreu um erro selecionando a tabela: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
