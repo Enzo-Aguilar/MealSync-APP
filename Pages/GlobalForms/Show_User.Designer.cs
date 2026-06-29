@@ -41,7 +41,6 @@
             this.lbLetterZ = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lbAllUsers = new System.Windows.Forms.Label();
             this.btnAllUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -201,18 +200,6 @@
             this.label7.Text = "📝";
             this.label7.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
-            // lbAllUsers
-            // 
-            this.lbAllUsers.AutoSize = true;
-            this.lbAllUsers.BackColor = System.Drawing.Color.Sienna;
-            this.lbAllUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAllUsers.ForeColor = System.Drawing.Color.Snow;
-            this.lbAllUsers.Location = new System.Drawing.Point(127, 289);
-            this.lbAllUsers.Name = "lbAllUsers";
-            this.lbAllUsers.Size = new System.Drawing.Size(55, 39);
-            this.lbAllUsers.TabIndex = 16;
-            this.lbAllUsers.Text = "🔄";
-            // 
             // btnAllUsers
             // 
             this.btnAllUsers.BackColor = System.Drawing.Color.Sienna;
@@ -224,7 +211,6 @@
             this.btnAllUsers.Size = new System.Drawing.Size(162, 76);
             this.btnAllUsers.TabIndex = 15;
             this.btnAllUsers.Text = "Todos Utilizadores";
-            this.btnAllUsers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAllUsers.UseVisualStyleBackColor = false;
             this.btnAllUsers.Click += new System.EventHandler(this.BtnAllUsers_Click);
             // 
@@ -235,7 +221,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1029, 587);
-            this.Controls.Add(this.lbAllUsers);
             this.Controls.Add(this.btnAllUsers);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -272,7 +257,6 @@
         private System.Windows.Forms.Label lbLetterZ;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbAllUsers;
         private System.Windows.Forms.Button btnAllUsers;
     }
 }

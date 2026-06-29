@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Remove_Meal));
             this.label3 = new System.Windows.Forms.Label();
             this.lbUpdate = new System.Windows.Forms.Label();
             this.lbRemoveMeal = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             this.label3.BackColor = System.Drawing.Color.Sienna;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(702, 582);
+            this.label3.Location = new System.Drawing.Point(702, 656);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 29);
             this.label3.TabIndex = 29;
@@ -57,11 +58,12 @@
             this.lbUpdate.BackColor = System.Drawing.Color.Sienna;
             this.lbUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUpdate.Location = new System.Drawing.Point(465, 580);
+            this.lbUpdate.Location = new System.Drawing.Point(462, 652);
             this.lbUpdate.Name = "lbUpdate";
             this.lbUpdate.Size = new System.Drawing.Size(48, 33);
             this.lbUpdate.TabIndex = 28;
             this.lbUpdate.Text = "🔄";
+            this.lbUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // lbRemoveMeal
             // 
@@ -69,11 +71,12 @@
             this.lbRemoveMeal.BackColor = System.Drawing.Color.Sienna;
             this.lbRemoveMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRemoveMeal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbRemoveMeal.Location = new System.Drawing.Point(232, 582);
+            this.lbRemoveMeal.Location = new System.Drawing.Point(233, 653);
             this.lbRemoveMeal.Name = "lbRemoveMeal";
-            this.lbRemoveMeal.Size = new System.Drawing.Size(53, 31);
+            this.lbRemoveMeal.Size = new System.Drawing.Size(46, 31);
             this.lbRemoveMeal.TabIndex = 27;
-            this.lbRemoveMeal.Text = "🗳️ ";
+            this.lbRemoveMeal.Text = "🗑️";
+            this.lbRemoveMeal.Click += new System.EventHandler(this.BtnDeativateOrder_Click);
             // 
             // MealDateTime
             // 
@@ -101,7 +104,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(455, 566);
+            this.btnUpdate.Location = new System.Drawing.Point(452, 639);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(132, 64);
             this.btnUpdate.TabIndex = 24;
@@ -114,20 +117,21 @@
             this.btnCancel.BackColor = System.Drawing.Color.Sienna;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancel.Location = new System.Drawing.Point(687, 566);
+            this.btnCancel.Location = new System.Drawing.Point(688, 639);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(132, 64);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnMakeOrder
             // 
             this.btnMakeOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMakeOrder.Location = new System.Drawing.Point(227, 566);
+            this.btnMakeOrder.Location = new System.Drawing.Point(227, 639);
             this.btnMakeOrder.Name = "btnMakeOrder";
             this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
             this.btnMakeOrder.TabIndex = 22;
@@ -140,16 +144,17 @@
             this.panelMeals.AutoScroll = true;
             this.panelMeals.BackColor = System.Drawing.Color.Transparent;
             this.panelMeals.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMeals.Location = new System.Drawing.Point(138, 26);
+            this.panelMeals.Location = new System.Drawing.Point(138, 41);
             this.panelMeals.Name = "panelMeals";
-            this.panelMeals.Size = new System.Drawing.Size(744, 534);
+            this.panelMeals.Size = new System.Drawing.Size(744, 548);
             this.panelMeals.TabIndex = 21;
             // 
             // Remove_Meal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 630);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(977, 747);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbUpdate);
             this.Controls.Add(this.lbRemoveMeal);

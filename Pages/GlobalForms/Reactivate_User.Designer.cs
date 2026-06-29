@@ -28,12 +28,363 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reactivate_User));
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbUserId = new System.Windows.Forms.TextBox();
+            this.btnFilterByStudent = new System.Windows.Forms.Button();
+            this.btnFilterByEmployee = new System.Windows.Forms.Button();
+            this.btnFilterByAdmins = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.pbUserProfileImage = new System.Windows.Forms.PictureBox();
+            this.tbUserPhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbUserEmail = new System.Windows.Forms.TextBox();
+            this.tbUserName = new System.Windows.Forms.TextBox();
+            this.btnActivateUser = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbLetterZ = new System.Windows.Forms.Label();
+            this.lbLetterA = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCreatedAtOrder = new System.Windows.Forms.Button();
+            this.btnIdOrder = new System.Windows.Forms.Button();
+            this.btnAlphabeticOrder = new System.Windows.Forms.Button();
+            this.lbText = new System.Windows.Forms.Label();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Sienna;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(398, 621);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 29);
+            this.label1.TabIndex = 70;
+            this.label1.Text = "🔓";
+            // 
+            // tbUserId
+            // 
+            this.tbUserId.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserId.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserId.Location = new System.Drawing.Point(794, 132);
+            this.tbUserId.Name = "tbUserId";
+            this.tbUserId.Size = new System.Drawing.Size(291, 30);
+            this.tbUserId.TabIndex = 69;
+            // 
+            // btnFilterByStudent
+            // 
+            this.btnFilterByStudent.BackColor = System.Drawing.Color.Sienna;
+            this.btnFilterByStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterByStudent.ForeColor = System.Drawing.Color.White;
+            this.btnFilterByStudent.Location = new System.Drawing.Point(557, 488);
+            this.btnFilterByStudent.Name = "btnFilterByStudent";
+            this.btnFilterByStudent.Size = new System.Drawing.Size(200, 48);
+            this.btnFilterByStudent.TabIndex = 68;
+            this.btnFilterByStudent.Text = "Aluno";
+            this.btnFilterByStudent.UseVisualStyleBackColor = false;
+            // 
+            // btnFilterByEmployee
+            // 
+            this.btnFilterByEmployee.BackColor = System.Drawing.Color.Sienna;
+            this.btnFilterByEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterByEmployee.ForeColor = System.Drawing.Color.White;
+            this.btnFilterByEmployee.Location = new System.Drawing.Point(353, 488);
+            this.btnFilterByEmployee.Name = "btnFilterByEmployee";
+            this.btnFilterByEmployee.Size = new System.Drawing.Size(200, 48);
+            this.btnFilterByEmployee.TabIndex = 67;
+            this.btnFilterByEmployee.Text = "Funcionário";
+            this.btnFilterByEmployee.UseVisualStyleBackColor = false;
+            // 
+            // btnFilterByAdmins
+            // 
+            this.btnFilterByAdmins.BackColor = System.Drawing.Color.Sienna;
+            this.btnFilterByAdmins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterByAdmins.ForeColor = System.Drawing.Color.White;
+            this.btnFilterByAdmins.Location = new System.Drawing.Point(149, 488);
+            this.btnFilterByAdmins.Name = "btnFilterByAdmins";
+            this.btnFilterByAdmins.Size = new System.Drawing.Size(197, 48);
+            this.btnFilterByAdmins.TabIndex = 66;
+            this.btnFilterByAdmins.Text = "Administrador";
+            this.btnFilterByAdmins.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(51, 500);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 24);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Filtrar por:";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbSearch.Location = new System.Drawing.Point(796, 33);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(256, 30);
+            this.tbSearch.TabIndex = 64;
+            // 
+            // pbUserProfileImage
+            // 
+            this.pbUserProfileImage.BackColor = System.Drawing.Color.Black;
+            this.pbUserProfileImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUserProfileImage.BackgroundImage")));
+            this.pbUserProfileImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbUserProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbUserProfileImage.Location = new System.Drawing.Point(796, 430);
+            this.pbUserProfileImage.Name = "pbUserProfileImage";
+            this.pbUserProfileImage.Size = new System.Drawing.Size(283, 218);
+            this.pbUserProfileImage.TabIndex = 63;
+            this.pbUserProfileImage.TabStop = false;
+            // 
+            // tbUserPhoneNumber
+            // 
+            this.tbUserPhoneNumber.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbUserPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserPhoneNumber.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserPhoneNumber.Location = new System.Drawing.Point(794, 350);
+            this.tbUserPhoneNumber.Name = "tbUserPhoneNumber";
+            this.tbUserPhoneNumber.Size = new System.Drawing.Size(291, 30);
+            this.tbUserPhoneNumber.TabIndex = 62;
+            // 
+            // tbUserEmail
+            // 
+            this.tbUserEmail.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserEmail.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserEmail.Location = new System.Drawing.Point(794, 279);
+            this.tbUserEmail.Name = "tbUserEmail";
+            this.tbUserEmail.Size = new System.Drawing.Size(291, 30);
+            this.tbUserEmail.TabIndex = 61;
+            // 
+            // tbUserName
+            // 
+            this.tbUserName.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserName.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserName.Location = new System.Drawing.Point(796, 207);
+            this.tbUserName.Name = "tbUserName";
+            this.tbUserName.Size = new System.Drawing.Size(291, 30);
+            this.tbUserName.TabIndex = 60;
+            // 
+            // btnActivateUser
+            // 
+            this.btnActivateUser.BackColor = System.Drawing.Color.Sienna;
+            this.btnActivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnActivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnActivateUser.Location = new System.Drawing.Point(313, 617);
+            this.btnActivateUser.Name = "btnActivateUser";
+            this.btnActivateUser.Size = new System.Drawing.Size(220, 57);
+            this.btnActivateUser.TabIndex = 59;
+            this.btnActivateUser.Text = "Reactivar";
+            this.btnActivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnActivateUser.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Sienna;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Snow;
+            this.label7.Location = new System.Drawing.Point(578, 555);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 33);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "🕒";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Sienna;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Snow;
+            this.label5.Location = new System.Drawing.Point(383, 552);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 37);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "🪪";
+            // 
+            // lbLetterZ
+            // 
+            this.lbLetterZ.AutoSize = true;
+            this.lbLetterZ.BackColor = System.Drawing.Color.Sienna;
+            this.lbLetterZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetterZ.ForeColor = System.Drawing.Color.Snow;
+            this.lbLetterZ.Location = new System.Drawing.Point(216, 551);
+            this.lbLetterZ.Name = "lbLetterZ";
+            this.lbLetterZ.Size = new System.Drawing.Size(19, 24);
+            this.lbLetterZ.TabIndex = 56;
+            this.lbLetterZ.Text = "𝐙";
+            // 
+            // lbLetterA
+            // 
+            this.lbLetterA.AutoSize = true;
+            this.lbLetterA.BackColor = System.Drawing.Color.Sienna;
+            this.lbLetterA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetterA.ForeColor = System.Drawing.Color.Snow;
+            this.lbLetterA.Location = new System.Drawing.Point(216, 566);
+            this.lbLetterA.Name = "lbLetterA";
+            this.lbLetterA.Size = new System.Drawing.Size(20, 24);
+            this.lbLetterA.TabIndex = 55;
+            this.lbLetterA.Text = "𝐀";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Sienna;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Snow;
+            this.label2.Location = new System.Drawing.Point(189, 551);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 39);
+            this.label2.TabIndex = 54;
+            this.label2.Text = "⬇️";
+            // 
+            // btnCreatedAtOrder
+            // 
+            this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnCreatedAtOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreatedAtOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreatedAtOrder.Location = new System.Drawing.Point(557, 548);
+            this.btnCreatedAtOrder.Name = "btnCreatedAtOrder";
+            this.btnCreatedAtOrder.Size = new System.Drawing.Size(200, 48);
+            this.btnCreatedAtOrder.TabIndex = 53;
+            this.btnCreatedAtOrder.Text = "Data de Criação";
+            this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreatedAtOrder.UseVisualStyleBackColor = false;
+            // 
+            // btnIdOrder
+            // 
+            this.btnIdOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnIdOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIdOrder.ForeColor = System.Drawing.Color.White;
+            this.btnIdOrder.Location = new System.Drawing.Point(353, 548);
+            this.btnIdOrder.Name = "btnIdOrder";
+            this.btnIdOrder.Size = new System.Drawing.Size(197, 48);
+            this.btnIdOrder.TabIndex = 52;
+            this.btnIdOrder.Text = "              ID";
+            this.btnIdOrder.UseVisualStyleBackColor = false;
+            // 
+            // btnAlphabeticOrder
+            // 
+            this.btnAlphabeticOrder.BackColor = System.Drawing.Color.Sienna;
+            this.btnAlphabeticOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlphabeticOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAlphabeticOrder.Location = new System.Drawing.Point(149, 547);
+            this.btnAlphabeticOrder.Name = "btnAlphabeticOrder";
+            this.btnAlphabeticOrder.Size = new System.Drawing.Size(197, 48);
+            this.btnAlphabeticOrder.TabIndex = 51;
+            this.btnAlphabeticOrder.Text = "Alfabetica";
+            this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlphabeticOrder.UseVisualStyleBackColor = false;
+            // 
+            // lbText
+            // 
+            this.lbText.AutoSize = true;
+            this.lbText.BackColor = System.Drawing.Color.Transparent;
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.ForeColor = System.Drawing.Color.White;
+            this.lbText.Location = new System.Drawing.Point(69, 555);
+            this.lbText.Name = "lbText";
+            this.lbText.Size = new System.Drawing.Size(74, 24);
+            this.lbText.TabIndex = 50;
+            this.lbText.Text = "Ordem:";
+            // 
+            // dgvUsers
+            // 
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(30, 107);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.Size = new System.Drawing.Size(743, 364);
+            this.dgvUsers.TabIndex = 49;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(746, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 31);
+            this.label4.TabIndex = 71;
+            this.label4.Text = "   ";
+            // 
+            // Reactivate_User
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1154, 712);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbUserId);
+            this.Controls.Add(this.btnFilterByStudent);
+            this.Controls.Add(this.btnFilterByEmployee);
+            this.Controls.Add(this.btnFilterByAdmins);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.pbUserProfileImage);
+            this.Controls.Add(this.tbUserPhoneNumber);
+            this.Controls.Add(this.tbUserEmail);
+            this.Controls.Add(this.tbUserName);
+            this.Controls.Add(this.btnActivateUser);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbLetterZ);
+            this.Controls.Add(this.lbLetterA);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnCreatedAtOrder);
+            this.Controls.Add(this.btnIdOrder);
+            this.Controls.Add(this.btnAlphabeticOrder);
+            this.Controls.Add(this.lbText);
+            this.Controls.Add(this.dgvUsers);
+            this.Name = "Reactivate_User";
             this.Text = "Reactivate_User";
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbUserId;
+        private System.Windows.Forms.Button btnFilterByStudent;
+        private System.Windows.Forms.Button btnFilterByEmployee;
+        private System.Windows.Forms.Button btnFilterByAdmins;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.PictureBox pbUserProfileImage;
+        private System.Windows.Forms.TextBox tbUserPhoneNumber;
+        private System.Windows.Forms.TextBox tbUserEmail;
+        private System.Windows.Forms.TextBox tbUserName;
+        private System.Windows.Forms.Button btnActivateUser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbLetterZ;
+        private System.Windows.Forms.Label lbLetterA;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCreatedAtOrder;
+        private System.Windows.Forms.Button btnIdOrder;
+        private System.Windows.Forms.Button btnAlphabeticOrder;
+        private System.Windows.Forms.Label lbText;
+        private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.Label label4;
     }
 }

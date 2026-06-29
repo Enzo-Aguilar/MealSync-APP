@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deactivate_User));
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbLetterZ = new System.Windows.Forms.Label();
@@ -39,22 +40,18 @@
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.lbText = new System.Windows.Forms.Label();
             this.btnDeactivateUser = new System.Windows.Forms.Button();
-            this.lbUserName = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbUserEmail = new System.Windows.Forms.TextBox();
-            this.lbUserEmail = new System.Windows.Forms.Label();
             this.tbUserPhoneNumber = new System.Windows.Forms.TextBox();
-            this.lbUserPhoneNumber = new System.Windows.Forms.Label();
             this.pbUserProfileImage = new System.Windows.Forms.PictureBox();
-            this.lbUserProfilePicture = new System.Windows.Forms.Label();
-            this.lbSearch = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFilterByAdmins = new System.Windows.Forms.Button();
             this.btnFilterByEmployee = new System.Windows.Forms.Button();
             this.btnFilterByStudent = new System.Windows.Forms.Button();
             this.tbUserId = new System.Windows.Forms.TextBox();
-            this.lbUserId = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).BeginInit();
             this.SuspendLayout();
@@ -65,11 +62,12 @@
             this.label7.BackColor = System.Drawing.Color.Sienna;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Snow;
-            this.label7.Location = new System.Drawing.Point(643, 542);
+            this.label7.Location = new System.Drawing.Point(592, 552);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 33);
             this.label7.TabIndex = 28;
-            this.label7.Text = "📝";
+            this.label7.Text = "🕒";
+            this.label7.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // label5
             // 
@@ -77,11 +75,12 @@
             this.label5.BackColor = System.Drawing.Color.Sienna;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Snow;
-            this.label5.Location = new System.Drawing.Point(488, 541);
+            this.label5.Location = new System.Drawing.Point(409, 550);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 37);
             this.label5.TabIndex = 27;
             this.label5.Text = "🪪";
+            this.label5.Click += new System.EventHandler(this.BtnIdOrder_Click);
             // 
             // lbLetterZ
             // 
@@ -89,11 +88,12 @@
             this.lbLetterZ.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterZ.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterZ.Location = new System.Drawing.Point(276, 559);
+            this.lbLetterZ.Location = new System.Drawing.Point(228, 549);
             this.lbLetterZ.Name = "lbLetterZ";
             this.lbLetterZ.Size = new System.Drawing.Size(19, 24);
             this.lbLetterZ.TabIndex = 26;
             this.lbLetterZ.Text = "𝐙";
+            this.lbLetterZ.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // lbLetterA
             // 
@@ -101,32 +101,34 @@
             this.lbLetterA.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterA.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterA.Location = new System.Drawing.Point(275, 541);
+            this.lbLetterA.Location = new System.Drawing.Point(227, 563);
             this.lbLetterA.Name = "lbLetterA";
             this.lbLetterA.Size = new System.Drawing.Size(20, 24);
             this.lbLetterA.TabIndex = 25;
             this.lbLetterA.Text = "𝐀";
+            this.lbLetterA.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Sienna;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(248, 541);
+            this.label2.Location = new System.Drawing.Point(208, 549);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 42);
+            this.label2.Size = new System.Drawing.Size(32, 39);
             this.label2.TabIndex = 24;
             this.label2.Text = "⬇️";
+            this.label2.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // btnCreatedAtOrder
             // 
             this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnCreatedAtOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatedAtOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreatedAtOrder.Location = new System.Drawing.Point(632, 537);
+            this.btnCreatedAtOrder.Location = new System.Drawing.Point(570, 545);
             this.btnCreatedAtOrder.Name = "btnCreatedAtOrder";
-            this.btnCreatedAtOrder.Size = new System.Drawing.Size(188, 50);
+            this.btnCreatedAtOrder.Size = new System.Drawing.Size(200, 48);
             this.btnCreatedAtOrder.TabIndex = 22;
             this.btnCreatedAtOrder.Text = "Data de Criação";
             this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -138,9 +140,9 @@
             this.btnIdOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnIdOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIdOrder.ForeColor = System.Drawing.Color.White;
-            this.btnIdOrder.Location = new System.Drawing.Point(427, 537);
+            this.btnIdOrder.Location = new System.Drawing.Point(367, 546);
             this.btnIdOrder.Name = "btnIdOrder";
-            this.btnIdOrder.Size = new System.Drawing.Size(199, 50);
+            this.btnIdOrder.Size = new System.Drawing.Size(197, 48);
             this.btnIdOrder.TabIndex = 21;
             this.btnIdOrder.Text = "              ID";
             this.btnIdOrder.UseVisualStyleBackColor = false;
@@ -151,9 +153,9 @@
             this.btnAlphabeticOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnAlphabeticOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlphabeticOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlphabeticOrder.Location = new System.Drawing.Point(227, 537);
+            this.btnAlphabeticOrder.Location = new System.Drawing.Point(153, 545);
             this.btnAlphabeticOrder.Name = "btnAlphabeticOrder";
-            this.btnAlphabeticOrder.Size = new System.Drawing.Size(194, 50);
+            this.btnAlphabeticOrder.Size = new System.Drawing.Size(202, 48);
             this.btnAlphabeticOrder.TabIndex = 20;
             this.btnAlphabeticOrder.Text = "Alfabetica";
             this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,10 +165,10 @@
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(53, 60);
+            this.dgvUsers.Location = new System.Drawing.Point(25, 104);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.Size = new System.Drawing.Size(816, 404);
+            this.dgvUsers.Size = new System.Drawing.Size(772, 367);
             this.dgvUsers.TabIndex = 17;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsers_CellContentClick);
             // 
@@ -175,8 +177,8 @@
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbText.ForeColor = System.Drawing.Color.Black;
-            this.lbText.Location = new System.Drawing.Point(130, 549);
+            this.lbText.ForeColor = System.Drawing.Color.White;
+            this.lbText.Location = new System.Drawing.Point(75, 554);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(74, 24);
             this.lbText.TabIndex = 19;
@@ -188,95 +190,65 @@
             this.btnDeactivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDeactivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeactivateUser.Location = new System.Drawing.Point(454, 636);
+            this.btnDeactivateUser.Location = new System.Drawing.Point(321, 618);
             this.btnDeactivateUser.Name = "btnDeactivateUser";
-            this.btnDeactivateUser.Size = new System.Drawing.Size(162, 84);
+            this.btnDeactivateUser.Size = new System.Drawing.Size(230, 57);
             this.btnDeactivateUser.TabIndex = 30;
             this.btnDeactivateUser.Text = "Desativar";
             this.btnDeactivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeactivateUser.UseVisualStyleBackColor = false;
             this.btnDeactivateUser.Click += new System.EventHandler(this.BtnDeactivateUser_Click);
             // 
-            // lbUserName
-            // 
-            this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(935, 186);
-            this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(38, 13);
-            this.lbUserName.TabIndex = 31;
-            this.lbUserName.Text = "Nome:";
-            // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(1000, 183);
+            this.tbUserName.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserName.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserName.Location = new System.Drawing.Point(819, 205);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(205, 20);
+            this.tbUserName.Size = new System.Drawing.Size(291, 30);
             this.tbUserName.TabIndex = 32;
             // 
             // tbUserEmail
             // 
-            this.tbUserEmail.Location = new System.Drawing.Point(1000, 230);
+            this.tbUserEmail.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserEmail.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserEmail.Location = new System.Drawing.Point(819, 278);
             this.tbUserEmail.Name = "tbUserEmail";
-            this.tbUserEmail.Size = new System.Drawing.Size(205, 20);
+            this.tbUserEmail.Size = new System.Drawing.Size(291, 30);
             this.tbUserEmail.TabIndex = 34;
-            // 
-            // lbUserEmail
-            // 
-            this.lbUserEmail.AutoSize = true;
-            this.lbUserEmail.Location = new System.Drawing.Point(938, 230);
-            this.lbUserEmail.Name = "lbUserEmail";
-            this.lbUserEmail.Size = new System.Drawing.Size(35, 13);
-            this.lbUserEmail.TabIndex = 33;
-            this.lbUserEmail.Text = "Email:";
             // 
             // tbUserPhoneNumber
             // 
-            this.tbUserPhoneNumber.Location = new System.Drawing.Point(1000, 279);
+            this.tbUserPhoneNumber.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbUserPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserPhoneNumber.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserPhoneNumber.Location = new System.Drawing.Point(819, 348);
             this.tbUserPhoneNumber.Name = "tbUserPhoneNumber";
-            this.tbUserPhoneNumber.Size = new System.Drawing.Size(205, 20);
+            this.tbUserPhoneNumber.Size = new System.Drawing.Size(291, 30);
             this.tbUserPhoneNumber.TabIndex = 36;
-            // 
-            // lbUserPhoneNumber
-            // 
-            this.lbUserPhoneNumber.AutoSize = true;
-            this.lbUserPhoneNumber.Location = new System.Drawing.Point(948, 279);
-            this.lbUserPhoneNumber.Name = "lbUserPhoneNumber";
-            this.lbUserPhoneNumber.Size = new System.Drawing.Size(25, 13);
-            this.lbUserPhoneNumber.TabIndex = 35;
-            this.lbUserPhoneNumber.Text = "Tel:";
             // 
             // pbUserProfileImage
             // 
+            this.pbUserProfileImage.BackColor = System.Drawing.Color.Black;
+            this.pbUserProfileImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUserProfileImage.BackgroundImage")));
+            this.pbUserProfileImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUserProfileImage.Location = new System.Drawing.Point(951, 341);
+            this.pbUserProfileImage.Location = new System.Drawing.Point(820, 427);
             this.pbUserProfileImage.Name = "pbUserProfileImage";
-            this.pbUserProfileImage.Size = new System.Drawing.Size(254, 232);
+            this.pbUserProfileImage.Size = new System.Drawing.Size(291, 219);
             this.pbUserProfileImage.TabIndex = 37;
             this.pbUserProfileImage.TabStop = false;
             // 
-            // lbUserProfilePicture
-            // 
-            this.lbUserProfilePicture.AutoSize = true;
-            this.lbUserProfilePicture.Location = new System.Drawing.Point(1037, 310);
-            this.lbUserProfilePicture.Name = "lbUserProfilePicture";
-            this.lbUserProfilePicture.Size = new System.Drawing.Size(72, 13);
-            this.lbUserProfilePicture.TabIndex = 38;
-            this.lbUserProfilePicture.Text = "Foto de Perfil:";
-            // 
-            // lbSearch
-            // 
-            this.lbSearch.AutoSize = true;
-            this.lbSearch.Location = new System.Drawing.Point(927, 11);
-            this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(100, 13);
-            this.lbSearch.TabIndex = 40;
-            this.lbSearch.Text = "Procurar(por nome):";
-            // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(1033, 8);
+            this.tbSearch.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbSearch.Location = new System.Drawing.Point(820, 34);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(205, 20);
+            this.tbSearch.Size = new System.Drawing.Size(253, 30);
             this.tbSearch.TabIndex = 41;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
@@ -285,8 +257,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(130, 491);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(55, 496);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 24);
             this.label3.TabIndex = 42;
@@ -297,9 +269,9 @@
             this.btnFilterByAdmins.BackColor = System.Drawing.Color.Sienna;
             this.btnFilterByAdmins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterByAdmins.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByAdmins.Location = new System.Drawing.Point(230, 479);
+            this.btnFilterByAdmins.Location = new System.Drawing.Point(153, 487);
             this.btnFilterByAdmins.Name = "btnFilterByAdmins";
-            this.btnFilterByAdmins.Size = new System.Drawing.Size(191, 50);
+            this.btnFilterByAdmins.Size = new System.Drawing.Size(202, 48);
             this.btnFilterByAdmins.TabIndex = 43;
             this.btnFilterByAdmins.Text = "Administrador";
             this.btnFilterByAdmins.UseVisualStyleBackColor = false;
@@ -310,9 +282,9 @@
             this.btnFilterByEmployee.BackColor = System.Drawing.Color.Sienna;
             this.btnFilterByEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterByEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByEmployee.Location = new System.Drawing.Point(427, 479);
+            this.btnFilterByEmployee.Location = new System.Drawing.Point(364, 486);
             this.btnFilterByEmployee.Name = "btnFilterByEmployee";
-            this.btnFilterByEmployee.Size = new System.Drawing.Size(199, 50);
+            this.btnFilterByEmployee.Size = new System.Drawing.Size(200, 48);
             this.btnFilterByEmployee.TabIndex = 44;
             this.btnFilterByEmployee.Text = "Funcionário";
             this.btnFilterByEmployee.UseVisualStyleBackColor = false;
@@ -323,9 +295,9 @@
             this.btnFilterByStudent.BackColor = System.Drawing.Color.Sienna;
             this.btnFilterByStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilterByStudent.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByStudent.Location = new System.Drawing.Point(632, 479);
+            this.btnFilterByStudent.Location = new System.Drawing.Point(570, 486);
             this.btnFilterByStudent.Name = "btnFilterByStudent";
-            this.btnFilterByStudent.Size = new System.Drawing.Size(188, 50);
+            this.btnFilterByStudent.Size = new System.Drawing.Size(200, 48);
             this.btnFilterByStudent.TabIndex = 45;
             this.btnFilterByStudent.Text = "Aluno";
             this.btnFilterByStudent.UseVisualStyleBackColor = false;
@@ -333,42 +305,57 @@
             // 
             // tbUserId
             // 
-            this.tbUserId.Location = new System.Drawing.Point(1000, 138);
+            this.tbUserId.BackColor = System.Drawing.SystemColors.MenuText;
+            this.tbUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserId.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbUserId.Location = new System.Drawing.Point(819, 131);
             this.tbUserId.Name = "tbUserId";
-            this.tbUserId.Size = new System.Drawing.Size(205, 20);
+            this.tbUserId.Size = new System.Drawing.Size(291, 30);
             this.tbUserId.TabIndex = 47;
             // 
-            // lbUserId
+            // label1
             // 
-            this.lbUserId.AutoSize = true;
-            this.lbUserId.Location = new System.Drawing.Point(935, 141);
-            this.lbUserId.Name = "lbUserId";
-            this.lbUserId.Size = new System.Drawing.Size(38, 13);
-            this.lbUserId.TabIndex = 46;
-            this.lbUserId.Text = "Nome:";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Sienna;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(414, 622);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 29);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "🔒";
+            this.label1.Click += new System.EventHandler(this.BtnDeactivateUser_Click);
             // 
-            // Remove_User
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(762, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 31);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "   ";
+            // 
+            // Deactivate_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1279, 788);
+            this.ClientSize = new System.Drawing.Size(1188, 710);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUserId);
-            this.Controls.Add(this.lbUserId);
             this.Controls.Add(this.btnFilterByStudent);
             this.Controls.Add(this.btnFilterByEmployee);
             this.Controls.Add(this.btnFilterByAdmins);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbSearch);
-            this.Controls.Add(this.lbSearch);
-            this.Controls.Add(this.lbUserProfilePicture);
             this.Controls.Add(this.pbUserProfileImage);
             this.Controls.Add(this.tbUserPhoneNumber);
-            this.Controls.Add(this.lbUserPhoneNumber);
             this.Controls.Add(this.tbUserEmail);
-            this.Controls.Add(this.lbUserEmail);
             this.Controls.Add(this.tbUserName);
-            this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.btnDeactivateUser);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -380,7 +367,7 @@
             this.Controls.Add(this.btnAlphabeticOrder);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.dgvUsers);
-            this.Name = "Remove_User";
+            this.Name = "Deactivate_User";
             this.Text = "remove_User";
             this.Load += new System.EventHandler(this.Remove_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
@@ -402,21 +389,17 @@
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Button btnDeactivateUser;
-        private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbUserEmail;
-        private System.Windows.Forms.Label lbUserEmail;
         private System.Windows.Forms.TextBox tbUserPhoneNumber;
-        private System.Windows.Forms.Label lbUserPhoneNumber;
         private System.Windows.Forms.PictureBox pbUserProfileImage;
-        private System.Windows.Forms.Label lbUserProfilePicture;
-        private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnFilterByAdmins;
         private System.Windows.Forms.Button btnFilterByEmployee;
         private System.Windows.Forms.Button btnFilterByStudent;
         private System.Windows.Forms.TextBox tbUserId;
-        private System.Windows.Forms.Label lbUserId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

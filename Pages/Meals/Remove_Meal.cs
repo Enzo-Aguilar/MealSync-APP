@@ -338,5 +338,10 @@ namespace MealSync_APP.MealFolder
         {
             LoadMealsForDate(MealDateTime.Value);
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
