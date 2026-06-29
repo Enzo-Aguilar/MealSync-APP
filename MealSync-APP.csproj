@@ -279,6 +279,9 @@
     <EmbeddedResource Include="Pages\GlobalForms\Deactivate_User.resx">
       <DependentUpon>Deactivate_User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GlobalForms\Reactivate_User.resx">
+      <DependentUpon>Reactivate_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\GlobalForms\Show_User.resx">
       <DependentUpon>Show_User.cs</DependentUpon>
     </EmbeddedResource>
