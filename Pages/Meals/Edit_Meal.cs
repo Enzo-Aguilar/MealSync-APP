@@ -109,17 +109,21 @@ namespace MealSync_APP.MealFolder
         {
             try
             {
-                Meal updatedMeal = new Meal
+                Meal updatedMeal = new Meal();
+                if (updatedMeal != null)
                 {
-                    ID = originalMeal.ID,
-                    Date = dateTimerPickerMeals.Value,
-                    Description = tbMealDescription.Text,
-                    IsActive = true,
-                    MealImage = ImageUtils.ImageToBytes(pictureBoxMealImage.Image),
-                    Name = tbMealName.Text,
-                    Price = SqlMoney.Parse(tbMealPrice.Text),
-                    Type = cbMealType.SelectedItem.ToString(),
-                };
+                    updatedMeal = new Meal
+                    {
+                        ID = originalMeal.ID,
+                        Date = dateTimerPickerMeals.Value,
+                        Description = tbMealDescription.Text,
+                        IsActive = true,
+                        MealImage = ImageUtils.ImageToBytes(pictureBoxMealImage.Image),
+                        Name = tbMealName.Text,
+                        Price = SqlMoney.Parse(tbMealPrice.Text),
+                        Type = cbMealType.SelectedItem.ToString(),
+                    };
+                }
                 var editMeal = MealAuth.EditMeal(updatedMeal);
                 if (mealEditableMap.TryGetValue(originalMeal.ID, out bool isEditable) || !isEditable)
                 {

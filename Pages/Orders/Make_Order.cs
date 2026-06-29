@@ -1,18 +1,11 @@
-﻿using BusinessLogicLayer;
+﻿using System.Data.SqlTypes;
 using MealSync_APP.Globals;
-using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
+using BusinessLogicLayer;
+using MealSync_APP.Utils;
+using System.Drawing;
+using System.Data;
+using System;
 
 namespace MealSync_APP.OrderFolder
 {

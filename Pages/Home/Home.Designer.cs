@@ -42,7 +42,6 @@
             this.make_Order = new System.Windows.Forms.ToolStripMenuItem();
             this.cancel_Order = new System.Windows.Forms.ToolStripMenuItem();
             this.Meals = new System.Windows.Forms.ToolStripMenuItem();
-            this.show_Meals = new System.Windows.Forms.ToolStripMenuItem();
             this.edit_Meal = new System.Windows.Forms.ToolStripMenuItem();
             this.add_Meal = new System.Windows.Forms.ToolStripMenuItem();
             this.remove_Meal = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,7 +158,6 @@
             // Meals
             // 
             this.Meals.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.show_Meals,
             this.edit_Meal,
             this.add_Meal,
             this.remove_Meal});
@@ -167,31 +165,24 @@
             this.Meals.Size = new System.Drawing.Size(69, 20);
             this.Meals.Text = "Refeições";
             // 
-            // show_Meals
-            // 
-            this.show_Meals.Name = "show_Meals";
-            this.show_Meals.Size = new System.Drawing.Size(140, 22);
-            this.show_Meals.Text = "👀 Ver";
-            this.show_Meals.Click += new System.EventHandler(this.Show_Meals_Click);
-            // 
             // edit_Meal
             // 
             this.edit_Meal.Name = "edit_Meal";
-            this.edit_Meal.Size = new System.Drawing.Size(140, 22);
+            this.edit_Meal.Size = new System.Drawing.Size(180, 22);
             this.edit_Meal.Text = "✍ Editar";
             this.edit_Meal.Click += new System.EventHandler(this.Edit_Meal_Click);
             // 
             // add_Meal
             // 
             this.add_Meal.Name = "add_Meal";
-            this.add_Meal.Size = new System.Drawing.Size(140, 22);
+            this.add_Meal.Size = new System.Drawing.Size(180, 22);
             this.add_Meal.Text = "➕ Adicionar";
             this.add_Meal.Click += new System.EventHandler(this.Add_Meal_Click);
             // 
             // remove_Meal
             // 
             this.remove_Meal.Name = "remove_Meal";
-            this.remove_Meal.Size = new System.Drawing.Size(140, 22);
+            this.remove_Meal.Size = new System.Drawing.Size(180, 22);
             this.remove_Meal.Text = "🗑️ Remover";
             this.remove_Meal.Click += new System.EventHandler(this.Remove_Meal_Click);
             // 
@@ -208,21 +199,21 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(180, 22);
+            this.show_Students.Size = new System.Drawing.Size(140, 22);
             this.show_Students.Text = "👀 Ver";
             this.show_Students.Click += new System.EventHandler(this.Show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(180, 22);
+            this.add_Student.Size = new System.Drawing.Size(140, 22);
             this.add_Student.Text = "➕ Adicionar";
             this.add_Student.Click += new System.EventHandler(this.Add_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(180, 22);
+            this.remove_Student.Size = new System.Drawing.Size(140, 22);
             this.remove_Student.Text = "🗑️ Remover";
             this.remove_Student.Click += new System.EventHandler(this.Remove_Student_Click);
             // 
@@ -239,21 +230,21 @@
             // show_Employees
             // 
             this.show_Employees.Name = "show_Employees";
-            this.show_Employees.Size = new System.Drawing.Size(180, 22);
+            this.show_Employees.Size = new System.Drawing.Size(140, 22);
             this.show_Employees.Text = "👀 Ver";
             this.show_Employees.Click += new System.EventHandler(this.Show_Employees_Click);
             // 
             // add_Employee
             // 
             this.add_Employee.Name = "add_Employee";
-            this.add_Employee.Size = new System.Drawing.Size(180, 22);
+            this.add_Employee.Size = new System.Drawing.Size(140, 22);
             this.add_Employee.Text = "➕ Adicionar";
             this.add_Employee.Click += new System.EventHandler(this.Add_Employee_Click);
             // 
             // remove_Employee
             // 
             this.remove_Employee.Name = "remove_Employee";
-            this.remove_Employee.Size = new System.Drawing.Size(180, 22);
+            this.remove_Employee.Size = new System.Drawing.Size(140, 22);
             this.remove_Employee.Text = "🗑️ Remover";
             this.remove_Employee.Click += new System.EventHandler(this.Remove_Employee_Click);
             // 
@@ -270,21 +261,21 @@
             // show_Admins
             // 
             this.show_Admins.Name = "show_Admins";
-            this.show_Admins.Size = new System.Drawing.Size(180, 22);
+            this.show_Admins.Size = new System.Drawing.Size(140, 22);
             this.show_Admins.Text = "👀 Ver";
             this.show_Admins.Click += new System.EventHandler(this.Show_Admins_Click);
             // 
             // add_Admin
             // 
             this.add_Admin.Name = "add_Admin";
-            this.add_Admin.Size = new System.Drawing.Size(180, 22);
+            this.add_Admin.Size = new System.Drawing.Size(140, 22);
             this.add_Admin.Text = "➕ Adicionar";
             this.add_Admin.Click += new System.EventHandler(this.Add_Admin_Click);
             // 
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
+            this.remove_Admin.Size = new System.Drawing.Size(140, 22);
             this.remove_Admin.Text = "🗑️ Remover";
             this.remove_Admin.Click += new System.EventHandler(this.Remove_Admin_Click);
             // 
@@ -409,7 +400,6 @@
         private System.Windows.Forms.ToolStripMenuItem make_Order;
         private System.Windows.Forms.ToolStripMenuItem cancel_Order;
         private System.Windows.Forms.ToolStripMenuItem Meals;
-        private System.Windows.Forms.ToolStripMenuItem show_Meals;
         private System.Windows.Forms.ToolStripMenuItem edit_Meal;
         private System.Windows.Forms.ToolStripMenuItem add_Meal;
         private System.Windows.Forms.ToolStripMenuItem remove_Meal;

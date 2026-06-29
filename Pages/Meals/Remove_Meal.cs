@@ -1,16 +1,11 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP.Globals;
-using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Windows.Forms;
 using System.Data.SqlTypes;
+using MealSync_APP.Globals;
+using BusinessLogicLayer;
+using MealSync_APP.Utils;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data;
+using System;
 
 namespace MealSync_APP.MealFolder
 {
@@ -40,59 +35,57 @@ namespace MealSync_APP.MealFolder
                 MessageBox.Show("Não pode marcar refeições de datas já passadas");
                 return;
             }
-            try
+            else if (!MealValidator.IsMealOnTimeToBeEditable(MealDateTime.Value))
             {
-                // Load user's bank accounts
-                DataTable bankAccountsTable = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
-
-                if (bankAccountsTable == null || bankAccountsTable.Rows.Count == 0)
+                MessageBox.Show("Só é possivel cancelar refeições com 1 semana de antecedencia");
+                return ;
+            }
+                try
                 {
-                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                        
+                    
+                    //Replace with the delete meal logic
+                    //var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
+                    //if (selectedBankAccountId > 0)
+                    //{
+                    //    foreach (DataRow bk in bankAccountsTable.Rows)
+                    //    {
+                    //        int bkID = Convert.ToInt32(bk["ID"]);
+                    //        if (bkID == selectedBankAccountId)
+                    //        {
+                    //            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])) : SqlMoney.Zero;
+                    //            SqlMoney amount = balance - selectedMeal.Price;
+                    //            if (amount >= 0)
+                    //            {
+                    //                var user = CurrentSession.User;
+                    //                var order = OrderUtils.CreateOrder(user, selectedMeal, bkID);
+                    //                if (order.IsValid)
+                    //                {
+                    //                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
+                    //                }
+                    //                else
+                    //                {
+                    //                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
+                    //                }
+                    //            }
+                    //            else
+                    //            {
+                    //                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    return;
+                    //}
                 }
-
-                //Replace with the delete meal logic
-                //var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
-                //if (selectedBankAccountId > 0)
-                //{
-                //    foreach (DataRow bk in bankAccountsTable.Rows)
-                //    {
-                //        int bkID = Convert.ToInt32(bk["ID"]);
-                //        if (bkID == selectedBankAccountId)
-                //        {
-                //            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])) : SqlMoney.Zero;
-                //            SqlMoney amount = balance - selectedMeal.Price;
-                //            if (amount >= 0)
-                //            {
-                //                var user = CurrentSession.User;
-                //                var order = OrderUtils.CreateOrder(user, selectedMeal, bkID);
-                //                if (order.IsValid)
-                //                {
-                //                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
-                //                }
-                //                else
-                //                {
-                //                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
-                //                }
-                //            }
-                //            else
-                //            {
-                //                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
-                //            }
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -116,6 +109,7 @@ namespace MealSync_APP.MealFolder
 
             // Select new meal
             selectedMeal = meal;
+            MessageBox.Show(selectedMeal.ID.ToString());
             mealCard.BackColor = Color.LightBlue;
         }
 

@@ -5,7 +5,6 @@ using MealSync_APP.Pages.FAQsFolder;
 using MealSync_APP.ProfileFolder;
 using MealSync_APP.OrderFolder;
 using MealSync_APP.MealFolder;
-using MealSync_APP.Refeições;
 using System.Windows.Forms;
 
 namespace MealSync_APP.Utils
@@ -112,13 +111,8 @@ namespace MealSync_APP.Utils
             Remove_Meal rm = new Remove_Meal { MdiParent = _home };
             rm.Show();
         }
-        public static void ShowMeal()
-        {
-            Show_Meals sm = new Show_Meals { MdiParent = _home };
-            sm.Show();
-        }
 
-        //Global forms (os mesmos forms servem pra student,employee,admin)
+        //User Forms
         public static void AddUser(string fromWhere)
         {
             Add_User addUser = new Add_User(fromWhere) { MdiParent= _home };

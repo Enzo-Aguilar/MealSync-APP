@@ -48,9 +48,9 @@ namespace MealSync_APP.MealFolder
                     MessageBox.Show($"Erro ao criar refeição: {create_meal.ErrorMessage}");
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar criar refeição: {err.Message}");
+                MessageBox.Show($"Ocorreu um erro ao tentar criar refeição: {ex.Message}");
             }
         }
         private void PictureBoxMealImage_Click(object sender, EventArgs e)
@@ -70,9 +70,9 @@ namespace MealSync_APP.MealFolder
                     }
                 }
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar carregar imagem: " + err.Message);
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar imagem: {ex.Message}");
             }
         }
         private void TbMealName_TextChanged(object sender, EventArgs e)

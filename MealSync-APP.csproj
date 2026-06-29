@@ -184,12 +184,6 @@
     <Compile Include="Pages\Meals\Remove_Meal.Designer.cs">
       <DependentUpon>Remove_Meal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Meals\Show_Meals.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pages\Meals\Show_Meals.Designer.cs">
-      <DependentUpon>Show_Meals.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pages\BankAccount\Associate_BankAccount.cs">
       <SubType>Form</SubType>
     </Compile>

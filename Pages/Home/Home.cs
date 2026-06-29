@@ -91,7 +91,6 @@ namespace MealSync_APP
         private void Cancel_Order_Click(object sender, EventArgs e) { OpenForm.CancelOrder(); }
 
         // Refeições
-        private void Show_Meals_Click(object sender, EventArgs e) { OpenForm.ShowMeal(); }
         private void Edit_Meal_Click(object sender, EventArgs e) { OpenForm.EditMeal(); }
         private void Add_Meal_Click(object sender, EventArgs e) { OpenForm.AddMeal(); }
         private void Remove_Meal_Click(object sender, EventArgs e) { OpenForm.RemoveMeal(); }
