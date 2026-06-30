@@ -32,7 +32,6 @@
             this.dgvBankAccounts = new System.Windows.Forms.DataGridView();
             this.tbAccountOwner = new System.Windows.Forms.TextBox();
             this.tbIBAN = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnAssociateAccount = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tbBankAccountID = new System.Windows.Forms.TextBox();
@@ -41,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.money_put = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,22 +72,12 @@
             this.tbIBAN.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbIBAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIBAN.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbIBAN.Location = new System.Drawing.Point(609, 463);
+            this.tbIBAN.Location = new System.Drawing.Point(609, 362);
             this.tbIBAN.Name = "tbIBAN";
+            this.tbIBAN.PasswordChar = '*';
             this.tbIBAN.ReadOnly = true;
-            this.tbIBAN.Size = new System.Drawing.Size(205, 30);
+            this.tbIBAN.Size = new System.Drawing.Size(283, 30);
             this.tbIBAN.TabIndex = 2;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(609, 361);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(283, 30);
-            this.tbPassword.TabIndex = 3;
             // 
             // btnAssociateAccount
             // 
@@ -189,6 +179,20 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "   ";
             // 
+            // money_put
+            // 
+            this.money_put.BackColor = System.Drawing.Color.Sienna;
+            this.money_put.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.money_put.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.money_put.Location = new System.Drawing.Point(609, 465);
+            this.money_put.Name = "money_put";
+            this.money_put.Size = new System.Drawing.Size(205, 30);
+            this.money_put.TabIndex = 34;
+            this.money_put.Text = "Intruduzir";
+            this.money_put.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.money_put.UseVisualStyleBackColor = false;
+            this.money_put.Click += new System.EventHandler(this.money_put_Click);
+            // 
             // Associate_BankAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,6 +200,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1038, 643);
+            this.Controls.Add(this.money_put);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.label2);
@@ -204,7 +209,6 @@
             this.Controls.Add(this.tbBankAccountID);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAssociateAccount);
-            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbIBAN);
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
@@ -224,7 +228,6 @@
         private System.Windows.Forms.DataGridView dgvBankAccounts;
         private System.Windows.Forms.TextBox tbAccountOwner;
         private System.Windows.Forms.TextBox tbIBAN;
-        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnAssociateAccount;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbBankAccountID;
@@ -233,5 +236,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button money_put;
     }
 }

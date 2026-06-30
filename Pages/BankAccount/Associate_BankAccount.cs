@@ -45,7 +45,6 @@ namespace MealSync_APP.BankAccountFolder
             {
                 _bk.ID = int.Parse(tbBankAccountID.Text);
                 _bk.Iban = tbIBAN.Text;
-                _bk.Password = tbPassword.Text;
                 var associate = HolderAuth.AssociateBkToUser(_user, _bk);
                 if(associate.IsValid)
                 {
@@ -74,6 +73,42 @@ namespace MealSync_APP.BankAccountFolder
             LoadBkAccountData();
             dgvBankAccounts.Visible = true;
         }
+        // Mock: injeta saldo nas contas do utilizador logado (as mesmas usadas para pagar refeições).
+        private void money_put_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable myAccounts = BankAccount_BLL.Load_BkAccountAssociatedWithUser(CurrentSession.User);
+                if (myAccounts == null || myAccounts.Rows.Count == 0)
+                {
+                    MessageBox.Show("Não tem nenhuma conta bancária associada para carregar saldo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal? chosen = PromptForAmount();
+                if (chosen == null)
+                {
+                    return;
+                }
+                decimal amount = chosen.Value;
+
+                foreach (DataRow row in myAccounts.Rows)
+                {
+                    int accountId = Convert.ToInt32(row["ID"]);
+                    decimal currentBalance = Convert.ToDecimal(BankAccount_BLL.Get_BkBalance(accountId));
+                    BankAccount_BLL.Update_BankAccountBalance(accountId, currentBalance + amount);
+                }
+
+                // Atualiza a cópia em sessão para o Make_Order ver os novos saldos.
+                BankAccountData.LoadBkAssociatedToUser();
+
+                MessageBox.Show($"Foram adicionados {amount}€ (mock) à(s) sua(s) conta(s). Já pode pagar refeições.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro ao adicionar saldo (mock): {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void DgvBankAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -96,6 +131,48 @@ namespace MealSync_APP.BankAccountFolder
         }
 
         //Helpers
+        // Pede ao utilizador o valor a introduzir. Devolve null se cancelar ou se o valor for inválido.
+        private decimal? PromptForAmount()
+        {
+            using (Form prompt = new Form())
+            {
+                prompt.Text = "Introduzir saldo";
+                prompt.Width = 320;
+                prompt.Height = 170;
+                prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
+                prompt.StartPosition = FormStartPosition.CenterParent;
+                prompt.MaximizeBox = false;
+                prompt.MinimizeBox = false;
+                prompt.ShowInTaskbar = false;
+
+                Label label = new Label { Left = 15, Top = 15, Width = 280, Text = "Quanto deseja introduzir? (€)" };
+                TextBox input = new TextBox { Left = 15, Top = 40, Width = 270 };
+                Button ok = new Button { Text = "OK", Left = 128, Width = 70, Top = 75, DialogResult = DialogResult.OK };
+                Button cancel = new Button { Text = "Cancelar", Left = 208, Width = 77, Top = 75, DialogResult = DialogResult.Cancel };
+
+                prompt.Controls.Add(label);
+                prompt.Controls.Add(input);
+                prompt.Controls.Add(ok);
+                prompt.Controls.Add(cancel);
+                prompt.AcceptButton = ok;
+                prompt.CancelButton = cancel;
+
+                if (prompt.ShowDialog(this) != DialogResult.OK)
+                {
+                    return null;
+                }
+
+                // Aceita "," ou "." como separador decimal.
+                string text = input.Text.Trim().Replace(',', '.');
+                if (decimal.TryParse(text, System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.InvariantCulture, out decimal amount) && amount > 0)
+                {
+                    return amount;
+                }
+
+                MessageBox.Show("Valor inválido. Introduza um número maior que 0.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+        }
         private void LoadBkAccountData()
         {
             try
@@ -127,7 +204,6 @@ namespace MealSync_APP.BankAccountFolder
             tbAccountOwner.Clear();
             tbBankAccountID.Clear();
             tbIBAN.Clear();
-            tbPassword.Clear();
 
             dgvBankAccounts.Visible = false;
             LoadBkAccountData();

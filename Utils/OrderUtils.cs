@@ -55,6 +55,27 @@ namespace MealSync_APP.Utils
             }
             return mealList.ToArray();
         }
+        public static Meal[] GetUserUpcomingOrderedMeals(User user)
+        {
+            DataTable dt = Order_BLL.Show_UserUpcomingOrders(user.ID);
+            List<Meal> mealList = new List<Meal>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Meal meal = new Meal
+                {
+                    ID = Convert.ToInt16(dr[0]),
+                    Date = dr[1] != DBNull.Value ? Convert.ToDateTime(dr[1]) : DateTime.Now,
+                    Description = dr[2].ToString(),
+                    IsActive = Convert.ToBoolean(dr[3]),
+                    MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
+                    Name = dr[5].ToString(),
+                    Price = decimal.Parse(dr[6].ToString()),
+                    Type = dr[7].ToString(),
+                };
+                mealList.Add(meal);
+            }
+            return mealList.ToArray();
+        }
         public static Meal[] GetCancellableUserOrderedMeals(User user, DateTime date)
         {
             DataTable dt = Order_BLL.Show_CancellableUserOrdersByDate(user.ID, date);
@@ -103,45 +124,13 @@ namespace MealSync_APP.Utils
         }
         public static ValidatorResult CreateOrder(User u, Meal m, int BkId)
         {
-              /* 1º Tentar pagar
-               * 2º Criar Transação
-               * 3º Criar Pedido
-               * 4º Returno 
-               */
+            /* Pagamento, transação e pedido são executados como uma única operação atómica
+             * em Order_BLL.PlaceOrder: ou tudo é gravado, ou nada é (sem saldo retirado sem pedido).
+             */
             try
             {
-                int transactionID;
-
-                // 1º
-                decimal bkBalance = Convert.ToDecimal(BankAccount_BLL.Get_BkBalance(BkId));
-                decimal newBalance = bkBalance - m.Price;
-
-                if (newBalance < 0)
-                {
-                    return new ValidatorResult
-                    {
-                        IsValid = false,
-                        ErrorMessage = "Conta Bancaria com saldo insuficiente"
-                    };
-                }
-                BankAccount_BLL.Update_BankAccountBalance(BkId, newBalance);
-
-                // 2º
                 int holderId = Holder_BLL.Get_UserHolderID(u.ID);
-                if (holderId > 0)
-                {
-                    Transaction t = new Transaction
-                    {
-                        HolderId = holderId,
-                        Amount = m.Price,
-                        DateTime = DateTime.Now,
-                        Description = "Pagamente Refeição",
-                        Type = "Saldo Retirado",
-                    };
-                    Transaction_BLL.Create_Transaction(t);
-                    transactionID = Convert.ToInt16(Transaction_BLL.Get_TransactionID(t));
-                }
-                else
+                if (holderId <= 0)
                 {
                     return new ValidatorResult
                     {
@@ -150,15 +139,25 @@ namespace MealSync_APP.Utils
                     };
                 }
 
-                // 3º
-                var o = new Order
+                bool paid = Order_BLL.PlaceOrder(
+                    bankAccountId: BkId,
+                    holderId: holderId,
+                    amount: m.Price,
+                    description: "Pagamento Refeição",
+                    type: "Saldo Retirado",
+                    when: DateTime.Now,
+                    userId: u.ID,
+                    mealId: m.ID);
+
+                if (!paid)
                 {
-                    MealId = m.ID,
-                    TransactionId = transactionID,
-                    UserId = u.ID,
-                    BookedAt = DateTime.Now,
-                };
-                Order_BLL.Create_Order(o);
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Conta Bancaria com saldo insuficiente"
+                    };
+                }
+
                 return new ValidatorResult { IsValid = true, };
             }
             catch (Exception ex)

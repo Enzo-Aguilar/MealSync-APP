@@ -77,7 +77,7 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Holder] h ON u.ID = h.UserId " +
                 "INNER JOIN [BankAccount] ba ON h.BankAccountId = ba.ID " +
                 "WHERE ba.AccountType = 'coletiva' AND h.OwnerShipOrder = 1 AND u.Name LIKE '%' + @Name + '%' " +
-                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 1" +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 1 " +
                 "ORDER BY u.Name",
                 sqlParams);
         }
@@ -91,7 +91,7 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Holder] h ON u.ID = h.UserId " +
                 "INNER JOIN [BankAccount] ba ON h.BankAccountId = ba.ID " +
                 "WHERE ba.AccountType = 'coletiva' AND h.OwnerShipOrder = 1 AND u.Name LIKE '%' + @Name + '%' " +
-                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 0" +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 0 " +
                 "ORDER BY u.Name",
                 sqlParams);
         }
@@ -111,7 +111,7 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Holder] h ON u.ID = h.UserId " +
                 "INNER JOIN [BankAccount] ba ON h.BankAccountId = ba.ID " +
                 "WHERE ba.AccountType = 'coletiva' AND h.OwnerShipOrder = 1 " +
-                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 1" +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 1 " +
                 "ORDER BY u.Name",
                 null);//This query returns active bkAccounts with their respective owner data
         }
@@ -124,7 +124,7 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Holder] h ON u.ID = h.UserId " +
                 "INNER JOIN [BankAccount] ba ON h.BankAccountId = ba.ID " +
                 "WHERE ba.AccountType = 'coletiva' AND h.OwnerShipOrder = 1 " +
-                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 0" +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 0 " +
                 "ORDER BY u.Name",
                 null);//This query returns deactivated bkAccounts with their respective owner data
         }
@@ -188,7 +188,7 @@ namespace BusinessLogicLayer
                 new SqlParameter("@IsAnswered",0),
                 new SqlParameter("@Question",faq.Question)
             };
-            return dal.ExecuteNonQuery("INSERT INTO [Faq] (UserId,Answer,IsAnswered,Question) VALUES(@UserId,@Answer,@IsActive,@IsAnswered,@Question)", sqlParams);
+            return dal.ExecuteNonQuery("INSERT INTO [Faq] (UserId,Answer,IsActive,IsAnswered,Question) VALUES(@UserId,@Answer,@IsActive,@IsAnswered,@Question)", sqlParams);
         }
         public static void Deactivate_Question(string Question)
         {
@@ -428,7 +428,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@Date", Date),
             };
-            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE @Date=Date", sqlParams);
+            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date)", sqlParams);
         }
         public static int Create_Order(Order order)
         {
@@ -443,6 +443,44 @@ namespace BusinessLogicLayer
             return dal.ExecuteNonQuery("INSERT INTO [Order] (UserId, MealId, BookedAt, TransactionId) VALUES(@UserId, @MealId, @BookedAt, @TransactionId)",
                 sqlParams);
         }
+        // Debits the account, records the transaction and creates the order as one atomic unit.
+        // The conditional UPDATE makes the balance check race-safe; returns false on insufficient funds.
+        public static bool PlaceOrder(int bankAccountId, int holderId, decimal amount, string description, string type, DateTime when, int userId, int mealId)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@BankAccountId", bankAccountId),
+                new SqlParameter("@HolderId", holderId),
+                new SqlParameter("@Amount", amount),
+                new SqlParameter("@Description", description),
+                new SqlParameter("@Type", type),
+                new SqlParameter("@When", when),
+                new SqlParameter("@UserId", userId),
+                new SqlParameter("@MealId", mealId)
+            };
+            object result = dal.ExecuteScalar(
+                "SET XACT_ABORT ON; " +
+                "BEGIN TRANSACTION; " +
+                "UPDATE [BankAccount] SET Balance = Balance - @Amount " +
+                "WHERE ID = @BankAccountId AND Balance >= @Amount; " +
+                "IF @@ROWCOUNT = 0 " +
+                "BEGIN " +
+                "   ROLLBACK TRANSACTION; " +
+                "   SELECT CAST(0 AS BIT) AS Success; " +
+                "END " +
+                "ELSE " +
+                "BEGIN " +
+                "   INSERT INTO [Transaction] (HolderId, Amount, [DateTime], Description, Type) " +
+                "   VALUES (@HolderId, @Amount, @When, @Description, @Type); " +
+                "   INSERT INTO [Order] (UserId, MealId, BookedAt, TransactionId) " +
+                "   VALUES (@UserId, @MealId, @When, SCOPE_IDENTITY()); " +
+                "   COMMIT TRANSACTION; " +
+                "   SELECT CAST(1 AS BIT) AS Success; " +
+                "END",
+                sqlParams);
+            return result != null && result != DBNull.Value && Convert.ToBoolean(result);
+        }
         public static DataTable Show_UserOrdersByDate(int UserId, DateTime Date)
         {
             DAL dal = new DAL();
@@ -456,6 +494,20 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Order] o ON m.ID = o.MealId " +
                 "WHERE o.UserId = @UserId AND CAST(m.Date AS Date) = CAST(@Date AS Date) " +
                 "ORDER BY o.BookedAt DESC",
+                sqlParams);
+        }
+        public static DataTable Show_UserUpcomingOrders(int UserId)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@UserId", UserId)
+            };
+            return dal.ExecuteReader(
+                "SELECT m.* FROM [Meal] m " +
+                "INNER JOIN [Order] o ON m.ID = o.MealId " +
+                "WHERE o.UserId = @UserId AND CAST(m.Date AS Date) >= CAST(GETDATE() AS Date) " +
+                "ORDER BY m.Date ASC, o.BookedAt DESC",
                 sqlParams);
         }
         public static DataTable Show_CancellableUserOrdersByDate(int UserId, DateTime Date)

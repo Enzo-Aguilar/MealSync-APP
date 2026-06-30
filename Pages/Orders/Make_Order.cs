@@ -16,6 +16,10 @@ namespace MealSync_APP.OrderFolder
         public Make_Order()
         {
             InitializeComponent();
+            // The emoji labels sit on top of the buttons and would otherwise swallow the
+            // clicks, so forward their clicks to the button handler underneath.
+            label1.Click += BtnMakeOrder_Click;
+            label2.Click += BtnUpdate_Click;
         }
         private void Make_Order_Load(object sender, EventArgs e)
         {

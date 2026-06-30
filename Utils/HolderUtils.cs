@@ -41,8 +41,8 @@ namespace MealSync_APP.Utils
                 var dt = BankAccount_BLL.Get_BankAccountDetails(bk.ID);
                 if (dt.Rows.Count != 0)
                 {
-                    string password = Password.HashPassword(bk.Password);
-                    if (password == dt.Rows[0][6].ToString())
+                    string storedHash = dt.Rows[0][6].ToString();
+                    if (Password.VerifyPassword(bk.Password, storedHash))
                     {
                         return new ValidatorResult { IsValid = true };
                     }
@@ -201,7 +201,6 @@ namespace MealSync_APP.Utils
                 var validations = new[]
                 {
                 HolderValidator.IsUserNotAssociatedToBk(u, bk),
-                HolderValidator.IsPasswordEqualToBKPassword(bk),
                 HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
             };
                 foreach (var validation in validations)

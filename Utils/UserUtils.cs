@@ -661,6 +661,65 @@ namespace MealSync_APP.Utils
             Save(u);
             return new ValidatorResult { IsValid = true };
         }
+        // Edição do próprio perfil: só valida/verifica os campos que mudaram e
+        // mantém a palavra-passe existente (hash) quando não é alterada, para não
+        // marcar os próprios dados como "já existentes" nem voltar a aplicar hash.
+        public static ValidatorResult UpdateProfile(User u, string passwordConfirm)
+        {
+            var current = CurrentSession.User;
+            ValidatorResult v;
+
+            if (u.Email != current.Email)
+            {
+                v = UserValidator.ValidateEmail(u.Email); if (!v.IsValid) return v;
+                v = UserValidator.IsEmailTaken(u.Email); if (!v.IsValid) return v;
+            }
+            if (u.Name != current.Name)
+            {
+                v = UserValidator.ValidateName(u.Name); if (!v.IsValid) return v;
+                v = UserValidator.IsNameTaken(u.Name); if (!v.IsValid) return v;
+            }
+            if (u.PhoneNumber != current.PhoneNumber)
+            {
+                v = UserValidator.ValidatePhoneNumber(u.PhoneNumber); if (!v.IsValid) return v;
+                v = UserValidator.IsPhoneNumberTaken(u.PhoneNumber); if (!v.IsValid) return v;
+            }
+            if (u.PostCode != current.PostCode)
+            {
+                v = UserValidator.ValidatePostcode(u.PostCode); if (!v.IsValid) return v;
+            }
+            if (u.SchoolIDNumber != current.SchoolIDNumber)
+            {
+                v = UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber); if (!v.IsValid) return v;
+                v = UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber); if (!v.IsValid) return v;
+            }
+
+            // Palavra-passe: o campo vem pré-preenchido com o hash atual; só re-valida e re-aplica hash se mudou.
+            if (u.Password != current.Password)
+            {
+                v = Password.Validate(u.Password); if (!v.IsValid) return v;
+                v = Password.ValidatePasswordConfirmation(u.Password, passwordConfirm); if (!v.IsValid) return v;
+                u.Password = Password.HashPassword(u.Password);
+            }
+            else
+            {
+                u.Password = current.Password; // mantém o hash existente
+            }
+
+            u.Role = current.Role; // o perfil não altera a função
+
+            User_BLL.UpdateUser(u);
+
+            // Reflete as alterações na sessão atual.
+            current.Email = u.Email;
+            current.Name = u.Name;
+            current.Password = u.Password;
+            current.PhoneNumber = u.PhoneNumber;
+            current.PostCode = u.PostCode;
+            current.SchoolIDNumber = u.SchoolIDNumber;
+
+            return new ValidatorResult { IsValid = true };
+        }
     }
 }
     
