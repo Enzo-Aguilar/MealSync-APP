@@ -115,10 +115,10 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbPassword.Location = new System.Drawing.Point(259, 200);
+            this.lbPassword.Location = new System.Drawing.Point(294, 200);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(31, 24);
             this.lbPassword.TabIndex = 9;
@@ -128,10 +128,10 @@
             // lbPasswordConfirm
             // 
             this.lbPasswordConfirm.AutoSize = true;
-            this.lbPasswordConfirm.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbPasswordConfirm.BackColor = System.Drawing.Color.Transparent;
             this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPasswordConfirm.Location = new System.Drawing.Point(259, 290);
+            this.lbPasswordConfirm.Location = new System.Drawing.Point(294, 292);
             this.lbPasswordConfirm.Name = "lbPasswordConfirm";
             this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 24);
             this.lbPasswordConfirm.TabIndex = 10;

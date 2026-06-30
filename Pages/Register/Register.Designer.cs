@@ -81,7 +81,7 @@
             this.tbPasswordConfirm.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPasswordConfirm.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(678, 373);
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(689, 373);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '*';
             this.tbPasswordConfirm.Size = new System.Drawing.Size(207, 38);
@@ -172,7 +172,7 @@
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelPassword.Location = new System.Drawing.Point(632, 382);
+            this.labelPassword.Location = new System.Drawing.Point(636, 382);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(25, 20);
             this.labelPassword.TabIndex = 32;
@@ -184,7 +184,7 @@
             this.labelPasswordConfirm.AutoSize = true;
             this.labelPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelPasswordConfirm.Location = new System.Drawing.Point(855, 382);
+            this.labelPasswordConfirm.Location = new System.Drawing.Point(868, 382);
             this.labelPasswordConfirm.Name = "labelPasswordConfirm";
             this.labelPasswordConfirm.Size = new System.Drawing.Size(25, 20);
             this.labelPasswordConfirm.TabIndex = 33;

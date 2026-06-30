@@ -100,8 +100,9 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.Location = new System.Drawing.Point(1024, 391);
+            this.lbPassword.Location = new System.Drawing.Point(1062, 391);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(31, 24);
             this.lbPassword.TabIndex = 7;
