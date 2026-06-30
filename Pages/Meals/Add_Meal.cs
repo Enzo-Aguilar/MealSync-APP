@@ -34,7 +34,7 @@ namespace MealSync_APP.MealFolder
                     IsActive = true,
                     MealImage = ImageUtils.ImageToBytes(pictureBoxMealImage.Image),
                     Name = tbMealName.Text,
-                    Price = SqlMoney.Parse(tbMealPrice.Text),
+                    Price = decimal.Parse(tbMealPrice.Text),
                     Type = cbMealType.SelectedItem.ToString()
                 };
                 var create_meal = MealAuth.CreateMeal(meal);

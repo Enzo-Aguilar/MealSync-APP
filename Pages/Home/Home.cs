@@ -16,21 +16,20 @@ namespace MealSync_APP
         public void Home_Load(object sender, EventArgs e)
         {
             HomeResize(null, null);
-            Home_Tabs_Visibility();
+            HomeTabsVisibility();
             LogCheck.UserIsLogged(this);
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
         //Helpers
-        private void Home_Tabs_Visibility()
+        private void HomeTabsVisibility()
         {
             int role = CurrentSession.User.Role;
             if (role == 2)
             {
                 deactivate_BankAccount.Visible = false;
                 reactivate_BankAccount.Visible = false;
-                add_Meal.Visible = false;
-                remove_Meal.Visible = false;
+                Meals.Visible = false;
                 Students.Visible = false;
                 Employees.Visible = false;
                 Admins.Visible = false;
@@ -53,9 +52,9 @@ namespace MealSync_APP
                 Image img = Image.FromFile(System.Windows.Forms.Application.StartupPath + @"\home1.png");
                 this.BackgroundImage = img;
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar carregar a image de fundo: {err.Message}", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar a image de fundo: {ex.Message}", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         private void ClockTimer_Tick(object sender, EventArgs e)

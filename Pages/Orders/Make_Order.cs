@@ -12,6 +12,7 @@ namespace MealSync_APP.OrderFolder
     public partial class Make_Order : Form
     {
         private Meal selectedMeal = null;
+        private Panel selectedPanel;
         public Make_Order()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace MealSync_APP.OrderFolder
 
                 if (bankAccountsTable == null || bankAccountsTable.Rows.Count == 0)
                 {
-                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("O utilizador não tem conta bancaria criado ou associada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 
@@ -54,8 +55,8 @@ namespace MealSync_APP.OrderFolder
                         int bkID = Convert.ToInt32(bk["ID"]);
                         if (bkID == selectedBankAccountId)
                         {
-                            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])): SqlMoney.Zero;
-                            SqlMoney amount = balance - selectedMeal.Price;
+                            decimal balance = bk["balance"] != DBNull.Value ? Convert.ToDecimal(bk["balance"]) : 0m;
+                            decimal amount = balance - (decimal)selectedMeal.Price;
                             if (amount >= 0)
                             {
                                 var user = CurrentSession.User;
@@ -64,10 +65,11 @@ namespace MealSync_APP.OrderFolder
                                 {
                                     MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
+                                    selectedPanel.Visible = false;
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
+                                    MessageBox.Show(order.ErrorMessage,order.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
                                 }
                             }
                             else
@@ -110,6 +112,7 @@ namespace MealSync_APP.OrderFolder
 
             // Select new meal
             selectedMeal = meal;
+            selectedPanel = mealCard;
             mealCard.BackColor = Color.LightBlue;
         }
 
@@ -239,7 +242,9 @@ namespace MealSync_APP.OrderFolder
                 Location = new Point(20, 50),
                 Width = 350,
                 DropDownStyle = ComboBoxStyle.DropDownList,
-                Font = new Font("Arial", 10)
+                Font = new Font("Arial", 10),
+                DisplayMember = "Display",
+                ValueMember = "Id"
             };
 
             // Populate combo box with bank account info
@@ -247,14 +252,12 @@ namespace MealSync_APP.OrderFolder
             {
                 string owner = row["Owner"].ToString();
                 string iban = row["IBAN"].ToString();
-                SqlMoney balance = row["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(row["balance"])) : SqlMoney.Zero;
+                decimal balance = row["balance"] != DBNull.Value ? Convert.ToDecimal(row["balance"]) : 0m;
                 int id = Convert.ToInt32(row["ID"]);
 
                 string displayText = $"{owner} - {id} - {balance}€ - {iban}";
                 var item = new { Display = displayText, Id = id };
                 comboBox.Items.Add(item);
-                comboBox.DisplayMember = "Display";
-                comboBox.ValueMember = "Id";
             }
 
             if (comboBox.Items.Count > 0)
@@ -294,7 +297,8 @@ namespace MealSync_APP.OrderFolder
 
             if (result == DialogResult.OK && comboBox.SelectedItem != null)
             {
-                return Convert.ToInt32(comboBox.SelectedValue);
+                dynamic selectedItem = comboBox.SelectedItem;
+                return selectedItem.Id;
             }
 
             return -1;

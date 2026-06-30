@@ -351,7 +351,6 @@ namespace MealSync_APP.Utils
                                             ErrorMessage = "O campo [código-postal] deve conter apenas números e um ´-´ exemplo: 1234-567"
                                         };
                                     }
-                                    return new ValidatorResult { IsValid = true };
                                 }
                                 cont++;
                             }
@@ -658,6 +657,8 @@ namespace MealSync_APP.Utils
                 if (!validation.IsValid) return validation;
             }
             u.Password = Password.HashPassword(u.Password);
+            User_BLL.UpdateUser(u);
+            Save(u);
             return new ValidatorResult { IsValid = true };
         }
     }

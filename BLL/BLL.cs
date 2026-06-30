@@ -137,9 +137,18 @@ namespace BusinessLogicLayer
             };
             return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE ID=@ID", sqlParams);
         }
+        public static Object Get_BkBalance(int id)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID",id),
+            };
+            return dal.ExecuteScalar("SELECT Balance FROM [BankAccount] WHERE ID=@ID",sqlParams);
+        }
 
         //Update Bank Account balance after a payment
-        public static void Update_BankAccountBalance(int ID, SqlMoney newBalance)
+        public static void Update_BankAccountBalance(int ID, decimal newBalance)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
@@ -490,7 +499,7 @@ namespace BusinessLogicLayer
             };
             return dal.ExecuteNonQuery("INSERT INTO [Transaction] (HolderId, Amount, DateTime, Description, Type) VALUES(@HolderId, @Amount, @DateTime, @Description,  @Type)", sqlParams);
         }
-        public static int Get_TransactionID(Transaction transaction)
+        public static object Get_TransactionID(Transaction transaction)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
@@ -500,14 +509,7 @@ namespace BusinessLogicLayer
                 new SqlParameter("@DateTime", transaction.DateTime),
                 new SqlParameter("@Description", transaction.Description)
             };
-            DataTable dt = dal.ExecuteReader("SELECT ID FROM [Transaction] WHERE HolderId=@HolderId AND Amount=@Amount AND DateTime=@DateTime AND Description=@Description", sqlParams);
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                return Convert.ToInt16(dt.Rows[0]["ID"]);
-            }
-
-            return 0;
+            return dal.ExecuteScalar("SELECT ID FROM [Transaction] WHERE HolderId=@HolderId AND Amount=@Amount AND DateTime=@DateTime AND Description=@Description", sqlParams);
         }
         public static DataTable Show_BankAccountTransactions(int BankAccountId)
         {
@@ -516,7 +518,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@BankAccountId", BankAccountId)
             };
-            return dal.ExecuteReader("SELECT * FROM [Transaction] t INNER JOIN [Holder] h ON t.HolderId = h.ID WHERE h.BankAccountId = @BankAccountId ORDER BY DateTime DESC", sqlParams);
+            return dal.ExecuteReader("SELECT * FROM [Transaction] t INNER JOIN [Holder] h ON t.HolderId = h.ID WHERE h.BankAccountId = @BankAccountId ORDER BY t.DateTime DESC;", sqlParams);
         }
     }
     public class User_BLL

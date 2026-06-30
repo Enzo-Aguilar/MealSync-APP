@@ -351,7 +351,7 @@ namespace MealSync_APP.Utils
                     IsActive = Convert.ToBoolean(row["IsActive"]),
                     MealImage = row["MealImage"] != DBNull.Value ? (byte[])row["MealImage"] : Array.Empty<byte>(),
                     Name = row["Name"].ToString(),
-                    Price = row["Price"] != DBNull.Value ? (SqlMoney)row["Price"] : SqlMoney.Zero,
+                    Price = row["Price"] != DBNull.Value ? (decimal)row["Price"] : decimal.Zero,
                     Type = row["Type"].ToString()
                 };
                 meals.Append(m);

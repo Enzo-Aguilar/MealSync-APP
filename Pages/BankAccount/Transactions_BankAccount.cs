@@ -1,14 +1,7 @@
 ﻿using BusinessLogicLayer;
 using MealSync_APP.Globals;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MealSync_APP.Pages.BankAccountFolder
@@ -19,7 +12,6 @@ namespace MealSync_APP.Pages.BankAccountFolder
         {
             InitializeComponent();
         }
-        // Load do form
         private void Transactions_BankAccount_Load(object sender, EventArgs e)
         {
             int rows = CurrentSession.UserBkAccountsDataTable.Rows.Count;
@@ -29,6 +21,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
             }
             dgvBankAccounts.DataSource = CurrentSession.UserBkAccountsDataTable;
         }
+
         // Métodos dos componentes gráficos
         private void DgvBankAccounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -40,6 +33,7 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 // Fetch transactions for the selected bank account
                 dgvTransaction.DataSource = Transaction_BLL.Show_BankAccountTransactions(bankAccountId);
             }
+
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {

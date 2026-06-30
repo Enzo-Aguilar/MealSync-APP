@@ -23,7 +23,7 @@ namespace MealSync_APP.BankAccountFolder
             try
             {
                 _bk.AccountType = cbAccountType.SelectedItem.ToString();
-                _bk.Balance = SqlMoney.Parse("2.15");
+                _bk.Balance = decimal.Parse("2.15");
                 _bk.CreatedAt = DateTime.Now;
                 _bk.Password = tbPassword.Text;
                 _bk.Iban = Iban.Create();

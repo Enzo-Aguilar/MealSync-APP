@@ -1,5 +1,4 @@
-﻿using System.Data.SqlTypes;
-using System;
+﻿using System;
 
 namespace MealSync_APP.Globals
 {
@@ -7,7 +6,7 @@ namespace MealSync_APP.Globals
     {
         public int ID { get; set; } = -1;
         public string AccountType { get; set; }
-        public SqlMoney Balance { get; set; } = SqlMoney.Zero;
+        public decimal Balance { get; set; } = 0m;
         public DateTime? CreatedAt { get; set; }
         public string Iban { get; set; } = string.Empty;
         public bool IsActive { get; set; } = true;

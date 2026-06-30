@@ -13,7 +13,7 @@ namespace MealSync_APP.Globals
         public bool IsActive { get; set; } = true;
         public byte[] MealImage { get; set; } = Array.Empty<byte>();
         public string Name { get; set; } = string.Empty;
-        public SqlMoney Price { get; set; } = SqlMoney.Zero;
+        public decimal Price { get; set; } = decimal.Zero;
         public string Type { get; set; } = string.Empty;
         public Meal Clear()
         {

@@ -247,7 +247,7 @@ namespace MealSync_APP.MealFolder
             {
                 string owner = row["Owner"].ToString();
                 string iban = row["IBAN"].ToString();
-                SqlMoney balance = row["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(row["balance"])) : SqlMoney.Zero;
+                decimal balance = row["balance"] != DBNull.Value ? Convert.ToDecimal(row["balance"]) : 0m;
                 int id = Convert.ToInt32(row["ID"]);
 
                 string displayText = $"{owner} - {id} - {balance}€ - {iban}";

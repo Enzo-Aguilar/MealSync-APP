@@ -27,7 +27,7 @@ namespace MealSync_APP.Utils
                     IsActive = Convert.ToBoolean(dr[3]),
                     MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
                     Name = dr[5].ToString(),
-                    Price = SqlMoney.Parse(dr[6].ToString()),
+                    Price = decimal.Parse(dr[6].ToString()),
                     Type = dr[7].ToString(),
                 };
                 mealList.Add(meal);
@@ -48,7 +48,7 @@ namespace MealSync_APP.Utils
                     IsActive = Convert.ToBoolean(dr[3]),
                     MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
                     Name = dr[5].ToString(),
-                    Price = SqlMoney.Parse(dr[6].ToString()),
+                    Price = decimal.Parse(dr[6].ToString()),
                     Type = dr[7].ToString(),
                 };
                 mealList.Add(meal);
@@ -69,7 +69,7 @@ namespace MealSync_APP.Utils
                     IsActive = Convert.ToBoolean(dr[3]),
                     MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
                     Name = dr[5].ToString(),
-                    Price = SqlMoney.Parse(dr[6].ToString()),
+                    Price = decimal.Parse(dr[6].ToString()),
                     Type = dr[7].ToString(),
                 };
                 // Store OrderID in a temporary property or use Tag
@@ -92,7 +92,7 @@ namespace MealSync_APP.Utils
                     IsActive = Convert.ToBoolean(dr[3]),
                     MealImage = dr[4] != DBNull.Value ? (byte[])dr[4] : null,
                     Name = dr[5].ToString(),
-                    Price = SqlMoney.Parse(dr[6].ToString()),
+                    Price = Decimal.Parse(dr[6].ToString()),
                     Type = dr[7].ToString(),
                 };
                 int orderId = Convert.ToInt32(dr["OrderID"]);
@@ -101,34 +101,65 @@ namespace MealSync_APP.Utils
             }
             return mealList.ToArray();
         }
-        public static ValidatorResult CreateOrder(User u, Meal m, int ID_Bk)
+        public static ValidatorResult CreateOrder(User u, Meal m, int BkId)
         {
-            int IdHolder; 
-            int IdTransfer;
-
+              /* 1º Tentar pagar
+               * 2º Criar Transação
+               * 3º Criar Pedido
+               * 4º Returno 
+               */
             try
             {
-                IdHolder = Holder_BLL.Get_UserHolderID(u.ID);
-                var t = new Transaction
+                int transactionID;
+
+                // 1º
+                decimal bkBalance = Convert.ToDecimal(BankAccount_BLL.Get_BkBalance(BkId));
+                decimal newBalance = bkBalance - m.Price;
+
+                if (newBalance < 0)
                 {
-                    HolderId = IdHolder,
-                    Amount = m.Price,
-                    DateTime = DateTime.Now,
-                    Description = "Pagamente Refeição",
-                    Type = "Retirada"
-                };
-                BankAccount_BLL.Update_BankAccountBalance(ID_Bk, m.Price);
-                Transaction_BLL.Create_Transaction(t);
-                IdTransfer = Transaction_BLL.Get_TransactionID(t);
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Conta Bancaria com saldo insuficiente"
+                    };
+                }
+                BankAccount_BLL.Update_BankAccountBalance(BkId, newBalance);
+
+                // 2º
+                int holderId = Holder_BLL.Get_UserHolderID(u.ID);
+                if (holderId > 0)
+                {
+                    Transaction t = new Transaction
+                    {
+                        HolderId = holderId,
+                        Amount = m.Price,
+                        DateTime = DateTime.Now,
+                        Description = "Pagamente Refeição",
+                        Type = "Saldo Retirado",
+                    };
+                    Transaction_BLL.Create_Transaction(t);
+                    transactionID = Convert.ToInt16(Transaction_BLL.Get_TransactionID(t));
+                }
+                else
+                {
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Numero de Titular Invalido",
+                    };
+                }
+
+                // 3º
                 var o = new Order
                 {
                     MealId = m.ID,
-                    TransactionId = t.ID,
+                    TransactionId = transactionID,
                     UserId = u.ID,
                     BookedAt = DateTime.Now,
                 };
                 Order_BLL.Create_Order(o);
-                return new ValidatorResult { IsValid = true };
+                return new ValidatorResult { IsValid = true, };
             }
             catch (Exception ex)
             {
@@ -136,13 +167,8 @@ namespace MealSync_APP.Utils
                 {
                     IsValid = false,
                     Source = nameof(CreateOrder),
-                    ErrorMessage = $"Ocorreu um erro a criar marcação: {ex.Message}"
+                    ErrorMessage = $"Ocorreu um erro: {ex.Message}",
                 };
-            }
-            finally
-            {
-                u.Clear();
-                m.Clear();
             }
         }
     }

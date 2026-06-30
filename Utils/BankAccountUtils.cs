@@ -180,7 +180,7 @@ namespace MealSync_APP.Utils
                     return validation;
                 }
             }
-            BankAccount_BLL.Update_BankAccountBalance(bk.ID,money);
+            BankAccount_BLL.Update_BankAccountBalance(bk.ID, (decimal)money);
             return new ValidatorResult { IsValid = true, };
         }
     }
@@ -198,7 +198,7 @@ namespace MealSync_APP.Utils
             bkTable.Columns.Add("Owner", typeof(string));
             bkTable.Columns.Add("OwnerNumber", typeof(int));
             bkTable.Columns.Add("ID", typeof(int));
-            bkTable.Columns.Add("Balance", typeof(SqlMoney));
+            bkTable.Columns.Add("Balance", typeof(decimal));
             bkTable.Columns.Add("IBAN", typeof(string));
         }
         public static void Save(BankAccount bk)

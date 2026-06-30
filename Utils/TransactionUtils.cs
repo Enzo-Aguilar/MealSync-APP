@@ -11,7 +11,7 @@ namespace MealSync_APP.Utils
 {
     public class TransactionUtils
     {
-        public static Transaction MakeTransaction(int UserId, SqlMoney amount, string type)
+        public static Transaction MakeTransaction(int UserId, decimal amount, string type)
         {
             try
             {
