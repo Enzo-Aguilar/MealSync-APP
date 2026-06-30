@@ -368,7 +368,7 @@ namespace BusinessLogicLayer
                 new SqlParameter("@BankAccountId", BankAccountId)
             };
             object result = dal.ExecuteScalar(
-                "SELECT MAX(OwnerShipOrder) FROM [Holder] WHERE BankAccountId=@BankAccountId",
+                "SELECT MAX(OwnerShipOrder) FROM [Holder] WHERE BankAccountId=@BankAccountId and isActive = 1",
                 sqlParams);
             return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
         }

@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using BusinessLogicLayer;
 using MealSync_APP.Globals;
 
 namespace MealSync_APP.Utils
 {
-    internal static class HolderValidator
+    public class HolderValidator
     {
-        public static ValidatorResult IsUserNotAssociatedToBk(User u, BankAccount bk)
+        public static ValidatorResult IsUserAssociatedToBk(int userID, int bkID)
         {
             try
             {
-                var dt = Holder_BLL.Search_Holder(u.ID, bk.ID);
+                var dt = Holder_BLL.Search_Holder(userID, bkID);
                 if (dt.Rows.Count == 0)
                 {
                     return new ValidatorResult { IsValid = true };
@@ -29,12 +30,12 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult
                 {
                     IsValid = false,
-                    Source = nameof(IsUserNotAssociatedToBk),
-                    ErrorMessage = $"Ocorreu um erro ao tentar verificar se o utilizador tem associação com esta conta: {ex.Message}",
+                    Source = nameof(IsUserAssociatedToBk),
+                    ErrorMessage = $"Ocorreu um erro ao tentar verificar se o utilizador está associado a conta: {ex.Message}",
                 };
             }
         }
-        public static ValidatorResult IsPasswordEqualToBKPassword(BankAccount bk)
+        public static ValidatorResult VerifyBkPassword(BankAccount bk)
         {
             try
             {
@@ -69,16 +70,16 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult
                 {
                     IsValid = false,
-                    Source = nameof(IsPasswordEqualToBKPassword),
+                    Source = nameof(VerifyBkPassword),
                     ErrorMessage = $"Ocorreu um erro ao tentar entrar na conta: {ex.Message}",
                 };
             }
         }
-        public static ValidatorResult IsUserNameEqualToActiveBkOwnerName(User u)
+        public static ValidatorResult IsUserTheBkOwner(string name)
         {
             try
             {
-                var dt = BankAccount_BLL.Search_AccountUserDataByName(u.Name);
+                var dt = BankAccount_BLL.Search_AccountUserDataByName(name);
                 if (dt.Rows.Count != 0)
                 {
                     return new ValidatorResult { IsValid = true };
@@ -97,13 +98,13 @@ namespace MealSync_APP.Utils
                 return new ValidatorResult
                 {
                     IsValid = false,
-                    Source = nameof(IsUserNameEqualToActiveBkOwnerName),
+                    Source = nameof(IsUserTheBkOwner),
                     ErrorMessage = $"Ocorreu erro ao tentar validar o dono da conta: {ex.Message}",
                 };
             }
         }
     }
-    public class HolderAuth
+    public class HolderAuth : HolderValidator
     {
         public static ValidatorResult CreateHolder(User u, BankAccount bk, int ownerShipOrder = 1)
         {
@@ -117,7 +118,7 @@ namespace MealSync_APP.Utils
                     {
                         UserId = u.ID,
                         BankAccountId = bk.ID,
-                        OwnerShipOrder = ownerShipOrder,// 1 cuz he is the owner of the bk account so he has the first association
+                        OwnerShipOrder = ownerShipOrder,
                     };
                     Holder_BLL.Create_Holder(h);
                     return new ValidatorResult { IsValid = true };
@@ -141,14 +142,14 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        public static ValidatorResult DeactivateHolder(User u, BankAccount bk)
+        public static ValidatorResult DeactivateHolder(int userID, int bkID)
         {
             try
             {
                 Holder h = new Holder
                 {
-                    UserId = u.ID,
-                    BankAccountId = bk.ID,
+                    UserId = userID,
+                    BankAccountId = bkID,
                 };
                 Holder_BLL.Deactivate_Holder(h);
                 return new ValidatorResult { IsValid = true };
@@ -163,7 +164,7 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        public static ValidatorResult ReactivateHolder(User u, BankAccount bk)
+        public static ValidatorResult ReactivateHolder(int userID, int bkID)
         {
             try
             {
@@ -189,106 +190,77 @@ namespace MealSync_APP.Utils
         {
             /* 1º Check if account is from same user
              * 2º Check if the account can still associate
-             * 3º Create associate between bk and user
-             */
+             * 3º Create associate between bk and user*/
 
-            int bkHolderNumber = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
+            // 1º
+            var validations = new []
+            {
+                IsUserAssociatedToBk(u.ID,bk.ID),
+                IsUserTheBkOwner(u.Name),
+                VerifyBkPassword(bk),
+            };
+            foreach(var validation in validations)
+            {
+                if (!validation.IsValid)
+                {
+                    return validation;
+                }
+            }
 
-            //try
-            //{
-            //    int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
-            //    if (ownerShipOrder >= 8)
-            //    {
-            //        return new ValidatorResult
-            //        {
-            //            IsValid = false,
-            //            ErrorMessage = "Não é possível associar mais de 7 utilizadores a mesma conta bancária",
-            //        };
-            //    }
-            //    var validations = new[]
-            //    {
-            //    HolderValidator.IsUserNotAssociatedToBk(u, bk),
-            //    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
-            //};
-            //    foreach (var validation in validations)
-            //    {
-            //        if (!validation.IsValid)
-            //        {
-            //            return validation;
-            //        }
-            //    }
-            //    CreateHolder(u, bk, ownerShipOrder);
-            //    return new ValidatorResult { IsValid = true };
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new ValidatorResult
-            //    {
-            //        IsValid = false,
-            //        Source = nameof(AssociateBkToUser),
-            //        ErrorMessage = $"Ocorreu um erro criando associação entre utilizador e conta bancária: {ex.Message}",
-            //    };
-            //}
+            // 2º
+            int bkAssociatesNum = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
+            if(bkAssociatesNum >= 8)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = "Não é possivel associar mais de 7 utilizadores a mesma conta bancária",
+                };
+            }
+
+            // 3º
+            CreateHolder(u, bk, bkAssociatesNum);
+            return new ValidatorResult { IsValid = true };
         }
         public static ValidatorResult DisassociateBkToUser(User u, BankAccount bk)
         {
-            try
+            /* 1º - Check if user and bk are associated
+             * 2º - Deactivate Holder
+             */
+
+            var validations = new []
             {
-                var validations = new[]
+                VerifyBkPassword(bk),
+                IsUserTheBkOwner(u.Name),
+                IsUserAssociatedToBk(u.ID,bk.ID),
+            };
+            foreach(var validation in validations)
+            {
+                if (!validation.IsValid)
                 {
-                    HolderValidator.IsPasswordEqualToBKPassword(bk),
-                    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
-                };
-                foreach(var validate in validations)
-                {
-                    if (!validate.IsValid)
-                    {
-                        return validate;
-                    }
+                    return validation;
                 }
-                BankAuth.DeactivateBankAccount(bk);
-                DeactivateHolder(u, bk);
-                return new ValidatorResult { IsValid = true };
             }
-            catch(Exception ex)
-            {
-                return new ValidatorResult
-                {
-                    IsValid = false,
-                    Source = nameof (AssociateBkToUser),
-                    ErrorMessage = $"Ocorreu um erro ao desativar conexão entre utilizador e conta bancária: {ex.Message}",
-                };
-            }
+
+            DeactivateHolder(u.ID, bk.ID);
+            return new ValidatorResult { IsValid = true };
         }
         public static ValidatorResult ReassociateBkToUser(User u, BankAccount bk)
         {
-            try
+            var validations = new[]
             {
-                var validations = new[]
+                VerifyBkPassword(bk),
+                IsUserAssociatedToBk(u.ID,bk.ID)
+            };
+            foreach(var validation in validations)
+            {
+                if (!validation.IsValid)
                 {
-                    HolderValidator.IsPasswordEqualToBKPassword(bk),
-                    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
-                };
-                foreach (var validate in validations)
-                {
-                    if (!validate.IsValid)
-                    {
-                        return validate;
-                    }
+                    return validation;
                 }
-                BankAuth.ReactivateBankAccount(bk);
-                ReactivateHolder(u, bk);
-                return new ValidatorResult { IsValid = true };
             }
-            catch(Exception ex)
-            {
-                return new ValidatorResult
-                {
-                    IsValid = false,
-                    Source = nameof(ReassociateBkToUser),
-                    ErrorMessage = $"Ocorreu um erro ao tentar reativar conexão entre utilizador e conta bancária: {ex.Message}",
-                };
-            }
+            ReactivateHolder(u.ID, bk.ID);
+            return new ValidatorResult { IsValid = true };
         }
     }
 }
