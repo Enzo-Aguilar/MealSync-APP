@@ -3,6 +3,7 @@ using System;
 using MealSync_APP.Pages.GlobalForms;
 using MealSync_APP.OrderFolder;
 using MealSync_APP.Pages.Home;
+using MealSync_APP.BankAccountFolder;
 
 namespace MealSync_APP
 {

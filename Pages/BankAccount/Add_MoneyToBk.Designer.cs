@@ -105,6 +105,7 @@
             this.tbAddedAmount.Name = "tbAddedAmount";
             this.tbAddedAmount.Size = new System.Drawing.Size(199, 29);
             this.tbAddedAmount.TabIndex = 9;
+            this.tbAddedAmount.TextChanged += new System.EventHandler(this.tbAddedAmount_TextChanged);
             // 
             // btnAddMoney
             // 
@@ -140,11 +141,12 @@
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(854, 479);
+            this.lbText.Location = new System.Drawing.Point(847, 478);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(23, 25);
             this.lbText.TabIndex = 15;
             this.lbText.Text = "€";
+            this.lbText.Click += new System.EventHandler(this.lbText_Click);
             // 
             // label3
             // 
@@ -182,6 +184,7 @@
             this.label2.Size = new System.Drawing.Size(35, 31);
             this.label2.TabIndex = 32;
             this.label2.Text = "   ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Add_MoneyToBk
             // 

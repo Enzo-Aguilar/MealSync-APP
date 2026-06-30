@@ -157,5 +157,10 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 lbPassword.Text = "🔒";
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pesquise usando o nome do dono da conta bancária.");
+        }
     }
 }
