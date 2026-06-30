@@ -147,6 +147,7 @@
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.dgvFAQs);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Reactivate_Faq";
             this.Text = "\\";
             this.Load += new System.EventHandler(this.Reactivate_FAQ_Load);

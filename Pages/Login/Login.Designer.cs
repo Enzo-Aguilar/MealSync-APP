@@ -124,6 +124,7 @@
             this.Controls.Add(this.tbName);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

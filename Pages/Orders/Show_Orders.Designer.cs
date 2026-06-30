@@ -104,6 +104,7 @@
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panelMeals);
+            this.MaximizeBox = false;
             this.Name = "Show_Orders";
             this.Text = "Ver_Marcações";
             this.ResumeLayout(false);

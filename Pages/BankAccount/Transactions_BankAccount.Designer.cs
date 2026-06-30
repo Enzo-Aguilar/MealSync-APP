@@ -126,6 +126,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.dgvBankAccounts);
+            this.MaximizeBox = false;
             this.Name = "Transactions_BankAccount";
             this.Text = "Transactions_BankAccount";
             this.Load += new System.EventHandler(this.Transactions_BankAccount_Load);

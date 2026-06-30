@@ -207,6 +207,7 @@
             this.Controls.Add(this.tbIBAN);
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
+            this.MinimizeBox = false;
             this.Name = "Reactivate_BankAccount";
             this.Text = "Reativar conta";
             this.Load += new System.EventHandler(this.Reactivate_BankAccount_Load);

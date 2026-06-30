@@ -209,6 +209,7 @@
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MaximizeBox = false;
             this.Name = "Associate_BankAccount";
             this.Text = "Associar Conta Bancaria";
             this.Load += new System.EventHandler(this.Associate_BankAccount_Load);

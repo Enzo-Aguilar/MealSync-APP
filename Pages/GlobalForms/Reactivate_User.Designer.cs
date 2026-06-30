@@ -352,6 +352,7 @@
             this.Controls.Add(this.btnAlphabeticOrder);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.dgvUsers);
+            this.MaximizeBox = false;
             this.Name = "Reactivate_User";
             this.Text = "Reactivate_User";
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).EndInit();

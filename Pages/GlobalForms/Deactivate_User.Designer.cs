@@ -367,6 +367,7 @@
             this.Controls.Add(this.btnAlphabeticOrder);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.dgvUsers);
+            this.MaximizeBox = false;
             this.Name = "Deactivate_User";
             this.Text = "remove_User";
             this.Load += new System.EventHandler(this.Remove_User_Load);

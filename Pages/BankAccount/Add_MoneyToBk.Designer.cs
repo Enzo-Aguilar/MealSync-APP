@@ -202,6 +202,7 @@
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.dgvBankAccounts);
+            this.MaximizeBox = false;
             this.Name = "Add_MoneyToBk";
             this.Text = "Add_MoneyToBk";
             this.Load += new System.EventHandler(this.Add_MoneyToBk_Load);

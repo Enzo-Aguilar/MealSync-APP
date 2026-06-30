@@ -164,6 +164,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
+            this.MaximizeBox = false;
             this.Name = "Remove_Meal";
             this.Text = "Remover_Refeicoes";
             this.Load += new System.EventHandler(this.Remove_Meal_Load);

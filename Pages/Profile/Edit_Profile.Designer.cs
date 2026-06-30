@@ -198,6 +198,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
+            this.MaximizeBox = false;
             this.Name = "Edit_Profile";
             this.Text = "Editar Perfil";
             this.Load += new System.EventHandler(this.Edit_Profile_Load);
