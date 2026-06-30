@@ -153,6 +153,7 @@
             this.Controls.Add(this.linkLabelAssociateBankAccount);
             this.Controls.Add(this.cbAccountType);
             this.Controls.Add(this.tbPassword);
+            this.MinimizeBox = false;
             this.Name = "Create_BankAccount";
             this.Text = "Criar Conta Bancaria";
             this.Load += new System.EventHandler(this.Create_BankAccount_Load);

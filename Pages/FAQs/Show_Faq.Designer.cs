@@ -101,7 +101,7 @@
             this.label1.Text = "🔄";
             this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // Show_FAQs
+            // Show_Faq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,7 +114,8 @@
             this.Controls.Add(this.dgvQuestions);
             this.Controls.Add(this.tbAnswers);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Show_FAQs";
+            this.MaximizeBox = false;
+            this.Name = "Show_Faq";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Show_FAQs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();

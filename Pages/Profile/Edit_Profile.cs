@@ -40,7 +40,7 @@ namespace MealSync_APP.ProfileFolder
                     var message = MessageBox.Show("Tem certeza que deseja efetuar alterações", "?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                     if (message == DialogResult.Yes)
                     {
-                        var update = UserData.Update(_user, tbPasswordConfirm.Text);
+                        var update = UserData.Update(_user, tbPassword_Confirm.Text);
                         if (update.IsValid)
                         {
                             MessageBox.Show("Utilizador editado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,7 +102,6 @@ namespace MealSync_APP.ProfileFolder
                     {
                         return false;
                     }
-                    return true;
                 }
                 return true;
             }

@@ -336,11 +336,11 @@ namespace MealSync_APP.Utils
         public static Meal[] IndexMeals(DateTime date)
         {
             var dt = Meal_BLL.Show_MealsByDate(date);
-            Meal[] meals = new Meal[15];
             if (dt == null || dt.Rows.Count == 0)
             {
                 return null;
             }
+            List<Meal> meals = new List<Meal>();
             foreach (DataRow row in dt.Rows)
             {
                 Meal m = new Meal
@@ -354,9 +354,9 @@ namespace MealSync_APP.Utils
                     Price = row["Price"] != DBNull.Value ? (decimal)row["Price"] : decimal.Zero,
                     Type = row["Type"].ToString()
                 };
-                meals.Append(m);
+                meals.Add(m);
             }
-            return meals;
+            return meals.ToArray();
         }
     }
 }

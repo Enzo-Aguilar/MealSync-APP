@@ -2,6 +2,7 @@
 using System;
 using MealSync_APP.Pages.GlobalForms;
 using MealSync_APP.OrderFolder;
+using MealSync_APP.Pages.Home;
 
 namespace MealSync_APP
 {
@@ -15,7 +16,7 @@ namespace MealSync_APP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Dashboard());
         }
     }
 }

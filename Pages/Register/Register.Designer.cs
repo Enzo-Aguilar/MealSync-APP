@@ -213,6 +213,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
+            this.MaximizeBox = false;
             this.Name = "Register";
             this.Text = "Registo";
             this.Load += new System.EventHandler(this.Registo_Load);

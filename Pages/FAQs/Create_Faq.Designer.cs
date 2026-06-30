@@ -91,6 +91,7 @@
             this.Controls.Add(this.btnSendQuestion);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.tbQuestion);
+            this.MaximizeBox = false;
             this.Name = "Create_Faq";
             this.Text = "Fazer Pergunta";
             this.ResumeLayout(false);

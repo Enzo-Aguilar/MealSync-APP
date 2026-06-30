@@ -23,7 +23,7 @@ namespace MealSync_APP.OrderFolder
         private void Show_Orders_Load(object sender, EventArgs e)
         {
             OrderDateTime.Value = DateTime.Today;
-            LoadUserOrdersForDate(OrderDateTime.Value);
+            LoadAllUpcomingOrders();
             LogCheck.UserIsLogged(this);
         }
  
@@ -127,7 +127,19 @@ namespace MealSync_APP.OrderFolder
         }
 
         // Helpers
+        private void LoadAllUpcomingOrders()
+        {
+            var userOrders = Utils.OrderUtils.GetUserUpcomingOrderedMeals(CurrentSession.User);
+            RenderOrders(userOrders, "Nenhuma marcação futura");
+        }
+
         private void LoadUserOrdersForDate(DateTime selectedDate)
+        {
+            var userOrders = Utils.OrderUtils.GetUserOrderedMeals(CurrentSession.User, selectedDate);
+            RenderOrders(userOrders, "Nenhuma marcação para este dia");
+        }
+
+        private void RenderOrders(Meal[] userOrders, string emptyMessage)
         {
             panelMeals.Controls.Clear();
 
@@ -138,13 +150,11 @@ namespace MealSync_APP.OrderFolder
             int cardSpacing = 10;
             int cardCount = 0;
 
-            var userOrders = Utils.OrderUtils.GetUserOrderedMeals(CurrentSession.User, selectedDate);
-
-            if (userOrders.Length == 0)
+            if (userOrders == null || userOrders.Length == 0)
             {
                 Label noOrdersLabel = new Label
                 {
-                    Text = "Nenhuma marcação para este dia",
+                    Text = emptyMessage,
                     Font = new Font("Arial", 14, FontStyle.Bold),
                     ForeColor = Color.Gray,
                     Location = new Point(200, 150),

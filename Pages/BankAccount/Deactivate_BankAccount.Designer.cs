@@ -207,6 +207,7 @@
             this.Controls.Add(this.tbIBAN);
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
+            this.MaximizeBox = false;
             this.Name = "Deactivate_BankAccount";
             this.Text = "Desativar conta bancaria";
             this.Load += new System.EventHandler(this.Deactivate_BankAccount_Load);

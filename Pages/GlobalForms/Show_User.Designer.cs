@@ -234,6 +234,7 @@
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvUsers);
+            this.MaximizeBox = false;
             this.Name = "Show_User";
             this.Text = "Mostrar";
             this.Load += new System.EventHandler(this.Show_User_Load);

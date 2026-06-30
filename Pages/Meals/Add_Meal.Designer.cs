@@ -315,6 +315,7 @@
             this.Controls.Add(this.lbWhatUserSee);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "Add_Meal";
             this.Text = "Adicionar_Refeicoes";
             this.panel1.ResumeLayout(false);

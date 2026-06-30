@@ -166,6 +166,7 @@
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MaximizeBox = false;
             this.Name = "Make_Order";
             this.Text = "Fazer_Marcacoes";
             this.Load += new System.EventHandler(this.Make_Order_Load);

@@ -192,8 +192,9 @@
             this.Controls.Add(this.tbAnswer);
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.dgvFAQs);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Answer_FAQ";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.Name = "Answer_Faq";
             this.Text = "Responder Perguntas";
             this.Load += new System.EventHandler(this.Answer_Faq_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFAQs)).EndInit();

@@ -180,7 +180,8 @@ namespace MealSync_APP.Utils
                     return validation;
                 }
             }
-            BankAccount_BLL.Update_BankAccountBalance(bk.ID, (decimal)money);
+            decimal currentBalance = Convert.ToDecimal(BankAccount_BLL.Get_BkBalance(bk.ID));
+            BankAccount_BLL.Update_BankAccountBalance(bk.ID, currentBalance + (decimal)money);
             return new ValidatorResult { IsValid = true, };
         }
     }

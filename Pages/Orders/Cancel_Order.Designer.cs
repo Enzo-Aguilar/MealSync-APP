@@ -137,6 +137,7 @@
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Cancel_Order";
             this.Text = "Desmarcar_Pedido";
             this.Load += new System.EventHandler(this.Cancel_Order_Load);
