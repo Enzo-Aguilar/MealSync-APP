@@ -88,5 +88,20 @@ namespace MealSync_APP.Pages.BankAccountFolder
             tbBankAccountID.Clear();
             tbAddedAmount.Clear();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pesquise usando o nome do dono da conta bancária.");
+        }
+
+        private void tbAddedAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
