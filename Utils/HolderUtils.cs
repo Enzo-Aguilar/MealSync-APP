@@ -170,8 +170,8 @@ namespace MealSync_APP.Utils
             {
                 Holder h = new Holder
                 {
-                    UserId = u.ID,
-                    BankAccountId = bk.ID,
+                    UserId = userID,
+                    BankAccountId = bkID,
                 };
                 Holder_BLL.Reactivate_Holder(h);
                 return new ValidatorResult { IsValid = true };
