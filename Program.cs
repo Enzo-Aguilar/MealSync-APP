@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;  
+﻿using MealSync_APP.Pages.Home;
+using System.Windows.Forms;  
 using System;
-using MealSync_APP.Pages.GlobalForms;
-using MealSync_APP.OrderFolder;
-using MealSync_APP.Pages.Home;
 
 namespace MealSync_APP
 {

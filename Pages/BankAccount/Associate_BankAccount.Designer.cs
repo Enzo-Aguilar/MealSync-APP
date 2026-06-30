@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Associate_BankAccount));
             this.dgvBankAccounts = new System.Windows.Forms.DataGridView();
             this.tbAccountOwner = new System.Windows.Forms.TextBox();
-            this.tbIBAN = new System.Windows.Forms.TextBox();
+            this.tbtbBankAccountID = new System.Windows.Forms.TextBox();
             this.btnAssociateAccount = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.tbBankAccountID = new System.Windows.Forms.TextBox();
+            this.tbIban = new System.Windows.Forms.TextBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,17 +67,17 @@
             this.tbAccountOwner.Size = new System.Drawing.Size(283, 30);
             this.tbAccountOwner.TabIndex = 1;
             // 
-            // tbIBAN
+            // tbtbBankAccountID
             // 
-            this.tbIBAN.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbIBAN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbIBAN.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbIBAN.Location = new System.Drawing.Point(609, 362);
-            this.tbIBAN.Name = "tbIBAN";
-            this.tbIBAN.PasswordChar = '*';
-            this.tbIBAN.ReadOnly = true;
-            this.tbIBAN.Size = new System.Drawing.Size(283, 30);
-            this.tbIBAN.TabIndex = 2;
+            this.tbtbBankAccountID.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbtbBankAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtbBankAccountID.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbtbBankAccountID.Location = new System.Drawing.Point(609, 362);
+            this.tbtbBankAccountID.Name = "tbtbBankAccountID";
+            this.tbtbBankAccountID.PasswordChar = '*';
+            this.tbtbBankAccountID.ReadOnly = true;
+            this.tbtbBankAccountID.Size = new System.Drawing.Size(283, 30);
+            this.tbtbBankAccountID.TabIndex = 2;
             // 
             // btnAssociateAccount
             // 
@@ -107,16 +107,16 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // tbBankAccountID
+            // tbIban
             // 
-            this.tbBankAccountID.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbBankAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBankAccountID.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbBankAccountID.Location = new System.Drawing.Point(609, 265);
-            this.tbBankAccountID.Name = "tbBankAccountID";
-            this.tbBankAccountID.ReadOnly = true;
-            this.tbBankAccountID.Size = new System.Drawing.Size(283, 30);
-            this.tbBankAccountID.TabIndex = 10;
+            this.tbIban.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbIban.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbIban.Location = new System.Drawing.Point(609, 265);
+            this.tbIban.Name = "tbIban";
+            this.tbIban.ReadOnly = true;
+            this.tbIban.Size = new System.Drawing.Size(283, 30);
+            this.tbIban.TabIndex = 10;
             // 
             // tbSearch
             // 
@@ -135,7 +135,7 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(797, 531);
+            this.label1.Location = new System.Drawing.Point(640, 533);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 37);
             this.label1.TabIndex = 13;
@@ -148,7 +148,7 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(646, 533);
+            this.label2.Location = new System.Drawing.Point(802, 537);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 14;
@@ -206,10 +206,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearch);
-            this.Controls.Add(this.tbBankAccountID);
+            this.Controls.Add(this.tbIban);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAssociateAccount);
-            this.Controls.Add(this.tbIBAN);
+            this.Controls.Add(this.tbtbBankAccountID);
             this.Controls.Add(this.tbAccountOwner);
             this.Controls.Add(this.dgvBankAccounts);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -227,10 +227,10 @@
 
         private System.Windows.Forms.DataGridView dgvBankAccounts;
         private System.Windows.Forms.TextBox tbAccountOwner;
-        private System.Windows.Forms.TextBox tbIBAN;
+        private System.Windows.Forms.TextBox tbtbBankAccountID;
         private System.Windows.Forms.Button btnAssociateAccount;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox tbBankAccountID;
+        private System.Windows.Forms.TextBox tbIban;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

@@ -52,6 +52,11 @@ namespace MealSync_APP.Utils
         }
 
         //Bank Account (usuário currente)
+        public static void AddMoneyToBk()
+        {
+            Add_MoneyToBk amtbk = new Add_MoneyToBk { MdiParent = _home};
+            amtbk.Show();
+        }
         public static void AssociateToBankAccount()
         {
             Associate_BankAccount ab = new Associate_BankAccount { MdiParent = _home};

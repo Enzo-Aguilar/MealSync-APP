@@ -67,6 +67,7 @@
             this.reactivate_FAQs = new System.Windows.Forms.ToolStripMenuItem();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.clock = new System.Windows.Forms.Label();
+            this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +85,8 @@
             this.create_BankAccount,
             this.transactions_BankAccount,
             this.deactivate_BankAccount,
-            this.reactivate_BankAccount});
+            this.reactivate_BankAccount,
+            this.adicionarToolStripMenuItem});
             this.Bank_Account.Name = "Bank_Account";
             this.Bank_Account.Size = new System.Drawing.Size(99, 20);
             this.Bank_Account.Text = "Conta Bancaria";
@@ -92,35 +94,35 @@
             // associate_BankAccount
             // 
             this.associate_BankAccount.Name = "associate_BankAccount";
-            this.associate_BankAccount.Size = new System.Drawing.Size(137, 22);
+            this.associate_BankAccount.Size = new System.Drawing.Size(182, 22);
             this.associate_BankAccount.Text = "🔗‍ Associar";
             this.associate_BankAccount.Click += new System.EventHandler(this.Associate_BankAccount_Click);
             // 
             // create_BankAccount
             // 
             this.create_BankAccount.Name = "create_BankAccount";
-            this.create_BankAccount.Size = new System.Drawing.Size(137, 22);
+            this.create_BankAccount.Size = new System.Drawing.Size(182, 22);
             this.create_BankAccount.Text = "➕ Criar";
             this.create_BankAccount.Click += new System.EventHandler(this.Create_BankAccount_Click);
             // 
             // transactions_BankAccount
             // 
             this.transactions_BankAccount.Name = "transactions_BankAccount";
-            this.transactions_BankAccount.Size = new System.Drawing.Size(137, 22);
+            this.transactions_BankAccount.Size = new System.Drawing.Size(182, 22);
             this.transactions_BankAccount.Text = "Transações";
             this.transactions_BankAccount.Click += new System.EventHandler(this.Transactions_BankAccount_Click);
             // 
             // deactivate_BankAccount
             // 
             this.deactivate_BankAccount.Name = "deactivate_BankAccount";
-            this.deactivate_BankAccount.Size = new System.Drawing.Size(137, 22);
+            this.deactivate_BankAccount.Size = new System.Drawing.Size(182, 22);
             this.deactivate_BankAccount.Text = "🔒 Desativar";
             this.deactivate_BankAccount.Click += new System.EventHandler(this.Deactivate_BankAccount_Click);
             // 
             // reactivate_BankAccount
             // 
             this.reactivate_BankAccount.Name = "reactivate_BankAccount";
-            this.reactivate_BankAccount.Size = new System.Drawing.Size(137, 22);
+            this.reactivate_BankAccount.Size = new System.Drawing.Size(182, 22);
             this.reactivate_BankAccount.Text = "🔓 Reativar";
             this.reactivate_BankAccount.Click += new System.EventHandler(this.Reactivate_BankAccount_Click);
             // 
@@ -168,21 +170,21 @@
             // edit_Meal
             // 
             this.edit_Meal.Name = "edit_Meal";
-            this.edit_Meal.Size = new System.Drawing.Size(180, 22);
+            this.edit_Meal.Size = new System.Drawing.Size(140, 22);
             this.edit_Meal.Text = "✍ Editar";
             this.edit_Meal.Click += new System.EventHandler(this.Edit_Meal_Click);
             // 
             // add_Meal
             // 
             this.add_Meal.Name = "add_Meal";
-            this.add_Meal.Size = new System.Drawing.Size(180, 22);
+            this.add_Meal.Size = new System.Drawing.Size(140, 22);
             this.add_Meal.Text = "➕ Adicionar";
             this.add_Meal.Click += new System.EventHandler(this.Add_Meal_Click);
             // 
             // remove_Meal
             // 
             this.remove_Meal.Name = "remove_Meal";
-            this.remove_Meal.Size = new System.Drawing.Size(180, 22);
+            this.remove_Meal.Size = new System.Drawing.Size(140, 22);
             this.remove_Meal.Text = "🗑️ Remover";
             this.remove_Meal.Click += new System.EventHandler(this.Remove_Meal_Click);
             // 
@@ -368,6 +370,13 @@
             this.clock.TabIndex = 2;
             this.clock.Text = "relogio";
             // 
+            // adicionarToolStripMenuItem
+            // 
+            this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.adicionarToolStripMenuItem.Text = " € Introduzir Quantia";
+            this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.AddMoneyToBk_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,5 +438,6 @@
         private System.Windows.Forms.ToolStripMenuItem reactivate_FAQs;
         private System.Windows.Forms.ToolStripMenuItem transactions_BankAccount;
         private System.Windows.Forms.ToolStripMenuItem ver_Order;
+        private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
     }
 }

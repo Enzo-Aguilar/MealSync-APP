@@ -44,7 +44,7 @@
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
-            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
+            this.btnEntrar.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // btnCriar
             // 
@@ -57,7 +57,7 @@
             this.btnCriar.TabIndex = 1;
             this.btnCriar.Text = "Criar conta";
             this.btnCriar.UseVisualStyleBackColor = false;
-            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
+            this.btnCriar.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // Dashboard
             // 
@@ -71,7 +71,7 @@
             this.Name = "Dashboard";
             this.Text = "Dash_board";
             this.Load += new System.EventHandler(this.Dashboard_Load);
-            this.Resize += new System.EventHandler(this.Dash_board_Resize);
+            this.Resize += new System.EventHandler(this.Dashboard_Resize);
             this.ResumeLayout(false);
 
         }

@@ -187,41 +187,48 @@ namespace MealSync_APP.Utils
         }
         public static ValidatorResult AssociateBkToUser(User u, BankAccount bk)
         {
-            try
-            {
-                int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
-                if (ownerShipOrder >= 8)
-                {
-                    return new ValidatorResult
-                    {
-                        IsValid = false,
-                        ErrorMessage = "Não é possível associar mais de 7 utilizadores a mesma conta bancária",
-                    };
-                }
-                var validations = new[]
-                {
-                HolderValidator.IsUserNotAssociatedToBk(u, bk),
-                HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
-            };
-                foreach (var validation in validations)
-                {
-                    if (!validation.IsValid)
-                    {
-                        return validation;
-                    }
-                }
-                CreateHolder(u, bk, ownerShipOrder);
-                return new ValidatorResult { IsValid = true };
-            }
-            catch (Exception ex)
-            {
-                return new ValidatorResult
-                {
-                    IsValid = false,
-                    Source = nameof(AssociateBkToUser),
-                    ErrorMessage = $"Ocorreu um erro criando associação entre utilizador e conta bancária: {ex.Message}",
-                };
-            }
+            /* 1º Check if account is from same user
+             * 2º Check if the account can still associate
+             * 3º Create associate between bk and user
+             */
+
+            int bkHolderNumber = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
+
+            //try
+            //{
+            //    int ownerShipOrder = Holder_BLL.GetMaxOwnershipOrderValue(bk.ID);
+            //    if (ownerShipOrder >= 8)
+            //    {
+            //        return new ValidatorResult
+            //        {
+            //            IsValid = false,
+            //            ErrorMessage = "Não é possível associar mais de 7 utilizadores a mesma conta bancária",
+            //        };
+            //    }
+            //    var validations = new[]
+            //    {
+            //    HolderValidator.IsUserNotAssociatedToBk(u, bk),
+            //    HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
+            //};
+            //    foreach (var validation in validations)
+            //    {
+            //        if (!validation.IsValid)
+            //        {
+            //            return validation;
+            //        }
+            //    }
+            //    CreateHolder(u, bk, ownerShipOrder);
+            //    return new ValidatorResult { IsValid = true };
+            //}
+            //catch (Exception ex)
+            //{
+            //    return new ValidatorResult
+            //    {
+            //        IsValid = false,
+            //        Source = nameof(AssociateBkToUser),
+            //        ErrorMessage = $"Ocorreu um erro criando associação entre utilizador e conta bancária: {ex.Message}",
+            //    };
+            //}
         }
         public static ValidatorResult DisassociateBkToUser(User u, BankAccount bk)
         {

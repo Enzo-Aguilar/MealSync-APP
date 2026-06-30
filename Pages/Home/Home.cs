@@ -78,6 +78,7 @@ namespace MealSync_APP
         private void Edit_Profile_Click(object sender, EventArgs e) { OpenForm.EditUserProfile(); }
 
         //Conta bancária
+        private void AddMoneyToBk_Click(object sender, EventArgs e) { OpenForm.AddMoneyToBk(); }
         private void Associate_BankAccount_Click(object sender, EventArgs e) { OpenForm.AssociateToBankAccount(); }
         private void Create_BankAccount_Click(object sender, EventArgs e) { OpenForm.CreateBankAccount(); }
         private void Transactions_BankAccount_Click(object sender, EventArgs e) { OpenForm.BankAccountTransactions(); }

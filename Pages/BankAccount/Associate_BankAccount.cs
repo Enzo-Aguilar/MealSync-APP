@@ -43,29 +43,36 @@ namespace MealSync_APP.BankAccountFolder
         {
             try
             {
-                _bk.ID = int.Parse(tbBankAccountID.Text);
-                _bk.Iban = tbIBAN.Text;
-                var associate = HolderAuth.AssociateBkToUser(_user, _bk);
-                if(associate.IsValid)
-                {
-                    BankAccountData.Save(_bk);
-                    MessageBox.Show("Conta Bancária associada com sucesso","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(associate.ErrorMessage,associate.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }
+                _bk.ID = int.Parse(tbtbBankAccountID.Text);
+                _bk.Iban = tbIban.Text;
+
+                var associateToBk = HolderAuth.AssociateBkToUser(_user, _bk);
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro ao tentar associar a conta bancária: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            finally
-            {
-                _bk.Clear();
-                _user.Clear();
-                ClearFields();
-            }
+            //try
+            //{
+            //    _bk.ID = int.Parse(tbIban.Text);
+            //    _bk.Iban = tbtbBankAccountID.Text;
+            //    var associate = HolderAuth.AssociateBkToUser(_user, _bk);
+            //    if(associate.IsValid)
+            //    {
+            //        BankAccountData.Save(_bk);
+            //        MessageBox.Show("Conta Bancária associada com sucesso","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(associate.ErrorMessage,associate.Source,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show($"Ocorreu um erro ao tentar associar a conta bancária: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //}
+            //finally
+            //{
+            //    _bk.Clear();
+            //    _user.Clear();
+            //    ClearFields();
+            //}
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -120,8 +127,8 @@ namespace MealSync_APP.BankAccountFolder
                     string iban = dgvBankAccounts.Rows[e.RowIndex].Cells[4].Value?.ToString() ?? string.Empty;
 
                     tbAccountOwner.Text = accountOwner;
-                    tbBankAccountID.Text = accountID.ToString();
-                    tbIBAN.Text = iban;
+                    tbIban.Text = iban;
+                    tbtbBankAccountID.Text = accountID.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -202,8 +209,8 @@ namespace MealSync_APP.BankAccountFolder
         private void ClearFields()
         {
             tbAccountOwner.Clear();
-            tbBankAccountID.Clear();
-            tbIBAN.Clear();
+            tbIban.Clear();
+            tbtbBankAccountID.Clear();
 
             dgvBankAccounts.Visible = false;
             LoadBkAccountData();
@@ -213,12 +220,12 @@ namespace MealSync_APP.BankAccountFolder
         {
             if (lbPassword.Text.Contains("🔒"))
             {
-                tbIBAN.PasswordChar = '\0';
+                tbtbBankAccountID.PasswordChar = '\0';
                 lbPassword.Text = "🔓";
             }
             else
             {
-                tbIBAN.PasswordChar = '*';
+                tbtbBankAccountID.PasswordChar = '*';
                 lbPassword.Text = "🔒";
             }
         }
