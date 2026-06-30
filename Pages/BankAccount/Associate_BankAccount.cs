@@ -45,7 +45,6 @@ namespace MealSync_APP.BankAccountFolder
             {
                 _bk.ID = int.Parse(tbBankAccountID.Text);
                 _bk.Iban = tbIBAN.Text;
-                _bk.Password = tbPassword.Text;
                 var associate = HolderAuth.AssociateBkToUser(_user, _bk);
                 if(associate.IsValid)
                 {
@@ -127,7 +126,6 @@ namespace MealSync_APP.BankAccountFolder
             tbAccountOwner.Clear();
             tbBankAccountID.Clear();
             tbIBAN.Clear();
-            tbPassword.Clear();
 
             dgvBankAccounts.Visible = false;
             LoadBkAccountData();

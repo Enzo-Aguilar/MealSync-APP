@@ -23,7 +23,7 @@ namespace MealSync_APP.ProfileFolder
         //Métodos dos componentes gráficos
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (!CheckDiff())
+            if (CheckDiff())
             {
                 try
                 {
@@ -32,7 +32,7 @@ namespace MealSync_APP.ProfileFolder
                         ID = CurrentSession.User.ID,
                         Email = tbEmail.Text,
                         Name = tbName.Text,
-                        Password = tbPassword.Text,
+                        Password = tbPassword.Text ?? CurrentSession.User.Password,
                         PhoneNumber = tbPhoneNum.Text,
                         SchoolIDNumber = tbSchoolMemberID.Text,
                         PostCode = tbPostcode.Text
@@ -40,7 +40,7 @@ namespace MealSync_APP.ProfileFolder
                     var message = MessageBox.Show("Tem certeza que deseja efetuar alterações", "?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                     if (message == DialogResult.Yes)
                     {
-                        var update = UserData.Update(_user, tbPassword_Confirm.Text);
+                        var update = UserData.Update(_user, tbPasswordConfirm.Text);
                         if (update.IsValid)
                         {
                             MessageBox.Show("Utilizador editado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -64,45 +64,6 @@ namespace MealSync_APP.ProfileFolder
             {
                 MessageBox.Show("Nenhuma alteração foi efetuada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //if (CheckDiference())
-            //{
-            //    MessageBox.Show("Nenhuma alteração foi feita");
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        User user = new User
-            //        {
-            //            ID = CurrentSession.User.ID,
-            //            Email = tbEmail.Text,
-            //            Name = tbName.Text,
-            //            Password = tbPassword.Text,
-            //            PhoneNumber = tbPhoneNum.Text,
-            //            SchoolIDNumber = tbSchoolMemberID.Text,
-            //            PostCode = tbPostcode.Text
-            //        };
-            //        var update = UserData.Update(user, tbPassword_Confirm.Text);
-            //        if (update.IsValid)
-            //        {
-            //            var res = MessageBox.Show("Tem certeza que deseja alterar os seus dados?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //            if (res == DialogResult.Yes)
-            //            {
-            //                MessageBox.Show("Utilizador editado", "");
-            //                LoginForm.Open(this);
-            //            }
-            //            User_BLL.UpdateUser(user);
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show(update.ErrorMessage);
-            //        }
-            //    }
-            //    catch (Exception err)
-            //    {
-            //        MessageBox.Show("Ocorreu um erro: "+err.Message);
-            //    }
-            //}
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -118,8 +79,6 @@ namespace MealSync_APP.ProfileFolder
         {
             tbEmail.Text = CurrentSession.User.Email;
             tbName.Text = CurrentSession.User.Name;
-            tbPassword.Text = CurrentSession.User.Password;
-            tbPassword_Confirm.Text = CurrentSession.User.Password;
             tbPhoneNum.Text = CurrentSession.User.PhoneNumber;
             tbSchoolMemberID.Text = CurrentSession.User.SchoolIDNumber;
             tbPostcode.Text = CurrentSession.User.PostCode;
@@ -128,18 +87,18 @@ namespace MealSync_APP.ProfileFolder
         {
             try
             {
-                var checks = new[]
+                var textboxs = new[]
                 {
                     tbEmail.Text == CurrentSession.User.Email,
                     tbName.Text == CurrentSession.User.Name,
-                    tbPassword.Text == CurrentSession.User.Password,
+                    Password.HashPassword(tbPassword.Text) == CurrentSession.User.Password,
                     tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
                     tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
                     tbPostcode.Text == CurrentSession.User.PostCode
                 };  
-                foreach (var result in checks)
+                foreach (var textbox in textboxs)
                 {
-                    if (!result)
+                    if (!textbox)
                     {
                         return false;
                     }
@@ -151,6 +110,34 @@ namespace MealSync_APP.ProfileFolder
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        private void LbPassword_Click(object sender, EventArgs e)
+        {
+            if (lbPassword.Text.Contains("🔒"))
+            {
+                tbPassword.PasswordChar = '\0';
+                lbPassword.Text = "🔓";
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+                lbPassword.Text = "🔒";
+            }
+        }
+
+        private void LbPasswordConfirm_Click(object sender, EventArgs e)
+        {
+            if (lbPasswordConfirm.Text.Contains("🔒"))
+            {
+                tbPasswordConfirm.PasswordChar = '\0';
+                lbPasswordConfirm.Text = "🔓";
+            }
+            else
+            {
+                tbPasswordConfirm.PasswordChar = '*';
+                lbPasswordConfirm.Text = "🔒";
             }
         }
     }

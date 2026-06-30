@@ -497,6 +497,8 @@ namespace BusinessLogicLayer
                 new SqlParameter("@Description",transaction.Description),
                 new SqlParameter("@Type", transaction.Type),
             };
+            Console.WriteLine(transaction.Type);
+            Console.WriteLine(transaction.Type.Length);
             return dal.ExecuteNonQuery("INSERT INTO [Transaction] (HolderId, Amount, DateTime, Description, Type) VALUES(@HolderId, @Amount, @DateTime, @Description,  @Type)", sqlParams);
         }
         public static object Get_TransactionID(Transaction transaction)

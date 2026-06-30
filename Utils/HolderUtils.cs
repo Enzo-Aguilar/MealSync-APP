@@ -201,7 +201,6 @@ namespace MealSync_APP.Utils
                 var validations = new[]
                 {
                 HolderValidator.IsUserNotAssociatedToBk(u, bk),
-                HolderValidator.IsPasswordEqualToBKPassword(bk),
                 HolderValidator.IsUserNameEqualToActiveBkOwnerName(u),
             };
                 foreach (var validation in validations)

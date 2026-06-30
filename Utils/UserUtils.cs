@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using BusinessLogicLayer;
 using MealSync_APP.Globals;
-using BusinessLogicLayer;
-using System.Data;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Xml.Linq;
+
 
 
 namespace MealSync_APP.Utils
@@ -16,11 +18,18 @@ namespace MealSync_APP.Utils
             {
                 if (Search_Name(name) != null)
                 {
-                    return new ValidatorResult
+                    if (Search_Name(name).ToString() != CurrentSession.User.Name)
                     {
-                        IsValid = false,
-                        ErrorMessage = "Este nome não está disponivel"
-                    };
+                        return new ValidatorResult
+                        {
+                            IsValid = false,
+                            ErrorMessage = "Este nome não está disponivel"
+                        };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = true, };
+                    }
                 }
                 else
                 {
@@ -43,11 +52,18 @@ namespace MealSync_APP.Utils
             {
                 if (Search_Email(email) != null)
                 {
-                    return new ValidatorResult
+                    if ((Search_Email(email).ToString() != CurrentSession.User.Email))
                     {
-                        IsValid = false,
-                        ErrorMessage = "Este email não está disponivel"
-                    };
+                        return new ValidatorResult
+                        {
+                            IsValid = false,
+                            ErrorMessage = "Este email não está disponivel"
+                        };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
                 }
                 else
                 {
@@ -70,11 +86,18 @@ namespace MealSync_APP.Utils
             {
                 if (Search_PhoneNumber(phoneNumber) != null)
                 {
-                    return new ValidatorResult
+                    if ((Search_PhoneNumber(phoneNumber).ToString() != CurrentSession.User.PhoneNumber))
                     {
-                        IsValid = false,
-                        ErrorMessage = "Este número de telemovel já está associado a outro utilizador"
-                    };
+                        return new ValidatorResult
+                        {
+                            IsValid = false,
+                            ErrorMessage = "Este número de telemovel já está associado a outro utilizador"
+                        };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
                 }
                 else
                 {
@@ -91,17 +114,24 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        public static ValidatorResult IsSchoolMemberIDTaken(string school_member_ID)
+        public static ValidatorResult IsSchoolMemberIDTaken(string schoolMemberID)
         {
             try
             {
-                if (Search_SchoolMemberID(school_member_ID) != null)
+                if (Search_SchoolMemberID(schoolMemberID) != null)
                 {
-                    return new ValidatorResult
+                    if ((Search_SchoolMemberID(schoolMemberID).ToString() != CurrentSession.User.SchoolIDNumber))
                     {
-                        IsValid = false,
-                        ErrorMessage = "Este número de identificação escolar já está associado a outro utilizador"
-                    };
+                        return new ValidatorResult
+                        {
+                            IsValid = false,
+                            ErrorMessage = "Este número de identificação escolar já está associado a outro utilizador"
+                        };
+                    }
+                    else
+                    {
+                        return new ValidatorResult { IsValid = true };
+                    }
                 }
                 else
                 {
@@ -509,8 +539,8 @@ namespace MealSync_APP.Utils
                 var dt = User_BLL.Login(u);
                 if (dt.Rows.Count != 0)
                 {
-                    string hashedPassword = dt.Rows[0][5].ToString();
-                    if (Password.VerifyPassword(u.Password, hashedPassword))
+                    string storedPassword = dt.Rows[0][5].ToString();
+                    if (Password.VerifyPassword(u.Password, storedPassword))
                     {
                         return new ValidatorResult { IsValid = true };
                     }
@@ -659,6 +689,7 @@ namespace MealSync_APP.Utils
             u.Password = Password.HashPassword(u.Password);
             User_BLL.UpdateUser(u);
             Save(u);
+            u.Clear();
             return new ValidatorResult { IsValid = true };
         }
     }

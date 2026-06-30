@@ -34,13 +34,13 @@
             this.tbPostcode = new System.Windows.Forms.TextBox();
             this.tbSchoolMemberID = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.tbPassword_Confirm = new System.Windows.Forms.TextBox();
+            this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbPasswordConfirm = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,16 +100,16 @@
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
-            // tbPassword_Confirm
+            // tbPasswordConfirm
             // 
-            this.tbPassword_Confirm.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbPassword_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword_Confirm.ForeColor = System.Drawing.SystemColors.Menu;
-            this.tbPassword_Confirm.Location = new System.Drawing.Point(687, 404);
-            this.tbPassword_Confirm.Name = "tbPassword_Confirm";
-            this.tbPassword_Confirm.PasswordChar = '*';
-            this.tbPassword_Confirm.Size = new System.Drawing.Size(251, 35);
-            this.tbPassword_Confirm.TabIndex = 39;
+            this.tbPasswordConfirm.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPasswordConfirm.ForeColor = System.Drawing.SystemColors.Menu;
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(687, 404);
+            this.tbPasswordConfirm.Name = "tbPasswordConfirm";
+            this.tbPasswordConfirm.PasswordChar = '*';
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(251, 35);
+            this.tbPasswordConfirm.TabIndex = 39;
             // 
             // tbPassword
             // 
@@ -155,29 +155,30 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // label1
+            // lbPasswordConfirm
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(901, 410);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 24);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "🔒";
+            this.lbPasswordConfirm.AutoSize = true;
+            this.lbPasswordConfirm.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPasswordConfirm.Location = new System.Drawing.Point(901, 410);
+            this.lbPasswordConfirm.Name = "lbPasswordConfirm";
+            this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 24);
+            this.lbPasswordConfirm.TabIndex = 53;
+            this.lbPasswordConfirm.Text = "🔒";
             // 
-            // label2
+            // lbPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(630, 410);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 24);
-            this.label2.TabIndex = 54;
-            this.label2.Text = "🔒";
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Black;
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPassword.Location = new System.Drawing.Point(630, 410);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(31, 24);
+            this.lbPassword.TabIndex = 54;
+            this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // Edit_Profile
             // 
@@ -186,15 +187,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1183, 678);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbPassword);
+            this.Controls.Add(this.lbPasswordConfirm);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.pbUserProfilePicture);
             this.Controls.Add(this.tbPhoneNum);
             this.Controls.Add(this.tbPostcode);
             this.Controls.Add(this.tbSchoolMemberID);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.tbPassword_Confirm);
+            this.Controls.Add(this.tbPasswordConfirm);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbEmail);
@@ -214,12 +215,12 @@
         private System.Windows.Forms.TextBox tbPostcode;
         private System.Windows.Forms.TextBox tbSchoolMemberID;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox tbPassword_Confirm;
+        private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbPasswordConfirm;
+        private System.Windows.Forms.Label lbPassword;
     }
 }
