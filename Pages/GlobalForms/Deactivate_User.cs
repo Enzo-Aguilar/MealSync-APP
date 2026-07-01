@@ -1,15 +1,8 @@
-﻿using BusinessLogicLayer;
-using MealSync_APP.Globals;
+﻿using System.Windows.Forms;
+using BusinessLogicLayer;
 using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 
 namespace MealSync_APP.Pages.GlobalForms
 {
@@ -20,6 +13,7 @@ namespace MealSync_APP.Pages.GlobalForms
         public Deactivate_User(string fromWhere)
         {
             InitializeComponent();
+            Text = $"Remover {fromWhere}";
         }
 
         private void Remove_User_Load(object sender, EventArgs e)

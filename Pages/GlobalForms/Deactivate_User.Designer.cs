@@ -369,7 +369,7 @@
             this.Controls.Add(this.dgvUsers);
             this.MaximizeBox = false;
             this.Name = "Deactivate_User";
-            this.Text = "remove_User";
+            this.Text = "Desativar Utilizador";
             this.Load += new System.EventHandler(this.Remove_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).EndInit();

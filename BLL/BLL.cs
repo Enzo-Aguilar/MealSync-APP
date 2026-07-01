@@ -735,6 +735,12 @@ namespace BusinessLogicLayer
             DAL dal = new DAL();
             return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] ORDER BY CreatedAt ASC", null);
         }
+
+        // Get
+        public static DataTable Get_UserProfilePicture(int id)
+        {
+            DAL dal = new DAL();
+        }
         public class Admin
         {
             public static DataTable Search_AdminByName(string name)
