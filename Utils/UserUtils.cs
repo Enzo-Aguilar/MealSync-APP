@@ -1,15 +1,13 @@
-﻿using BusinessLogicLayer;
+﻿using System.Collections.Generic;
 using MealSync_APP.Globals;
-using System;
-using System.Collections.Generic;
+using BusinessLogicLayer;
 using System.Data;
-using System.Xml.Linq;
-
+using System;
 
 
 namespace MealSync_APP.Utils
 {
-    internal class UserValidator : User_BLL
+    public class UserValidator : User_BLL
     {
         //Searching Methods
         public static ValidatorResult IsNameTaken(string name)
@@ -503,25 +501,25 @@ namespace MealSync_APP.Utils
             }
         }
     }
-    public class UserAuth
+    public class UserAuth : UserValidator
     {
         public static ValidatorResult Register(User u, string passwordConfirm)
         {
             var validations = new[]
             {
-                UserValidator.ValidateEmail(u.Email),
-                UserValidator.IsEmailTaken(u.Email),
-                UserValidator.ValidateName(u.Name),
-                UserValidator.IsNameTaken(u.Name),
+                ValidateEmail(u.Email),
+                IsEmailTaken(u.Email),
+                ValidateName(u.Name),
+                IsNameTaken(u.Name),
                 Password.Validate(u.Password),
                 Password.ValidatePasswordConfirmation(u.Password, passwordConfirm),
-                UserValidator.ValidateRole(u.Role),
-                UserValidator.ValidatePhoneNumber(u.PhoneNumber),
-                UserValidator.IsPhoneNumberTaken(u.PhoneNumber),
-                UserValidator.ValidatePostcode(u.PostCode),
-                UserValidator.ValidateProfileImage(u.ProfileImage),
-                UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber),
-                UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber),
+                ValidateRole(u.Role),
+                ValidatePhoneNumber(u.PhoneNumber),
+                IsPhoneNumberTaken(u.PhoneNumber),
+                ValidatePostcode(u.PostCode),
+                ValidateProfileImage(u.ProfileImage),
+                ValidateSchoolMemberID(u.SchoolIDNumber),
+                IsSchoolMemberIDTaken(u.SchoolIDNumber),
             };
 
             foreach (var validation in validations)
@@ -529,10 +527,10 @@ namespace MealSync_APP.Utils
                 if (!validation.IsValid) return validation;
             }
             u.Password = Password.HashPassword(u.Password);
-            User_BLL.Register(u);
+            Register(u);
             return new ValidatorResult { IsValid = true };
         }
-        public static ValidatorResult Login(User u)
+        public static new ValidatorResult Login(User u)
         {
             try
             {
@@ -576,19 +574,19 @@ namespace MealSync_APP.Utils
         {
             var validations = new[]
             {
-                UserValidator.ValidateEmail(u.Email),
-                UserValidator.IsEmailTaken(u.Email),
-                UserValidator.ValidateName(u.Name),
-                UserValidator.IsNameTaken(u.Name),
+                ValidateEmail(u.Email),
+                IsEmailTaken(u.Email),
+                ValidateName(u.Name),
+                IsNameTaken(u.Name),
                 Password.Validate(u.Password),
                 Password.ValidatePasswordConfirmation(u.Password, passwordConfirm),
-                UserValidator.ValidateRole(u.Role),
-                UserValidator.ValidatePhoneNumber(u.PhoneNumber),
-                UserValidator.IsPhoneNumberTaken(u.PhoneNumber),
-                UserValidator.ValidatePostcode(u.PostCode),
-                UserValidator.ValidateProfileImage(u.ProfileImage),
-                UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber),
-                UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber),
+                ValidateRole(u.Role),
+                ValidatePhoneNumber(u.PhoneNumber),
+                IsPhoneNumberTaken(u.PhoneNumber),
+                ValidatePostcode(u.PostCode),
+                ValidateProfileImage(u.ProfileImage),
+                ValidateSchoolMemberID(u.SchoolIDNumber),
+                IsSchoolMemberIDTaken(u.SchoolIDNumber),
             };
 
             foreach (var validation in validations)
@@ -603,13 +601,24 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                User_BLL.Deactivate_User(ID);
-                return new ValidatorResult
+                if (ID != CurrentSession.User.ID)
                 {
-                    IsValid = true
-                };
+                    Deactivate_User(ID);
+                    return new ValidatorResult
+                    {
+                        IsValid = true
+                    };
+                }
+                else
+                {
+                    return new ValidatorResult
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Não é possivel desativar o seu proprio utilizador"
+                    };
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new ValidatorResult
                 {
@@ -618,10 +627,29 @@ namespace MealSync_APP.Utils
                 };
             }
         }
+        public static ValidatorResult ReactivateUser(int ID)
+        {
+            try
+            {
+                Reactivate_User(ID);
+                return new ValidatorResult
+                {
+                    IsValid = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ValidatorResult
+                {
+                    IsValid = false,
+                    ErrorMessage = $"Ocorreu um erro reativando utilizador {ex.Message}",
+                };
+            }
+        }
     }
-    public class UserData
+    public class UserData : UserValidator
     {
-        public static ValidatorResult Save(User u)
+        public static new ValidatorResult Save(User u)
         {
             try
             {
@@ -669,86 +697,28 @@ namespace MealSync_APP.Utils
         {
             var validations = new[]
             {
-                UserValidator.ValidateEmail(u.Email),
-                UserValidator.IsEmailTaken(u.Email),
-                UserValidator.ValidateName(u.Name),
-                UserValidator.IsNameTaken(u.Name),
+                ValidateEmail(u.Email),
+                IsEmailTaken(u.Email),
+                ValidateName(u.Name),
+                IsNameTaken(u.Name),
                 Password.Validate(u.Password),
                 Password.ValidatePasswordConfirmation(u.Password, passwordConfirm),
-                UserValidator.ValidateRole(u.Role),
-                UserValidator.ValidatePhoneNumber(u.PhoneNumber),
-                UserValidator.IsPhoneNumberTaken(u.PhoneNumber),
-                UserValidator.ValidatePostcode(u.PostCode),
-                UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber),
-                UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber),
+                ValidateRole(u.Role),
+                ValidatePhoneNumber(u.PhoneNumber),
+                IsPhoneNumberTaken(u.PhoneNumber),
+                ValidatePostcode(u.PostCode),
+                ValidateProfileImage(u.ProfileImage),
+                ValidateSchoolMemberID(u.SchoolIDNumber),
+                IsSchoolMemberIDTaken(u.SchoolIDNumber),
             };
             foreach (var validation in validations)
             {
                 if (!validation.IsValid) return validation;
             }
             u.Password = Password.HashPassword(u.Password);
-            User_BLL.UpdateUser(u);
+            UpdateUser(u);
             Save(u);
             u.Clear();
-            return new ValidatorResult { IsValid = true };
-        }
-        // Edição do próprio perfil: só valida/verifica os campos que mudaram e
-        // mantém a palavra-passe existente (hash) quando não é alterada, para não
-        // marcar os próprios dados como "já existentes" nem voltar a aplicar hash.
-        public static ValidatorResult UpdateProfile(User u, string passwordConfirm)
-        {
-            var current = CurrentSession.User;
-            ValidatorResult v;
-
-            if (u.Email != current.Email)
-            {
-                v = UserValidator.ValidateEmail(u.Email); if (!v.IsValid) return v;
-                v = UserValidator.IsEmailTaken(u.Email); if (!v.IsValid) return v;
-            }
-            if (u.Name != current.Name)
-            {
-                v = UserValidator.ValidateName(u.Name); if (!v.IsValid) return v;
-                v = UserValidator.IsNameTaken(u.Name); if (!v.IsValid) return v;
-            }
-            if (u.PhoneNumber != current.PhoneNumber)
-            {
-                v = UserValidator.ValidatePhoneNumber(u.PhoneNumber); if (!v.IsValid) return v;
-                v = UserValidator.IsPhoneNumberTaken(u.PhoneNumber); if (!v.IsValid) return v;
-            }
-            if (u.PostCode != current.PostCode)
-            {
-                v = UserValidator.ValidatePostcode(u.PostCode); if (!v.IsValid) return v;
-            }
-            if (u.SchoolIDNumber != current.SchoolIDNumber)
-            {
-                v = UserValidator.ValidateSchoolMemberID(u.SchoolIDNumber); if (!v.IsValid) return v;
-                v = UserValidator.IsSchoolMemberIDTaken(u.SchoolIDNumber); if (!v.IsValid) return v;
-            }
-
-            // Palavra-passe: o campo vem pré-preenchido com o hash atual; só re-valida e re-aplica hash se mudou.
-            if (u.Password != current.Password)
-            {
-                v = Password.Validate(u.Password); if (!v.IsValid) return v;
-                v = Password.ValidatePasswordConfirmation(u.Password, passwordConfirm); if (!v.IsValid) return v;
-                u.Password = Password.HashPassword(u.Password);
-            }
-            else
-            {
-                u.Password = current.Password; // mantém o hash existente
-            }
-
-            u.Role = current.Role; // o perfil não altera a função
-
-            User_BLL.UpdateUser(u);
-
-            // Reflete as alterações na sessão atual.
-            current.Email = u.Email;
-            current.Name = u.Name;
-            current.Password = u.Password;
-            current.PhoneNumber = u.PhoneNumber;
-            current.PostCode = u.PostCode;
-            current.SchoolIDNumber = u.SchoolIDNumber;
-
             return new ValidatorResult { IsValid = true };
         }
     }

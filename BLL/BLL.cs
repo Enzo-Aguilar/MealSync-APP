@@ -137,7 +137,7 @@ namespace BusinessLogicLayer
             };
             return dal.ExecuteReader("SELECT * FROM [BankAccount] WHERE ID=@ID", sqlParams);
         }
-        public static Object Get_BkBalance(int id)
+        public static object Get_BkBalance(int id)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
@@ -179,15 +179,31 @@ namespace BusinessLogicLayer
 
         public static int Create_Question(Faq faq)
         {
-            DAL dal = new DAL();
-            SqlParameter[] sqlParams = new SqlParameter[]
+            SqlParameter[] sqlParams;
+            if (faq.UserId == null)
             {
-                new SqlParameter("@UserId",faq.UserId),
-                new SqlParameter("@Answer",null),
-                new SqlParameter("@IsActive",1),
-                new SqlParameter("@IsAnswered",0),
-                new SqlParameter("@Question",faq.Question)
-            };
+                sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@UserId",DBNull.Value),
+                    new SqlParameter("@Answer",DBNull.Value),
+                    new SqlParameter("@IsActive",faq.IsActive),
+                    new SqlParameter("@IsAnswered",faq.IsAnswered),
+                    new SqlParameter("@Question",faq.Question)
+                };
+            }
+            else
+            {
+                sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@UserId",faq.UserId),
+                    new SqlParameter("@Answer",DBNull.Value),
+                    new SqlParameter("@IsActive",faq.IsActive),
+                    new SqlParameter("@IsAnswered",faq.IsAnswered),
+                    new SqlParameter("@Question",faq.Question)
+                };
+            }
+            DAL dal = new DAL();
+            
             return dal.ExecuteNonQuery("INSERT INTO [Faq] (UserId,Answer,IsActive,IsAnswered,Question) VALUES(@UserId,@Answer,@IsActive,@IsAnswered,@Question)", sqlParams);
         }
         public static void Deactivate_Question(string Question)
@@ -323,7 +339,7 @@ namespace BusinessLogicLayer
             dal.ExecuteNonQuery("UPDATE [Holder] SET IsActive = 1 WHERE UserId=@UserId AND BankAccountId=@BankAccountId", sqlParams);
         }
 
-        //Buscar ID
+        //Get
         public static int Get_UserHolderID(int ID)
         {
             DAL dal = new DAL();
@@ -630,12 +646,12 @@ namespace BusinessLogicLayer
             };
             dal.ExecuteNonQuery("UPDATE [User] SET IsActive = 0 WHERE ID=@ID", sqlParams);
         }
-        public static void Reactivate_User(User user)
+        public static void Reactivate_User(int ID)
         {
             DAL dal = new DAL();
             SqlParameter[] sqlParams = new SqlParameter[]
             {
-                new SqlParameter("@ID", user.ID)
+                new SqlParameter("@ID", ID)
             };
             dal.ExecuteNonQuery("UPDATE [User] SET IsActive = 1 WHERE ID=@ID", sqlParams);
         }
@@ -661,9 +677,10 @@ namespace BusinessLogicLayer
                 new SqlParameter("@Password",user.Password),
                 new SqlParameter("@PhoneNumber",user.PhoneNumber),
                 new SqlParameter("@PostCode",user.PostCode),
+                new SqlParameter("@ProfileImage",user.ProfileImage),
                 new SqlParameter("@SchoolMemberId",user.SchoolIDNumber)
             };
-            dal.ExecuteNonQuery("UPDATE [User] SET Email=@Email,Name=@Name,Password=@Password,PhoneNumber=@PhoneNumber,PostCode=@PostCode,SchoolMemberId=@SchoolMemberId WHERE ID=@ID", sqlParams);
+            dal.ExecuteNonQuery("UPDATE [User] SET Email=@Email,Name=@Name,Password=@Password,PhoneNumber=@PhoneNumber,PostCode=@PostCode,ProfileImage=@ProfileImage,SchoolMemberId=@SchoolMemberId WHERE ID=@ID", sqlParams);
         }
 
         //Search Methods
@@ -704,8 +721,6 @@ namespace BusinessLogicLayer
             };
             return dal.ExecuteScalar("SELECT SchoolMemberId  FROM [User] WHERE SchoolMemberId=@SchoolMemberId", sqlParams);
         }
-
-        //Order All Users
         public static DataTable Search_UserByName(string name)
         {
             DAL dal = new DAL();
@@ -713,34 +728,72 @@ namespace BusinessLogicLayer
             {
                     new SqlParameter("@Name",name)
             };
-            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Name LIKE '%' + @Name + '%'", sqlParams);
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND IsActive = 1", sqlParams);
         }
+        public static DataTable Search_DeactivatedUserByName(string name)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                    new SqlParameter("@Name",name)
+            };
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND IsActive = 0", sqlParams);
+        }
+
+        // Get
+        public static object Get_UserProfilePicture(int id)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID", id)
+            };
+            return dal.ExecuteScalar("SELECT ProfileImage FROM [User] WHERE ID=@ID", sqlParams);
+        }
+
+        //Order All Users
         public static DataTable Show_AllUsers()
         {
             DAL dal = new DAL();
-            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User]",null);
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 1", null);
         }
         public static DataTable Show_AllUsers_Alphabetical()
         {
             DAL dal = new DAL();
-            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] ORDER BY Name ASC", null);
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 1 ORDER BY Name ASC", null);
         }
         public static DataTable Show_AllUsers_OrderById()
         {
             DAL dal = new DAL();
-            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] ORDER BY ID ASC", null);
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 1 ORDER BY ID ASC", null);
         }
         public static DataTable Show_AllUsers_OrderByCreationDate()
         {
             DAL dal = new DAL();
-            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] ORDER BY CreatedAt ASC", null);
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 1 ORDER BY CreatedAt ASC", null);
         }
 
-        // Get
-        public static DataTable Get_UserProfilePicture(int id)
+        public static DataTable Show_AllDeactivatedUsers()
         {
             DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 0", null);
         }
+        public static DataTable Show_AllDeactivatedUsers_Alphabetical()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 0 ORDER BY Name ASC", null);
+        }
+        public static DataTable Show_AllDeactivatedUsers_OrderById()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 0 ORDER BY ID ASC", null);
+        }
+        public static DataTable Show_AllDeactivatedUsers_OrderByCreationDate()
+        {
+            DAL dal = new DAL();
+            return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE IsActive = 0 ORDER BY CreatedAt ASC", null);
+        }
+
         public class Admin
         {
             public static DataTable Search_AdminByName(string name)
@@ -750,59 +803,119 @@ namespace BusinessLogicLayer
                 {
                     new SqlParameter("@Name",name)
                 };
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=0", sqlParams);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=0 AND IsActive = 1", sqlParams);
             }
             public static DataTable Show_Admins()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=0", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 1", null);
             }
             public static DataTable Show_Admins_Alphabetical()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=0 ORDER BY Name ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 1 ORDER BY Name ASC", null);
             }
             public static DataTable Show_Admins_OrderById()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=0 ORDER BY ID ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 1 ORDER BY ID ASC", null);
             }
             public static DataTable Show_Admins_OrderByCreationDate()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=0 ORDER BY CreatedAt ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 1 ORDER BY CreatedAt ASC", null);
             }
-        }
-        public class Employee
-        {
-            public static DataTable Search_EmmployeeByName(string name)
+
+            public static DataTable Search_DeactivatedAdminByName(string name)
             {
                 DAL dal = new DAL();
                 SqlParameter[] sqlParams = new SqlParameter[]
                 {
                     new SqlParameter("@Name",name)
                 };
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=1", sqlParams);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=0 AND IsActive = 0", sqlParams);
+            }
+            public static DataTable Show_DeactivatedAdmins()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 0", null);
+            }
+            public static DataTable Show_DeactivatedAdmins_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 0 ORDER BY Name ASC", null);
+            }
+            public static DataTable Show_DeactivatedAdmins_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 0 ORDER BY ID ASC", null);
+            }
+            public static DataTable Show_DeactivatedAdmins_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=0 AND IsActive = 0 ORDER BY CreatedAt ASC", null);
+            }
+        }
+        public class Employee
+        {
+            public static DataTable Search_EmployeeByName(string name)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@Name",name)
+                };
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=1 AND IsActive = 1", sqlParams);
             }
             public static DataTable Show_Employees()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=1", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role= 1 AND IsActive = 1", null);
             }
             public static DataTable Show_Employees_Alphabetical()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=1 ORDER BY Name ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role= 1 AND IsActive = 1 ORDER BY Name ASC", null);
             }
             public static DataTable Show_Employees_OrderById()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=1 ORDER BY ID ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role= 1 AND IsActive = 1 ORDER BY ID ASC", null);
             }
             public static DataTable Show_Employees_OrderByCreationDate()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=1 ORDER BY CreatedAt ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=1 AND IsActive = 1 ORDER BY CreatedAt ASC", null);
+            }
+
+            public static DataTable Search_DeactivatedEmployeeByName(string name)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@Name",name)
+                };
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=1 AND IsActive = 0", sqlParams);
+            }
+            public static DataTable Show_DeactivatedEmployees()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role = 1 AND IsActive = 0", null);
+            }
+            public static DataTable Show_DeactivatedEmployees_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role= 1 AND IsActive = 0 ORDER BY Name ASC", null);
+            }
+            public static DataTable Show_DeactivatedEmployees_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role= 1 AND IsActive = 0 ORDER BY ID ASC", null);
+            }
+            public static DataTable Show_DeactivatedEmployees_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=1 AND IsActive = 0 ORDER BY CreatedAt ASC", null);
             }
         }
         public class Student
@@ -814,27 +927,57 @@ namespace BusinessLogicLayer
                 {
                     new SqlParameter("@Name",name)
                 };
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=2", sqlParams);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=2 AND IsActive = 1", sqlParams);
             }
             public static DataTable Show_Students()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=2", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 1", null);
             }
             public static DataTable Show_Students_Alphabetical()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=2 ORDER BY Name ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 1 ORDER BY Name ASC", null);
             }
             public static DataTable Show_Students_OrderById()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=2 ORDER BY ID ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 1 ORDER BY ID ASC", null);
             }
             public static DataTable Show_Students_OrderByCreationDate()
             {
                 DAL dal = new DAL();
-                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber,ProfileImage FROM [User] WHERE Role=2 ORDER BY CreatedAt ASC", null);
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 1 ORDER BY CreatedAt ASC", null);
+            }
+
+            public static DataTable Search_DeactivatedStudentByName(string name)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@Name",name)
+                };
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Name LIKE '%' + @Name + '%' AND Role=2 AND IsActive = 0", sqlParams);
+            }
+            public static DataTable Show_DeactivatedStudents()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 0", null);
+            }
+            public static DataTable Show_DeactivatedStudents_Alphabetical()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 0 ORDER BY Name ASC", null);
+            }
+            public static DataTable Show_DeactivatedStudents_OrderById()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 0 ORDER BY ID ASC", null);
+            }
+            public static DataTable Show_DeactivatedStudents_OrderByCreationDate()
+            {
+                DAL dal = new DAL();
+                return dal.ExecuteReader("SELECT ID,CreatedAt,Email,Name,PhoneNumber FROM [User] WHERE Role=2 AND IsActive = 0 ORDER BY CreatedAt ASC", null);
             }
         }
     }

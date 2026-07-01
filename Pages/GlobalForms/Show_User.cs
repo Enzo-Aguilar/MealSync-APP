@@ -1,5 +1,4 @@
-﻿using System.Data.SqlClient;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using BusinessLogicLayer;
 using System;
 
@@ -60,7 +59,6 @@ namespace MealSync_APP.Pages.GlobalForms
                 dgvUsers.DataSource = User_BLL.Show_AllUsers_OrderById();
             }
         }
-
         private void BtnCreatedAtOrder_Click(object sender, EventArgs e)
         {
             if (_allUsers == false)

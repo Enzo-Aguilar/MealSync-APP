@@ -31,16 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reactivate_User));
             this.label1 = new System.Windows.Forms.Label();
             this.tbUserId = new System.Windows.Forms.TextBox();
-            this.btnFilterByStudent = new System.Windows.Forms.Button();
-            this.btnFilterByEmployee = new System.Windows.Forms.Button();
-            this.btnFilterByAdmins = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.pbUserProfileImage = new System.Windows.Forms.PictureBox();
             this.tbUserPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbUserEmail = new System.Windows.Forms.TextBox();
             this.tbUserName = new System.Windows.Forms.TextBox();
-            this.btnActivateUser = new System.Windows.Forms.Button();
+            this.btnReactivateUser = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbLetterZ = new System.Windows.Forms.Label();
@@ -51,7 +47,7 @@
             this.btnAlphabeticOrder = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -78,54 +74,6 @@
             this.tbUserId.Size = new System.Drawing.Size(291, 30);
             this.tbUserId.TabIndex = 69;
             // 
-            // btnFilterByStudent
-            // 
-            this.btnFilterByStudent.BackColor = System.Drawing.Color.Sienna;
-            this.btnFilterByStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilterByStudent.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByStudent.Location = new System.Drawing.Point(557, 488);
-            this.btnFilterByStudent.Name = "btnFilterByStudent";
-            this.btnFilterByStudent.Size = new System.Drawing.Size(200, 48);
-            this.btnFilterByStudent.TabIndex = 68;
-            this.btnFilterByStudent.Text = "Aluno";
-            this.btnFilterByStudent.UseVisualStyleBackColor = false;
-            // 
-            // btnFilterByEmployee
-            // 
-            this.btnFilterByEmployee.BackColor = System.Drawing.Color.Sienna;
-            this.btnFilterByEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilterByEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByEmployee.Location = new System.Drawing.Point(353, 488);
-            this.btnFilterByEmployee.Name = "btnFilterByEmployee";
-            this.btnFilterByEmployee.Size = new System.Drawing.Size(200, 48);
-            this.btnFilterByEmployee.TabIndex = 67;
-            this.btnFilterByEmployee.Text = "Funcionário";
-            this.btnFilterByEmployee.UseVisualStyleBackColor = false;
-            // 
-            // btnFilterByAdmins
-            // 
-            this.btnFilterByAdmins.BackColor = System.Drawing.Color.Sienna;
-            this.btnFilterByAdmins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilterByAdmins.ForeColor = System.Drawing.Color.White;
-            this.btnFilterByAdmins.Location = new System.Drawing.Point(149, 488);
-            this.btnFilterByAdmins.Name = "btnFilterByAdmins";
-            this.btnFilterByAdmins.Size = new System.Drawing.Size(197, 48);
-            this.btnFilterByAdmins.TabIndex = 66;
-            this.btnFilterByAdmins.Text = "Administrador";
-            this.btnFilterByAdmins.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(51, 500);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 24);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Filtrar por:";
-            // 
             // tbSearch
             // 
             this.tbSearch.BackColor = System.Drawing.SystemColors.MenuText;
@@ -135,6 +83,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(256, 30);
             this.tbSearch.TabIndex = 64;
+            this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
             // pbUserProfileImage
             // 
@@ -178,19 +127,20 @@
             this.tbUserName.Size = new System.Drawing.Size(291, 30);
             this.tbUserName.TabIndex = 60;
             // 
-            // btnActivateUser
+            // btnReactivateUser
             // 
-            this.btnActivateUser.BackColor = System.Drawing.Color.Sienna;
-            this.btnActivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnActivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivateUser.Location = new System.Drawing.Point(313, 617);
-            this.btnActivateUser.Name = "btnActivateUser";
-            this.btnActivateUser.Size = new System.Drawing.Size(220, 57);
-            this.btnActivateUser.TabIndex = 59;
-            this.btnActivateUser.Text = "Reactivar";
-            this.btnActivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivateUser.UseVisualStyleBackColor = false;
+            this.btnReactivateUser.BackColor = System.Drawing.Color.Sienna;
+            this.btnReactivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReactivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReactivateUser.Location = new System.Drawing.Point(313, 617);
+            this.btnReactivateUser.Name = "btnReactivateUser";
+            this.btnReactivateUser.Size = new System.Drawing.Size(220, 57);
+            this.btnReactivateUser.TabIndex = 59;
+            this.btnReactivateUser.Text = "Reactivar";
+            this.btnReactivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReactivateUser.UseVisualStyleBackColor = false;
+            this.btnReactivateUser.Click += new System.EventHandler(this.BtnReactivateUser_Click);
             // 
             // label7
             // 
@@ -264,6 +214,7 @@
             this.btnCreatedAtOrder.Text = "Data de Criação";
             this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreatedAtOrder.UseVisualStyleBackColor = false;
+            this.btnCreatedAtOrder.Click += new System.EventHandler(this.BtnCreatedAtOrder_Click);
             // 
             // btnIdOrder
             // 
@@ -276,6 +227,7 @@
             this.btnIdOrder.TabIndex = 52;
             this.btnIdOrder.Text = "              ID";
             this.btnIdOrder.UseVisualStyleBackColor = false;
+            this.btnIdOrder.Click += new System.EventHandler(this.BtnIdOrder_Click);
             // 
             // btnAlphabeticOrder
             // 
@@ -289,6 +241,7 @@
             this.btnAlphabeticOrder.Text = "Alfabetica";
             this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlphabeticOrder.UseVisualStyleBackColor = false;
+            this.btnAlphabeticOrder.Click += new System.EventHandler(this.BtnAlphabeticOrder_Click);
             // 
             // lbText
             // 
@@ -305,22 +258,24 @@
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(30, 107);
+            this.dgvUsers.Location = new System.Drawing.Point(41, 107);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.Size = new System.Drawing.Size(743, 364);
+            this.dgvUsers.Size = new System.Drawing.Size(705, 364);
             this.dgvUsers.TabIndex = 49;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsers_CellContentClick);
             // 
-            // label4
+            // lbInfo
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(746, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 31);
-            this.label4.TabIndex = 71;
-            this.label4.Text = "   ";
+            this.lbInfo.AutoSize = true;
+            this.lbInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo.Location = new System.Drawing.Point(746, 29);
+            this.lbInfo.Name = "lbInfo";
+            this.lbInfo.Size = new System.Drawing.Size(35, 31);
+            this.lbInfo.TabIndex = 71;
+            this.lbInfo.Text = "   ";
+            this.lbInfo.Click += new System.EventHandler(this.LbInfo_Click);
             // 
             // Reactivate_User
             // 
@@ -329,19 +284,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1154, 712);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUserId);
-            this.Controls.Add(this.btnFilterByStudent);
-            this.Controls.Add(this.btnFilterByEmployee);
-            this.Controls.Add(this.btnFilterByAdmins);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pbUserProfileImage);
             this.Controls.Add(this.tbUserPhoneNumber);
             this.Controls.Add(this.tbUserEmail);
             this.Controls.Add(this.tbUserName);
-            this.Controls.Add(this.btnActivateUser);
+            this.Controls.Add(this.btnReactivateUser);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbLetterZ);
@@ -355,6 +306,7 @@
             this.MaximizeBox = false;
             this.Name = "Reactivate_User";
             this.Text = "Reactivate_User";
+            this.Load += new System.EventHandler(this.Reactivate_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfileImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
@@ -366,16 +318,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbUserId;
-        private System.Windows.Forms.Button btnFilterByStudent;
-        private System.Windows.Forms.Button btnFilterByEmployee;
-        private System.Windows.Forms.Button btnFilterByAdmins;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.PictureBox pbUserProfileImage;
         private System.Windows.Forms.TextBox tbUserPhoneNumber;
         private System.Windows.Forms.TextBox tbUserEmail;
         private System.Windows.Forms.TextBox tbUserName;
-        private System.Windows.Forms.Button btnActivateUser;
+        private System.Windows.Forms.Button btnReactivateUser;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbLetterZ;
@@ -386,6 +334,6 @@
         private System.Windows.Forms.Button btnAlphabeticOrder;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbInfo;
     }
 }

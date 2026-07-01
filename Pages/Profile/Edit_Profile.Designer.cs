@@ -120,6 +120,7 @@
             this.lbPassword.Size = new System.Drawing.Size(31, 24);
             this.lbPassword.TabIndex = 54;
             this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // tbPhoneNum
             // 
@@ -143,6 +144,7 @@
             this.pbUserProfilePicture.Size = new System.Drawing.Size(194, 197);
             this.pbUserProfilePicture.TabIndex = 51;
             this.pbUserProfilePicture.TabStop = false;
+            this.pbUserProfilePicture.Click += new System.EventHandler(this.PbUserProfilePicture_Click);
             // 
             // btnCancel
             // 
@@ -168,6 +170,7 @@
             this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 24);
             this.lbPasswordConfirm.TabIndex = 53;
             this.lbPasswordConfirm.Text = "🔒";
+            this.lbPasswordConfirm.Click += new System.EventHandler(this.LbPasswordConfirm_Click);
             // 
             // tbPostcode
             // 

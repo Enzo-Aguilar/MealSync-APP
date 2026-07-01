@@ -133,6 +133,11 @@ namespace MealSync_APP.Utils
             Deactivate_User ru = new Deactivate_User(fromWhere) { MdiParent =_home };
             ru.Show();
         }
+        public static void ReactivateUser(string fromWhere)
+        {
+            Reactivate_User ru = new Reactivate_User(fromWhere) { MdiParent = _home };
+            ru.Show();
+        }
 
         //FAQs
         public static void AnswerFAQs()

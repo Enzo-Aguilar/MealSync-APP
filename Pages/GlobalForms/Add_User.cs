@@ -30,7 +30,7 @@ namespace MealSync_APP.Pages.GlobalForms
                 _user.Password = tbPassword.Text;
                 _user.PhoneNumber = tbPhoneNumber.Text;
                 _user.PostCode = tbPostCode.Text;
-                _user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
+                _user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image) ?? null;
                 _user.SchoolIDNumber = tbSchoolMemberID.Text;
                 string passwordConfirm = tbPassword_Confirm.Text;
 
@@ -39,7 +39,7 @@ namespace MealSync_APP.Pages.GlobalForms
                 {
                     MessageBox.Show("Utilizador Criado com sucesso");
                     _user.Clear();
-                    CleearFields();
+                    ClearFields();
                 }
                 else
                 {
@@ -56,24 +56,24 @@ namespace MealSync_APP.Pages.GlobalForms
         private void CbRoleVisibility(string userType)
         {
             cbRole.Enabled = true;
-            switch (userType) 
+            if (userType == "Student")
             {
-                case "Student":
-                    _user.Role = 2;
-                    cbRole.Text = "Aluno";
-                    break;
-                case "Employee":
-                    _user.Role = 1;
-                    cbRole.Text = "Funcionário";
-                    break;
-                case "Admin":
-                    _user.Role = 0;
-                    cbRole.Text = "Adminstrador";
-                    break;
+                _user.Role = 2;
+                cbRole.Text = "Aluno";
+            }
+            else if (userType == "Employee")
+            {
+                _user.Role = 1;
+                cbRole.Text = "Funcionário";
+            }
+            else if (userType == "Admin")
+            {
+                _user.Role = 0;
+                cbRole.Text = "Administrador";
             }
             cbRole.Enabled = false;
         }
-        private void CleearFields()
+        private void ClearFields()
         {
             tbEmail.Clear();
             tbName.Clear();
@@ -84,7 +84,6 @@ namespace MealSync_APP.Pages.GlobalForms
             pbUserProfilePicture.Image.Dispose();
             tbSchoolMemberID.Clear();
         }
-
         private void PbProfileImage_Click(object sender, EventArgs e)
         {
             try

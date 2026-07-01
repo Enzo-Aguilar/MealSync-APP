@@ -64,8 +64,8 @@
             this.cbRole.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
-            "Admin",
-            "Funcionario",
+            "Administrador",
+            "Funcionário",
             "Aluno"});
             this.cbRole.Location = new System.Drawing.Point(293, 189);
             this.cbRole.Margin = new System.Windows.Forms.Padding(2);

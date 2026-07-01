@@ -50,23 +50,27 @@ namespace MealSync_APP.Utils
         {
             try
             {
-                if (bytes != null)
+                // Null or empty bytes are acceptable (optional image)
+                if (bytes == null || bytes.Length == 0)
                 {
                     return new ValidatorResult { IsValid = true };
                 }
-                return new ValidatorResult
+
+                // Attempt to load the bytes as an image to validate format
+                using (MemoryStream ms = new MemoryStream(bytes))
                 {
-                    IsValid = false,
-                    ErrorMessage = "Bytes Invalidos",
-                };
+                    Image.FromStream(ms);
+                }
+
+                return new ValidatorResult { IsValid = true };
             }
-            catch (InvalidCastException ice)
+            catch (ArgumentException ex)
             {
                 return new ValidatorResult
                 {
                     IsValid = false,
                     Source = nameof(ValidateBytes),
-                    ErrorMessage = $"Bytes da imagem em formato Inválido: {ice.Message}"
+                    ErrorMessage = $"Formato de imagem inválido: {ex.Message}"
                 };
             }
             catch (Exception ex)
@@ -118,19 +122,21 @@ namespace MealSync_APP.Utils
         }
         public static Image BytesToImage(byte[] bytes)
         {
-            MemoryStream ms = new MemoryStream();
             try
             {
                 var validate = ImageValidator.ValidateBytes(bytes);
                 if (validate.IsValid)
                 {
-                    using (ms)
+                    // Return null for null/empty bytes (optional image)
+                    if (bytes == null || bytes.Length == 0)
                     {
-                        if (bytes == null)
-                        {
-                            return null;
-                        }
-                        return Image.FromStream(new MemoryStream(bytes));
+                        return null;
+                    }
+
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        Image img = Image.FromStream(ms);
+                        return img;
                     }
                 }
                 else
@@ -143,10 +149,6 @@ namespace MealSync_APP.Utils
             {
                 MessageBox.Show($"Ocorreu um erro convertendo os bytes para image: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
-            }
-            finally
-            {
-                ms.Close();
             }
         }
     }

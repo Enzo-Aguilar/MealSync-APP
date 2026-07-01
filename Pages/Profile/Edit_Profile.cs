@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using MealSync_APP.Globals;
-using BusinessLogicLayer;
 using MealSync_APP.Utils;
+using System.Drawing;
 using System;
 
 namespace MealSync_APP.ProfileFolder
@@ -32,10 +32,11 @@ namespace MealSync_APP.ProfileFolder
                         ID = CurrentSession.User.ID,
                         Email = tbEmail.Text,
                         Name = tbName.Text,
-                        Password = tbPassword.Text ?? CurrentSession.User.Password,
+                        Password = tbPassword.Text,
                         PhoneNumber = tbPhoneNum.Text,
                         SchoolIDNumber = tbSchoolMemberID.Text,
-                        PostCode = tbPostcode.Text
+                        ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image),
+                        PostCode = tbPostcode.Text,
                     };
                     var message = MessageBox.Show("Tem certeza que deseja efetuar alterações", "?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                     if (message == DialogResult.Yes)
@@ -73,45 +74,27 @@ namespace MealSync_APP.ProfileFolder
                 MessageBox.Show("Edição descartada", "",MessageBoxButtons.OK,MessageBoxIcon.Information);   
             }
         }
-
-        //Métodos Auxiliares
-        private void CurrentUserInfo()
-        {
-            tbEmail.Text = CurrentSession.User.Email;
-            tbName.Text = CurrentSession.User.Name;
-            tbPhoneNum.Text = CurrentSession.User.PhoneNumber;
-            tbSchoolMemberID.Text = CurrentSession.User.SchoolIDNumber;
-            tbPostcode.Text = CurrentSession.User.PostCode;
-        }
-        private bool CheckDiff()
+        private void PbUserProfilePicture_Click(object sender, EventArgs e)
         {
             try
             {
-                var textboxs = new[]
+                using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    tbEmail.Text == CurrentSession.User.Email,
-                    tbName.Text == CurrentSession.User.Name,
-                    Password.HashPassword(tbPassword.Text) == CurrentSession.User.Password,
-                    tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
-                    tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
-                    tbPostcode.Text == CurrentSession.User.PostCode
-                };  
-                foreach (var textbox in textboxs)
-                {
-                    if (!textbox)
+                    ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tiff";
+                    ofd.Title = "Select an Image";
+                    if (ofd.ShowDialog() == DialogResult.OK)
                     {
-                        return false;
+                        pbUserProfilePicture.Image = null;
+                        pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
+                        _user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
                     }
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show($"Ocorreu um erro ao tentar carregar imagem: {ex.Message}");
             }
         }
-
         private void LbPassword_Click(object sender, EventArgs e)
         {
             if (lbPassword.Text.Contains("🔒"))
@@ -125,7 +108,6 @@ namespace MealSync_APP.ProfileFolder
                 lbPassword.Text = "🔒";
             }
         }
-
         private void LbPasswordConfirm_Click(object sender, EventArgs e)
         {
             if (lbPasswordConfirm.Text.Contains("🔒"))
@@ -137,6 +119,47 @@ namespace MealSync_APP.ProfileFolder
             {
                 tbPasswordConfirm.PasswordChar = '*';
                 lbPasswordConfirm.Text = "🔒";
+            }
+        }
+
+        //Métodos Auxiliares
+        private void CurrentUserInfo()
+        {
+            tbEmail.Text = CurrentSession.User.Email;
+            tbName.Text = CurrentSession.User.Name;
+            tbPhoneNum.Text = CurrentSession.User.PhoneNumber;
+            tbSchoolMemberID.Text = CurrentSession.User.SchoolIDNumber;
+            tbPostcode.Text = CurrentSession.User.PostCode;
+            pbUserProfilePicture.Image = ImageUtils.BytesToImage(CurrentSession.User.ProfileImage);
+        }
+        private bool CheckDiff()
+        {
+            try
+            {
+                var elements = new[]
+                {
+                    tbEmail.Text == CurrentSession.User.Email,
+                    tbName.Text == CurrentSession.User.Name,
+                    tbPassword.Text != string.Empty,
+                    tbPasswordConfirm.Text != string.Empty,
+                    tbPhoneNum.Text == CurrentSession.User.PhoneNumber,
+                    tbSchoolMemberID.Text == CurrentSession.User.SchoolIDNumber,
+                    tbPostcode.Text == CurrentSession.User.PostCode,
+                    ImageUtils.ImageToBytes(pbUserProfilePicture.Image) == CurrentSession.User.ProfileImage
+                };  
+                foreach (var element in elements)
+                {
+                    if (!element)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
             }
         }
     }
