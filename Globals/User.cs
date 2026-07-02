@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Windows.Forms;
+using System.IO;
+using System;
 
 namespace MealSync_APP
 {
@@ -13,7 +15,7 @@ namespace MealSync_APP
         public string Password { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string PostCode { get; set; } = string.Empty;
-        public byte[] ProfileImage { get; set; } = Array.Empty<byte>();
+        public byte[] ProfileImage { get; set; } = File.ReadAllBytes(Path.Combine(Application.StartupPath, "image_user.png"));
         public int Role { get; set; } = _StudentRole;
         public string SchoolIDNumber { get; set; } = string.Empty;
 

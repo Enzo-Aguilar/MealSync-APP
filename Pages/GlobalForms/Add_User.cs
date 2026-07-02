@@ -97,6 +97,7 @@ namespace MealSync_APP.Pages.GlobalForms
                         pbUserProfilePicture.Image = null;
                         pbUserProfilePicture.Image = Image.FromFile(ofd.FileName);
                         _user.ProfileImage = ImageUtils.ImageToBytes(pbUserProfilePicture.Image);
+                        MessageBox.Show(_user.ProfileImage.ToString());
                     }
                 }
             }
