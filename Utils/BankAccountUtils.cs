@@ -73,9 +73,9 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        public static ValidatorResult ValidateMoney(SqlMoney money)
+        public static ValidatorResult ValidateMoney(decimal money)
         {
-            if(money.IsNull || money < 0)
+            if(money < 0)
             {
                 return new ValidatorResult
                 {
@@ -166,7 +166,7 @@ namespace MealSync_APP.Utils
                 };
             }
         }
-        public static ValidatorResult AddAmountToBkAccount(BankAccount bk, SqlMoney money)
+        public static ValidatorResult AddAmountToBkAccount(BankAccount bk, decimal money)
         {
             var validations = new[]
             {
@@ -181,7 +181,7 @@ namespace MealSync_APP.Utils
                 }
             }
             decimal currentBalance = Convert.ToDecimal(BankAccount_BLL.Get_BkBalance(bk.ID));
-            BankAccount_BLL.Update_BankAccountBalance(bk.ID, currentBalance + (decimal)money);
+            BankAccount_BLL.Update_BankAccountBalance(bk.ID, currentBalance + money);
             return new ValidatorResult { IsValid = true, };
         }
     }

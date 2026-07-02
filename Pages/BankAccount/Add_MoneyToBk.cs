@@ -1,15 +1,7 @@
 ﻿using MealSync_APP.Globals;
-using MealSync_APP.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
+using MealSync_APP.Utils;
 
 namespace MealSync_APP.Pages.BankAccountFolder
 {
@@ -50,11 +42,12 @@ namespace MealSync_APP.Pages.BankAccountFolder
             {
                 _bk.Iban = tbIban.Text;
                 _bk.ID = int.Parse(tbBankAccountID.Text);
-                SqlMoney money = SqlMoney.Parse(tbAddedAmount.Text);
-                var addAmount = BankAuth.AddAmountToBkAccount(_bk, money);
+                decimal addedAmount = decimal.Parse(tbAddedAmount.Text);
+
+                var addAmount = BankAuth.AddAmountToBkAccount(_bk, addedAmount);
                 if (addAmount.IsValid)
                 {
-                    MessageBox.Show("Valor adicionado com sucesso","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Valor adicionado com sucesso", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                     _bk.Clear();
                 }
@@ -62,8 +55,9 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 {
                     MessageBox.Show(addAmount.ErrorMessage, addAmount.Source, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}");
             }
@@ -71,6 +65,10 @@ namespace MealSync_APP.Pages.BankAccountFolder
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             LoadContent();
+        }
+        private void LbInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pesquise usando o nome do dono da conta bancária.");
         }
 
         // Helpers
@@ -87,21 +85,6 @@ namespace MealSync_APP.Pages.BankAccountFolder
             tbIban.Clear();
             tbBankAccountID.Clear();
             tbAddedAmount.Clear();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Pesquise usando o nome do dono da conta bancária.");
-        }
-
-        private void tbAddedAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbText_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

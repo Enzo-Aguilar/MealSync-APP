@@ -40,7 +40,7 @@
             this.lbText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +105,6 @@
             this.tbAddedAmount.Name = "tbAddedAmount";
             this.tbAddedAmount.Size = new System.Drawing.Size(199, 29);
             this.tbAddedAmount.TabIndex = 9;
-            this.tbAddedAmount.TextChanged += new System.EventHandler(this.tbAddedAmount_TextChanged);
             // 
             // btnAddMoney
             // 
@@ -146,7 +145,6 @@
             this.lbText.Size = new System.Drawing.Size(23, 25);
             this.lbText.TabIndex = 15;
             this.lbText.Text = "€";
-            this.lbText.Click += new System.EventHandler(this.lbText_Click);
             // 
             // label3
             // 
@@ -174,17 +172,17 @@
             this.label1.Text = "➕";
             this.label1.Click += new System.EventHandler(this.BtnAddMoney_Click);
             // 
-            // label2
+            // lbInfo
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(743, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 31);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "   ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbInfo.AutoSize = true;
+            this.lbInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo.Location = new System.Drawing.Point(743, 12);
+            this.lbInfo.Name = "lbInfo";
+            this.lbInfo.Size = new System.Drawing.Size(35, 31);
+            this.lbInfo.TabIndex = 32;
+            this.lbInfo.Text = "   ";
+            this.lbInfo.Click += new System.EventHandler(this.LbInfo_Click);
             // 
             // Add_MoneyToBk
             // 
@@ -193,7 +191,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1099, 661);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbText);
@@ -228,6 +226,6 @@
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbInfo;
     }
 }
