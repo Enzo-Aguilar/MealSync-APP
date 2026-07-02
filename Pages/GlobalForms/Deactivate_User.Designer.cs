@@ -58,7 +58,7 @@
             this.label7.BackColor = System.Drawing.Color.Sienna;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Snow;
-            this.label7.Location = new System.Drawing.Point(592, 552);
+            this.label7.Location = new System.Drawing.Point(580, 486);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 33);
             this.label7.TabIndex = 28;
@@ -71,7 +71,7 @@
             this.label5.BackColor = System.Drawing.Color.Sienna;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Snow;
-            this.label5.Location = new System.Drawing.Point(409, 550);
+            this.label5.Location = new System.Drawing.Point(402, 481);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 37);
             this.label5.TabIndex = 27;
@@ -84,7 +84,7 @@
             this.lbLetterZ.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterZ.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterZ.Location = new System.Drawing.Point(228, 549);
+            this.lbLetterZ.Location = new System.Drawing.Point(215, 480);
             this.lbLetterZ.Name = "lbLetterZ";
             this.lbLetterZ.Size = new System.Drawing.Size(19, 24);
             this.lbLetterZ.TabIndex = 26;
@@ -97,7 +97,7 @@
             this.lbLetterA.BackColor = System.Drawing.Color.Sienna;
             this.lbLetterA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLetterA.ForeColor = System.Drawing.Color.Snow;
-            this.lbLetterA.Location = new System.Drawing.Point(227, 563);
+            this.lbLetterA.Location = new System.Drawing.Point(215, 496);
             this.lbLetterA.Name = "lbLetterA";
             this.lbLetterA.Size = new System.Drawing.Size(20, 24);
             this.lbLetterA.TabIndex = 25;
@@ -110,7 +110,7 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(208, 549);
+            this.label2.Location = new System.Drawing.Point(190, 481);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 39);
             this.label2.TabIndex = 24;
@@ -122,9 +122,9 @@
             this.btnCreatedAtOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnCreatedAtOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatedAtOrder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreatedAtOrder.Location = new System.Drawing.Point(570, 545);
+            this.btnCreatedAtOrder.Location = new System.Drawing.Point(563, 476);
             this.btnCreatedAtOrder.Name = "btnCreatedAtOrder";
-            this.btnCreatedAtOrder.Size = new System.Drawing.Size(200, 48);
+            this.btnCreatedAtOrder.Size = new System.Drawing.Size(187, 51);
             this.btnCreatedAtOrder.TabIndex = 22;
             this.btnCreatedAtOrder.Text = "Data de Criação";
             this.btnCreatedAtOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -136,9 +136,9 @@
             this.btnIdOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnIdOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIdOrder.ForeColor = System.Drawing.Color.White;
-            this.btnIdOrder.Location = new System.Drawing.Point(367, 546);
+            this.btnIdOrder.Location = new System.Drawing.Point(361, 476);
             this.btnIdOrder.Name = "btnIdOrder";
-            this.btnIdOrder.Size = new System.Drawing.Size(197, 48);
+            this.btnIdOrder.Size = new System.Drawing.Size(196, 51);
             this.btnIdOrder.TabIndex = 21;
             this.btnIdOrder.Text = "              ID";
             this.btnIdOrder.UseVisualStyleBackColor = false;
@@ -149,9 +149,9 @@
             this.btnAlphabeticOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnAlphabeticOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlphabeticOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlphabeticOrder.Location = new System.Drawing.Point(153, 545);
+            this.btnAlphabeticOrder.Location = new System.Drawing.Point(152, 476);
             this.btnAlphabeticOrder.Name = "btnAlphabeticOrder";
-            this.btnAlphabeticOrder.Size = new System.Drawing.Size(202, 48);
+            this.btnAlphabeticOrder.Size = new System.Drawing.Size(200, 51);
             this.btnAlphabeticOrder.TabIndex = 20;
             this.btnAlphabeticOrder.Text = "Alfabetica";
             this.btnAlphabeticOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -164,7 +164,7 @@
             this.dgvUsers.Location = new System.Drawing.Point(48, 104);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.Size = new System.Drawing.Size(722, 367);
+            this.dgvUsers.Size = new System.Drawing.Size(722, 350);
             this.dgvUsers.TabIndex = 17;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsers_CellContentClick);
             // 
@@ -183,12 +183,12 @@
             // btnDeactivateUser
             // 
             this.btnDeactivateUser.BackColor = System.Drawing.Color.Sienna;
-            this.btnDeactivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeactivateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDeactivateUser.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeactivateUser.Location = new System.Drawing.Point(321, 618);
+            this.btnDeactivateUser.Location = new System.Drawing.Point(343, 550);
             this.btnDeactivateUser.Name = "btnDeactivateUser";
-            this.btnDeactivateUser.Size = new System.Drawing.Size(230, 57);
+            this.btnDeactivateUser.Size = new System.Drawing.Size(226, 68);
             this.btnDeactivateUser.TabIndex = 30;
             this.btnDeactivateUser.Text = "Desativar";
             this.btnDeactivateUser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -200,9 +200,9 @@
             this.tbUserName.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserName.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbUserName.Location = new System.Drawing.Point(819, 205);
+            this.tbUserName.Location = new System.Drawing.Point(811, 189);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(291, 30);
+            this.tbUserName.Size = new System.Drawing.Size(296, 30);
             this.tbUserName.TabIndex = 32;
             // 
             // tbUserEmail
@@ -210,9 +210,9 @@
             this.tbUserEmail.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserEmail.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbUserEmail.Location = new System.Drawing.Point(819, 278);
+            this.tbUserEmail.Location = new System.Drawing.Point(811, 253);
             this.tbUserEmail.Name = "tbUserEmail";
-            this.tbUserEmail.Size = new System.Drawing.Size(291, 30);
+            this.tbUserEmail.Size = new System.Drawing.Size(296, 30);
             this.tbUserEmail.TabIndex = 34;
             // 
             // tbUserPhoneNumber
@@ -220,9 +220,9 @@
             this.tbUserPhoneNumber.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbUserPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserPhoneNumber.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbUserPhoneNumber.Location = new System.Drawing.Point(819, 348);
+            this.tbUserPhoneNumber.Location = new System.Drawing.Point(811, 317);
             this.tbUserPhoneNumber.Name = "tbUserPhoneNumber";
-            this.tbUserPhoneNumber.Size = new System.Drawing.Size(291, 30);
+            this.tbUserPhoneNumber.Size = new System.Drawing.Size(296, 30);
             this.tbUserPhoneNumber.TabIndex = 36;
             // 
             // pbUserProfileImage
@@ -231,9 +231,9 @@
             this.pbUserProfileImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUserProfileImage.BackgroundImage")));
             this.pbUserProfileImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUserProfileImage.Location = new System.Drawing.Point(820, 427);
+            this.pbUserProfileImage.Location = new System.Drawing.Point(812, 393);
             this.pbUserProfileImage.Name = "pbUserProfileImage";
-            this.pbUserProfileImage.Size = new System.Drawing.Size(291, 219);
+            this.pbUserProfileImage.Size = new System.Drawing.Size(296, 225);
             this.pbUserProfileImage.TabIndex = 37;
             this.pbUserProfileImage.TabStop = false;
             // 
@@ -242,9 +242,9 @@
             this.tbSearch.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(820, 34);
+            this.tbSearch.Location = new System.Drawing.Point(820, 26);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(253, 30);
+            this.tbSearch.Size = new System.Drawing.Size(266, 30);
             this.tbSearch.TabIndex = 41;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
@@ -253,20 +253,20 @@
             this.tbUserId.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserId.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbUserId.Location = new System.Drawing.Point(819, 131);
+            this.tbUserId.Location = new System.Drawing.Point(811, 124);
             this.tbUserId.Name = "tbUserId";
-            this.tbUserId.Size = new System.Drawing.Size(291, 30);
+            this.tbUserId.Size = new System.Drawing.Size(296, 30);
             this.tbUserId.TabIndex = 47;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(414, 622);
+            this.label1.Location = new System.Drawing.Point(434, 557);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 29);
+            this.label1.Size = new System.Drawing.Size(48, 33);
             this.label1.TabIndex = 48;
             this.label1.Text = "🔒";
             this.label1.Click += new System.EventHandler(this.BtnDeactivateUser_Click);
@@ -289,7 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1188, 710);
+            this.ClientSize = new System.Drawing.Size(1179, 669);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUserId);

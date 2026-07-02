@@ -105,5 +105,38 @@ namespace MealSync_APP.Pages.GlobalForms
                 MessageBox.Show($"Ocorreu um erro ao tentar carregar imagem: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void lbPassword_Click(object sender, EventArgs e)
+        {
+            if (lbPassword.Text.Contains("🔒"))
+            {
+                tbPassword.PasswordChar = '\0';
+                lbPassword.Text = "🔓";
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+                lbPassword.Text = "🔒";
+            }
+        }
+
+        private void tbPassword_Confirm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbPassword2_Click(object sender, EventArgs e)
+        {
+            if (lbPassword.Text.Contains("🔒"))
+            {
+                tbPassword.PasswordChar = '\0';
+                lbPassword2.Text = "🔓";
+            }
+            else
+            {
+                tbPassword.PasswordChar = '*';
+                lbPassword2.Text = "🔒";
+            }
+        }
     }
 }

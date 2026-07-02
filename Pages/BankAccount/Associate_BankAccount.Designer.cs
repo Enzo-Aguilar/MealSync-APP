@@ -125,7 +125,7 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(646, 544);
+            this.label2.Location = new System.Drawing.Point(653, 544);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 14;
@@ -162,7 +162,7 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(609, 432);
+            this.tbPassword.Location = new System.Drawing.Point(609, 433);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.ReadOnly = true;
@@ -174,7 +174,7 @@
             this.tbBankAccountId.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbBankAccountId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBankAccountId.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbBankAccountId.Location = new System.Drawing.Point(609, 332);
+            this.tbBankAccountId.Location = new System.Drawing.Point(609, 337);
             this.tbBankAccountId.Name = "tbBankAccountId";
             this.tbBankAccountId.PasswordChar = '*';
             this.tbBankAccountId.ReadOnly = true;
