@@ -15,7 +15,7 @@ namespace MealSync_APP
         public string Password { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string PostCode { get; set; } = string.Empty;
-        public byte[] ProfileImage { get; set; } = File.ReadAllBytes(Path.Combine(Application.StartupPath, "image_user.png"));
+        public byte[] ProfileImage { get; set; } = File.ReadAllBytes(Path.Combine(Application.StartupPath, "img_user.png"));
         public int Role { get; set; } = _StudentRole;
         public string SchoolIDNumber { get; set; } = string.Empty;
 
