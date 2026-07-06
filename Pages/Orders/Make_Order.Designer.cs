@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Make_Order));
             this.panelMeals = new System.Windows.Forms.Panel();
             this.btnMakeOrder = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lbText = new System.Windows.Forms.Label();
             this.MealDateTime = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbMakeOrder = new System.Windows.Forms.Label();
+            this.lbUpdate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelMeals
@@ -55,7 +53,7 @@
             this.btnMakeOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMakeOrder.Location = new System.Drawing.Point(133, 577);
+            this.btnMakeOrder.Location = new System.Drawing.Point(244, 577);
             this.btnMakeOrder.Name = "btnMakeOrder";
             this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
             this.btnMakeOrder.TabIndex = 13;
@@ -64,25 +62,12 @@
             this.btnMakeOrder.UseVisualStyleBackColor = false;
             this.btnMakeOrder.Click += new System.EventHandler(this.BtnMakeOrder_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Sienna;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancel.Location = new System.Drawing.Point(593, 577);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(132, 64);
-            this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(361, 577);
+            this.btnUpdate.Location = new System.Drawing.Point(472, 577);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(132, 64);
             this.btnUpdate.TabIndex = 15;
@@ -113,41 +98,31 @@
             this.MealDateTime.Value = new System.DateTime(2026, 5, 30, 0, 0, 0, 0);
             this.MealDateTime.ValueChanged += new System.EventHandler(this.MealDateTime_ValueChanged);
             // 
-            // label1
+            // lbMakeOrder
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(149, 590);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 31);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "🗳️ ";
+            this.lbMakeOrder.AutoSize = true;
+            this.lbMakeOrder.BackColor = System.Drawing.Color.Sienna;
+            this.lbMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbMakeOrder.Location = new System.Drawing.Point(260, 590);
+            this.lbMakeOrder.Name = "lbMakeOrder";
+            this.lbMakeOrder.Size = new System.Drawing.Size(53, 31);
+            this.lbMakeOrder.TabIndex = 18;
+            this.lbMakeOrder.Text = "🗳️ ";
+            this.lbMakeOrder.Click += new System.EventHandler(this.BtnMakeOrder_Click);
             // 
-            // label2
+            // lbUpdate
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Sienna;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(371, 591);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 33);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "🔄";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Sienna;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(608, 593);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 29);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "✖️";
+            this.lbUpdate.AutoSize = true;
+            this.lbUpdate.BackColor = System.Drawing.Color.Sienna;
+            this.lbUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbUpdate.Location = new System.Drawing.Point(482, 591);
+            this.lbUpdate.Name = "lbUpdate";
+            this.lbUpdate.Size = new System.Drawing.Size(48, 33);
+            this.lbUpdate.TabIndex = 19;
+            this.lbUpdate.Text = "🔄";
+            this.lbUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // Make_Order
             // 
@@ -156,13 +131,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(820, 674);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbUpdate);
+            this.Controls.Add(this.lbMakeOrder);
             this.Controls.Add(this.MealDateTime);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -178,12 +151,10 @@
         #endregion
         private System.Windows.Forms.Panel panelMeals;
         private System.Windows.Forms.Button btnMakeOrder;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.DateTimePicker MealDateTime;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbMakeOrder;
+        private System.Windows.Forms.Label lbUpdate;
     }
 }

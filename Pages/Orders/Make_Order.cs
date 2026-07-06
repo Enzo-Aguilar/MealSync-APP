@@ -16,10 +16,6 @@ namespace MealSync_APP.OrderFolder
         public Make_Order()
         {
             InitializeComponent();
-            // The emoji labels sit on top of the buttons and would otherwise swallow the
-            // clicks, so forward their clicks to the button handler underneath.
-            label1.Click += BtnMakeOrder_Click;
-            label2.Click += BtnUpdate_Click;
         }
         private void Make_Order_Load(object sender, EventArgs e)
         {
@@ -39,6 +35,15 @@ namespace MealSync_APP.OrderFolder
                 MessageBox.Show("Não pode marcar refeições de datas já passadas");
                 return;
             }
+            
+            // Check if user already has an order for this date
+            DataTable userOrdersForDate = Order_BLL.Show_UserOrdersByDate(CurrentSession.User.ID, MealDateTime.Value);
+            if (userOrdersForDate != null && userOrdersForDate.Rows.Count > 0)
+            {
+                MessageBox.Show("Já tem uma refeição marcada para este dia. Não pode marcar mais do que uma refeição por dia.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+   
             try
             {
                 // Load user's bank accounts
