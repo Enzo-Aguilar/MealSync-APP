@@ -18,6 +18,19 @@ namespace MealSync_APP
             HomeTabsVisibility();
             LogCheck.UserIsLogged(this);
             clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lbUsername.Text += CurrentSession.User.Name;
+            if(CurrentSession.User.Role == 0)
+            {
+                lbUserRole.Text += "Administrador";
+            }
+            else if(CurrentSession.User.Role == 1)
+            {
+                lbUserRole.Text += "Funcionário";
+            }
+            else
+            {
+                lbUserRole.Text += "Aluno";
+            }
         }
 
         //Helpers

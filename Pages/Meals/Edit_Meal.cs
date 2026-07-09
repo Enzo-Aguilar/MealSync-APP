@@ -23,6 +23,7 @@ namespace MealSync_APP.MealFolder
 
         private void Edit_Meal_Load(object sender, EventArgs e)
         {
+            EnableEditMode();
             LogCheck.UserIsLogged(this);
         }
         private void TbSearch_TextChanged(object sender, EventArgs e)

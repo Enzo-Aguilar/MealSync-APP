@@ -105,7 +105,7 @@
             // 
             this.tbMealPrice.Location = new System.Drawing.Point(142, 460);
             this.tbMealPrice.Name = "tbMealPrice";
-            this.tbMealPrice.Size = new System.Drawing.Size(207, 20);
+            this.tbMealPrice.Size = new System.Drawing.Size(214, 20);
             this.tbMealPrice.TabIndex = 15;
             // 
             // cbMealType
@@ -125,14 +125,14 @@
             this.tbMealDescription.Location = new System.Drawing.Point(142, 347);
             this.tbMealDescription.Multiline = true;
             this.tbMealDescription.Name = "tbMealDescription";
-            this.tbMealDescription.Size = new System.Drawing.Size(193, 20);
+            this.tbMealDescription.Size = new System.Drawing.Size(210, 20);
             this.tbMealDescription.TabIndex = 13;
             // 
             // tbMealName
             // 
             this.tbMealName.Location = new System.Drawing.Point(142, 295);
             this.tbMealName.Name = "tbMealName";
-            this.tbMealName.Size = new System.Drawing.Size(207, 20);
+            this.tbMealName.Size = new System.Drawing.Size(210, 20);
             this.tbMealName.TabIndex = 12;
             // 
             // mealTimePicker

@@ -89,7 +89,7 @@ namespace MealSync_APP.Utils
                     return new ValidatorResult
                     {
                         IsValid = false,
-                        ErrorMessage = "O utilizador não pode desativa contas que não estão em seu nome",
+                        ErrorMessage = "O utilizador não pode desativar contas que não estão em seu nome",
                     };
                 }
             }
@@ -196,7 +196,6 @@ namespace MealSync_APP.Utils
             var validations = new []
             {
                 IsUserAssociatedToBk(u.ID,bk.ID),
-                IsUserTheBkOwner(u.Name),
                 VerifyBkPassword(bk),
             };
             foreach(var validation in validations)
@@ -225,9 +224,9 @@ namespace MealSync_APP.Utils
         public static ValidatorResult DisassociateBkToUser(User u, BankAccount bk)
         {
             /* 1º - Check if user and bk are associated
-             * 2º - Deactivate Holder
-             */
+             * 2º - Deactivate Holder */
 
+            // 1º
             var validations = new []
             {
                 VerifyBkPassword(bk),
@@ -242,6 +241,7 @@ namespace MealSync_APP.Utils
                 }
             }
 
+            // 2º
             DeactivateHolder(u.ID, bk.ID);
             return new ValidatorResult { IsValid = true };
         }

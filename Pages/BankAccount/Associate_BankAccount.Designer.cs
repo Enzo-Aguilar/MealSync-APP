@@ -34,8 +34,8 @@
             this.btnAssociateAccount = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbUpdate = new System.Windows.Forms.Label();
+            this.lbAssociateBk = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.lbInfo = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@
             // tbAccountOwner
             // 
             this.tbAccountOwner.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbAccountOwner.Enabled = false;
             this.tbAccountOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAccountOwner.ForeColor = System.Drawing.SystemColors.Window;
             this.tbAccountOwner.Location = new System.Drawing.Point(609, 147);
@@ -106,31 +107,31 @@
             this.tbSearch.TabIndex = 12;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
-            // label1
+            // lbUpdate
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(806, 542);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 37);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "🔄";
-            this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
+            this.lbUpdate.AutoSize = true;
+            this.lbUpdate.BackColor = System.Drawing.Color.Sienna;
+            this.lbUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbUpdate.Location = new System.Drawing.Point(646, 540);
+            this.lbUpdate.Name = "lbUpdate";
+            this.lbUpdate.Size = new System.Drawing.Size(54, 37);
+            this.lbUpdate.TabIndex = 13;
+            this.lbUpdate.Text = "🔄";
+            this.lbUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // label2
+            // lbAssociateBk
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Sienna;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(653, 544);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 33);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "🔗‍";
-            this.label2.Click += new System.EventHandler(this.BtnAssociateAccount_Click);
+            this.lbAssociateBk.AutoSize = true;
+            this.lbAssociateBk.BackColor = System.Drawing.Color.Sienna;
+            this.lbAssociateBk.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAssociateBk.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbAssociateBk.Location = new System.Drawing.Point(805, 544);
+            this.lbAssociateBk.Name = "lbAssociateBk";
+            this.lbAssociateBk.Size = new System.Drawing.Size(48, 33);
+            this.lbAssociateBk.TabIndex = 14;
+            this.lbAssociateBk.Text = "🔗‍";
+            this.lbAssociateBk.Click += new System.EventHandler(this.BtnAssociateAccount_Click);
             // 
             // lbPassword
             // 
@@ -165,18 +166,17 @@
             this.tbPassword.Location = new System.Drawing.Point(609, 433);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(298, 30);
             this.tbPassword.TabIndex = 35;
             // 
             // tbBankAccountId
             // 
             this.tbBankAccountId.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbBankAccountId.Enabled = false;
             this.tbBankAccountId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBankAccountId.ForeColor = System.Drawing.SystemColors.Window;
             this.tbBankAccountId.Location = new System.Drawing.Point(609, 337);
             this.tbBankAccountId.Name = "tbBankAccountId";
-            this.tbBankAccountId.PasswordChar = '*';
             this.tbBankAccountId.ReadOnly = true;
             this.tbBankAccountId.Size = new System.Drawing.Size(298, 30);
             this.tbBankAccountId.TabIndex = 38;
@@ -184,11 +184,11 @@
             // tbIban
             // 
             this.tbIban.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbIban.Enabled = false;
             this.tbIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIban.ForeColor = System.Drawing.SystemColors.Window;
             this.tbIban.Location = new System.Drawing.Point(609, 243);
             this.tbIban.Name = "tbIban";
-            this.tbIban.PasswordChar = '*';
             this.tbIban.ReadOnly = true;
             this.tbIban.Size = new System.Drawing.Size(298, 30);
             this.tbIban.TabIndex = 39;
@@ -205,8 +205,8 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbAssociateBk);
+            this.Controls.Add(this.lbUpdate);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAssociateAccount);
@@ -230,8 +230,8 @@
         private System.Windows.Forms.Button btnAssociateAccount;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbUpdate;
+        private System.Windows.Forms.Label lbAssociateBk;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label lbInfo;
         private System.Windows.Forms.TextBox tbPassword;

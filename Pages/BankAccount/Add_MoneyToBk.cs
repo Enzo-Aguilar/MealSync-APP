@@ -1,7 +1,7 @@
 ﻿using MealSync_APP.Globals;
 using System.Windows.Forms;
-using System;
 using MealSync_APP.Utils;
+using System;
 
 namespace MealSync_APP.Pages.BankAccountFolder
 {

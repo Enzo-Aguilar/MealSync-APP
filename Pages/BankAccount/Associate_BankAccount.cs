@@ -44,6 +44,7 @@ namespace MealSync_APP.BankAccountFolder
             try
             {
                 _bk.ID = int.Parse(tbBankAccountId.Text);
+                _bk.Password = tbPassword.Text;
                 _bk.Iban = tbIban.Text;
 
                 var associateToBk = HolderAuth.AssociateBkToUser(_user, _bk);
@@ -69,6 +70,7 @@ namespace MealSync_APP.BankAccountFolder
             dgvBankAccounts.Visible = false;
             LoadBkAccountData();
             dgvBankAccounts.Visible = true;
+            ClearFields();
         }
         private void DgvBankAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,6 +122,7 @@ namespace MealSync_APP.BankAccountFolder
         }
         private void ClearFields()
         {
+            tbSearch.Clear();
             tbAccountOwner.Clear();
             tbIban.Clear();
             tbBankAccountId.Clear();
@@ -132,12 +135,12 @@ namespace MealSync_APP.BankAccountFolder
         {
             if (lbPassword.Text.Contains("🔒"))
             {
-                tbBankAccountId.PasswordChar = '\0';
+                tbPassword.PasswordChar = '\0';
                 lbPassword.Text = "🔓";
             }
             else
             {
-                tbBankAccountId.PasswordChar = '*';
+                tbPassword.PasswordChar = '*';
                 lbPassword.Text = "🔒";
             }
         }

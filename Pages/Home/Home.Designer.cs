@@ -71,6 +71,8 @@
             this.reactivate_FAQs = new System.Windows.Forms.ToolStripMenuItem();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.clock = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbUserRole = new System.Windows.Forms.Label();
             this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,21 +151,21 @@
             // ver_Order
             // 
             this.ver_Order.Name = "ver_Order";
-            this.ver_Order.Size = new System.Drawing.Size(180, 22);
+            this.ver_Order.Size = new System.Drawing.Size(145, 22);
             this.ver_Order.Text = "👀Ver";
             this.ver_Order.Click += new System.EventHandler(this.Show_Orders_Click);
             // 
             // make_Order
             // 
             this.make_Order.Name = "make_Order";
-            this.make_Order.Size = new System.Drawing.Size(180, 22);
+            this.make_Order.Size = new System.Drawing.Size(145, 22);
             this.make_Order.Text = "📝 Marcar";
             this.make_Order.Click += new System.EventHandler(this.Make_Orders_Click);
             // 
             // cancel_Order
             // 
             this.cancel_Order.Name = "cancel_Order";
-            this.cancel_Order.Size = new System.Drawing.Size(180, 22);
+            this.cancel_Order.Size = new System.Drawing.Size(145, 22);
             this.cancel_Order.Text = "🗑️ Desmarcar";
             this.cancel_Order.Click += new System.EventHandler(this.Cancel_Order_Click);
             // 
@@ -180,21 +182,21 @@
             // edit_Meal
             // 
             this.edit_Meal.Name = "edit_Meal";
-            this.edit_Meal.Size = new System.Drawing.Size(180, 22);
+            this.edit_Meal.Size = new System.Drawing.Size(140, 22);
             this.edit_Meal.Text = "✍ Editar";
             this.edit_Meal.Click += new System.EventHandler(this.Edit_Meal_Click);
             // 
             // add_Meal
             // 
             this.add_Meal.Name = "add_Meal";
-            this.add_Meal.Size = new System.Drawing.Size(180, 22);
+            this.add_Meal.Size = new System.Drawing.Size(140, 22);
             this.add_Meal.Text = "➕ Adicionar";
             this.add_Meal.Click += new System.EventHandler(this.Add_Meal_Click);
             // 
             // remove_Meal
             // 
             this.remove_Meal.Name = "remove_Meal";
-            this.remove_Meal.Size = new System.Drawing.Size(180, 22);
+            this.remove_Meal.Size = new System.Drawing.Size(140, 22);
             this.remove_Meal.Text = "🗑️ Remover";
             this.remove_Meal.Click += new System.EventHandler(this.Remove_Meal_Click);
             // 
@@ -212,28 +214,28 @@
             // show_Students
             // 
             this.show_Students.Name = "show_Students";
-            this.show_Students.Size = new System.Drawing.Size(180, 22);
+            this.show_Students.Size = new System.Drawing.Size(140, 22);
             this.show_Students.Text = "👀 Ver";
             this.show_Students.Click += new System.EventHandler(this.Show_Students_Click);
             // 
             // add_Student
             // 
             this.add_Student.Name = "add_Student";
-            this.add_Student.Size = new System.Drawing.Size(180, 22);
+            this.add_Student.Size = new System.Drawing.Size(140, 22);
             this.add_Student.Text = "➕ Adicionar";
             this.add_Student.Click += new System.EventHandler(this.Add_Student_Click);
             // 
             // reactivate_Student
             // 
             this.reactivate_Student.Name = "reactivate_Student";
-            this.reactivate_Student.Size = new System.Drawing.Size(180, 22);
+            this.reactivate_Student.Size = new System.Drawing.Size(140, 22);
             this.reactivate_Student.Text = "🔓Reativar";
             this.reactivate_Student.Click += new System.EventHandler(this.Reactivate_Student_Click);
             // 
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(180, 22);
+            this.remove_Student.Size = new System.Drawing.Size(140, 22);
             this.remove_Student.Text = "🗑️ Remover";
             this.remove_Student.Click += new System.EventHandler(this.Remove_Student_Click);
             // 
@@ -251,28 +253,28 @@
             // show_Employees
             // 
             this.show_Employees.Name = "show_Employees";
-            this.show_Employees.Size = new System.Drawing.Size(180, 22);
+            this.show_Employees.Size = new System.Drawing.Size(140, 22);
             this.show_Employees.Text = "👀 Ver";
             this.show_Employees.Click += new System.EventHandler(this.Show_Employees_Click);
             // 
             // add_Employee
             // 
             this.add_Employee.Name = "add_Employee";
-            this.add_Employee.Size = new System.Drawing.Size(180, 22);
+            this.add_Employee.Size = new System.Drawing.Size(140, 22);
             this.add_Employee.Text = "➕ Adicionar";
             this.add_Employee.Click += new System.EventHandler(this.Add_Employee_Click);
             // 
             // reactivate_Employee
             // 
             this.reactivate_Employee.Name = "reactivate_Employee";
-            this.reactivate_Employee.Size = new System.Drawing.Size(180, 22);
+            this.reactivate_Employee.Size = new System.Drawing.Size(140, 22);
             this.reactivate_Employee.Text = "🔓reativar";
             this.reactivate_Employee.Click += new System.EventHandler(this.Reactivate_Employee_Click);
             // 
             // remove_Employee
             // 
             this.remove_Employee.Name = "remove_Employee";
-            this.remove_Employee.Size = new System.Drawing.Size(180, 22);
+            this.remove_Employee.Size = new System.Drawing.Size(140, 22);
             this.remove_Employee.Text = "🗑️ Remover";
             this.remove_Employee.Click += new System.EventHandler(this.Remove_Employee_Click);
             // 
@@ -290,28 +292,28 @@
             // show_Admins
             // 
             this.show_Admins.Name = "show_Admins";
-            this.show_Admins.Size = new System.Drawing.Size(180, 22);
+            this.show_Admins.Size = new System.Drawing.Size(140, 22);
             this.show_Admins.Text = "👀 Ver";
             this.show_Admins.Click += new System.EventHandler(this.Show_Admins_Click);
             // 
             // add_Admin
             // 
             this.add_Admin.Name = "add_Admin";
-            this.add_Admin.Size = new System.Drawing.Size(180, 22);
+            this.add_Admin.Size = new System.Drawing.Size(140, 22);
             this.add_Admin.Text = "➕ Adicionar";
             this.add_Admin.Click += new System.EventHandler(this.Add_Admin_Click);
             // 
             // reactivate_Admin
             // 
             this.reactivate_Admin.Name = "reactivate_Admin";
-            this.reactivate_Admin.Size = new System.Drawing.Size(180, 22);
+            this.reactivate_Admin.Size = new System.Drawing.Size(140, 22);
             this.reactivate_Admin.Text = "🔓reativar";
             this.reactivate_Admin.Click += new System.EventHandler(this.Reactivate_Admin_Click);
             // 
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
+            this.remove_Admin.Size = new System.Drawing.Size(140, 22);
             this.remove_Admin.Text = "🗑️ Remover";
             this.remove_Admin.Click += new System.EventHandler(this.Remove_Admin_Click);
             // 
@@ -346,7 +348,7 @@
             // edit_Profile
             // 
             this.edit_Profile.Name = "edit_Profile";
-            this.edit_Profile.Size = new System.Drawing.Size(180, 22);
+            this.edit_Profile.Size = new System.Drawing.Size(122, 22);
             this.edit_Profile.Text = "✍ Editar ";
             this.edit_Profile.Click += new System.EventHandler(this.Edit_Profile_Click);
             // 
@@ -398,11 +400,29 @@
             // clock
             // 
             this.clock.AutoSize = true;
-            this.clock.Location = new System.Drawing.Point(1031, 9);
+            this.clock.Location = new System.Drawing.Point(821, 11);
             this.clock.Name = "clock";
             this.clock.Size = new System.Drawing.Size(38, 13);
             this.clock.TabIndex = 2;
             this.clock.Text = "relogio";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Location = new System.Drawing.Point(914, 8);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(41, 13);
+            this.lbUsername.TabIndex = 4;
+            this.lbUsername.Text = "Nome: ";
+            // 
+            // lbUserRole
+            // 
+            this.lbUserRole.AutoSize = true;
+            this.lbUserRole.Location = new System.Drawing.Point(1018, 8);
+            this.lbUserRole.Name = "lbUserRole";
+            this.lbUserRole.Size = new System.Drawing.Size(49, 13);
+            this.lbUserRole.TabIndex = 5;
+            this.lbUserRole.Text = "Função: ";
             // 
             // Home
             // 
@@ -411,6 +431,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1167, 645);
+            this.Controls.Add(this.lbUserRole);
+            this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.clock);
             this.Controls.Add(this.MenuStrip);
             this.DoubleBuffered = true;
@@ -469,5 +491,7 @@
         private System.Windows.Forms.ToolStripMenuItem reactivate_Student;
         private System.Windows.Forms.ToolStripMenuItem reactivate_Employee;
         private System.Windows.Forms.ToolStripMenuItem reactivate_Admin;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbUserRole;
     }
 }
