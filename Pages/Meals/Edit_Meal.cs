@@ -23,7 +23,6 @@ namespace MealSync_APP.MealFolder
 
         private void Edit_Meal_Load(object sender, EventArgs e)
         {
-            EnableEditMode();
             LogCheck.UserIsLogged(this);
         }
         private void TbSearch_TextChanged(object sender, EventArgs e)
@@ -102,9 +101,6 @@ namespace MealSync_APP.MealFolder
             {
                 pictureBoxMealImage.Image = null;
             }
-
-            DisableEditMode();
-            isEditMode = false;
         }
         private void BtnEdit_Click(object sender, EventArgs e)
         {
@@ -150,14 +146,10 @@ namespace MealSync_APP.MealFolder
                     MessageBox.Show("Só é possivel editar refeições com 7 dias de antecedencia", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                EnableEditMode();
-                isEditMode = true;
             }
             catch(Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                DisableEditMode();
-                isEditMode = false;
                 LoadMealsByDate(dateTimerPickerMeals.Value);
             }
         }
