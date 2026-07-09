@@ -44,7 +44,7 @@
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBankAccounts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBankAccounts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(286, 118);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(285, 118);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
             this.dgvBankAccounts.Size = new System.Drawing.Size(311, 319);

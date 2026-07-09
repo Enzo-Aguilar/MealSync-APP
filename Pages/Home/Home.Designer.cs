@@ -235,8 +235,8 @@
             // remove_Student
             // 
             this.remove_Student.Name = "remove_Student";
-            this.remove_Student.Size = new System.Drawing.Size(140, 22);
-            this.remove_Student.Text = "🗑️ Remover";
+            this.remove_Student.Size = new System.Drawing.Size(180, 22);
+            this.remove_Student.Text = "🔒Desativar";
             this.remove_Student.Click += new System.EventHandler(this.Remove_Student_Click);
             // 
             // Employees
@@ -274,8 +274,8 @@
             // remove_Employee
             // 
             this.remove_Employee.Name = "remove_Employee";
-            this.remove_Employee.Size = new System.Drawing.Size(140, 22);
-            this.remove_Employee.Text = "🗑️ Remover";
+            this.remove_Employee.Size = new System.Drawing.Size(180, 22);
+            this.remove_Employee.Text = "🔒Desativar";
             this.remove_Employee.Click += new System.EventHandler(this.Remove_Employee_Click);
             // 
             // Admins
@@ -313,8 +313,8 @@
             // remove_Admin
             // 
             this.remove_Admin.Name = "remove_Admin";
-            this.remove_Admin.Size = new System.Drawing.Size(140, 22);
-            this.remove_Admin.Text = "🗑️ Remover";
+            this.remove_Admin.Size = new System.Drawing.Size(180, 22);
+            this.remove_Admin.Text = "🔒Desativar";
             this.remove_Admin.Click += new System.EventHandler(this.Remove_Admin_Click);
             // 
             // MenuStrip

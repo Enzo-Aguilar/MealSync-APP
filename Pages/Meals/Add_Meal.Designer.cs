@@ -256,7 +256,7 @@
             this.tbMealDescription.Location = new System.Drawing.Point(142, 347);
             this.tbMealDescription.Multiline = true;
             this.tbMealDescription.Name = "tbMealDescription";
-            this.tbMealDescription.Size = new System.Drawing.Size(193, 20);
+            this.tbMealDescription.Size = new System.Drawing.Size(193, 37);
             this.tbMealDescription.TabIndex = 13;
             this.tbMealDescription.TextChanged += new System.EventHandler(this.TbMealDescription_TextChanged);
             // 
