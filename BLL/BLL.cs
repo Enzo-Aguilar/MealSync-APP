@@ -403,7 +403,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@Date", Date)
             };
-            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date)", sqlParams);
+            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date) AND IsActive=1", sqlParams);
         }
         public static int Create_Meal(Meal meal)
         {
@@ -433,6 +433,15 @@ namespace BusinessLogicLayer
                 new SqlParameter("@Type", meal.Type)
             };
             return dal.ExecuteNonQuery("UPDATE [Meal] SET Date=@Date, Description=@Description, MealImage=@MealImage, Name=@Name, Price=@Price, Type=@Type WHERE ID=@ID", sqlParams);
+        }
+        public static int Deactivate_Meal(int mealID)
+        {
+            DAL dal = new DAL();
+            SqlParameter[] sqlParams = new SqlParameter[]
+            {
+                new SqlParameter("@ID", mealID)
+            };
+            return dal.ExecuteNonQuery("UPDATE FROM [Meal] SET IsActive=0 WHERE ID=@ID", sqlParams);
         }
     }
     public class Order_BLL

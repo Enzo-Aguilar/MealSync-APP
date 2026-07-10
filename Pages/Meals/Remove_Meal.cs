@@ -32,60 +32,42 @@ namespace MealSync_APP.MealFolder
             }
             else if (MealDateTime.Value <= DateTime.Today)
             {
-                MessageBox.Show("Não pode marcar refeições de datas já passadas");
+                MessageBox.Show("Não pode remover refeições de datas já passadas");
                 return;
             }
             else if (!MealValidator.IsMealOnTimeToBeEditable(MealDateTime.Value))
             {
-                MessageBox.Show("Só é possivel cancelar refeições com 1 semana de antecedencia");
-                return ;
+                MessageBox.Show("Só é possivel remover refeições com 1 semana de antecedencia");
+                return;
             }
-                try
+
+            try
+            {
+                DialogResult result = MessageBox.Show(
+                    $"Tem a certeza que deseja remover a refeição '{selectedMeal.Name}'?",
+                    "Confirmar Remoção",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                        
-                    
-                    //Replace with the delete meal logic
-                    //var selectedBankAccountId = ShowBankAccountSelectionDialog(bankAccountsTable);
-                    //if (selectedBankAccountId > 0)
-                    //{
-                    //    foreach (DataRow bk in bankAccountsTable.Rows)
-                    //    {
-                    //        int bkID = Convert.ToInt32(bk["ID"]);
-                    //        if (bkID == selectedBankAccountId)
-                    //        {
-                    //            SqlMoney balance = bk["balance"] != DBNull.Value ? new SqlMoney(Convert.ToDecimal(bk["balance"])) : SqlMoney.Zero;
-                    //            SqlMoney amount = balance - selectedMeal.Price;
-                    //            if (amount >= 0)
-                    //            {
-                    //                var user = CurrentSession.User;
-                    //                var order = OrderUtils.CreateOrder(user, selectedMeal, bkID);
-                    //                if (order.IsValid)
-                    //                {
-                    //                    MessageBox.Show("Pedido criado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //                    LoadMealsForDate(MealDateTime.Value); // Refresh meals to reflect 
-                    //                }
-                    //                else
-                    //                {
-                    //                    MessageBox.Show("Ocorreu erro ao tentar criar pedido:" + order.ErrorMessage);
-                    //                }
-                    //            }
-                    //            else
-                    //            {
-                    //                MessageBox.Show("Montante insuficiente pra concluir o pagamento");
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Nenhuma conta selecionada. Pedido cancelado.", "Pedido Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    return;
-                    //}
+                    int deleteResult = Meal_BLL.Deactivate_Meal(selectedMeal.ID);
+                    if (deleteResult > 0)
+                    {
+                        MessageBox.Show("Refeição removida com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadMealsForDate(MealDateTime.Value);
+                        selectedMeal = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar remover a refeição", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
