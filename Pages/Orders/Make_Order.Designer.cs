@@ -43,9 +43,10 @@
             this.panelMeals.AutoScroll = true;
             this.panelMeals.BackColor = System.Drawing.Color.Transparent;
             this.panelMeals.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMeals.Location = new System.Drawing.Point(44, 37);
+            this.panelMeals.Location = new System.Drawing.Point(59, 46);
+            this.panelMeals.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMeals.Name = "panelMeals";
-            this.panelMeals.Size = new System.Drawing.Size(744, 534);
+            this.panelMeals.Size = new System.Drawing.Size(992, 657);
             this.panelMeals.TabIndex = 12;
             // 
             // btnMakeOrder
@@ -53,9 +54,10 @@
             this.btnMakeOrder.BackColor = System.Drawing.Color.Sienna;
             this.btnMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMakeOrder.Location = new System.Drawing.Point(244, 577);
+            this.btnMakeOrder.Location = new System.Drawing.Point(325, 710);
+            this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMakeOrder.Name = "btnMakeOrder";
-            this.btnMakeOrder.Size = new System.Drawing.Size(132, 64);
+            this.btnMakeOrder.Size = new System.Drawing.Size(176, 79);
             this.btnMakeOrder.TabIndex = 13;
             this.btnMakeOrder.Text = "Marcar";
             this.btnMakeOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -67,9 +69,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(472, 577);
+            this.btnUpdate.Location = new System.Drawing.Point(629, 710);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(132, 64);
+            this.btnUpdate.Size = new System.Drawing.Size(176, 79);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -82,20 +85,22 @@
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(1, 16);
+            this.lbText.Location = new System.Drawing.Point(1, 20);
+            this.lbText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(97, 15);
+            this.lbText.Size = new System.Drawing.Size(115, 18);
             this.lbText.TabIndex = 16;
             this.lbText.Text = "Marcar para dia:";
             // 
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(104, 12);
+            this.MealDateTime.Location = new System.Drawing.Point(139, 15);
+            this.MealDateTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MealDateTime.Name = "MealDateTime";
-            this.MealDateTime.Size = new System.Drawing.Size(186, 20);
+            this.MealDateTime.Size = new System.Drawing.Size(247, 22);
             this.MealDateTime.TabIndex = 17;
-            this.MealDateTime.Value = new System.DateTime(2026, 5, 30, 0, 0, 0, 0);
+            this.MealDateTime.Value = new System.DateTime(2026, 7, 21, 0, 0, 0, 0);
             this.MealDateTime.ValueChanged += new System.EventHandler(this.MealDateTime_ValueChanged);
             // 
             // lbMakeOrder
@@ -104,9 +109,10 @@
             this.lbMakeOrder.BackColor = System.Drawing.Color.Sienna;
             this.lbMakeOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbMakeOrder.Location = new System.Drawing.Point(260, 590);
+            this.lbMakeOrder.Location = new System.Drawing.Point(347, 726);
+            this.lbMakeOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMakeOrder.Name = "lbMakeOrder";
-            this.lbMakeOrder.Size = new System.Drawing.Size(53, 31);
+            this.lbMakeOrder.Size = new System.Drawing.Size(64, 39);
             this.lbMakeOrder.TabIndex = 18;
             this.lbMakeOrder.Text = "🗳️ ";
             this.lbMakeOrder.Click += new System.EventHandler(this.BtnMakeOrder_Click);
@@ -117,20 +123,21 @@
             this.lbUpdate.BackColor = System.Drawing.Color.Sienna;
             this.lbUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUpdate.Location = new System.Drawing.Point(482, 591);
+            this.lbUpdate.Location = new System.Drawing.Point(643, 727);
+            this.lbUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbUpdate.Name = "lbUpdate";
-            this.lbUpdate.Size = new System.Drawing.Size(48, 33);
+            this.lbUpdate.Size = new System.Drawing.Size(61, 42);
             this.lbUpdate.TabIndex = 19;
             this.lbUpdate.Text = "🔄";
             this.lbUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // Make_Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(820, 674);
+            this.ClientSize = new System.Drawing.Size(1093, 830);
             this.Controls.Add(this.lbUpdate);
             this.Controls.Add(this.lbMakeOrder);
             this.Controls.Add(this.MealDateTime);
@@ -139,6 +146,7 @@
             this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.panelMeals);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Make_Order";
             this.Text = "Fazer_Marcacoes";

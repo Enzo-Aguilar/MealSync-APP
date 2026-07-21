@@ -21,7 +21,6 @@ namespace MealSync_APP.OrderFolder
         {
             MealDateTime.Value = DateTime.Today;
             LoadMealsForDate(MealDateTime.Value);
-            LogCheck.UserIsLogged(this);
         }
         private void BtnMakeOrder_Click(object sender, EventArgs e)
         {
@@ -184,7 +183,7 @@ namespace MealSync_APP.OrderFolder
             // Label for menu type
             Label typeLabel = new Label
             {
-                Text = $"Tipe: {menuType}",
+                Text = $"Tipo: {menuType}",
                 Font = new Font("Arial", 9),
                 AutoSize = false,
                 Size = new Size (width - 10, 25),

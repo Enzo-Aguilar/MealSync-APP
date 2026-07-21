@@ -129,6 +129,7 @@ namespace MealSync_APP.MealFolder
                         if (editMeal.IsValid)
                         {
                             MessageBox.Show("Refeição editada com sucesso");
+                            ClearFields();
                         }
                         else
                         {
@@ -225,17 +226,6 @@ namespace MealSync_APP.MealFolder
             pictureBoxMealImage.Image = null;
             DisableEditMode();
         }
-        private void EnableEditMode()
-        {
-            tbMealName.ReadOnly = false;
-            tbMealDescription.ReadOnly = false;
-            cbMealType.Enabled = true;
-            tbMealPrice.ReadOnly = false;
-            mealTimePicker.Enabled = true;
-            pictureBoxMealImage.Enabled = true;
-            btnEdit.Text = "Cancelar";
-            btnUpdate.Enabled = true;
-        }
         private bool HasChanges()
         {
             return !AreStringsEqual(tbMealName.Text, originalMeal.Name) ||
@@ -271,6 +261,14 @@ namespace MealSync_APP.MealFolder
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+        private void ClearFields()
+        {
+            pictureBoxMealImage.Image = null;
+            tbMealName.Clear();
+            tbMealDescription.Clear();
+            cbMealType.ResetText();
+            tbMealPrice.Clear();
         }
 
         // Methods for Dinamic Elements Creation

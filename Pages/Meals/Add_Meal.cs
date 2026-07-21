@@ -19,7 +19,7 @@ namespace MealSync_APP.MealFolder
         private static Meal meal = new Meal();
         public Add_Meal()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         //Metodos dos Componentes Graficos
@@ -45,12 +45,12 @@ namespace MealSync_APP.MealFolder
                 }
                 else
                 {
-                    MessageBox.Show($"Erro ao criar refeição: {create_meal.ErrorMessage}");
+                    MessageBox.Show($"Erro ao criar refeição: {create_meal.ErrorMessage}","Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro ao tentar criar refeição: {ex.Message}");
+                MessageBox.Show($"Ocorreu um erro ao tentar criar refeição: {ex.Message}","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void PictureBoxMealImage_Click(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace MealSync_APP.MealFolder
         private void TbMealPrice_TextChanged(object sender, EventArgs e)
         {
             lbMealPriceUserPreview.Text = "Preço: ";
-            lbMealPriceUserPreview.Text += tbMealPrice.Text;
+            lbMealPriceUserPreview.Text += tbMealPrice.Text + " €";
         }
         private void BtnCancelMeal_Click(object sender, EventArgs e)
         {
