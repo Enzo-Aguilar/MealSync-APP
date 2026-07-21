@@ -125,7 +125,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(825, 527);
+            this.btnUpdate.Location = new System.Drawing.Point(830, 523);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(166, 78);
             this.btnUpdate.TabIndex = 14;
@@ -152,7 +152,7 @@
             this.label3.BackColor = System.Drawing.Color.Sienna;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(875, 532);
+            this.label3.Location = new System.Drawing.Point(887, 527);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 42);
             this.label3.TabIndex = 30;
@@ -165,7 +165,7 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(690, 533);
+            this.label1.Location = new System.Drawing.Point(693, 532);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 42);
             this.label1.TabIndex = 31;
