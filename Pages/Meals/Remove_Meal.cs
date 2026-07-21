@@ -21,9 +21,8 @@ namespace MealSync_APP.MealFolder
         {
             MealDateTime.Value = DateTime.Today;
             LoadMealsForDate(MealDateTime.Value);
-            LogCheck.UserIsLogged(this);
         }
-        private void BtnDeativateOrder_Click(object sender, EventArgs e)
+        private void BtnDeativatMeal_Click(object sender, EventArgs e)
         {
             if (selectedMeal == null)
             {
@@ -51,17 +50,10 @@ namespace MealSync_APP.MealFolder
 
                 if (result == DialogResult.Yes)
                 {
-                    int deleteResult = Meal_BLL.Deactivate_Meal(selectedMeal.ID);
-                    if (deleteResult > 0)
-                    {
-                        MessageBox.Show("Refeição removida com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadMealsForDate(MealDateTime.Value);
-                        selectedMeal = null;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um erro ao tentar remover a refeição", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Meal_BLL.Deactivate_Meal(selectedMeal.ID);
+                    MessageBox.Show("Refeição removida com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMealsForDate(MealDateTime.Value);
+                    selectedMeal = null;
                 }
             }
             catch (Exception ex)
@@ -91,7 +83,6 @@ namespace MealSync_APP.MealFolder
 
             // Select new meal
             selectedMeal = meal;
-            MessageBox.Show(selectedMeal.ID.ToString());
             mealCard.BackColor = Color.LightBlue;
         }
 
@@ -193,94 +184,6 @@ namespace MealSync_APP.MealFolder
             panelMeals.Controls.Add(mealPanel);
             return mealPanel;
         }
-        private int ShowBankAccountSelectionDialog(DataTable bankAccountsTable)
-        {
-            Form selectionForm = new Form
-            {
-                Text = "Selecione com qual conta deseja pagar",
-                Width = 400,
-                Height = 250,
-                StartPosition = FormStartPosition.CenterParent,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                MaximizeBox = false,
-                MinimizeBox = false,
-                ShowInTaskbar = false,
-                DialogResult = DialogResult.Cancel
-            };
-
-            Label label = new Label
-            {
-                Text = "Com qual conta deseja pagar?",
-                Location = new Point(20, 20),
-                AutoSize = true,
-                Font = new Font("Arial", 10)
-            };
-
-            ComboBox comboBox = new ComboBox
-            {
-                Location = new Point(20, 50),
-                Width = 350,
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Font = new Font("Arial", 10)
-            };
-
-            // Populate combo box with bank account info
-            foreach (DataRow row in bankAccountsTable.Rows)
-            {
-                string owner = row["Owner"].ToString();
-                string iban = row["IBAN"].ToString();
-                decimal balance = row["balance"] != DBNull.Value ? Convert.ToDecimal(row["balance"]) : 0m;
-                int id = Convert.ToInt32(row["ID"]);
-
-                string displayText = $"{owner} - {id} - {balance}€ - {iban}";
-                var item = new { Display = displayText, Id = id };
-                comboBox.Items.Add(item);
-                comboBox.DisplayMember = "Display";
-                comboBox.ValueMember = "Id";
-            }
-
-            if (comboBox.Items.Count > 0)
-            {
-                comboBox.SelectedIndex = 0;
-            }
-
-            Button okButton = new Button
-            {
-                Text = "OK",
-                Location = new Point(150, 120),
-                Width = 100,
-                Height = 40,
-                DialogResult = DialogResult.OK,
-                Font = new Font("Arial", 10)
-            };
-
-            Button cancelButton = new Button
-            {
-                Text = "Cancel",
-                Location = new Point(260, 120),
-                Width = 100,
-                Height = 40,
-                DialogResult = DialogResult.Cancel,
-                Font = new Font("Arial", 10)
-            };
-
-            selectionForm.Controls.Add(label);
-            selectionForm.Controls.Add(comboBox);
-            selectionForm.Controls.Add(okButton);
-            selectionForm.Controls.Add(cancelButton);
-
-            selectionForm.AcceptButton = okButton;
-            selectionForm.CancelButton = cancelButton;
-
-            DialogResult result = selectionForm.ShowDialog(this);
-
-            if (result == DialogResult.OK && comboBox.SelectedItem != null)
-            {
-                return Convert.ToInt32(comboBox.SelectedValue);
-            }
-
-            return -1;
-        }
 
         //Helpers
         private void LoadMealsForDate(DateTime selectedDate)
@@ -321,7 +224,7 @@ namespace MealSync_APP.MealFolder
             LoadMealsForDate(MealDateTime.Value);
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
 
         }

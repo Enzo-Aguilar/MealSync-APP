@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using BusinessLogicLayer;
 using MealSync_APP.Globals;
+using MealSync_APP.Pages.BankAccountFolder;
 
 namespace MealSync_APP.Utils
 {
@@ -221,7 +222,7 @@ namespace MealSync_APP.Utils
             CreateHolder(u, bk, bkAssociatesNum);
             return new ValidatorResult { IsValid = true };
         }
-        public static ValidatorResult DisassociateBkToUser(User u, BankAccount bk)
+        public static ValidatorResult DeactivateBkToUser(User u, BankAccount bk)
         {
             /* 1º - Check if user and bk are associated
              * 2º - Deactivate Holder */
@@ -231,7 +232,6 @@ namespace MealSync_APP.Utils
             {
                 VerifyBkPassword(bk),
                 IsUserTheBkOwner(u.Name),
-                IsUserAssociatedToBk(u.ID,bk.ID),
             };
             foreach(var validation in validations)
             {
@@ -243,6 +243,7 @@ namespace MealSync_APP.Utils
 
             // 2º
             DeactivateHolder(u.ID, bk.ID);
+            BankAuth.DeactivateBankAccount(bk);
             return new ValidatorResult { IsValid = true };
         }
         public static ValidatorResult ReassociateBkToUser(User u, BankAccount bk)
@@ -250,7 +251,7 @@ namespace MealSync_APP.Utils
             var validations = new[]
             {
                 VerifyBkPassword(bk),
-                IsUserAssociatedToBk(u.ID,bk.ID)
+                IsUserTheBkOwner(u.Name)
             };
             foreach(var validation in validations)
             {
@@ -260,6 +261,7 @@ namespace MealSync_APP.Utils
                 }
             }
             ReactivateHolder(u.ID, bk.ID);
+            BankAuth.ReactivateBankAccount(bk);
             return new ValidatorResult { IsValid = true };
         }
     }

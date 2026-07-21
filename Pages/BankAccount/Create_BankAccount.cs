@@ -41,7 +41,7 @@ namespace MealSync_APP.BankAccountFolder
                     if (createHolder.IsValid)
                     {
                         BankAccountData.Save(_bk);
-                        MessageBox.Show("Conta Bancaria criado com sucessso", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Conta Bancaria criada com sucessso", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _bk.Clear();
                         ClearFields();
                     }

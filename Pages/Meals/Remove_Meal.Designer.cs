@@ -51,6 +51,7 @@
             this.label3.Size = new System.Drawing.Size(39, 29);
             this.label3.TabIndex = 29;
             this.label3.Text = "✖️";
+            this.label3.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lbUpdate
             // 
@@ -76,16 +77,17 @@
             this.lbRemoveMeal.Size = new System.Drawing.Size(46, 31);
             this.lbRemoveMeal.TabIndex = 27;
             this.lbRemoveMeal.Text = "🗑️";
-            this.lbRemoveMeal.Click += new System.EventHandler(this.BtnDeativateOrder_Click);
+            this.lbRemoveMeal.Click += new System.EventHandler(this.BtnDeativatMeal_Click);
             // 
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(141, 12);
+            this.MealDateTime.Location = new System.Drawing.Point(166, 13);
             this.MealDateTime.Name = "MealDateTime";
             this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 26;
-            this.MealDateTime.Value = new System.DateTime(2026, 5, 30, 0, 0, 0, 0);
+            this.MealDateTime.Value = new System.DateTime(2026, 7, 21, 0, 0, 0, 0);
+            this.MealDateTime.ValueChanged += new System.EventHandler(this.MealDateTime_ValueChanged);
             // 
             // lbText
             // 
@@ -93,11 +95,11 @@
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(12, 9);
+            this.lbText.Location = new System.Drawing.Point(30, 13);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(123, 20);
+            this.lbText.Size = new System.Drawing.Size(130, 20);
             this.lbText.TabIndex = 25;
-            this.lbText.Text = "Marcar para dia:";
+            this.lbText.Text = "Marcação do dia:";
             // 
             // btnUpdate
             // 
@@ -111,6 +113,7 @@
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnCancel
             // 
@@ -124,7 +127,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnMakeOrder
             // 
@@ -138,6 +141,7 @@
             this.btnMakeOrder.Text = "Remover";
             this.btnMakeOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMakeOrder.UseVisualStyleBackColor = false;
+            this.btnMakeOrder.Click += new System.EventHandler(this.BtnDeativatMeal_Click);
             // 
             // panelMeals
             // 

@@ -77,7 +77,7 @@ namespace BusinessLogicLayer
                 "INNER JOIN [Holder] h ON u.ID = h.UserId " +
                 "INNER JOIN [BankAccount] ba ON h.BankAccountId = ba.ID " +
                 "WHERE ba.AccountType = 'coletiva' AND h.OwnerShipOrder = 1 AND u.Name LIKE '%' + @Name + '%' " +
-                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7 AND ba.IsActive = 1 " +
+                "AND (SELECT COUNT(*) FROM [Holder] WHERE BankAccountId = ba.ID) < 7" +
                 "ORDER BY u.Name",
                 sqlParams);
         }
@@ -441,7 +441,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@ID", mealID)
             };
-            return dal.ExecuteNonQuery("UPDATE FROM [Meal] SET IsActive=0 WHERE ID=@ID", sqlParams);
+            return dal.ExecuteNonQuery("UPDATE [Meal] SET IsActive=0 WHERE ID=@ID", sqlParams);
         }
     }
     public class Order_BLL
@@ -453,7 +453,7 @@ namespace BusinessLogicLayer
             {
                 new SqlParameter("@Date", Date),
             };
-            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date)", sqlParams);
+            return dal.ExecuteReader("SELECT * FROM [Meal] WHERE CAST(Date AS Date) = CAST(@Date AS Date) AND IsActive=1", sqlParams);
         }
         public static int Create_Order(Order order)
         {

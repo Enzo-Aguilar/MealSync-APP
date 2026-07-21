@@ -45,15 +45,16 @@ namespace MealSync_APP.Pages.BankAccountFolder
                 var res = MessageBox.Show("Tem certeza que deseja desativar conta?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
-                    if (!string.IsNullOrEmpty(tbBankAccountID.Text))
+                    if (!string.IsNullOrEmpty(tbIban.Text))
                     {
-                        _bk.ID = int.Parse(tbBankAccountID.Text);
+                        _bk.ID = int.Parse(tbIban.Text);
                         _bk.Password = tbPassword.Text;
 
-                        var deactivate = HolderAuth.DisassociateBkToUser(_user, _bk);
+                        var deactivate = HolderAuth.DeactivateBkToUser(_user, _bk);
                         if (deactivate.IsValid)
                         {
-                            MessageBox.Show($"Conta bancária {_bk.ID} desativada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Conta bancária desativada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            BtnUpdate_Click(null, null);
                         }
                         else
                         {
@@ -97,8 +98,8 @@ namespace MealSync_APP.Pages.BankAccountFolder
                     string iban = dgvBankAccounts.Rows[e.RowIndex].Cells[4].Value?.ToString() ?? string.Empty;
 
                     tbAccountOwner.Text = accountOwner;
-                    tbBankAccountID.Text = accountID.ToString();
-                    tbIBAN.Text = iban;
+                    tbIban.Text = accountID.ToString();
+                    tbBankAccountID.Text = iban;
                 }
                 catch (Exception ex)
                 {
@@ -136,8 +137,8 @@ namespace MealSync_APP.Pages.BankAccountFolder
         private void ClearFields()
         {
             tbAccountOwner.Clear();
+            tbIban.Clear();
             tbBankAccountID.Clear();
-            tbIBAN.Clear();
             tbPassword.Clear();
 
             dgvBankAccounts.Visible = false;
@@ -161,6 +162,11 @@ namespace MealSync_APP.Pages.BankAccountFolder
         private void label1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Pesquise usando o nome do dono da conta bancária.");
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

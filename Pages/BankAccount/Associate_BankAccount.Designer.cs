@@ -139,7 +139,7 @@
             this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbPassword.Location = new System.Drawing.Point(938, 452);
+            this.lbPassword.Location = new System.Drawing.Point(999, 454);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(35, 29);
             this.lbPassword.TabIndex = 15;
@@ -166,7 +166,7 @@
             this.tbPassword.Location = new System.Drawing.Point(663, 452);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(269, 31);
+            this.tbPassword.Size = new System.Drawing.Size(330, 31);
             this.tbPassword.TabIndex = 35;
             // 
             // tbBankAccountId

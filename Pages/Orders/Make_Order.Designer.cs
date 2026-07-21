@@ -82,7 +82,8 @@
             this.lbText.BackColor = System.Drawing.Color.Transparent;
             this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(1, 9);
+            this.lbText.Location = new System.Drawing.Point(1, 7);
+            this.lbText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbText.Name = "lbText";
             this.lbText.Size = new System.Drawing.Size(123, 20);
             this.lbText.TabIndex = 16;
@@ -91,11 +92,12 @@
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(130, 8);
+            this.MealDateTime.Location = new System.Drawing.Point(128, 7);
+            this.MealDateTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MealDateTime.Name = "MealDateTime";
             this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 17;
-            this.MealDateTime.Value = new System.DateTime(2026, 5, 30, 0, 0, 0, 0);
+            this.MealDateTime.Value = new System.DateTime(2026, 7, 21, 0, 0, 0, 0);
             this.MealDateTime.ValueChanged += new System.EventHandler(this.MealDateTime_ValueChanged);
             // 
             // lbMakeOrder
