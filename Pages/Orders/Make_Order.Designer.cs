@@ -80,18 +80,18 @@
             // 
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(1, 16);
+            this.lbText.Location = new System.Drawing.Point(1, 9);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(97, 15);
+            this.lbText.Size = new System.Drawing.Size(123, 20);
             this.lbText.TabIndex = 16;
             this.lbText.Text = "Marcar para dia:";
             // 
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(104, 12);
+            this.MealDateTime.Location = new System.Drawing.Point(130, 8);
             this.MealDateTime.Name = "MealDateTime";
             this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 17;
@@ -106,7 +106,7 @@
             this.lbMakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbMakeOrder.Location = new System.Drawing.Point(260, 590);
             this.lbMakeOrder.Name = "lbMakeOrder";
-            this.lbMakeOrder.Size = new System.Drawing.Size(53, 31);
+            this.lbMakeOrder.Size = new System.Drawing.Size(49, 31);
             this.lbMakeOrder.TabIndex = 18;
             this.lbMakeOrder.Text = "🗳️ ";
             this.lbMakeOrder.Click += new System.EventHandler(this.BtnMakeOrder_Click);

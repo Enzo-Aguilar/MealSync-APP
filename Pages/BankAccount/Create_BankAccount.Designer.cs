@@ -134,7 +134,7 @@
             this.lbPasswordConfirm.BackColor = System.Drawing.Color.Transparent;
             this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPasswordConfirm.Location = new System.Drawing.Point(377, 386);
+            this.lbPasswordConfirm.Location = new System.Drawing.Point(377, 383);
             this.lbPasswordConfirm.Name = "lbPasswordConfirm";
             this.lbPasswordConfirm.Size = new System.Drawing.Size(35, 29);
             this.lbPasswordConfirm.TabIndex = 10;

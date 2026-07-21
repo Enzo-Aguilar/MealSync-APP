@@ -40,7 +40,7 @@
             // tbAnswers
             // 
             this.tbAnswers.Enabled = false;
-            this.tbAnswers.Location = new System.Drawing.Point(655, 228);
+            this.tbAnswers.Location = new System.Drawing.Point(563, 236);
             this.tbAnswers.Margin = new System.Windows.Forms.Padding(2);
             this.tbAnswers.Multiline = true;
             this.tbAnswers.Name = "tbAnswers";
@@ -53,10 +53,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(750, 489);
+            this.btnUpdate.Location = new System.Drawing.Point(717, 490);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(177, 54);
+            this.btnUpdate.Size = new System.Drawing.Size(177, 65);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "   Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -66,25 +66,25 @@
             // dgvQuestions
             // 
             this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuestions.Location = new System.Drawing.Point(107, 257);
+            this.dgvQuestions.Location = new System.Drawing.Point(23, 271);
             this.dgvQuestions.Margin = new System.Windows.Forms.Padding(2);
             this.dgvQuestions.Name = "dgvQuestions";
             this.dgvQuestions.ReadOnly = true;
             this.dgvQuestions.RowHeadersWidth = 51;
             this.dgvQuestions.RowTemplate.Height = 24;
-            this.dgvQuestions.Size = new System.Drawing.Size(443, 306);
+            this.dgvQuestions.Size = new System.Drawing.Size(443, 317);
             this.dgvQuestions.TabIndex = 4;
             this.dgvQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvQuestions_CellClick);
             // 
             // tbSearch
             // 
             this.tbSearch.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(655, 104);
+            this.tbSearch.Location = new System.Drawing.Point(563, 99);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(417, 45);
+            this.tbSearch.Size = new System.Drawing.Size(417, 38);
             this.tbSearch.TabIndex = 6;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 
@@ -92,11 +92,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(762, 496);
+            this.label1.Location = new System.Drawing.Point(737, 501);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 37);
+            this.label1.Size = new System.Drawing.Size(55, 39);
             this.label1.TabIndex = 8;
             this.label1.Text = "🔄";
             this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);

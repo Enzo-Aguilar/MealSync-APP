@@ -42,7 +42,7 @@
             // dgvFAQs
             // 
             this.dgvFAQs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFAQs.Location = new System.Drawing.Point(75, 108);
+            this.dgvFAQs.Location = new System.Drawing.Point(79, 81);
             this.dgvFAQs.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFAQs.Name = "dgvFAQs";
             this.dgvFAQs.ReadOnly = true;
@@ -55,7 +55,7 @@
             // 
             this.tbQuestion.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbQuestion.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbQuestion.Location = new System.Drawing.Point(553, 235);
+            this.tbQuestion.Location = new System.Drawing.Point(511, 212);
             this.tbQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
@@ -68,10 +68,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUpdate.Location = new System.Drawing.Point(553, 300);
+            this.btnUpdate.Location = new System.Drawing.Point(566, 298);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(186, 61);
+            this.btnUpdate.Size = new System.Drawing.Size(171, 68);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -83,10 +83,10 @@
             this.btnReactivate.BackColor = System.Drawing.Color.Sienna;
             this.btnReactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReactivate.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReactivate.Location = new System.Drawing.Point(906, 300);
+            this.btnReactivate.Location = new System.Drawing.Point(862, 298);
             this.btnReactivate.Margin = new System.Windows.Forms.Padding(2);
             this.btnReactivate.Name = "btnReactivate";
-            this.btnReactivate.Size = new System.Drawing.Size(186, 61);
+            this.btnReactivate.Size = new System.Drawing.Size(171, 68);
             this.btnReactivate.TabIndex = 4;
             this.btnReactivate.Text = "Reativar pergunta";
             this.btnReactivate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -98,7 +98,7 @@
             this.tbSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(553, 133);
+            this.tbSearch.Location = new System.Drawing.Point(511, 81);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
@@ -110,11 +110,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Sienna;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(624, 304);
+            this.label1.Location = new System.Drawing.Point(623, 305);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 31);
+            this.label1.Size = new System.Drawing.Size(48, 33);
             this.label1.TabIndex = 7;
             this.label1.Text = "🔄";
             this.label1.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -125,9 +125,9 @@
             this.label2.BackColor = System.Drawing.Color.Sienna;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(976, 304);
+            this.label2.Location = new System.Drawing.Point(928, 305);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 31);
+            this.label2.Size = new System.Drawing.Size(41, 31);
             this.label2.TabIndex = 8;
             this.label2.Text = "🔓";
             this.label2.Click += new System.EventHandler(this.BtnReactivate_Click);

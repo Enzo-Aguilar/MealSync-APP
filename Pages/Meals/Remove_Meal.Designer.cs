@@ -81,7 +81,7 @@
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(115, 1);
+            this.MealDateTime.Location = new System.Drawing.Point(141, 12);
             this.MealDateTime.Name = "MealDateTime";
             this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 26;
@@ -91,11 +91,11 @@
             // 
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbText.Location = new System.Drawing.Point(12, 1);
+            this.lbText.Location = new System.Drawing.Point(12, 9);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(97, 15);
+            this.lbText.Size = new System.Drawing.Size(123, 20);
             this.lbText.TabIndex = 25;
             this.lbText.Text = "Marcar para dia:";
             // 

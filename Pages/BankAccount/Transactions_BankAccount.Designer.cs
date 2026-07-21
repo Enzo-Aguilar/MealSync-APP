@@ -44,20 +44,20 @@
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBankAccounts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBankAccounts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(285, 118);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(272, 106);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
-            this.dgvBankAccounts.Size = new System.Drawing.Size(311, 319);
+            this.dgvBankAccounts.Size = new System.Drawing.Size(356, 373);
             this.dgvBankAccounts.TabIndex = 0;
             this.dgvBankAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBankAccounts_CellContentClick);
             // 
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(614, 118);
+            this.dgvTransaction.Location = new System.Drawing.Point(652, 106);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.ReadOnly = true;
-            this.dgvTransaction.Size = new System.Drawing.Size(309, 319);
+            this.dgvTransaction.Size = new System.Drawing.Size(391, 373);
             this.dgvTransaction.TabIndex = 1;
             // 
             // btnUpdate
@@ -65,9 +65,9 @@
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdate.Location = new System.Drawing.Point(369, 470);
+            this.btnUpdate.Location = new System.Drawing.Point(364, 509);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(196, 51);
+            this.btnUpdate.Size = new System.Drawing.Size(209, 58);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -79,9 +79,9 @@
             this.btnCleanSelection.BackColor = System.Drawing.Color.Sienna;
             this.btnCleanSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleanSelection.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCleanSelection.Location = new System.Drawing.Point(639, 470);
+            this.btnCleanSelection.Location = new System.Drawing.Point(698, 509);
             this.btnCleanSelection.Name = "btnCleanSelection";
-            this.btnCleanSelection.Size = new System.Drawing.Size(196, 51);
+            this.btnCleanSelection.Size = new System.Drawing.Size(237, 58);
             this.btnCleanSelection.TabIndex = 6;
             this.btnCleanSelection.Text = "Limpar seleção";
             this.btnCleanSelection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -93,7 +93,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(390, 476);
+            this.label1.Location = new System.Drawing.Point(404, 519);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 37);
             this.label1.TabIndex = 7;
@@ -105,7 +105,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(648, 477);
+            this.label2.Location = new System.Drawing.Point(728, 521);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 33);
             this.label2.TabIndex = 8;
@@ -119,7 +119,7 @@
             this.BackColor = System.Drawing.Color.Sienna;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(954, 634);
+            this.ClientSize = new System.Drawing.Size(1077, 634);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCleanSelection);

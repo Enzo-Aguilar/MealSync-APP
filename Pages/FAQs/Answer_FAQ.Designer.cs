@@ -45,7 +45,7 @@
             // dgvFAQs
             // 
             this.dgvFAQs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFAQs.Location = new System.Drawing.Point(77, 109);
+            this.dgvFAQs.Location = new System.Drawing.Point(72, 79);
             this.dgvFAQs.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFAQs.Name = "dgvFAQs";
             this.dgvFAQs.ReadOnly = true;
@@ -59,7 +59,7 @@
             // 
             this.tbQuestion.BackColor = System.Drawing.SystemColors.Desktop;
             this.tbQuestion.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbQuestion.Location = new System.Drawing.Point(556, 214);
+            this.tbQuestion.Location = new System.Drawing.Point(524, 216);
             this.tbQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
@@ -71,7 +71,7 @@
             // 
             this.tbAnswer.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbAnswer.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbAnswer.Location = new System.Drawing.Point(556, 324);
+            this.tbAnswer.Location = new System.Drawing.Point(524, 320);
             this.tbAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.tbAnswer.Multiline = true;
             this.tbAnswer.Name = "tbAnswer";
@@ -83,10 +83,10 @@
             this.tbSearch.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSearch.Location = new System.Drawing.Point(556, 119);
+            this.tbSearch.Location = new System.Drawing.Point(524, 91);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(523, 31);
+            this.tbSearch.Size = new System.Drawing.Size(598, 31);
             this.tbSearch.TabIndex = 6;
             this.tbSearch.TextChanged += new System.EventHandler(this.TbSearch_TextChanged);
             // 

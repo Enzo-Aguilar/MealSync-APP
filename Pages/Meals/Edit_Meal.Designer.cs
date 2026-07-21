@@ -55,7 +55,7 @@
             // 
             // dateTimerPickerMeals
             // 
-            this.dateTimerPickerMeals.Location = new System.Drawing.Point(5, 4);
+            this.dateTimerPickerMeals.Location = new System.Drawing.Point(12, 9);
             this.dateTimerPickerMeals.Name = "dateTimerPickerMeals";
             this.dateTimerPickerMeals.Size = new System.Drawing.Size(198, 20);
             this.dateTimerPickerMeals.TabIndex = 0;
@@ -65,11 +65,11 @@
             // 
             this.lbSearch.AutoSize = true;
             this.lbSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSearch.ForeColor = System.Drawing.Color.Snow;
-            this.lbSearch.Location = new System.Drawing.Point(754, 11);
+            this.lbSearch.Location = new System.Drawing.Point(736, 9);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(57, 15);
+            this.lbSearch.Size = new System.Drawing.Size(73, 20);
             this.lbSearch.TabIndex = 2;
             this.lbSearch.Text = "Procurar:";
             // 

@@ -41,7 +41,7 @@
             // MealDateTime
             // 
             this.MealDateTime.CustomFormat = "dd/mm/yyyy";
-            this.MealDateTime.Location = new System.Drawing.Point(106, 15);
+            this.MealDateTime.Location = new System.Drawing.Point(138, 14);
             this.MealDateTime.Name = "MealDateTime";
             this.MealDateTime.Size = new System.Drawing.Size(186, 20);
             this.MealDateTime.TabIndex = 23;
@@ -52,13 +52,13 @@
             // 
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.Color.White;
-            this.lbText.Location = new System.Drawing.Point(3, 15);
+            this.lbText.Location = new System.Drawing.Point(12, 14);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(97, 15);
+            this.lbText.Size = new System.Drawing.Size(121, 20);
             this.lbText.TabIndex = 22;
-            this.lbText.Text = "Marcar para dia:";
+            this.lbText.Text = "Marcaçã do dia:";
             // 
             // btnUpdate
             // 
@@ -117,7 +117,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(133, 594);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 29);
+            this.label1.Size = new System.Drawing.Size(36, 29);
             this.label1.TabIndex = 26;
             this.label1.Text = "🗳️";
             this.label1.Click += new System.EventHandler(this.BtnCancelOrder_Click);

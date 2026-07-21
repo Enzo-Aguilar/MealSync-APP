@@ -41,16 +41,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbInfo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBankAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBankAccounts
             // 
             this.dgvBankAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 51);
+            this.dgvBankAccounts.Location = new System.Drawing.Point(12, 22);
             this.dgvBankAccounts.Name = "dgvBankAccounts";
             this.dgvBankAccounts.ReadOnly = true;
-            this.dgvBankAccounts.Size = new System.Drawing.Size(575, 329);
+            this.dgvBankAccounts.Size = new System.Drawing.Size(575, 319);
             this.dgvBankAccounts.TabIndex = 0;
             this.dgvBankAccounts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvBkAccounts_CellContentClick);
             // 
@@ -59,16 +60,16 @@
             this.tbSearch.BackColor = System.Drawing.Color.Black;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.ForeColor = System.Drawing.Color.White;
-            this.tbSearch.Location = new System.Drawing.Point(760, 12);
+            this.tbSearch.Location = new System.Drawing.Point(696, 41);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(256, 31);
+            this.tbSearch.Size = new System.Drawing.Size(307, 31);
             this.tbSearch.TabIndex = 1;
             // 
             // tbAccountOwner
             // 
             this.tbAccountOwner.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbAccountOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAccountOwner.Location = new System.Drawing.Point(642, 187);
+            this.tbAccountOwner.Location = new System.Drawing.Point(642, 169);
             this.tbAccountOwner.Name = "tbAccountOwner";
             this.tbAccountOwner.ReadOnly = true;
             this.tbAccountOwner.Size = new System.Drawing.Size(306, 31);
@@ -79,7 +80,7 @@
             this.tbIban.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIban.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbIban.Location = new System.Drawing.Point(642, 286);
+            this.tbIban.Location = new System.Drawing.Point(642, 268);
             this.tbIban.Name = "tbIban";
             this.tbIban.ReadOnly = true;
             this.tbIban.Size = new System.Drawing.Size(306, 31);
@@ -90,7 +91,7 @@
             this.tbBankAccountID.BackColor = System.Drawing.Color.Black;
             this.tbBankAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBankAccountID.ForeColor = System.Drawing.Color.White;
-            this.tbBankAccountID.Location = new System.Drawing.Point(642, 372);
+            this.tbBankAccountID.Location = new System.Drawing.Point(642, 364);
             this.tbBankAccountID.Name = "tbBankAccountID";
             this.tbBankAccountID.ReadOnly = true;
             this.tbBankAccountID.Size = new System.Drawing.Size(199, 31);
@@ -109,11 +110,11 @@
             // btnAddMoney
             // 
             this.btnAddMoney.BackColor = System.Drawing.Color.Sienna;
-            this.btnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMoney.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddMoney.Location = new System.Drawing.Point(642, 527);
+            this.btnAddMoney.Location = new System.Drawing.Point(852, 527);
             this.btnAddMoney.Name = "btnAddMoney";
-            this.btnAddMoney.Size = new System.Drawing.Size(166, 78);
+            this.btnAddMoney.Size = new System.Drawing.Size(180, 78);
             this.btnAddMoney.TabIndex = 13;
             this.btnAddMoney.Text = "Adicionar";
             this.btnAddMoney.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -123,11 +124,11 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(830, 523);
+            this.btnUpdate.Location = new System.Drawing.Point(642, 527);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(166, 78);
+            this.btnUpdate.Size = new System.Drawing.Size(188, 78);
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Atualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -152,7 +153,7 @@
             this.label3.BackColor = System.Drawing.Color.Sienna;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(887, 527);
+            this.label3.Location = new System.Drawing.Point(702, 536);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 42);
             this.label3.TabIndex = 30;
@@ -165,7 +166,7 @@
             this.label1.BackColor = System.Drawing.Color.Sienna;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(693, 532);
+            this.label1.Location = new System.Drawing.Point(912, 536);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 42);
             this.label1.TabIndex = 31;
@@ -177,12 +178,24 @@
             this.lbInfo.AutoSize = true;
             this.lbInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfo.Location = new System.Drawing.Point(719, 12);
+            this.lbInfo.Location = new System.Drawing.Point(622, 12);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(35, 31);
             this.lbInfo.TabIndex = 32;
             this.lbInfo.Text = "   ";
             this.lbInfo.Click += new System.EventHandler(this.LbInfo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(636, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 37);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "   ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Add_MoneyToBk
             // 
@@ -191,6 +204,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1099, 661);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -227,5 +241,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbInfo;
+        private System.Windows.Forms.Label label2;
     }
 }

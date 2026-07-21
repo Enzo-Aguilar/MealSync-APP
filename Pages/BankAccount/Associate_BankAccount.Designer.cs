@@ -151,7 +151,7 @@
             this.lbInfo.AutoSize = true;
             this.lbInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfo.Location = new System.Drawing.Point(698, 12);
+            this.lbInfo.Location = new System.Drawing.Point(736, 15);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(35, 31);
             this.lbInfo.TabIndex = 33;

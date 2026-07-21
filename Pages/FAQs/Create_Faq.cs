@@ -46,5 +46,10 @@ namespace MealSync_APP.Pages.FAQsFolder
             tbQuestion.Clear();
             checkBox.Checked = false;
         }
+
+        private void tbQuestion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,12 +35,12 @@
             this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.tbSchoolMemberID = new System.Windows.Forms.TextBox();
-            this.lbPassword = new System.Windows.Forms.Label();
+            this.tbPostcode = new System.Windows.Forms.TextBox();
             this.tbPhoneNum = new System.Windows.Forms.TextBox();
             this.pbUserProfilePicture = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbPasswordConfirm = new System.Windows.Forms.Label();
-            this.tbPostcode = new System.Windows.Forms.TextBox();
+            this.lbPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +49,9 @@
             this.tbEmail.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbEmail.Location = new System.Drawing.Point(414, 169);
+            this.tbEmail.Location = new System.Drawing.Point(345, 138);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(251, 35);
+            this.tbEmail.Size = new System.Drawing.Size(243, 35);
             this.tbEmail.TabIndex = 35;
             // 
             // tbName
@@ -59,9 +59,9 @@
             this.tbName.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbName.Location = new System.Drawing.Point(414, 285);
+            this.tbName.Location = new System.Drawing.Point(345, 280);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(251, 35);
+            this.tbName.Size = new System.Drawing.Size(233, 35);
             this.tbName.TabIndex = 37;
             // 
             // tbPassword
@@ -69,10 +69,10 @@
             this.tbPassword.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPassword.Location = new System.Drawing.Point(414, 404);
+            this.tbPassword.Location = new System.Drawing.Point(345, 415);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(214, 35);
+            this.tbPassword.Size = new System.Drawing.Size(261, 35);
             this.tbPassword.TabIndex = 38;
             // 
             // tbPasswordConfirm
@@ -80,18 +80,19 @@
             this.tbPasswordConfirm.BackColor = System.Drawing.SystemColors.InfoText;
             this.tbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPasswordConfirm.ForeColor = System.Drawing.SystemColors.Menu;
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(687, 404);
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(648, 415);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '*';
-            this.tbPasswordConfirm.Size = new System.Drawing.Size(215, 35);
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(261, 35);
             this.tbPasswordConfirm.TabIndex = 39;
+            this.tbPasswordConfirm.TextChanged += new System.EventHandler(this.tbPasswordConfirm_TextChanged);
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Sienna;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(484, 484);
+            this.btnEdit.Location = new System.Drawing.Point(709, 508);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(262, 54);
             this.btnEdit.TabIndex = 40;
@@ -104,32 +105,29 @@
             this.tbSchoolMemberID.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbSchoolMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSchoolMemberID.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbSchoolMemberID.Location = new System.Drawing.Point(687, 285);
+            this.tbSchoolMemberID.Location = new System.Drawing.Point(648, 280);
             this.tbSchoolMemberID.Name = "tbSchoolMemberID";
-            this.tbSchoolMemberID.Size = new System.Drawing.Size(251, 35);
+            this.tbSchoolMemberID.Size = new System.Drawing.Size(186, 35);
             this.tbSchoolMemberID.TabIndex = 43;
             // 
-            // lbPassword
+            // tbPostcode
             // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPassword.Location = new System.Drawing.Point(637, 407);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(31, 24);
-            this.lbPassword.TabIndex = 54;
-            this.lbPassword.Text = "🔒";
-            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
+            this.tbPostcode.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tbPostcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPostcode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbPostcode.Location = new System.Drawing.Point(954, 138);
+            this.tbPostcode.Name = "tbPostcode";
+            this.tbPostcode.Size = new System.Drawing.Size(194, 35);
+            this.tbPostcode.TabIndex = 46;
             // 
             // tbPhoneNum
             // 
             this.tbPhoneNum.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNum.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPhoneNum.Location = new System.Drawing.Point(687, 169);
+            this.tbPhoneNum.Location = new System.Drawing.Point(648, 138);
             this.tbPhoneNum.Name = "tbPhoneNum";
-            this.tbPhoneNum.Size = new System.Drawing.Size(251, 35);
+            this.tbPhoneNum.Size = new System.Drawing.Size(223, 35);
             this.tbPhoneNum.TabIndex = 47;
             // 
             // pbUserProfilePicture
@@ -139,9 +137,9 @@
             this.pbUserProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUserProfilePicture.ErrorImage = null;
             this.pbUserProfilePicture.InitialImage = null;
-            this.pbUserProfilePicture.Location = new System.Drawing.Point(962, 248);
+            this.pbUserProfilePicture.Location = new System.Drawing.Point(962, 235);
             this.pbUserProfilePicture.Name = "pbUserProfilePicture";
-            this.pbUserProfilePicture.Size = new System.Drawing.Size(194, 197);
+            this.pbUserProfilePicture.Size = new System.Drawing.Size(186, 229);
             this.pbUserProfilePicture.TabIndex = 51;
             this.pbUserProfilePicture.TabStop = false;
             this.pbUserProfilePicture.Click += new System.EventHandler(this.PbUserProfilePicture_Click);
@@ -151,7 +149,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Sienna;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancel.Location = new System.Drawing.Point(752, 484);
+            this.btnCancel.Location = new System.Drawing.Point(408, 508);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(262, 54);
             this.btnCancel.TabIndex = 52;
@@ -163,24 +161,27 @@
             // 
             this.lbPasswordConfirm.AutoSize = true;
             this.lbPasswordConfirm.BackColor = System.Drawing.Color.Transparent;
-            this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPasswordConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbPasswordConfirm.Location = new System.Drawing.Point(910, 407);
+            this.lbPasswordConfirm.Location = new System.Drawing.Point(915, 421);
             this.lbPasswordConfirm.Name = "lbPasswordConfirm";
-            this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 24);
+            this.lbPasswordConfirm.Size = new System.Drawing.Size(31, 25);
             this.lbPasswordConfirm.TabIndex = 53;
             this.lbPasswordConfirm.Text = "🔒";
             this.lbPasswordConfirm.Click += new System.EventHandler(this.LbPasswordConfirm_Click);
             // 
-            // tbPostcode
+            // lbPassword
             // 
-            this.tbPostcode.BackColor = System.Drawing.SystemColors.InfoText;
-            this.tbPostcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPostcode.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbPostcode.Location = new System.Drawing.Point(962, 169);
-            this.tbPostcode.Name = "tbPostcode";
-            this.tbPostcode.Size = new System.Drawing.Size(186, 35);
-            this.tbPostcode.TabIndex = 46;
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPassword.Location = new System.Drawing.Point(612, 421);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(31, 25);
+            this.lbPassword.TabIndex = 54;
+            this.lbPassword.Text = "🔒";
+            this.lbPassword.Click += new System.EventHandler(this.LbPassword_Click);
             // 
             // Edit_Profile
             // 
@@ -219,11 +220,11 @@
         private System.Windows.Forms.TextBox tbPasswordConfirm;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox tbSchoolMemberID;
-        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.TextBox tbPostcode;
         private System.Windows.Forms.TextBox tbPhoneNum;
         private System.Windows.Forms.PictureBox pbUserProfilePicture;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbPasswordConfirm;
-        private System.Windows.Forms.TextBox tbPostcode;
+        private System.Windows.Forms.Label lbPassword;
     }
 }

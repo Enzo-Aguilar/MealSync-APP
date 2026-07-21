@@ -162,5 +162,10 @@ namespace MealSync_APP.ProfileFolder
                 return false;
             }
         }
+
+        private void tbPasswordConfirm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

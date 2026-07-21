@@ -39,7 +39,7 @@
             // OrderDateTime
             // 
             this.OrderDateTime.CustomFormat = "dd/mm/yyyy";
-            this.OrderDateTime.Location = new System.Drawing.Point(110, 21);
+            this.OrderDateTime.Location = new System.Drawing.Point(150, 9);
             this.OrderDateTime.Name = "OrderDateTime";
             this.OrderDateTime.Size = new System.Drawing.Size(186, 20);
             this.OrderDateTime.TabIndex = 23;
@@ -49,13 +49,13 @@
             // 
             this.lbText.AutoSize = true;
             this.lbText.BackColor = System.Drawing.Color.Transparent;
-            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbText.Location = new System.Drawing.Point(14, 23);
+            this.lbText.Location = new System.Drawing.Point(14, 9);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(97, 15);
+            this.lbText.Size = new System.Drawing.Size(130, 20);
             this.lbText.TabIndex = 22;
-            this.lbText.Text = "Marcar para dia:";
+            this.lbText.Text = "Marcação do dia:";
             // 
             // btnUpdate
             // 

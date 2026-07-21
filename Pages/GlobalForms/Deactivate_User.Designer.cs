@@ -73,7 +73,7 @@
             this.label5.ForeColor = System.Drawing.Color.Snow;
             this.label5.Location = new System.Drawing.Point(402, 481);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 37);
+            this.label5.Size = new System.Drawing.Size(34, 37);
             this.label5.TabIndex = 27;
             this.label5.Text = "🪪";
             this.label5.Click += new System.EventHandler(this.BtnIdOrder_Click);
@@ -266,7 +266,7 @@
             this.label1.ForeColor = System.Drawing.Color.Snow;
             this.label1.Location = new System.Drawing.Point(434, 557);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 33);
+            this.label1.Size = new System.Drawing.Size(43, 33);
             this.label1.TabIndex = 48;
             this.label1.Text = "🔒";
             this.label1.Click += new System.EventHandler(this.BtnDeactivateUser_Click);
@@ -276,7 +276,7 @@
             this.lbInfo.AutoSize = true;
             this.lbInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfo.Location = new System.Drawing.Point(762, 24);
+            this.lbInfo.Location = new System.Drawing.Point(770, 26);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(35, 31);
             this.lbInfo.TabIndex = 50;
