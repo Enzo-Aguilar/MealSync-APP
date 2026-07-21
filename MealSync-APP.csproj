@@ -318,6 +318,7 @@
     <EmbeddedResource Include="Pages\Register\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".git-commands.sh" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
